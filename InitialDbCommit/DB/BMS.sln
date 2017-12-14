@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2003
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BMS.Models", "BMS.Models\BMS.Models.csproj", "{896EFAFB-73BB-443B-A3EB-DC0250A8803D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BMS.App", "BMS.App\BMS.App.csproj", "{9150987D-143F-4AC7-A680-BBD8C8103793}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BMS.Data", "BMS.Data\BMS.Data.csproj", "{67BC6615-5C80-42A4-BD95-FAFD2C1C1E84}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{896EFAFB-73BB-443B-A3EB-DC0250A8803D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{896EFAFB-73BB-443B-A3EB-DC0250A8803D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{896EFAFB-73BB-443B-A3EB-DC0250A8803D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{896EFAFB-73BB-443B-A3EB-DC0250A8803D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9150987D-143F-4AC7-A680-BBD8C8103793}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9150987D-143F-4AC7-A680-BBD8C8103793}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9150987D-143F-4AC7-A680-BBD8C8103793}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9150987D-143F-4AC7-A680-BBD8C8103793}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67BC6615-5C80-42A4-BD95-FAFD2C1C1E84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67BC6615-5C80-42A4-BD95-FAFD2C1C1E84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67BC6615-5C80-42A4-BD95-FAFD2C1C1E84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67BC6615-5C80-42A4-BD95-FAFD2C1C1E84}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F682A877-BAD9-408F-84C4-1E72D3FEF1C0}
+	EndGlobalSection
+EndGlobal

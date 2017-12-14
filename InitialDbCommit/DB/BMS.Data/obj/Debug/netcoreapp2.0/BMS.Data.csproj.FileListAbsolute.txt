@@ -1,0 +1,11 @@
+C:\Users\sap.phire\Desktop\BMS\BMS\BMS.Data\bin\Debug\netcoreapp2.0\BMS.Models.dll
+C:\Users\sap.phire\Desktop\BMS\BMS\BMS.Data\obj\Debug\netcoreapp2.0\BMS.Data.csprojResolveAssemblyReference.cache
+C:\Users\sap.phire\Desktop\BMS\BMS\BMS.Data\obj\Debug\netcoreapp2.0\BMS.Data.csproj.CoreCompileInputs.cache
+C:\Users\sap.phire\Desktop\BMS\BMS\BMS.Data\obj\Debug\netcoreapp2.0\BMS.Data.AssemblyInfoInputs.cache
+C:\Users\sap.phire\Desktop\BMS\BMS\BMS.Data\obj\Debug\netcoreapp2.0\BMS.Data.AssemblyInfo.cs
+C:\Users\sap.phire\Desktop\BMS\BMS\BMS.Data\bin\Debug\netcoreapp2.0\BMS.Data.deps.json
+C:\Users\sap.phire\Desktop\BMS\BMS\BMS.Data\bin\Debug\netcoreapp2.0\BMS.Data.dll
+C:\Users\sap.phire\Desktop\BMS\BMS\BMS.Data\bin\Debug\netcoreapp2.0\BMS.Data.pdb
+C:\Users\sap.phire\Desktop\BMS\BMS\BMS.Data\bin\Debug\netcoreapp2.0\BMS.Models.pdb
+C:\Users\sap.phire\Desktop\BMS\BMS\BMS.Data\obj\Debug\netcoreapp2.0\BMS.Data.dll
+C:\Users\sap.phire\Desktop\BMS\BMS\BMS.Data\obj\Debug\netcoreapp2.0\BMS.Data.pdb
