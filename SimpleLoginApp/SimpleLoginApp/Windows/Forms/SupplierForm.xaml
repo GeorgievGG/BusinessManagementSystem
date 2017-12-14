@@ -19,8 +19,8 @@
         <TextBox Height="55" Margin="279,200,19,0" Foreground="Gray"  BorderThickness="2"  BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" Text="Bank Details" VerticalContentAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178"/>
         <TextBox Height="103" Margin="10,273,19,0" Foreground="Gray"  BorderThickness="2"  BorderBrush="#313c4f" VerticalContentAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" Text="Notes" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" Background="White"/>
         <TextBox Height="55" Margin="10,200,225,0" Foreground="Gray"  BorderThickness="2"  BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" VerticalContentAlignment="Center" Text="Address" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178"/>
-        <Button Content="Save" HorizontalAlignment="Left" Margin="305,396,0,0" VerticalAlignment="Top" Width="75" Background="#FF1EB0CD" FontWeight="Bold" FontSize="16"/>
-        <Button Content="Back" HorizontalAlignment="Left" Margin="397,396,0,0" VerticalAlignment="Top" Width="75" Background="#FFCE4C4C" FontWeight="Bold" FontSize="16" />
+        <Button Content="Save" HorizontalAlignment="Left" Margin="305,396,0,0" VerticalAlignment="Top" Width="75" Background="#FF1A8FA6" FontWeight="Bold" FontSize="16" Foreground="White"/>
+        <Button Content="Back" HorizontalAlignment="Left" Margin="397,396,0,0" VerticalAlignment="Top" Width="75" Background="#FFCE4C4C" FontWeight="Bold" FontSize="16" Foreground="White" />
 
     </Grid>
 </Window>
