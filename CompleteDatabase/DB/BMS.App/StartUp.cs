@@ -398,7 +398,7 @@ namespace BMS.App
                 arrLorem[p] = loremArr[random.Next(0, loremArr.Length)];
             }
 
-            var randomNameToAppend = arrLorem[random.Next(0, arrLorem.Length)].Trim();
+            var randomNameToAppend = arrLorem[random.Next(0, arrLorem.Length)].Trim().ToLower();
             return randomNameToAppend;
         }
 

@@ -23,7 +23,7 @@ namespace BMS.Data
         public DbSet<InvoiceClient> InvoicesClient { get; set; }
         public DbSet<InvoiceSupplier> InvoicesSupplier { get; set; }
 
-		//Add OnConfiguring Method
+        //Add OnConfiguring Method
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
