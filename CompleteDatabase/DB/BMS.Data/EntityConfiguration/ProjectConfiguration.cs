@@ -16,8 +16,15 @@
                 .IsRequired()
                 .IsUnicode();
 
-            builder.Property(e => e.Date)
+            builder.Property(e => e.StartDate)
                 .HasColumnType("DATE");
+
+            builder.Property(e => e.DeadLine)
+                .HasColumnType("DATE");
+
+            builder.Property(e => e.EndDate)
+                .HasColumnType("DATE")
+                .IsRequired(false);
 
             builder.Property(e => e.ContractId)
                 .IsRequired(false);

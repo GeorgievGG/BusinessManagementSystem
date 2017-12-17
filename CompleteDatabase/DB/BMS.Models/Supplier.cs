@@ -29,6 +29,8 @@ namespace BMS.Models
 
         public ICollection<InvoiceSupplier> Invoices { get; set; } = new List<InvoiceSupplier>();
 
+        public ICollection<ProjectSupplier> ProjectsSuppliers { get; set; } = new List<ProjectSupplier>();
+
         public ICollection<BankAccount> BankAccounts { get; set; } = new List<BankAccount>();
     }
 }

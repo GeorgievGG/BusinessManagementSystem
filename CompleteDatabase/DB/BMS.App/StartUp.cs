@@ -14,7 +14,6 @@ namespace BMS.App
         {
             using (var context = new BmsDbContext())
             {
-                //Понякога гърми,че има проект със същото име макар да съм го проверил.
                 ResetDatabase(context);
             }
         }
@@ -218,7 +217,7 @@ namespace BMS.App
                 {
                     Employee = employees[employeeId],
                     Inquiry = inquiries[inquiryId],
-                    DateTime = RandomDate(random),
+                    DateTime = RandomStartDate(random),
                     Description = RandomText(random, loremArr)
                 };
 
@@ -241,7 +240,7 @@ namespace BMS.App
 
                 var contract = new Contract
                 {
-                    Date = RandomDate(random),
+                    Date = RandomStartDate(random),
                     Description = descriptionToAppend,
                     Employee = employees[employeeId],
                     Offer = offers[offerId]
@@ -270,11 +269,19 @@ namespace BMS.App
                 var project = new Project
                 {
                     Client = clients[clientId],
-                    Date = RandomDate(random),
                     Employee = employees[employeeId],
                     Offer = offers[offerId],
                     Name = projectName
                 };
+
+                var startDate = RandomStartDate(random);
+                var deadLine = RandomEndDate(random);
+
+                while (startDate >= deadLine)
+                {
+                    startDate = RandomStartDate(random);
+                    deadLine = RandomEndDate(random);
+                }
 
                 if (projects.Any(p => p.Name == project.Name || p.Offer == project.Offer))
                 {
@@ -285,6 +292,14 @@ namespace BMS.App
                 if (existingContract != null)
                 {
                     project.Contract = existingContract;
+                }
+
+                project.StartDate = startDate;
+                project.DeadLine = deadLine;
+
+                if (i % 3 == 0 || i % 4 == 0)
+                {
+                    project.EndDate = deadLine.AddDays(5);
                 }
 
                 projects.Add(project);
@@ -301,7 +316,7 @@ namespace BMS.App
                 var invoiceClient = new InvoiceClient
                 {
                     InvoiceNumber = GenerateInvoiceNumber(random),
-                    Date = RandomDate(random),
+                    Date = RandomStartDate(random),
                     Project = projects[projectId],
                     Client = projects[projectId].Client,
                     TotalPrice = (decimal)((random.Next(1, 10) * clients.Length * projects.Count) / (projectId + 1)),
@@ -328,7 +343,7 @@ namespace BMS.App
                 var invoiceSupplier = new InvoiceSupplier
                 {
                     InvoiceNumber = GenerateInvoiceNumber(random),
-                    Date = RandomDate(random),
+                    Date = RandomStartDate(random),
                     Supplier = suppliers[supplierId],
                     TotalPrice = (decimal)((random.Next(1, 10) * clients.Length * projects.Count) / (supplierId  + 1)),
                     VAT = random.Next(7, 21)
@@ -344,8 +359,29 @@ namespace BMS.App
 
             context.InvoicesSupplier.AddRange(invoicesSupplier);
 
-            context.SaveChanges();
+            var projectSuppliers = new List<ProjectSupplier>();
+            for (int i = 0; i < 200; i++)
+            {
+                var projectId = random.Next(0, projects.Count);
+                var supplierId = random.Next(0, suppliers.Length);
 
+                var projectSupplier = new ProjectSupplier
+                {
+                    Project = projects[projectId],
+                    Supplier = suppliers[supplierId]
+                };
+
+                if (projectSuppliers.Any(p => p.Project == projectSupplier.Project && p.Supplier == projectSupplier.Supplier))
+                {
+                    continue;
+                }
+
+                projectSuppliers.Add(projectSupplier);
+            }
+
+            context.ProjectsSuppliers.AddRange(projectSuppliers);
+
+            context.SaveChanges();
 
             var suppliersFromDb = context.Suppliers.ToList();
             foreach (var supplier in suppliersFromDb)
@@ -415,9 +451,17 @@ namespace BMS.App
             return descriptionToAppend;
         }
 
-        private static DateTime RandomDate(Random random)
+        private static DateTime RandomStartDate(Random random)
         {
             var start = new DateTime(1991, 1, 1);
+            var range = (DateTime.Today - start).Days;
+            var end = start.AddDays(random.Next(range)).AddHours(random.Next(0, 24)).AddMinutes(random.Next(0, 60)).AddSeconds(random.Next(0, 60));
+            return end;
+        }
+
+        private static DateTime RandomEndDate(Random random)
+        {
+            var start = new DateTime(1992, 1, 1);
             var range = (DateTime.Today - start).Days;
             var end = start.AddDays(random.Next(range)).AddHours(random.Next(0, 24)).AddMinutes(random.Next(0, 60)).AddSeconds(random.Next(0, 60));
             return end;

@@ -249,16 +249,22 @@ namespace BMS.Data.Migrations
 
                     b.Property<int?>("ContractId");
 
-                    b.Property<DateTime>("Date")
+                    b.Property<DateTime>("DeadLine")
                         .HasColumnType("DATE");
 
                     b.Property<int>("EmployeeId");
+
+                    b.Property<DateTime?>("EndDate")
+                        .HasColumnType("DATE");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .IsUnicode(true);
 
                     b.Property<int>("OfferId");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("DATE");
 
                     b.HasKey("Id");
 
@@ -275,6 +281,19 @@ namespace BMS.Data.Migrations
                     b.HasIndex("OfferId");
 
                     b.ToTable("Projects");
+                });
+
+            modelBuilder.Entity("BMS.Models.ProjectSupplier", b =>
+                {
+                    b.Property<int>("ProjectId");
+
+                    b.Property<int>("SupplierId");
+
+                    b.HasKey("ProjectId", "SupplierId");
+
+                    b.HasIndex("SupplierId");
+
+                    b.ToTable("ProjectsSuppliers");
                 });
 
             modelBuilder.Entity("BMS.Models.Supplier", b =>
@@ -409,12 +428,24 @@ namespace BMS.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
+            modelBuilder.Entity("BMS.Models.ProjectSupplier", b =>
+                {
+                    b.HasOne("BMS.Models.Project", "Project")
+                        .WithMany("ProjectsSuppliers")
+                        .HasForeignKey("ProjectId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("BMS.Models.Supplier", "Supplier")
+                        .WithMany("ProjectsSuppliers")
+                        .HasForeignKey("SupplierId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
             modelBuilder.Entity("BMS.Models.Supplier", b =>
                 {
                     b.HasOne("BMS.Models.Project", "Project")
-                        .WithMany("Suppliers")
-                        .HasForeignKey("ProjectId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .WithMany()
+                        .HasForeignKey("ProjectId");
                 });
 #pragma warning restore 612, 618
         }

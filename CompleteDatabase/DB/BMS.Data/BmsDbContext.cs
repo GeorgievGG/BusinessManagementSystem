@@ -22,6 +22,7 @@ namespace BMS.Data
         public DbSet<Project> Projects { get; set; }
         public DbSet<InvoiceClient> InvoicesClient { get; set; }
         public DbSet<InvoiceSupplier> InvoicesSupplier { get; set; }
+        public DbSet<ProjectSupplier> ProjectsSuppliers { get; set; }
 
         //Add OnConfiguring Method
 
@@ -48,6 +49,8 @@ namespace BMS.Data
             builder.ApplyConfiguration(new InvoiceClientConfiguration());
 
             builder.ApplyConfiguration(new InvoiceSupplierConfiguration());
+
+            builder.ApplyConfiguration(new ProjectSupplierConfiguration());
         }
     }
 }

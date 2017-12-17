@@ -10,7 +10,11 @@ namespace BMS.Models
 
         public string Name { get; set; }
 
-        public DateTime Date { get; set; }
+        public DateTime StartDate { get; set; }
+
+        public DateTime DeadLine { get; set; }
+
+        public DateTime? EndDate { get; set; }
 
         public int? ContractId { get; set; }
         public Contract Contract { get; set; }
@@ -26,6 +30,6 @@ namespace BMS.Models
 
         public ICollection<InvoiceClient> InvoicesClient { get; set; } = new List<InvoiceClient>();
 
-        public ICollection<Supplier> Suppliers { get; set; } = new List<Supplier>();
+        public ICollection<ProjectSupplier> ProjectsSuppliers { get; set; } = new List<ProjectSupplier>();
     }
 }

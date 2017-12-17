@@ -23,11 +23,6 @@
             builder.Property(e => e.PersonForContact)
                 .IsRequired()
                 .IsUnicode();
-
-            builder.HasOne(e => e.Project)
-                .WithMany(p => p.Suppliers)
-                .HasForeignKey(e => e.ProjectId)
-                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
