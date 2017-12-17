@@ -1,9 +1,0 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
-    <RootNamespace>WpfApp1.Models</RootNamespace>
-    <AssemblyName>WpfApp1.Models</AssemblyName>
-  </PropertyGroup>
-
-</Project>
