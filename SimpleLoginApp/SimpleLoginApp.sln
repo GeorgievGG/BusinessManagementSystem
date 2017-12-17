@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2005
+VisualStudioVersion = 15.0.27004.2008
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleLoginApp", "SimpleLoginApp\SimpleLoginApp.csproj", "{7EFBC746-85C7-4F04-AE9E-306BC43313C2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BMS.Data", "..\CompleteDatabase\DB\BMS.Data\BMS.Data.csproj", "{CE86ECE7-8C7F-4DDB-BA16-F3430DCD8FF7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BMS.Models", "..\CompleteDatabase\DB\BMS.Models\BMS.Models.csproj", "{996BD451-1B38-48CD-834A-D8FD574E03CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{7EFBC746-85C7-4F04-AE9E-306BC43313C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7EFBC746-85C7-4F04-AE9E-306BC43313C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7EFBC746-85C7-4F04-AE9E-306BC43313C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE86ECE7-8C7F-4DDB-BA16-F3430DCD8FF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE86ECE7-8C7F-4DDB-BA16-F3430DCD8FF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE86ECE7-8C7F-4DDB-BA16-F3430DCD8FF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE86ECE7-8C7F-4DDB-BA16-F3430DCD8FF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{996BD451-1B38-48CD-834A-D8FD574E03CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{996BD451-1B38-48CD-834A-D8FD574E03CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{996BD451-1B38-48CD-834A-D8FD574E03CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{996BD451-1B38-48CD-834A-D8FD574E03CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
