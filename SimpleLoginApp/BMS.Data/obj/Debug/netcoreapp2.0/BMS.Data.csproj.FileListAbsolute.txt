@@ -31,3 +31,9 @@ C:\Users\sap.phire\Desktop\BusinessManagementSystem\SimpleLoginApp\BMS.Data\obj\
 C:\Users\sap.phire\Desktop\BusinessManagementSystem\SimpleLoginApp\BMS.Data\obj\Debug\netcoreapp2.0\BMS.Data.AssemblyInfo.cs
 C:\Users\sap.phire\Desktop\BusinessManagementSystem\SimpleLoginApp\BMS.Data\obj\Debug\netcoreapp2.0\BMS.Data.dll
 C:\Users\sap.phire\Desktop\BusinessManagementSystem\SimpleLoginApp\BMS.Data\obj\Debug\netcoreapp2.0\BMS.Data.pdb
+C:\Users\Triple G\Desktop\Business\Softuni\4.0. TeamWork\BusinessManagementSystem\SimpleLoginApp\BMS.Data\obj\Debug\netcoreapp2.0\BMS.Data.csprojResolveAssemblyReference.cache
+C:\Users\Triple G\Desktop\Business\Softuni\4.0. TeamWork\BusinessManagementSystem\SimpleLoginApp\BMS.Data\obj\Debug\netcoreapp2.0\BMS.Data.csproj.CoreCompileInputs.cache
+C:\Users\Triple G\Desktop\Business\Softuni\4.0. TeamWork\BusinessManagementSystem\SimpleLoginApp\BMS.Data\obj\Debug\netcoreapp2.0\BMS.Data.AssemblyInfoInputs.cache
+C:\Users\Triple G\Desktop\Business\Softuni\4.0. TeamWork\BusinessManagementSystem\SimpleLoginApp\BMS.Data\obj\Debug\netcoreapp2.0\BMS.Data.AssemblyInfo.cs
+C:\Users\Triple G\Desktop\Business\Softuni\4.0. TeamWork\BusinessManagementSystem\SimpleLoginApp\BMS.Data\obj\Debug\netcoreapp2.0\BMS.Data.dll
+C:\Users\Triple G\Desktop\Business\Softuni\4.0. TeamWork\BusinessManagementSystem\SimpleLoginApp\BMS.Data\obj\Debug\netcoreapp2.0\BMS.Data.pdb

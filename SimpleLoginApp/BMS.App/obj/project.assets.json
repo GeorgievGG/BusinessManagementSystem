@@ -3427,8 +3427,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\sap.phire\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
+    "C:\\Users\\Triple G\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -3437,20 +3436,18 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\sap.phire\\Desktop\\BusinessManagementSystem\\SimpleLoginApp\\BMS.App\\BMS.App.csproj",
+      "projectUniqueName": "C:\\Users\\Triple G\\Desktop\\Business\\Softuni\\4.0. TeamWork\\BusinessManagementSystem\\SimpleLoginApp\\BMS.App\\BMS.App.csproj",
       "projectName": "BMS.App",
-      "projectPath": "C:\\Users\\sap.phire\\Desktop\\BusinessManagementSystem\\SimpleLoginApp\\BMS.App\\BMS.App.csproj",
-      "packagesPath": "C:\\Users\\sap.phire\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sap.phire\\Desktop\\BusinessManagementSystem\\SimpleLoginApp\\BMS.App\\obj\\",
+      "projectPath": "C:\\Users\\Triple G\\Desktop\\Business\\Softuni\\4.0. TeamWork\\BusinessManagementSystem\\SimpleLoginApp\\BMS.App\\BMS.App.csproj",
+      "packagesPath": "C:\\Users\\Triple G\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Triple G\\Desktop\\Business\\Softuni\\4.0. TeamWork\\BusinessManagementSystem\\SimpleLoginApp\\BMS.App\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\sap.phire\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
+        "C:\\Users\\Triple G\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
@@ -3462,11 +3459,11 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Users\\sap.phire\\Desktop\\BusinessManagementSystem\\SimpleLoginApp\\BMS.Models\\BMS.Models.csproj": {
-              "projectPath": "C:\\Users\\sap.phire\\Desktop\\BusinessManagementSystem\\SimpleLoginApp\\BMS.Models\\BMS.Models.csproj"
+            "C:\\Users\\Triple G\\Desktop\\Business\\Softuni\\4.0. TeamWork\\BusinessManagementSystem\\SimpleLoginApp\\BMS.Models\\BMS.Models.csproj": {
+              "projectPath": "C:\\Users\\Triple G\\Desktop\\Business\\Softuni\\4.0. TeamWork\\BusinessManagementSystem\\SimpleLoginApp\\BMS.Models\\BMS.Models.csproj"
             },
-            "C:\\Users\\sap.phire\\Desktop\\BusinessManagementSystem\\SimpleLoginApp\\BMS.Data\\BMS.Data.csproj": {
-              "projectPath": "C:\\Users\\sap.phire\\Desktop\\BusinessManagementSystem\\SimpleLoginApp\\BMS.Data\\BMS.Data.csproj"
+            "C:\\Users\\Triple G\\Desktop\\Business\\Softuni\\4.0. TeamWork\\BusinessManagementSystem\\SimpleLoginApp\\BMS.Data\\BMS.Data.csproj": {
+              "projectPath": "C:\\Users\\Triple G\\Desktop\\Business\\Softuni\\4.0. TeamWork\\BusinessManagementSystem\\SimpleLoginApp\\BMS.Data\\BMS.Data.csproj"
             }
           }
         }
@@ -3482,11 +3479,11 @@
         "dependencies": {
           "Microsoft.EntityFrameWorkCore.Tools": {
             "target": "Package",
-            "version": "[2.0.1, )"
+            "version": "2.0.1"
           },
           "Microsoft.NETCore.App": {
             "target": "Package",
-            "version": "[2.0.0, )",
+            "version": "2.0.0",
             "autoReferenced": true
           }
         },

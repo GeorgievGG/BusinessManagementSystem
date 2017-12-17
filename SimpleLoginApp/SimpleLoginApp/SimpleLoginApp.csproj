@@ -224,5 +224,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BMS.Data\BMS.Data.csproj">
+      <Project>{b9c89c69-b4c0-453c-b860-d930901019a2}</Project>
+      <Name>BMS.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BMS.Models\BMS.Models.csproj">
+      <Project>{37c7fd48-0ef6-460e-ae92-bd3e3018b2aa}</Project>
+      <Name>BMS.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

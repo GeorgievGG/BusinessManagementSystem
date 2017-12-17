@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <RootNamespace>WpfApp1.Data</RootNamespace>
+    <AssemblyName>WpfApp1.Data</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

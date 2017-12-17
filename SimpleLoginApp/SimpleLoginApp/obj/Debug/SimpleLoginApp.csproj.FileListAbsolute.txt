@@ -61,3 +61,4 @@ C:\Users\sap.phire\Desktop\BusinessManagementSystem\SimpleLoginApp\SimpleLoginAp
 C:\Users\sap.phire\Desktop\BusinessManagementSystem\SimpleLoginApp\SimpleLoginApp\obj\Debug\WpfApp1_MarkupCompile.lref
 C:\Users\sap.phire\Desktop\BusinessManagementSystem\SimpleLoginApp\SimpleLoginApp\obj\Debug\WpfApp1.exe
 C:\Users\sap.phire\Desktop\BusinessManagementSystem\SimpleLoginApp\SimpleLoginApp\obj\Debug\WpfApp1.pdb
+C:\Users\Triple G\Desktop\Business\Softuni\4.0. TeamWork\BusinessManagementSystem\SimpleLoginApp\SimpleLoginApp\obj\Debug\SimpleLoginApp.csproj.WpfApp1.exe.config

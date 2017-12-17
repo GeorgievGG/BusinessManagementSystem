@@ -1,6 +1,6 @@
-﻿namespace BMS.Data.EntityConfiguration
+﻿namespace WpfApp1.Data.EntityConfiguration
 {
-    using BMS.Models;
+    using WpfApp1.Models;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

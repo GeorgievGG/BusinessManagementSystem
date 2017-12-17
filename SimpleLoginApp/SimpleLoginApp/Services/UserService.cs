@@ -1,6 +1,4 @@
 ﻿using AutoMapper;
-using WpfApp1.Data;
-using WpfApp1.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
