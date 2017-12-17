@@ -18,7 +18,5 @@ namespace BMS.Models
 
         public int EmployeeId { get; set; }
         public Employee Employee { get; set; }
-
-        public ICollection<Contract> Contracts { get; set; } = new List<Contract>();
     }
 }

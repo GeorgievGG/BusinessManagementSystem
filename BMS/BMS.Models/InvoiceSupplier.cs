@@ -15,7 +15,7 @@ namespace BMS.Models
         public int SupplierId { get; set; }
 
         [Required]
-        public Supplier Supplier { get; set; }
+        public Contragent Supplier { get; set; }
 
         public decimal TotalPrice { get; set; }
 

@@ -17,14 +17,9 @@
                     .HasForeignKey(e => e.BankId)
                     .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasOne(e => e.Client)
-                    .WithMany(c => c.BankAccounts)
-                    .HasForeignKey(e => e.ClientId)
-                    .OnDelete(DeleteBehavior.Restrict);
-
-            builder.HasOne(e => e.Supplier)
+            builder.HasOne(e => e.Contragent)
                     .WithMany(s => s.BankAccounts)
-                    .HasForeignKey(e => e.SupplierId)
+                    .HasForeignKey(e => e.ContragentId)
                     .OnDelete(DeleteBehavior.Restrict);
         }
     }

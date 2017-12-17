@@ -14,11 +14,17 @@ namespace BMS.Models
         public string LastName { get; set; }
 
         [Required]
+        public string Username { get; set; }
+        
+        [Required]
+        public string Password { get; set; }
+
+        [Required]
         public ClearenceType Clearence { get; set; }
         
 
         public ICollection<Project> Projects { get; set; } = new List<Project>();
-        public ICollection<Contract> CreatedContracts { get; set; } = new List<Contract>();
+
         public ICollection<Offer> CreatedOffers { get; set; } = new List<Offer>();
     }
 }

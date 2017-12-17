@@ -19,7 +19,7 @@
                 .HasColumnType("DATE");
 
             builder.HasOne(e => e.Supplier)
-                .WithMany(s => s.Invoices)
+                .WithMany(s => s.InvoiceSuppliers)
                 .HasForeignKey(e => e.SupplierId)
                 .OnDelete(DeleteBehavior.Restrict);
         }

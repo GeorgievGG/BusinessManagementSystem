@@ -26,23 +26,16 @@
                 .HasColumnType("DATE")
                 .IsRequired(false);
 
-            builder.Property(e => e.ContractId)
-                .IsRequired(false);
-
-            builder.HasOne(e => e.Contract)
-                .WithOne(c => c.Project)
-                .HasForeignKey<Project>(e => e.ContractId)
-                .OnDelete(DeleteBehavior.Restrict);
-
             builder.HasOne(e => e.Employee)
                 .WithMany(e => e.Projects)
                 .HasForeignKey(e => e.EmployeeId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne(e => e.Client)
-                .WithMany(c => c.Projects)
+                .WithMany(c => c.ProjectsClient)
                 .HasForeignKey(e => e.ClientId)
                 .OnDelete(DeleteBehavior.Restrict);
+                
         }
     }
 }

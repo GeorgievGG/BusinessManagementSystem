@@ -19,13 +19,8 @@
                 .HasColumnType("DATE");
 
             builder.HasOne(e => e.Client)
-                .WithMany(c => c.Invoices)
+                .WithMany(c => c.InvoiceClients)
                 .HasForeignKey(e => e.ClientId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            builder.HasOne(e => e.Project)
-                .WithMany(p => p.InvoicesClient)
-                .HasForeignKey(e => e.ProjectId)
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }

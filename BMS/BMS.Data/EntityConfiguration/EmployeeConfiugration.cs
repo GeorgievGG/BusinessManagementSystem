@@ -17,6 +17,14 @@
             builder.Property(e => e.LastName)
                 .IsRequired()
                 .IsUnicode();
+
+            builder.Property(e => e.Username)
+                .IsRequired()
+                .IsUnicode(false);
+
+            builder.Property(e => e.Password)
+                .IsRequired()
+                .IsUnicode(false);
         }
     }
 }

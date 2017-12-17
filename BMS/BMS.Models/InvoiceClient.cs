@@ -19,10 +19,6 @@ namespace BMS.Models
         public int ClientId { get; set; }
 
         [Required]
-        public Client Client { get; set; }
-
-        public int ProjectId { get; set; }
-
-        public Project Project { get; set; }
+        public Contragent Client { get; set; }
     }
 }
