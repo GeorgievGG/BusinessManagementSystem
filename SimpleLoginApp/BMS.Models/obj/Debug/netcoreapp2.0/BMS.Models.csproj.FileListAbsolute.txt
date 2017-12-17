@@ -1,0 +1,27 @@
+C:\Users\sap.phire\Desktop\BMS\BMS\BMS.Models\bin\Debug\netcoreapp2.0\BMS.Models.deps.json
+C:\Users\sap.phire\Desktop\BMS\BMS\BMS.Models\bin\Debug\netcoreapp2.0\BMS.Models.dll
+C:\Users\sap.phire\Desktop\BMS\BMS\BMS.Models\obj\Debug\netcoreapp2.0\BMS.Models.csprojResolveAssemblyReference.cache
+C:\Users\sap.phire\Desktop\BMS\BMS\BMS.Models\obj\Debug\netcoreapp2.0\BMS.Models.csproj.CoreCompileInputs.cache
+C:\Users\sap.phire\Desktop\BMS\BMS\BMS.Models\obj\Debug\netcoreapp2.0\BMS.Models.AssemblyInfoInputs.cache
+C:\Users\sap.phire\Desktop\BMS\BMS\BMS.Models\obj\Debug\netcoreapp2.0\BMS.Models.AssemblyInfo.cs
+C:\Users\sap.phire\Desktop\BMS\BMS\BMS.Models\bin\Debug\netcoreapp2.0\BMS.Models.pdb
+C:\Users\sap.phire\Desktop\BMS\BMS\BMS.Models\obj\Debug\netcoreapp2.0\BMS.Models.dll
+C:\Users\sap.phire\Desktop\BMS\BMS\BMS.Models\obj\Debug\netcoreapp2.0\BMS.Models.pdb
+C:\Users\Triple G\Desktop\Business\Softuni\4.0. TeamWork\BusinessManagementSystem\CompleteDatabase\DB\BMS.Models\bin\Debug\netcoreapp2.0\BMS.Models.deps.json
+C:\Users\Triple G\Desktop\Business\Softuni\4.0. TeamWork\BusinessManagementSystem\CompleteDatabase\DB\BMS.Models\bin\Debug\netcoreapp2.0\BMS.Models.dll
+C:\Users\Triple G\Desktop\Business\Softuni\4.0. TeamWork\BusinessManagementSystem\CompleteDatabase\DB\BMS.Models\bin\Debug\netcoreapp2.0\BMS.Models.pdb
+C:\Users\Triple G\Desktop\Business\Softuni\4.0. TeamWork\BusinessManagementSystem\CompleteDatabase\DB\BMS.Models\obj\Debug\netcoreapp2.0\BMS.Models.csprojResolveAssemblyReference.cache
+C:\Users\Triple G\Desktop\Business\Softuni\4.0. TeamWork\BusinessManagementSystem\CompleteDatabase\DB\BMS.Models\obj\Debug\netcoreapp2.0\BMS.Models.csproj.CoreCompileInputs.cache
+C:\Users\Triple G\Desktop\Business\Softuni\4.0. TeamWork\BusinessManagementSystem\CompleteDatabase\DB\BMS.Models\obj\Debug\netcoreapp2.0\BMS.Models.AssemblyInfoInputs.cache
+C:\Users\Triple G\Desktop\Business\Softuni\4.0. TeamWork\BusinessManagementSystem\CompleteDatabase\DB\BMS.Models\obj\Debug\netcoreapp2.0\BMS.Models.AssemblyInfo.cs
+C:\Users\Triple G\Desktop\Business\Softuni\4.0. TeamWork\BusinessManagementSystem\CompleteDatabase\DB\BMS.Models\obj\Debug\netcoreapp2.0\BMS.Models.dll
+C:\Users\Triple G\Desktop\Business\Softuni\4.0. TeamWork\BusinessManagementSystem\CompleteDatabase\DB\BMS.Models\obj\Debug\netcoreapp2.0\BMS.Models.pdb
+C:\Users\sap.phire\Desktop\BusinessManagementSystem\SimpleLoginApp\BMS.Models\bin\Debug\netcoreapp2.0\BMS.Models.deps.json
+C:\Users\sap.phire\Desktop\BusinessManagementSystem\SimpleLoginApp\BMS.Models\bin\Debug\netcoreapp2.0\BMS.Models.dll
+C:\Users\sap.phire\Desktop\BusinessManagementSystem\SimpleLoginApp\BMS.Models\bin\Debug\netcoreapp2.0\BMS.Models.pdb
+C:\Users\sap.phire\Desktop\BusinessManagementSystem\SimpleLoginApp\BMS.Models\obj\Debug\netcoreapp2.0\BMS.Models.csprojResolveAssemblyReference.cache
+C:\Users\sap.phire\Desktop\BusinessManagementSystem\SimpleLoginApp\BMS.Models\obj\Debug\netcoreapp2.0\BMS.Models.csproj.CoreCompileInputs.cache
+C:\Users\sap.phire\Desktop\BusinessManagementSystem\SimpleLoginApp\BMS.Models\obj\Debug\netcoreapp2.0\BMS.Models.AssemblyInfoInputs.cache
+C:\Users\sap.phire\Desktop\BusinessManagementSystem\SimpleLoginApp\BMS.Models\obj\Debug\netcoreapp2.0\BMS.Models.AssemblyInfo.cs
+C:\Users\sap.phire\Desktop\BusinessManagementSystem\SimpleLoginApp\BMS.Models\obj\Debug\netcoreapp2.0\BMS.Models.dll
+C:\Users\sap.phire\Desktop\BusinessManagementSystem\SimpleLoginApp\BMS.Models\obj\Debug\netcoreapp2.0\BMS.Models.pdb

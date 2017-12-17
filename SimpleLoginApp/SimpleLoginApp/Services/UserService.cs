@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using BMS.Data;
-using BMS.Models;
+using WpfApp1.Data;
+using WpfApp1.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

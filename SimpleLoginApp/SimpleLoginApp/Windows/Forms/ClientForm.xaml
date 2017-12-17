@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApp1.Windows.Forms"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title="BMS Client Form" Height="495.894" Width="507.834">
+        Title="WpfApp1 Client Form" Height="495.894" Width="507.834">
     <Grid Margin="0,0,3.6,-0.6" Background="#FF2E3137">
         <Separator Margin="92,47,81,369" />
         <Label Content="CLIENT FORM" HorizontalAlignment="Left" Foreground="#FF97D4D3" FontSize="30" FontWeight="Bold" Margin="146,23,0,0" VerticalAlignment="Top"/>

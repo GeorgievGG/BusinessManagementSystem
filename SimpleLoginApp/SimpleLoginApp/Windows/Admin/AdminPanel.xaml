@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1.Windows.Admin"
         mc:Ignorable="d"
-        Title="BMS AdminPanel" Height="300" Width="300">
+        Title="WpfApp1 AdminPanel" Height="300" Width="300">
     <Grid Background="#FF2E3137">
 
         <Button Content="Add new user" HorizontalAlignment="Left" Margin="82,105,0,0" VerticalAlignment="Top" Width="120" Height="40" Background="#FF5D85B0" FontWeight="Bold" FontSize="14" Foreground="White"/>

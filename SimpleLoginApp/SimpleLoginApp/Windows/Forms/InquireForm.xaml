@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApp1.Windows.Forms"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-       Title="BMS Inquire Form" Height="538.4" Width="434.234">
+       Title="WpfApp1 Inquire Form" Height="538.4" Width="434.234">
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <GradientStop Color="Black" Offset="0"/>

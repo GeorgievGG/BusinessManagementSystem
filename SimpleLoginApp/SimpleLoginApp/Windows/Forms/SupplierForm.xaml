@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApp1.Windows.Forms"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title="BMS Supplier Form" Height="488.049" Width="500.634">
+        Title="WpfApp1 Supplier Form" Height="488.049" Width="500.634">
     <Grid Margin="0,0,3.4,-1.6" Background="#FF2E3137">
         <Separator Margin="95,69,57,372" />
         <Label Content="SUPPLIER FORM" HorizontalAlignment="Left" Foreground="#FFACE7E5" FontSize="30" FontWeight="Bold" Margin="146,23,0,0" VerticalAlignment="Top"/>
