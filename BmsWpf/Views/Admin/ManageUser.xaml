@@ -1,0 +1,65 @@
+﻿<Window x:Class="BmsWpf.Views.Admin.ManageUser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BmsWpf.Views.Admin"
+        mc:Ignorable="d"
+        Title="ManageUser" Height="300" Width="400">
+    <Grid Background="#FF2E3137">
+        <Label Content="Manage Users" HorizontalAlignment="Left" Margin="140,30,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Background="#FF2E3137" Foreground="White"/>
+        <Button Content="Logout" HorizontalAlignment="Left" Margin="290,226,0,0" VerticalAlignment="Top" Width="75" Background="#FFA32727" Foreground="White" Height="24"/>
+        <FlowDocumentReader Margin="10,62,161.6,39.4">
+            <FlowDocument>
+                <Table CellSpacing="3" Foreground="White">
+                    <Table.Columns>
+                        <TableColumn/>
+                        <TableColumn/>
+                        <TableColumn/>
+                    </Table.Columns>
+
+                    <TableRowGroup>
+                        <TableRow Background="#FF2E3137">
+                            <TableCell>
+                                <Paragraph FontSize="14px" FontWeight="Bold">Id</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph FontSize="14px" FontWeight="Bold">User</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph FontSize="14px" FontWeight="Bold">Rights</Paragraph>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow Background="#FF2E3137">
+                            <TableCell>
+                                <Paragraph FontSize="14px">1</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph FontSize="14px">Ivan</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph FontSize="14px">User</Paragraph>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow Background="#FF2E3137">
+                            <TableCell>
+                                <Paragraph FontSize="14px">1</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph FontSize="14px">Pesho</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph FontSize="14px">User</Paragraph>
+                            </TableCell>
+                        </TableRow>
+                    </TableRowGroup>
+                </Table>
+            </FlowDocument>
+        </FlowDocumentReader>
+        <Separator HorizontalAlignment="Left" Height="13" Margin="55,62,0,0" VerticalAlignment="Top" Width="265"/>
+        <Button Content="Modify" Margin="220,101,119.6,150.4" Foreground="White" Background="#FF3A62B3"/>
+        <Button Content="Delete" Margin="290,125,44.6,126.4" Background="#FF9F3636" Foreground="White"/>
+        <Button Content="Delete" Margin="290,101,44.6,150.4" Background="#FF9F3636" Foreground="White"/>
+        <Button Content="Modify" Margin="220,125,119.6,126.4" Foreground="White" Background="#FF3A62B3"/>
+    </Grid>
+</Window>

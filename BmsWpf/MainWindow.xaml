@@ -1,0 +1,23 @@
+﻿<Window x:Class="BmsWpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BmsWpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="549.935" Width="725.398" FontSize="14" Background="#FF030F1D">
+    <Border Background="#2e3137" CornerRadius="20" Margin="20,20,20.2,13">
+        <Grid Margin="0,0,0.4,0.2" RenderTransformOrigin="0.376,0.485">
+            <Label Content="Welcome, User!" Foreground="White" FontSize="25" HorizontalAlignment="Center" RenderTransformOrigin="3.536,-1.191" Grid.Column="2" Margin="235,43,198.2,397" Width="246" FontWeight="Bold"/>
+            <Button Content="Active Projects" Background="#FF104C71" Margin="67,151,359.2,286" Grid.Column="2" Foreground="White" FontSize="22"/>
+            <Button Content="Manage Offers" Background="#FF104C71" Margin="67,224,359.2,213" Grid.Column="2" Foreground="White" FontSize="22"/>
+            <Button Content="Inquiries" Background="#FF104C71" Margin="358,224,68.2,213" Grid.Column="2" Foreground="White" FontSize="22"/>
+            <Button Content="Clients" Background="#FF104C71" Margin="358,151,68.2,286" Grid.Column="2" Foreground="White" FontSize="22"/>
+            <Button Content="Contracts" Background="#FF104C71" Margin="358,294,68.2,143" Grid.Column="2" Foreground="White" FontSize="22"/>
+            <Button Content="Suppliers" Background="#FF104C71" Margin="67,294,359.2,143" Grid.Column="2" Foreground="White" FontSize="22"/>
+            <Separator Grid.Column="2" HorizontalAlignment="Left" Height="27" Margin="67,90,0,0" VerticalAlignment="Top" Width="544"/>
+            <Separator Grid.Column="2" HorizontalAlignment="Left" Height="27" Margin="42,389,0,0" VerticalAlignment="Top" Width="544"/>
+            <Separator Grid.Column="2" HorizontalAlignment="Left" Height="27" Margin="67,389,0,0" VerticalAlignment="Top" Width="544"/>
+        </Grid>
+    </Border>
+</Window>

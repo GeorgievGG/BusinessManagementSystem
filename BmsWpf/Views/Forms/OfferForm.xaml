@@ -1,0 +1,21 @@
+﻿<Window x:Class="BmsWpf.Views.Forms.OfferForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BmsWpf.Views.Forms"
+        mc:Ignorable="d"
+        Title="OfferForm" Height="400" Width="500">
+    <Grid Margin="0,0,-6.4,-1.6" Background="#FF2E3137">
+        <Separator Margin="42,65,63,397" />
+        <Label Content="Offer"  HorizontalAlignment="Left" Foreground="#FFA1EAE8" FontSize="30" FontWeight="Bold" Margin="210,10,0,0" VerticalAlignment="Top" Width="90"/>
+        <TextBox Height="30" BorderThickness="2"  BorderBrush="#313c4f" Margin="42,103,381,0" Foreground="Gray"  TextAlignment="Center" TextWrapping="Wrap" Text="Number" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" TextChanged="TextBox_TextChanged_1" VerticalContentAlignment="Center"/>
+        <TextBox Height="30"  BorderThickness="2"  BorderBrush="#313c4f" Margin="150,103,246,0" Foreground="Gray"  TextAlignment="Center" TextWrapping="Wrap" Text="Date" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" VerticalContentAlignment="Center"/>
+        <TextBox Height="30" Margin="42,147,246,0" Foreground="Gray"  BorderThickness="2"  BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" VerticalContentAlignment="Center" Text="Client" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" TextChanged="TextBox_TextChanged_1"/>
+        <Button Content="Save" HorizontalAlignment="Left" Margin="258,314,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.36,-0.52" Background="#FF17597C" FontWeight="Bold" FontSize="16" Foreground="White"/>
+        <TextBox Height="30" Margin="266,147,51,0" Foreground="Gray"  BorderThickness="2"  BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" VerticalContentAlignment="Center" Text="Inquiry" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" TextChanged="TextBox_TextChanged_1"/>
+        <TextBox Height="30" Margin="266,98,51,0" Foreground="Gray"  BorderThickness="2"  BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" VerticalContentAlignment="Center" Text="Creator" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" TextChanged="TextBox_TextChanged_1"/>
+        <Button Content="Back" HorizontalAlignment="Left" Margin="353,314,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.36,-0.52" Background="#FFAE3434" FontWeight="Bold" FontSize="16" Foreground="White"/>
+        <TextBox Height="79" Margin="42,198,51,0" Foreground="Gray"  BorderThickness="2"  BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" VerticalContentAlignment="Center" Text="Description" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" TextChanged="TextBox_TextChanged_1"/>
+    </Grid>
+</Window>
