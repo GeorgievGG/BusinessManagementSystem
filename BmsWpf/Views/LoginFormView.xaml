@@ -9,20 +9,47 @@
     <UserControl.DataContext>
         <viewModels:LoginFormViewModel />
     </UserControl.DataContext>
-    <Border Background="#2e3137" CornerRadius="20" Margin="10">
+    <Border Background="#2e3137" 
+            CornerRadius="20" 
+            Margin="10">
         <Grid>
             <StackPanel Margin="40 20">
-                <Label Content="Login" Foreground="White" FontSize="25" HorizontalAlignment="Center"/>
+                <Label Content="Login" 
+                       Foreground="White" 
+                       FontSize="25" 
+                       HorizontalAlignment="Center"/>
                 <Separator></Separator>
-                <Label Content="Username" Foreground="White"/>
-                <TextBox Name="txtUsername" Background="#545d6a" Foreground="White" FontSize="18" Text="{Binding Username}"/>
-                <Label Content="Password" Foreground="White"/>
-                <TextBox Name="txtPassword" Background="#545d6a" Foreground="White" FontSize="18" Text="{Binding Passowrd}"/>
+                <Label Content="Username" 
+                       Foreground="White"/>
+                <TextBox Name="UsernameBox" 
+                         Background="#545d6a" 
+                         Foreground="White" 
+                         FontSize="18" 
+                         Text="{Binding Username}"/>
+                <Label Content="Password" 
+                       Foreground="White"/>
+                <PasswordBox Name="PasswordField" 
+                             Background="#545d6a" 
+                             Foreground="White" 
+                             FontSize="18"/>
             </StackPanel>
-            <Button x:Name="btnSubmit_Copy" Click="BtnSubmit_Copy_OnClick" Content="Login" Margin="50,208,175.4,53" Background="#FF205C2F" Foreground="White" FontSize="18" Height="35" Command="{Binding Login}" />
-            <Button x:Name="btnSubmit" Click="btnSubmit_Click" Content="Close" Margin="179,223,49.8,67.6" Background="#FF852035" Foreground="White" FontSize="18" Command="{Binding Close}" />
+            <Button x:Name="loginBtn" 
+                    Content="Login" 
+                    Margin="50,208,175.4,53" 
+                    Background="#FF205C2F" 
+                    Foreground="White" 
+                    FontSize="18" 
+                    Height="35" 
+                    Command="{Binding Login}" 
+                    CommandParameter="{Binding ElementName=PasswordField}"/>
+            <Button x:Name="closeBtn"
+                    Content="Close" 
+                    Margin="179,223,49.8,67.6" 
+                    Background="#FF852035" 
+                    Foreground="White" 
+                    FontSize="18" 
+                    Command="{Binding Close}" />
             <Separator Margin="40,248,40.4,20"></Separator>
-            <Label Content="Label" HorizontalAlignment="Left" Margin="316,177,0,0" VerticalAlignment="Top"/>
         </Grid>
     </Border>
 </UserControl>

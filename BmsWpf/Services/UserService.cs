@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BmsWpf.Services
+﻿namespace BmsWpf.Services
 {
-    using BmsWpf.Sessions;
-    using BmsWpf.ViewModels;
-
+    using System;
+    using System.Linq;
     using BMS.DataBaseData;
-    using BMS.DataBaseModels;
+    using BmsWpf.Sessions;
 
     public class UserService
     {
@@ -31,12 +24,8 @@ namespace BmsWpf.Services
             {
                 throw new ArgumentException("The user does not exist!");
             }
-
-            //change
+            
             Session.Instance.SetUsername(user.Username);
-            //change to HashedPassword
-
-            // var mappedEmp = Mapper.Map<User, LoginFormViewModel>(user);
         }
     }
 }
