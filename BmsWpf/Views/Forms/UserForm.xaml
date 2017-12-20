@@ -13,7 +13,7 @@
         <TextBox Name="firstName" HorizontalAlignment="Left" Height="23" Margin="107,79,0,0" TextWrapping="Wrap" Text="enter firstname..." VerticalAlignment="Top" Width="165"/>
         <TextBox Name="lastName" HorizontalAlignment="Left" Height="23" Margin="107,116,0,0" TextWrapping="Wrap" Text="enter lastname..." VerticalAlignment="Top" Width="165"/>
         <TextBox  x:Name="position" HorizontalAlignment="Left" Height="23" Margin="107,160,0,0" TextWrapping="Wrap" Text="enter position..." VerticalAlignment="Top" Width="165"/>
-        <Button Click="saveData" Content="Save" HorizontalAlignment="Left" Margin="83,219,0,0" VerticalAlignment="Top" Width="75" Background="#FF2A7DB0" Foreground="White"/>
+        <Button Content="Save" HorizontalAlignment="Left" Margin="83,219,0,0" VerticalAlignment="Top" Width="75" Background="#FF2A7DB0" Foreground="White"/>
         <Button Content="Logout" HorizontalAlignment="Left" Margin="181,219,0,0" VerticalAlignment="Top" Width="75" Foreground="White" Background="#FF972B2B" RenderTransformOrigin="-0.396,0.483"/>
         <Label Content="User Form" HorizontalAlignment="Left" Margin="127,10,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Foreground="#FF4ECFDC" Background="#00000000"/>
         <Separator HorizontalAlignment="Left" Height="12" Margin="107,42,0,0" VerticalAlignment="Top" Width="134"/>
