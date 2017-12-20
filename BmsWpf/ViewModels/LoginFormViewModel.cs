@@ -9,10 +9,11 @@
 
     public class LoginFormViewModel : ViewModelBase, IPageViewModel
     {
-
         public ICommand LoginCommand;
         private string Message;
         public string Password { get; set; }
+
+        public string Username { get; set; }
 
         public string Name
         {
@@ -22,22 +23,17 @@
             }
         }
 
-        public string Username { get; set; }
-
         public ICommand Login
         {
             get
             {
                 if (this.LoginCommand == null)
                 {
-
                     this.LoginCommand = new RelayCommand(this.HandleLoginCommand);
                 }
                 return this.LoginCommand;
             }
         }
-
-       // public event EventHandler<LoginSuccessArgs> LoginSuccess;
 
         public void HandleLoginCommand(object parameter)
         {
