@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="BmsWpf.Views.LoginFormView"
+﻿<Window x:Class="BmsWpf.Views.LoginFormView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -6,9 +6,9 @@
         xmlns:viewModels="clr-namespace:BmsWpf.ViewModels"
         mc:Ignorable="d"
         Height="345.453" Width="360.688" FontSize="14" Background="#FF030F1D">
-    <UserControl.DataContext>
+    <Window.DataContext>
         <viewModels:LoginFormViewModel />
-    </UserControl.DataContext>
+    </Window.DataContext>
     <Border Background="#2e3137" 
             CornerRadius="20" 
             Margin="10">
@@ -48,8 +48,8 @@
                     Background="#FF852035" 
                     Foreground="White" 
                     FontSize="18" 
-                    Command="{Binding Close}" />
+                    Command="{Binding CloseApp}" />
             <Separator Margin="40,277,40.8,36.6"></Separator>
         </Grid>
     </Border>
-</UserControl>
+</Window>

@@ -18,15 +18,20 @@ namespace BmsWpf.Views
     using System.Data.SqlClient;
 
     using BMS.DataBaseData;
+    using BmsWpf.ViewModels;
 
     /// <summary>
     /// Interaction logic for LoginFormView.xaml
     /// </summary>
-    public partial class LoginFormView : UserControl
+    public partial class LoginFormView : Window
     {
         public LoginFormView()
         {
             InitializeComponent();
+            LoginFormViewModel vm = (LoginFormViewModel)this.DataContext; // this creates an instance of the ViewModel
+            
+            if (vm.CloseAction == null)
+                vm.CloseAction = new Action(() => this.Close());
         }
     }
 }

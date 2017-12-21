@@ -7,12 +7,14 @@
     using System.Text;
     using System.Windows.Controls;
     using System.Windows.Input;
-    
+
     //To be added: Validation, Redirect to User/Admin menu
     public class LoginFormViewModel : ViewModelBase, IPageViewModel
     {
         public ICommand LoginCommand;
         public ICommand CloseCommand;
+
+        public Action CloseAction { get; set; }
 
         public string Username { get; set; }
 
@@ -36,13 +38,13 @@
             }
         }
 
-        public ICommand Close
+        public ICommand CloseApp
         {
             get
             {
                 if (this.CloseCommand == null)
                 {
-                    this.CloseCommand = new RelayCommand(this.HandleCloseCommand);
+                    this.CloseCommand = new RelayCommand(this.HandleCloseAppCommand);
                 }
                 return this.CloseCommand;
             }
@@ -58,9 +60,16 @@
             var userService = new UserService();
 
             userService.LoginUser(this.Username, hashedPass);
+
+            //for change
+            var mainWindow = new MainWindow();
+
+            mainWindow.Show();
+            
+            CloseAction();
         }
 
-        public void HandleCloseCommand(object parameter)
+        public void HandleCloseAppCommand(object parameter)
         {
             Environment.Exit(0);
         }
