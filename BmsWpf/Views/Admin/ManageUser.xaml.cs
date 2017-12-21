@@ -62,5 +62,12 @@ namespace BmsWpf.Views.Admin
         {
             this.fillingDataGrid();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            AdminPanel dash = new AdminPanel();
+            dash.Show();
+            this.Close();
+        }
     }
 }
