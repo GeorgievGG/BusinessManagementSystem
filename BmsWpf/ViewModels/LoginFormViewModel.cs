@@ -3,10 +3,16 @@
     using BmsWpf.Behaviour;
     using BmsWpf.Services;
     using System;
+    using System.Windows;
     using System.Security.Cryptography;
     using System.Text;
     using System.Windows.Controls;
     using System.Windows.Input;
+    using BMS.DataBaseData;
+    using System.Linq;
+    using BMS.DataBaseModels;
+    using BmsWpf.Views.Admin;
+    using BmsWpf.Sessions;
 
     //To be added: Validation, Redirect to User/Admin menu
     public class LoginFormViewModel : ViewModelBase, IPageViewModel
@@ -52,20 +58,42 @@
 
         public void HandleLoginCommand(object parameter)
         {
+            var db = new BmsContex();
             var box = (PasswordBox)parameter;
             var pass = box.Password;
-
             var hashedPass = HashToSha1(pass);
 
-            var userService = new UserService();
+            //var userService = new UserService();
+            //userService.LoginUser(this.Username, hashedPass);
 
-            userService.LoginUser(this.Username, hashedPass);
+            var users = db.Users.ToArray();
+            var userExists = users.Where(u => u.Username == this.Username).FirstOrDefault();
 
-            //for change
-            var mainWindow = new MainWindow();
+            if (userExists == null)
+            {
+                MessageBox.Show("Invalid Username. Try again");
+                return;
+            }
 
-            mainWindow.Show();
-            
+            var user = users.Where(u => u.Username == this.Username).SingleOrDefault();
+            if (user.Password != hashedPass)
+            {
+                MessageBox.Show("Invalid Password. Try again");
+                return;
+            }
+
+            Session.Instance.SetUsername(user.Username);
+
+            if (user.Type == ClearenceType.Admin)
+            {
+                var adminWindow = new AdminPanel();
+                adminWindow.Show();
+            }
+            else
+            {
+                var mainWindow = new MainWindow();
+                mainWindow.Show();
+            }
             CloseAction();
         }
 

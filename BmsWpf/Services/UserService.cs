@@ -5,6 +5,9 @@
     using BMS.DataBaseData;
     using BmsWpf.Sessions;
     using BMS.DataBaseModels;
+    using System.Windows;
+    using BmsWpf.Views.Admin;
+    using BmsWpf.ViewModels;
 
     public class UserService
     {
@@ -25,7 +28,7 @@
             {
                 throw new ArgumentException("The user does not exist!");
             }
-            
+
             Session.Instance.SetUsername(user.Username);
         }
     }

@@ -40,8 +40,8 @@ namespace BmsWpf.Views.Admin
 
         private void Logout(object sender, RoutedEventArgs e)
         {
-            //LoginFormView dash = new LoginFormView();
-            //dash.Show();
+            LoginFormView dash = new LoginFormView();
+            dash.Show();
             this.Close();
         }
     }

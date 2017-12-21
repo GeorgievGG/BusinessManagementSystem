@@ -5,16 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BmsWpf.Views.Admin"
         mc:Ignorable="d"
-        Title="AdminPanel" Height="300" Width="300">
+        Title="AdminPanel" Height="400" Width="400">
     <Grid Background="#FF2E3137">
 
         <Button 
             Click="AddNewUser"
             Content="Add new user"
             HorizontalAlignment="Left"
-            Margin="82,105,0,0"
+            Margin="137,107,0,0"
             VerticalAlignment="Top"
-            Width="120" Height="40"
+            Width="138" Height="52"
             Background="#FF5D85B0"
             FontWeight="Bold" 
             FontSize="14"
@@ -23,15 +23,15 @@
                 Click="ManageUsers"
                 Content="Manage Users"
                 HorizontalAlignment="Left"
-                Margin="82,174,0,0"
+                Margin="137,191,0,0"
                 VerticalAlignment="Top"
-                Width="120" Height="40"
+                Width="138" Height="50"
                 Background="#FF5D85B0" 
                 FontSize="14"
                 FontWeight="Bold" 
                 Foreground="White"/>
         <TextBox HorizontalAlignment="Left"
-                 Height="30" Margin="63,36,0,0"
+                 Height="30" Margin="126,36,0,0"
                  TextWrapping="Wrap"
                  Text="ADMIN PANEL"
                  VerticalAlignment="Top"
@@ -40,16 +40,16 @@
                  Background="#FF2E3137"
                  Foreground="White"
                  BorderBrush="#FF2E3137"/>
-        <Separator HorizontalAlignment="Left" Height="23" Margin="22,71,0,0" VerticalAlignment="Top" Width="240"/>
-        <Separator HorizontalAlignment="Left" Height="18" Margin="22,219,0,0" VerticalAlignment="Top" Width="240"/>
+        <Separator HorizontalAlignment="Left" Height="23" Margin="82,71,0,0" VerticalAlignment="Top" Width="240"/>
+        <Separator HorizontalAlignment="Left" Height="18" Margin="82,262,0,0" VerticalAlignment="Top" Width="240"/>
         <Button 
             Click="Logout"
             Content="LOGOUT" 
             HorizontalAlignment="Left" 
-            Margin="187,242,0,0"
+            Margin="155,307,0,0"
             VerticalAlignment="Top"
-            Width="75"
+            Width="99"
             Background="#FF831C1C"
-            Foreground="White"/>
+            Foreground="White" Height="34"/>
     </Grid>
 </Window>
