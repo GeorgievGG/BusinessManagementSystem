@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:BmsWpf"
              StartupUri="Views/LoginFormView.xaml">
     <Application.Resources>
-         
+
     </Application.Resources>
 </Application>

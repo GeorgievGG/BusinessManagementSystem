@@ -4,6 +4,7 @@
     using System.Linq;
     using BMS.DataBaseData;
     using BmsWpf.Sessions;
+    using BMS.DataBaseModels;
 
     public class UserService
     {

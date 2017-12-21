@@ -23,5 +23,26 @@ namespace BmsWpf.Views.Admin
         {
             InitializeComponent();
         }
+
+        private void AddNewUser(object sender, RoutedEventArgs e)
+        {
+            AddUser dash = new AddUser();
+            dash.Show();
+            this.Close();
+        }
+
+        private void ManageUsers(object sender, RoutedEventArgs e)
+        {
+            ManageUser dash = new ManageUser();
+            dash.Show();
+            this.Close();
+        }
+
+        private void Logout(object sender, RoutedEventArgs e)
+        {
+            //LoginFormView dash = new LoginFormView();
+            //dash.Show();
+            this.Close();
+        }
     }
 }

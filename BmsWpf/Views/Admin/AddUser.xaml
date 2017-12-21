@@ -5,20 +5,69 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BmsWpf.Views.Admin"
         mc:Ignorable="d"
-        Title="AddUser" Height="400" Width="350" Background="#FF9F6464">
-    <Grid Margin="0,0,-6.4,-1.6" Background="#FF2E3137">
-        <Label Content="First Name" HorizontalAlignment="Left" Margin="35,75,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <Label Content="User rights" HorizontalAlignment="Left" Margin="35,204,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <Label Content="Last Name" HorizontalAlignment="Left" Margin="35,116,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <Label Content="Position" HorizontalAlignment="Left" Margin="49,160,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="107,79,0,0" TextWrapping="Wrap" Text="enter firstname..." VerticalAlignment="Top" Width="165"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="107,116,0,0" TextWrapping="Wrap" Text="enter lastname..." VerticalAlignment="Top" Width="165"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="107,160,0,0" TextWrapping="Wrap" Text="enter position..." VerticalAlignment="Top" Width="165"/>
-        <CheckBox Content="Full" HorizontalAlignment="Left" Margin="120,210,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <CheckBox Content="User" HorizontalAlignment="Left" Margin="184,210,0,0" VerticalAlignment="Top" Background="White" Foreground="White"/>
-        <Button Content="Save" HorizontalAlignment="Left" Margin="83,266,0,0" VerticalAlignment="Top" Width="75" Background="#FF2A7DB0" Foreground="White"/>
-        <Button Content="Logout" HorizontalAlignment="Left" Margin="184,266,0,0" VerticalAlignment="Top" Width="75" Foreground="White" Background="#FF972B2B" RenderTransformOrigin="-0.396,0.483"/>
+        Title="AddUser" Height="331.733" Width="350" Background="#FF9F6464">
+    <Grid Margin="0,0,-6,-2.6" Background="#FF2E3137">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="257*"/>
+            <ColumnDefinition Width="93*"/>
+        </Grid.ColumnDefinitions>
         <Label Content="Add new User" HorizontalAlignment="Left" Margin="113,23,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="White"/>
+        <Label Content="Username" HorizontalAlignment="Left" Margin="57,75,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="62,106,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Repeat password" HorizontalAlignment="Left" Margin="20,136,0,0" VerticalAlignment="Top" Foreground="White" Width="101"/>
+        <Label Content="User rights" HorizontalAlignment="Left" Margin="54,182,0,0" VerticalAlignment="Top" Foreground="White"/>
 
+        <TextBox Name="UsernameBox"
+            HorizontalAlignment="Left"
+            Height="20" Margin="135,81,0,0"
+            TextWrapping="Wrap" 
+            VerticalAlignment="Top"
+            Width="165"
+            Grid.ColumnSpan="2"
+            Text="{Binding Username}"/>
+        <PasswordBox Name="PasswordBox"
+            HorizontalAlignment="Left"
+            Margin="135,111,0,0" 
+            VerticalAlignment="Top"
+            Grid.ColumnSpan="2" 
+            Width="165"
+            Height="20"/>
+        <PasswordBox  Name="RepeatPasswordBox"
+            HorizontalAlignment="Left"
+            Margin="135,142,0,0"
+            VerticalAlignment="Top"
+            Grid.ColumnSpan="2"
+            Width="165" 
+            Height="20"/>
+        <Button Content="Save"
+                HorizontalAlignment="Left"
+                Margin="135,241,0,0"
+                VerticalAlignment="Top"
+                Width="75"
+                Background="#FF2A7DB0"
+                Foreground="White"
+                Click="Save_click"
+                Command="{Binding Save}" 
+                CommandParameter="{Binding ElementName=PasswordBox}"/>
+        <Button 
+                Click="Button_Click"
+                Content="Back"
+                HorizontalAlignment="Left"
+                Margin="225,241,0,0" 
+                VerticalAlignment="Top"
+                Width="75"
+                Foreground="White" 
+                Background="#FF972B2B"
+                RenderTransformOrigin="-0.396,0.483"
+                Height="19"
+                Grid.ColumnSpan="2"/>
+        <ComboBox Name="dropdown"
+            HorizontalAlignment="Left"
+            Margin="135,182,0,0" 
+            VerticalAlignment="Top" 
+            Width="120">
+            <ComboBoxItem Content="Admin" />
+            <ComboBoxItem Content="User"/>
+        </ComboBox>
     </Grid>
 </Window>

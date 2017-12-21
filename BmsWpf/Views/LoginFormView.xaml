@@ -49,7 +49,7 @@
                     Foreground="White" 
                     FontSize="18" 
                     Command="{Binding Close}" />
-            <Separator Margin="40,248,40.4,20"></Separator>
+            <Separator Margin="40,277,40.8,36.6"></Separator>
         </Grid>
     </Border>
 </UserControl>
