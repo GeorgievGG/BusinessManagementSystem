@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BMS.DataBaseData;
+using System.Linq;
+using BMS.DataBaseModels;
 
 namespace BmsWpf.Views.Admin
 {
@@ -24,46 +26,47 @@ namespace BmsWpf.Views.Admin
         public ManageUser()
         {
             InitializeComponent();
+            var db = new BmsContex();
+            var users = db.Users.ToArray();
+            UserBox.ItemsSource = users.Select(u => u.Username + " | " + u.Type.ToString());
         }
 
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void UserBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            var selectedUser = UserBox.SelectedItem;
+            if (selectedUser != null)
+            {
+                var values = selectedUser.ToString().Split('|').Select(s => s.Trim()).ToArray();
 
+                var userName = values[0];
+                var role = values[1];
+                txtUser.Text = userName;
+                txtUser.IsEnabled = false;
+
+                txtRole.Items.Clear();
+                if (txtRole.Items.Contains("Admin") && txtRole.Items.Contains("User")) return;
+
+                txtRole.Items.Add("Admin");
+                txtRole.Items.Add("User");
+
+                if (role == "Admin") txtRole.SelectedIndex = 0;
+                else if (role == "User") txtRole.SelectedIndex = 1;
+            }
         }
 
-        public void fillingDataGrid()
+        private void Save_Click(object sender, RoutedEventArgs e)
         {
             var db = new BmsContex();
-            DataTable dt = new DataTable();
-            DataColumn id = new DataColumn("Id", typeof(string));
-            DataColumn name = new DataColumn("Username", typeof(string));
-            DataColumn type = new DataColumn("Type", typeof(string));
-
-            dt.Columns.Add(id);
-            dt.Columns.Add(name);
-            dt.Columns.Add(type);
-
             var users = db.Users.ToArray();
-
-            foreach (var user in users)
-            {
-                DataRow row = dt.NewRow();
-                row[0] = user.Id;
-                row[1] = user.Username;
-                row[2] = user.Type;
-                dt.Rows.Add(row);
-            }
-
-
-            UsersDataGrid.ItemsSource = dt.DefaultView;
+            User changedUser = users.Where(u => u.Username == txtUser.Text).SingleOrDefault();
+            var userRights = Enum.Parse(typeof(ClearenceType), txtRole.SelectionBoxItem.ToString());
+            changedUser.Type = (ClearenceType)userRights;
+            db.SaveChanges();
+            MessageBox.Show("User rights changed successfully");
+            UserBox.ItemsSource = users.Select(u => u.Username + " | " + u.Type.ToString());
         }
 
-        private void UsersDataGrid_Loaded(object sender, RoutedEventArgs e)
-        {
-            this.fillingDataGrid();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Back_click(object sender, RoutedEventArgs e)
         {
             AdminPanel dash = new AdminPanel();
             dash.Show();
