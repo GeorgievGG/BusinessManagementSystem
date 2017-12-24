@@ -16,18 +16,17 @@ using System.Windows.Shapes;
 namespace BmsWpf.Views.Forms
 {
     /// <summary>
-    /// Interaction logic for InquireForm.xaml
+    /// Interaction logic for ProjectForm.xaml
     /// </summary>
-    public partial class InquireForm : Window
+    public partial class ProjectForm : Window
     {
-        public InquireForm()
+        public ProjectForm()
         {
             InitializeComponent();
         }
-
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-            var dash = new MainInquiries();
+            var dash = new ActiveProjects();
             dash.Show();
             this.Close();
         }

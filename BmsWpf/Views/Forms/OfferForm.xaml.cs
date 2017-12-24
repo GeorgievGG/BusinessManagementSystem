@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BmsWpf.Views.ChildWindows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,12 @@ namespace BmsWpf.Views.Forms
         public OfferForm()
         {
             InitializeComponent();
+        }
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            var dash = new MainOffers();
+            dash.Show();
+            this.Close();
         }
     }
 }

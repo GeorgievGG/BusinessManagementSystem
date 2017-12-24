@@ -13,8 +13,8 @@
             HorizontalAlignment="Center" Margin="82,10,59.6,217.4" Width="152"/>
         <ListBox HorizontalAlignment="Left" Height="193" Margin="47,74,0,0" VerticalAlignment="Top" Width="347"/>
         <Button Content="Back" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="Back_click" Background="#FFCB4040" Foreground="White" FontSize="14" Margin="352,299,0,0"/>
-        <Button Content="Save" HorizontalAlignment="Left" Margin="254,299,0,0" VerticalAlignment="Top" Width="75" Click="Save_Click" Background="#FF4074CB" Foreground="White" FontSize="14"/>
-        <Button Content="Add new" HorizontalAlignment="Left" Margin="47,272,0,0" VerticalAlignment="Top" Width="75" Click="Save_Click" Background="#FF0D5923" Foreground="White" FontSize="14"/>
+        <Button Content="Edit" HorizontalAlignment="Left" Margin="254,299,0,0" VerticalAlignment="Top" Width="75" Click="Edit_Click" Background="#FF4074CB" Foreground="White" FontSize="14"/>
+        <Button Content="Add new" HorizontalAlignment="Left" Margin="47,272,0,0" VerticalAlignment="Top" Width="75" Click="Add_New_Click" Background="#FF0D5923" Foreground="White" FontSize="14"/>
         <Separator HorizontalAlignment="Left" Height="11" Margin="145,45,0,0" VerticalAlignment="Top" Width="184"/>
 
     </Grid>

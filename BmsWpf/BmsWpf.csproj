@@ -142,6 +142,9 @@
     <Compile Include="Views\Forms\OfferForm.xaml.cs">
       <DependentUpon>OfferForm.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Forms\ProjectForm.xaml.cs">
+      <DependentUpon>ProjectForm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LoginFormView.xaml.cs">
       <DependentUpon>LoginFormView.xaml</DependentUpon>
     </Compile>
@@ -199,6 +202,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Forms\OfferForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Forms\ProjectForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
