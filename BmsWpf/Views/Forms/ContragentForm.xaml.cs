@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BmsWpf.Views.ChildWindows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,12 @@ namespace BmsWpf.Views.Forms
         public ContragentForm()
         {
             InitializeComponent();
+        }
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            var dash = new MainContragents();
+            dash.Show();
+            this.Close();
         }
     }
 }

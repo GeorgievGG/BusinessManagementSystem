@@ -1,5 +1,5 @@
 ﻿using BmsWpf.Views;
-using BmsWpf.Views.Forms;
+using BmsWpf.Views.ChildWindows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,6 +30,34 @@ namespace BmsWpf
         private void Logout(object sender, RoutedEventArgs e)
         {
             LoginForm dash = new LoginForm();
+            dash.Show();
+            this.Close();
+        }
+
+        private void projects_Click(object sender, RoutedEventArgs e)
+        {
+            var dash = new ActiveProjects();
+            dash.Show();
+            this.Close();
+        }
+
+        private void contragents_Click(object sender, RoutedEventArgs e)
+        {
+            var dash = new MainContragents();
+            dash.Show();
+            this.Close();
+        }
+
+        private void offers_Click(object sender, RoutedEventArgs e)
+        {
+            var dash = new MainOffers();
+            dash.Show();
+            this.Close();
+        }
+
+        private void inquiries_Click(object sender, RoutedEventArgs e)
+        {
+            var dash = new MainInquiries();
             dash.Show();
             this.Close();
         }

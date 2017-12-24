@@ -123,6 +123,15 @@
     <Compile Include="Views\ChildWindows\ActiveProjects.xaml.cs">
       <DependentUpon>ActiveProjects.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ChildWindows\MainContragents.xaml.cs">
+      <DependentUpon>MainContragents.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ChildWindows\MainInquiries.xaml.cs">
+      <DependentUpon>MainInquiries.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ChildWindows\MainOffers.xaml.cs">
+      <DependentUpon>MainOffers.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Forms\InvoiceForm.xaml.cs">
       <DependentUpon>InvoiceForm.xaml</DependentUpon>
     </Compile>
@@ -140,6 +149,12 @@
     </Compile>
     <Compile Include="Views\Forms\OfferForm.xaml.cs">
       <DependentUpon>OfferForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Forms\ProjectForm.xaml.cs">
+      <DependentUpon>ProjectForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginFormView.xaml.cs">
+      <DependentUpon>LoginFormView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -170,7 +185,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Forms\InvoiceForm.xaml">
+    <Page Include="Views\ChildWindows\MainContragents.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -180,7 +195,14 @@
     </Page>
     <Page Include="Views\Forms\UserForm.xaml">
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ChildWindows\MainOffers.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Forms\InvoiceForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Forms\ContragentForm.xaml">
       <SubType>Designer</SubType>
@@ -191,6 +213,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Forms\OfferForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Forms\ProjectForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LoginFormView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

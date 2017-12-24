@@ -11,5 +11,12 @@
         {
             InitializeComponent();
         }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+                var dash = new MainWindow();
+                dash.Show();
+                this.Close();
+        }
     }
 }
