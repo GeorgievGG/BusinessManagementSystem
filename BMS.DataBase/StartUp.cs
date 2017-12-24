@@ -12,9 +12,9 @@ namespace BMS.DataBase
         {
             using (var context = new BmsContex())
             {
-                context.Database.EnsureDeleted();
-                context.Database.EnsureCreated();
-                Seed();
+                //context.Database.EnsureDeleted();
+                //context.Database.EnsureCreated();
+                //Seed();
 
             }
         
