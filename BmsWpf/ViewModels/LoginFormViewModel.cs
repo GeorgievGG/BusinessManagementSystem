@@ -1,18 +1,16 @@
 ﻿namespace BmsWpf.ViewModels
 {
+    using BMS.DataBaseModels;
     using BmsWpf.Behaviour;
-    using BmsWpf.Services;
+    using BmsWpf.Services.Contracts;
+    using BmsWpf.Sessions;
+    using BmsWpf.Views.Admin;
     using System;
-    using System.Windows;
     using System.Security.Cryptography;
     using System.Text;
+    using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Input;
-    using BMS.DataBaseData;
-    using System.Linq;
-    using BMS.DataBaseModels;
-    using BmsWpf.Views.Admin;
-    using BmsWpf.Sessions;
 
     //To be added: Validation, Redirect to User/Admin menu
     public class LoginFormViewModel : ViewModelBase, IPageViewModel
@@ -21,6 +19,9 @@
         public ICommand CloseCommand;
 
         public Action CloseAction { get; set; }
+
+        public IBmsData BmsData { get; set; }
+        public IViewManager ViewManager { get; set; }
 
         public string Username { get; set; }
 
@@ -58,33 +59,32 @@
 
         public void HandleLoginCommand(object parameter)
         {
-            var db = new BmsContex();
             var box = (PasswordBox)parameter;
             var pass = box.Password;
             var hashedPass = HashToSha1(pass);
 
-            //var userService = new UserService();
-            //userService.LoginUser(this.Username, hashedPass);
+            Session.Instance.SetBmsData(this.BmsData);
 
-            var users = db.Users.ToArray();
-            var userExists = users.Where(u => u.Username == this.Username).FirstOrDefault();
+            var userService = Session.Instance.UserService;
 
-            if (userExists == null)
+            try
             {
-                MessageBox.Show("Invalid Username. Try again");
-                return;
-            }
+                var type = userService.LoginUser(this.Username, hashedPass);
+                RedirectDependingOnUserType(type);
 
-            var user = users.Where(u => u.Username == this.Username).SingleOrDefault();
-            if (user.Password != hashedPass)
+                Session.Instance.SetUsername(this.Username);
+
+                CloseAction();
+            }
+            catch (Exception e)
             {
-                MessageBox.Show("Invalid Password. Try again");
-                return;
+                MessageBox.Show(e.Message);
             }
+        }
 
-            Session.Instance.SetUsername(user.Username);
-
-            if (user.Type == ClearenceType.Admin)
+        private static void RedirectDependingOnUserType(ClearenceType type)
+        {
+            if (type == ClearenceType.Admin)
             {
                 var adminWindow = new AdminPanel();
                 adminWindow.Show();
@@ -94,7 +94,6 @@
                 var mainWindow = new MainWindow();
                 mainWindow.Show();
             }
-            CloseAction();
         }
 
         public void HandleCloseAppCommand(object parameter)

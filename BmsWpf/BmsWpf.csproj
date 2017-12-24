@@ -61,6 +61,9 @@
     <Reference Include="Microsoft.Extensions.Primitives, Version=2.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.Primitives.2.0.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
     </Reference>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="Remotion.Linq, Version=2.1.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
       <HintPath>..\packages\Remotion.Linq.2.1.1\lib\net45\Remotion.Linq.dll</HintPath>
     </Reference>
@@ -104,7 +107,6 @@
     </ApplicationDefinition>
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\Annotations.cs" />
-    <Compile Include="Services\UserService.cs" />
     <Compile Include="Sessions\Session.cs" />
     <Compile Include="ViewModels\IPageViewModel.cs" />
     <Compile Include="ViewModels\LoginFormViewModel.cs" />
@@ -124,6 +126,9 @@
     <Compile Include="Views\Forms\InvoiceForm.xaml.cs">
       <DependentUpon>InvoiceForm.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Forms\LoginForm.xaml.cs">
+      <DependentUpon>LoginForm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Forms\UserForm.xaml.cs">
       <DependentUpon>UserForm.xaml</DependentUpon>
     </Compile>
@@ -135,9 +140,6 @@
     </Compile>
     <Compile Include="Views\Forms\OfferForm.xaml.cs">
       <DependentUpon>OfferForm.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\LoginFormView.xaml.cs">
-      <DependentUpon>LoginFormView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -172,6 +174,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Forms\LoginForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Forms\UserForm.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -185,10 +191,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Forms\OfferForm.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\LoginFormView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -235,6 +237,10 @@
     <ProjectReference Include="..\BMS.DataBase\BMS.DataBase.csproj">
       <Project>{50336769-96b7-4d5d-87ee-ddca6afeb1e4}</Project>
       <Name>BMS.DataBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BmsWpf.Services\BmsWpf.Services.csproj">
+      <Project>{9b90f644-ad46-47f8-bc65-f9426b0e211b}</Project>
+      <Name>BmsWpf.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

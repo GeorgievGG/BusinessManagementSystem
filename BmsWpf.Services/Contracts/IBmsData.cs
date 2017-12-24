@@ -1,7 +1,7 @@
 ﻿using BMS.DataBaseModels;
 using BmsWpf.Services.Repositories;
 
-namespace BmsWpf.Services.UnitOfWork
+namespace BmsWpf.Services.Contracts
 {
 
     public interface IBmsData
