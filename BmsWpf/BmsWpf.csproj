@@ -121,6 +121,15 @@
     <Compile Include="Views\ChildWindows\ActiveProjects.xaml.cs">
       <DependentUpon>ActiveProjects.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ChildWindows\MainContragents.xaml.cs">
+      <DependentUpon>MainContragents.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ChildWindows\MainInquiries.xaml.cs">
+      <DependentUpon>MainInquiries.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ChildWindows\MainOffers.xaml.cs">
+      <DependentUpon>MainOffers.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Forms\InvoiceForm.xaml.cs">
       <DependentUpon>InvoiceForm.xaml</DependentUpon>
     </Compile>
@@ -162,6 +171,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ChildWindows\ActiveProjects.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ChildWindows\MainContragents.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ChildWindows\MainInquiries.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ChildWindows\MainOffers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

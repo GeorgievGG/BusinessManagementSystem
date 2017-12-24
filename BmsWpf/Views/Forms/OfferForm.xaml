@@ -9,7 +9,6 @@
     <Grid Margin="0,0,3.8,-1.6" Background="#FF2E3137">
         <Separator Margin="42,65,63,397" />
         <Label Content="Offer"  HorizontalAlignment="Left" Foreground="#FFA1EAE8" FontSize="30" FontWeight="Bold" Margin="210,10,0,0" VerticalAlignment="Top" Width="90"/>
-        <TextBox x:Name="offer_date" Height="30"  BorderThickness="2"  BorderBrush="#313c4f" Margin="245,270,53,0" Foreground="Gray"  TextAlignment="Center" TextWrapping="Wrap" Text="Date" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" VerticalContentAlignment="Center"/>
         <Button Content="Save" HorizontalAlignment="Left" Margin="262,318,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.36,-0.52" Background="#FF17597C" FontWeight="Bold" FontSize="16" Foreground="White"/>
         <Button Content="Back" HorizontalAlignment="Left" Margin="353,318,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.36,-0.52" Background="#FFAE3434" FontWeight="Bold" FontSize="16" Foreground="White"/>
         <TextBox x:Name="offer_description" Height="108" Margin="33,134,53,0" Foreground="Gray"  BorderThickness="2"  BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" VerticalContentAlignment="Center" Text="Description" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" />
@@ -19,5 +18,6 @@
         <Label Content="Client" HorizontalAlignment="Left" Margin="33,65,0,0" VerticalAlignment="Top" Background="#00000000" Foreground="White"/>
         <Label Content="Inquiry" HorizontalAlignment="Left" Margin="231,67,0,0" VerticalAlignment="Top" Background="#00000000" Foreground="White"/>
         <Label Content="Creator" HorizontalAlignment="Left" Margin="42,247,0,0" VerticalAlignment="Top" Background="#00000000" Foreground="White" RenderTransformOrigin="-0.99,1.266"/>
+        <DatePicker HorizontalAlignment="Left" Margin="262,276,0,0" VerticalAlignment="Top" Width="156"/>
     </Grid>
 </Window>

@@ -8,7 +8,7 @@
         Title="ContragentForm" Height="495.894" Width="507.834">
     <Grid Margin="0,0,3.6,-0.6" Background="#FF2E3137">
         <Separator Margin="92,47,81,369" />
-        <Label Content="Contragent" HorizontalAlignment="Left" Foreground="#FF97D4D3" FontSize="30" FontWeight="Bold" Margin="146,23,0,0" VerticalAlignment="Top"/>
+        <Label Content="Contragent" HorizontalAlignment="Left" Foreground="#FF97D4D3" FontSize="30" FontWeight="Bold" Margin="174,25,0,0" VerticalAlignment="Top"/>
         <TextBox Height="20" Margin="10,98,437,0" Foreground="Gray" BorderThickness="2" BorderBrush="#313c4f" TextAlignment="Center" TextWrapping="Wrap" Text="ID" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178"/>
         <TextBox Height="20" Margin="67,98,184,0" Foreground="Gray"  BorderThickness="2"  BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" Text="Company Name" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178"/>
         <TextBox Height="20" Margin="321,98,19,0" Foreground="Gray"  BorderThickness="2" BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" Text="VAT" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178"/>

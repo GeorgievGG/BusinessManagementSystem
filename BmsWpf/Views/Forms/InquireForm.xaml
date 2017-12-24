@@ -15,7 +15,6 @@
     <Grid Margin="0,0,4,-0.4" Background="#FF2E3137">
         <Separator Margin="71,59,89,418" />
         <Label Content="INQUIRE FORM"  HorizontalAlignment="Left" Foreground="#FFA1EAE8" FontSize="30" FontWeight="Bold" Margin="96,10,0,0" VerticalAlignment="Top"/>
-        <TextBox Height="23" BorderThickness="2"  BorderBrush="#313c4f" Margin="213,358,51,0" Foreground="Gray"  TextAlignment="Center" TextWrapping="Wrap" Text="Date" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178"/>
         <TextBox Height="130" Margin="42,186,51,0" Foreground="Gray"  BorderThickness="2"  BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" VerticalContentAlignment="Center" Text="Description" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" TextChanged="TextBox_TextChanged_1"/>
         <TextBox Height="30" Margin="221,104,51,0" Foreground="Gray"  BorderThickness="2"  BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" VerticalContentAlignment="Center" Text="Client" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" TextChanged="TextBox_TextChanged_1"/>
         <Button Content="Save" HorizontalAlignment="Left" Margin="221,440,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.36,-0.52" Background="#FF17597C" FontWeight="Bold" FontSize="16" Foreground="White"/>
@@ -27,5 +26,7 @@
         <ComboBox HorizontalAlignment="Left" Margin="42,104,0,0" VerticalAlignment="Top" Width="170"/>
         <Label Content="Client" HorizontalAlignment="Left" Margin="42,76,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
         <Separator Margin="71,399,89,78" />
+        <DatePicker HorizontalAlignment="Left" Margin="233,357,0,0" VerticalAlignment="Top" Width="140"/>
+        <DatePicker HorizontalAlignment="Left" Margin="346,381,-1,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
