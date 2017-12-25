@@ -6,12 +6,11 @@
         xmlns:local="clr-namespace:BmsWpf.Views.Forms"
         xmlns:viewModels="clr-namespace:BmsWpf.ViewModels"
         mc:Ignorable="d"
-        Title="ContragentForm" Height="519.626" Width="1082.15">
-		<Window.DataContext>
-			<viewModels:ContragentViewModel />
-		</Window.DataContext>
+        Title="ContragentForm" Height="523.626" Width="539.15">
+	<!--		<Window.DataContext>-->
+	<!--			<viewModels:ContragentViewModel />-->
+	<!--		</Window.DataContext>-->
 	<Grid Margin="0,3,4,-647" Background="#FF2E3137">
-		<Separator Margin="92,47,81,369" />
 		<Label Content="Contragent" HorizontalAlignment="Left" Foreground="#FF97D4D3" FontSize="30" FontWeight="Bold" Margin="146,23,0,0" VerticalAlignment="Top"/>
 		<TextBox Name ="Name" Height="20" Margin="10,102,225.4,0" Foreground="Gray"  BorderThickness="2"  BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" Text ="{Binding Name}"/>
 		<TextBox Name ="PersonalVatNumber" Height="20" Margin="279,102,19.4,0" Foreground="Gray"  BorderThickness="2" BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" Text = "{Binding PersonalVatNumber}"/>
@@ -25,9 +24,137 @@
 		<Button Content="Back" HorizontalAlignment="Left" Margin="397,396,0,0" VerticalAlignment="Top" Width="75" Foreground="White" Background="#FFAE3434" FontSize="16" FontWeight="Bold" />
 		<TextBox Height="20" Margin="10,357,226,0" Foreground="Gray"  BorderThickness="2"  BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" Text="Project Id" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178"/>
 		<TextBox Height="20" Margin="279,357,19,0" Foreground="Gray"  BorderThickness="2" BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" Text="Invoice Id" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178"/>
-		
+
 	</Grid>
 </Window>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

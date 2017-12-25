@@ -24,7 +24,7 @@ namespace BmsWpf.Views.Forms
         {
             InitializeComponent();
         }
-<<<<<<< HEAD
+
 
 		private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
 		{
@@ -35,8 +35,7 @@ namespace BmsWpf.Views.Forms
 		{
 
 		}
-	}
-=======
+
         private void Back_Click(object sender, RoutedEventArgs e)
         {
             var dash = new MainContragents();
@@ -44,5 +43,5 @@ namespace BmsWpf.Views.Forms
             this.Close();
         }
     }
->>>>>>> 46d29ccc55b1fe315e381434e73643f766632b18
+
 }
