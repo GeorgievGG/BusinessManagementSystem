@@ -23,5 +23,15 @@ namespace BmsWpf.Views.Forms
         {
             InitializeComponent();
         }
-    }
+
+		private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+		{
+
+		}
+
+		private void VATNumber_TextChanged(object sender, TextChangedEventArgs e)
+		{
+
+		}
+	}
 }

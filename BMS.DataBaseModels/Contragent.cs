@@ -23,7 +23,7 @@
         [StringLength(250,MinimumLength = 3)]
         public string Name { get; set; }
 
-        public int PersonalIndentityNumber { get; set; }
+        public int? PersonalIndentityNumber { get; set; }
 
         public string PersonalVatNumber { get; set; }
 

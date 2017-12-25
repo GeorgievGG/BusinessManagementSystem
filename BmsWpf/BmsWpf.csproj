@@ -106,6 +106,7 @@
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Sessions\Session.cs" />
+    <Compile Include="ViewModels\ContragentViewModel.cs" />
     <Compile Include="ViewModels\IPageViewModel.cs" />
     <Compile Include="ViewModels\LoginFormViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
@@ -139,6 +140,7 @@
     <Compile Include="Views\LoginFormView.xaml.cs">
       <DependentUpon>LoginFormView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
