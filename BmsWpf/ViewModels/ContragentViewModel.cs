@@ -16,10 +16,6 @@ namespace BmsWpf.ViewModels
 		public ICommand SaveCommand;
 		public ICommand BackCommand;
 
-		public Action CloseAction { get; set; }
-
-		//public string Name { get; }
-
 		public string Name { get; set; }
 
 		public string PersonalVatNumber { get; set; }
@@ -36,7 +32,19 @@ namespace BmsWpf.ViewModels
 			}
 		}
 
-		private void HandleSaveCommand(object parameter)
+        public ICommand Back
+        {
+            get
+            {
+                if (this.BackCommand == null)
+                {
+                    this.BackCommand = new RelayCommand(this.HandleBackCommand);
+                }
+                return this.BackCommand;
+            }
+        }
+
+        private void HandleSaveCommand(object parameter)
 		{
 			using (var context = new BmsContex())
 			{
@@ -50,5 +58,10 @@ namespace BmsWpf.ViewModels
 				context.SaveChanges();
 			}
 		}
-	}
+
+        private void HandleBackCommand(object parameter)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

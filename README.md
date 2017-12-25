@@ -62,7 +62,7 @@ public void Handle[ИмеНаКоманда]Command(object parameter)
                          FontSize="18" 
                          Text="{Binding Username}"/> <- Това е за поленце
 						 
-6: За да се възползвате от ViewModel-а, трябва да направите връзка от XAML през namespace:
+6: За да се възползвате от ViewModel-а, трябва да BUILD-нете и след това да направите връзка от XAML през namespace:
 
 xmlns:viewModels="clr-namespace:BmsWpf.ViewModels" <- слага се като атрибут на Window/Control елемента
 
