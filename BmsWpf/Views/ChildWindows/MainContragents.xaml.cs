@@ -16,25 +16,25 @@ using System.Windows.Shapes;
 namespace BmsWpf.Views.ChildWindows
 {
     /// <summary>
-    /// Interaction logic for ActiveProjects.xaml
+    /// Interaction logic for MainContragents.xaml
     /// </summary>
-    public partial class ActiveProjects : Window
+    public partial class MainContragents : Window
     {
-        public ActiveProjects()
+        public MainContragents()
         {
             InitializeComponent();
         }
 
         private void Add_New_Click(object sender, RoutedEventArgs e)
         {
-            var dash = new ProjectForm();
+            var dash = new ContragentForm();
             dash.Show();
             this.Close();
         }
 
-        private void Edit_click(object sender, RoutedEventArgs e)
+        private void Edit_Click(object sender, RoutedEventArgs e)
         {
-            var dash = new ProjectForm();
+            var dash = new ContragentForm();
             dash.Show();
             this.Close();
         }

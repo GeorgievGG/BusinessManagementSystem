@@ -1,19 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-
-namespace BmsWpf.Views.Forms
+﻿namespace BmsWpf.Views.Forms
 {
+    using System.Windows;
+
     /// <summary>
     /// Interaction logic for InvoiceForm.xaml
     /// </summary>
@@ -22,6 +10,13 @@ namespace BmsWpf.Views.Forms
         public InvoiceForm()
         {
             InitializeComponent();
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+                var dash = new MainWindow();
+                dash.Show();
+                this.Close();
         }
     }
 }

@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BmsWpf.Sessions
+﻿namespace BmsWpf.Sessions
 {
+    using BmsWpf.Services.Contracts;
+    using BmsWpf.Services.Services;
+
     public sealed class Session
     {
         private static Session instance;
+        private UserService userService;
 
         private Session()
         {
@@ -17,6 +15,7 @@ namespace BmsWpf.Sessions
 
         public string Username { get; private set; }
         public bool IsLogged { get; private set; }
+        public IBmsData BmsData { get; private set; }
 
         public static Session Instance
         {
@@ -30,10 +29,27 @@ namespace BmsWpf.Sessions
             }
         }
 
+        public UserService UserService
+        {
+            get
+            {
+                if (userService == null)
+                {
+                    userService = new UserService(BmsData);
+                }
+                return userService;
+            }
+        }
+
         public void SetUsername(string username)
         {
             this.Username = username;
             this.IsLogged = true;
+        }
+
+        public void SetBmsData(IBmsData bmsData)
+        {
+            this.BmsData = bmsData;
         }
     }
 }

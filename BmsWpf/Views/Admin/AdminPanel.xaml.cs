@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BmsWpf.Views.Forms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -40,7 +41,7 @@ namespace BmsWpf.Views.Admin
 
         private void Logout(object sender, RoutedEventArgs e)
         {
-            LoginFormView dash = new LoginFormView();
+            LoginForm dash = new LoginForm();
             dash.Show();
             this.Close();
         }
