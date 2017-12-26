@@ -25,7 +25,7 @@
 
         public string Username { get; set; }
 
-        public string Name
+        public string ViewName
         {
             get
             {
@@ -57,7 +57,7 @@
             }
         }
 
-        public void HandleLoginCommand(object parameter)
+        private void HandleLoginCommand(object parameter)
         {
             var box = (PasswordBox)parameter;
             var pass = box.Password;
@@ -69,8 +69,8 @@
 
             try
             {
-                var type = userService.LoginUser(this.Username, hashedPass);
-                RedirectDependingOnUserType(type);
+                var user = userService.LoginUser(this.Username, hashedPass);
+                RedirectDependingOnUserType(user.Type);
 
                 Session.Instance.SetUsername(this.Username);
 
@@ -82,21 +82,7 @@
             }
         }
 
-        private static void RedirectDependingOnUserType(ClearenceType type)
-        {
-            if (type == ClearenceType.Admin)
-            {
-                var adminWindow = new AdminPanel();
-                adminWindow.Show();
-            }
-            else
-            {
-                var mainWindow = new MainWindow();
-                mainWindow.Show();
-            }
-        }
-
-        public void HandleCloseAppCommand(object parameter)
+        private void HandleCloseAppCommand(object parameter)
         {
             Environment.Exit(0);
         }
@@ -118,5 +104,18 @@
             }
         }
 
+        private void RedirectDependingOnUserType(ClearenceType type)
+        {
+            if (type == ClearenceType.Admin)
+            {
+                var adminWindow = this.ViewManager.ComposeObjects<AdminPanel>();
+                adminWindow.Show();
+            }
+            else
+            {
+                var mainWindow = this.ViewManager.ComposeObjects<MainWindow>();
+                mainWindow.Show();
+            }
+        }
     }
 }

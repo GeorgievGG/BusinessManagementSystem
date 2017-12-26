@@ -47,6 +47,12 @@
             this.IsLogged = true;
         }
 
+        public void Logout()
+        {
+            this.Username = null;
+            this.IsLogged = false;
+        }
+
         public void SetBmsData(IBmsData bmsData)
         {
             this.BmsData = bmsData;

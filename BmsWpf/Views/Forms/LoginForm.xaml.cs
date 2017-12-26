@@ -10,16 +10,13 @@
     /// </summary>
     public partial class LoginForm : Window
     {
-        private IBmsData bmsData;
-
         public LoginForm()
         {
             InitializeComponent();
         }
 
-        public LoginForm(IBmsData bmsData)
+        public LoginForm(IBmsData bmsData, IViewManager viewManager)
         {
-            this.bmsData = bmsData;
             InitializeComponent();
 
             LoginFormViewModel vm = (LoginFormViewModel)this.DataContext; // this creates an instance of the ViewModel
@@ -28,6 +25,7 @@
                 vm.CloseAction = new Action(() => this.Close());
 
             vm.BmsData = bmsData;
+            vm.ViewManager = viewManager;
         }
     }
 }

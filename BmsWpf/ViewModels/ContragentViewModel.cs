@@ -1,24 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Mime;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using BmsWpf.Behaviour;
-using BMS.DataBaseData;
-using BMS.DataBaseModels;
-
-namespace BmsWpf.ViewModels
+﻿namespace BmsWpf.ViewModels
 {
-	class ContragentViewModel : ViewModelBase, IPageViewModel
+    using BMS.DataBaseData;
+    using BMS.DataBaseModels;
+    using BmsWpf.Behaviour;
+    using System;
+    using System.Windows.Input;
+
+    public class ContragentViewModel : ViewModelBase, IPageViewModel
 	{
 		public ICommand SaveCommand;
 		public ICommand BackCommand;
 
-		public Action CloseAction { get; set; }
-
-		//public string Name { get; }
+        public string ViewName
+        {
+            get
+            {
+                return "Contragent View";
+            }
+        }
 
 		public string Name { get; set; }
 
@@ -38,7 +37,19 @@ namespace BmsWpf.ViewModels
 			}
 		}
 
-		private void HandleSaveCommand(object parameter)
+        public ICommand Back
+        {
+            get
+            {
+                if (this.BackCommand == null)
+                {
+                    this.BackCommand = new RelayCommand(this.HandleBackCommand);
+                }
+                return this.BackCommand;
+            }
+        }
+
+        private void HandleSaveCommand(object parameter)
 		{
 			using (var context = new BmsContex())
 			{
@@ -53,5 +64,10 @@ namespace BmsWpf.ViewModels
 				context.SaveChanges();
 			}
 		}
-	}
+
+        private void HandleBackCommand(object parameter)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
