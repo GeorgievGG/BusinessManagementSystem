@@ -5,6 +5,7 @@
     using Ninject;
     using BmsWpf.Services.UnitOfWork;
     using BmsWpf.Services.Contracts;
+    using BmsWpf.Services.Services;
 
     public partial class App : Application
     {
@@ -13,20 +14,9 @@
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            this.ConfigureContainer();
-            this.ComposeObjects();
+            var viewManager = new ViewManager();
+            Current.MainWindow = viewManager.ComposeObjects<LoginForm>();
             Current.MainWindow.Show();
-        }
-
-        private void ConfigureContainer()
-        {
-            this.container = new StandardKernel();
-            container.Bind<IBmsData>().To<BmsData>().InTransientScope();
-        }
-
-        public void ComposeObjects()
-        {
-            Current.MainWindow = this.container.Get<LoginForm>();
         }
     }
 }

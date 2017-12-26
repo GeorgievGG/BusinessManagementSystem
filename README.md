@@ -12,7 +12,7 @@ Collaborators:
 
 1: Правите ViewModel, наследяващ ViewModelBase
 
-public class LoginFormViewModel : ViewModelBase, IPageViewModel
+public class LoginFormViewModel : ViewModelBase
 
 2: За всяко поле слагате обикновено пропърти:
 

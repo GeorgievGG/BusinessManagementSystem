@@ -1,20 +1,11 @@
-﻿using BmsWpf.Views.Forms;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-
-namespace BmsWpf.Views.Admin
+﻿namespace BmsWpf.Views.Admin
 {
+    using BmsWpf.Services.Contracts;
+    using BmsWpf.ViewModels;
+    using BmsWpf.Views.Forms;
+    using System;
+    using System.Windows;
+
     /// <summary>
     /// Interaction logic for AdminPanel.xaml
     /// </summary>
@@ -25,25 +16,16 @@ namespace BmsWpf.Views.Admin
             InitializeComponent();
         }
 
-        private void AddNewUser(object sender, RoutedEventArgs e)
+        public AdminPanel(IViewManager viewManager)
         {
-            AddUser dash = new AddUser();
-            dash.Show();
-            this.Close();
-        }
+            InitializeComponent();
 
-        private void ManageUsers(object sender, RoutedEventArgs e)
-        {
-            ManageUser dash = new ManageUser();
-            dash.Show();
-            this.Close();
-        }
+            var vm = (AdminPanelViewModel)this.DataContext; // this creates an instance of the ViewModel
 
-        private void Logout(object sender, RoutedEventArgs e)
-        {
-            LoginForm dash = new LoginForm();
-            dash.Show();
-            this.Close();
+            if (vm.CloseAction == null)
+                vm.CloseAction = new Action(() => this.Close());
+
+            vm.ViewManager = viewManager;
         }
     }
 }

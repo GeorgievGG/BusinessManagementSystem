@@ -4,6 +4,6 @@ namespace BmsWpf.Services.Contracts
 {
     public interface IViewManager
     {
-        //Window ComposeObjects();
+        T ComposeObjects<T>();
     }
 }

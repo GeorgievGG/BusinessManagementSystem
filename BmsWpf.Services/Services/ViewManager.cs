@@ -1,26 +1,29 @@
 ﻿namespace BmsWpf.Services.Services
 {
     using BmsWpf.Services.Contracts;
+    using BmsWpf.Services.UnitOfWork;
+    using Ninject;
 
     public class ViewManager : IViewManager
     {
-        //private IKernel container;
+        private IKernel container;
 
-        //public ViewManager()
-        //{
-        //    ConfigureContainer();
-        //}
+        public ViewManager()
+        {
+            ConfigureContainer();
+        }
 
-        //private void ConfigureContainer()
-        //{
-        //    this.container = new StandardKernel();
-        //    container.Bind<IBmsData>().To<BmsData>().InTransientScope();
-        //    container.Bind<IViewManager>().To<ViewManager>().InTransientScope();
-        //}
+        private void ConfigureContainer()
+        {
+            this.container = new StandardKernel();
+            container.Bind<IBmsData>().To<BmsData>().InTransientScope();
+            container.Bind<IViewManager>().To<ViewManager>().InTransientScope();
+            container.Bind<IUserService>().To<UserService>().InTransientScope();
+        }
 
-        //public Window ComposeObjects()
-        //{
-        //    return this.container.Get<Window>();
-        //}
+        public T ComposeObjects<T>()
+        {
+            return this.container.Get<T>();
+        }
     }
 }

@@ -1,25 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Input;
-using BmsWpf.Annotations;
-using BmsWpf.Behaviour;
-using BmsWpf.Views.Forms;
-
-namespace BmsWpf.ViewModels
+﻿namespace BmsWpf.ViewModels
 {
-	public class MainWindowViewModel : ViewModelBase, IPageViewModel
+    using BmsWpf.Behaviour;
+    using BmsWpf.Views.Forms;
+    using System;
+    using System.Windows.Input;
+
+    public class MainWindowViewModel : ViewModelBase, IPageViewModel
 	{
 		public ICommand ClientCommand;
 
 		public Action CloseAction { get; set; }
 
-		public string Name { get; }
+        public string ViewName
+        {
+            get
+            {
+                return "Main Window";
+            }
+        }
 
-		public ICommand Client
+        public ICommand Client
 		{
 			get
 			{
