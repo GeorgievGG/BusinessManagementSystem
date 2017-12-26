@@ -42,6 +42,11 @@ namespace BmsWpf.Views.Forms
             dash.Show();
             this.Close();
         }
-    }
+
+		private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
+		{
+
+		}
+	}
 
 }

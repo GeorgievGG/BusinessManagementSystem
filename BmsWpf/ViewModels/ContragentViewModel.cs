@@ -24,6 +24,8 @@ namespace BmsWpf.ViewModels
 
 		public string PersonalVatNumber { get; set; }
 
+		public string PersonalIndentityNumber { get; set; }
+
 		public ICommand Save
 		{
 			get
@@ -43,7 +45,8 @@ namespace BmsWpf.ViewModels
 				var contragent = new Contragent()
 				{
 					Name = this.Name,
-					PersonalVatNumber = this.PersonalVatNumber
+					PersonalVatNumber = this.PersonalVatNumber,
+					PersonalIndentityNumber = this.PersonalIndentityNumber
 				};
 
 				context.Contragents.Add(contragent);
