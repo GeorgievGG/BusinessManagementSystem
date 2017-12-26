@@ -6,279 +6,33 @@
         xmlns:local="clr-namespace:BmsWpf.Views.Forms"
         xmlns:viewModels="clr-namespace:BmsWpf.ViewModels"
         mc:Ignorable="d"
-        Title="ContragentForm" Height="523.626" Width="539.15">
-			<Window.DataContext>
-				<viewModels:ContragentViewModel />
-			</Window.DataContext>
-	<Grid Margin="0,3,4,-647" Background="#FF2E3137">
-		<Label Content="Contragent" HorizontalAlignment="Left" Foreground="#FF97D4D3" FontSize="30" FontWeight="Bold" Margin="146,23,0,0" VerticalAlignment="Top"/>
-		<TextBox Name ="Name" Height="20" Margin="10,102,225.4,0" Foreground="Gray"  BorderThickness="2"  BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" Text="{Binding Name}"/>
-		<TextBox Name ="PersonalVatNumber" Height="20" Margin="279,102,19.4,0" Foreground="Gray"  BorderThickness="2" BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" Text="{Binding PersonalVatNumber}"/>
-		<TextBox Height="20" Margin="279,127,19.4,0" Foreground="Gray"  BorderThickness="2"  BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178"/>
-		<TextBox Height="20" Margin="10,127,225.4,0" Foreground="Gray"  BorderThickness="2" BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" Text="Phone" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178"/>
-		<TextBox Height="20" Margin="10,212,19.4,0" Foreground="Gray"  BorderThickness="2" BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" Text="Contact Person Name" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178"/>
-		<TextBox Height="55" Margin="279,152,19.4,0" Foreground="Gray"  BorderThickness="2"  BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" Text="Bank Details" VerticalContentAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178"/>
-		<TextBox Height="86" Margin="10,237,19.4,0" Foreground="Gray"  BorderThickness="2"  BorderBrush="#313c4f" VerticalContentAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" Text="Notes" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178"/>
-		<TextBox Height="55" Margin="10,152,225.4,0" Foreground="Gray"  BorderThickness="2"  BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" VerticalContentAlignment="Center" Text="Address" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178"/>
-        <Button Content="Save" HorizontalAlignment="Left" Margin="305,396,0,0" VerticalAlignment="Top" Width="75" Background="#FF1D5A8C" Foreground="White" FontWeight="Bold" FontSize="16" Command="{Binding Save}"/>
-        <Button Content="Back" HorizontalAlignment="Left" Margin="397,396,0,0" VerticalAlignment="Top" Width="75" Foreground="White" Background="#FFAE3434" FontSize="16" FontWeight="Bold" Command="{Binding Back}"/>
-		<TextBox Height="20" Margin="10,357,226,0" Foreground="Gray"  BorderThickness="2"  BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" Text="Project Id" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178"/>
-		<TextBox Height="20" Margin="279,357,19,0" Foreground="Gray"  BorderThickness="2" BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" Text="Invoice Id" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178"/>
+
+        Title="ContragentForm" Height="705.626" Width="631.15">
+					<Window.DataContext>
+						<viewModels:ContragentViewModel />
+					</Window.DataContext>
+	<Grid Margin="0,3,4,1" Background="#FF2E3137">
+		<Label Content="Contragent" HorizontalAlignment="Left" Foreground="#FF97D4D3" FontSize="30" FontWeight="Bold" Margin="315,28,0,0" VerticalAlignment="Top"/>
+		<TextBox Name ="Name" Height="29" Margin="250,108,42,0" Foreground="Gray"  BorderThickness="2"  BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" Text ="{Binding Name}"/>
+		<TextBox Name ="PersonalVatNumber" Height="27" Margin="250,154,42,0" Foreground="Gray"  BorderThickness="2" BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" Text = "{Binding PersonalVatNumber}"/>
+		<TextBox Height="27" Margin="250,291,42,0" Foreground="Gray"  BorderThickness="2"  BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178"/>
+		<TextBox Height="26" Margin="250,247,42,0" Foreground="Gray"  BorderThickness="2" BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" Text="Phone" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178"/>
+		<TextBox Name="PersonalIndentityNumber" Height="28" Margin="250,200,42,0" Foreground="Gray"  BorderThickness="2" BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" Text = "{Binding PersonalIndentityNumber}"/>
+		<TextBox Height="29" Margin="250,423,42,0" Foreground="Gray"  BorderThickness="2"  BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" Text="Bank Details" VerticalContentAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178"/>
+		<TextBox Height="86" Margin="250,468,42,0" Foreground="Gray"  BorderThickness="2"  BorderBrush="#313c4f" VerticalContentAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" Text="Notes" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178"/>
+		<TextBox Height="27" Margin="250,374,42,0" Foreground="Gray"  BorderThickness="2"  BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" VerticalContentAlignment="Center" Text="Address" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178"/>
+		<Button Content="Save" HorizontalAlignment="Left" Margin="329,602,0,0" VerticalAlignment="Top" Width="112" Background="#FF1D5A8C" Foreground="White" FontWeight="Bold" FontSize="16" Command="{Binding Save}" RenderTransformOrigin="-0.133,0.56"/>
+		<Button Content="Back" HorizontalAlignment="Left" Margin="465,602,0,0" VerticalAlignment="Top" Width="112" Foreground="White" Background="#FFAE3434" FontSize="16" FontWeight="Bold" />
+		<TextBox Height="27" Margin="250,332,42,0" Foreground="Gray"  BorderThickness="2" BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" Text="Contact Person Name" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" />
+		<Label Content="Company Name" Foreground="White" HorizontalAlignment="Left" Margin="75,108,0,0" VerticalAlignment="Top" Width="149"/>
+		<Label Content="VAT Number" Foreground="White" HorizontalAlignment="Left" Margin="75,154,0,0" VerticalAlignment="Top" Width="149"/>
+		<Label Content="Phone Number" Foreground="White" HorizontalAlignment="Left" Margin="75,244,0,0" VerticalAlignment="Top" Width="149"/>
+		<Label Content="Email" Foreground="White" HorizontalAlignment="Left" Margin="75,288,0,0" VerticalAlignment="Top" Width="149"/>
+		<Label Content="Personal Identity Number" Foreground="White" HorizontalAlignment="Left" Margin="75,200,0,0" VerticalAlignment="Top" Width="149"/>
+		<Label Content="Contact Person" Foreground="White" HorizontalAlignment="Left" Margin="75,329,0,0" VerticalAlignment="Top" Width="149"/>
+		<Label Content="Address" Foreground="White" HorizontalAlignment="Left" Margin="75,374,0,0" VerticalAlignment="Top" Width="149"/>
+		<Label Content="Bank Details" Foreground="White" HorizontalAlignment="Left" Margin="75,423,0,0" VerticalAlignment="Top" Width="149"/>
+		<Label Content="Notes" Foreground="White" HorizontalAlignment="Left" Margin="75,498,0,0" VerticalAlignment="Top" Width="149"/>
 
 	</Grid>
 </Window>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
