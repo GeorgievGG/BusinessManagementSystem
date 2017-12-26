@@ -108,6 +108,8 @@
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Sessions\Session.cs" />
+    <Compile Include="Utilities\MultiValueConverter.cs" />
+    <Compile Include="ViewModels\AddNewUserViewModel.cs" />
     <Compile Include="ViewModels\AdminPanelViewModel.cs" />
     <Compile Include="ViewModels\ContragentViewModel.cs" />
     <Compile Include="ViewModels\IPageViewModel.cs" />
@@ -252,9 +254,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Utilities\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\BMS.DataBaseData\BMS.DataBaseData.csproj">
       <Project>{0D08B61A-875D-43E3-B165-E8204EA3929A}</Project>

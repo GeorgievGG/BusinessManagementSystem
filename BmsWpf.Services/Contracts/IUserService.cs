@@ -4,6 +4,9 @@ namespace BmsWpf.Services.Contracts
 {
     public interface IUserService
     {
-        User LoginUser(string username, string password);
+        ClearenceType LoginUser(string username, string password);
+        string CreateUser(string username, string password, ClearenceType userType);
+
+        string HashToSha1(string password);
     }
 }

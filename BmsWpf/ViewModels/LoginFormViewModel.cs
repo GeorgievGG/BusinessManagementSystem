@@ -6,8 +6,6 @@
     using BmsWpf.Sessions;
     using BmsWpf.Views.Admin;
     using System;
-    using System.Security.Cryptography;
-    using System.Text;
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Input;
@@ -66,8 +64,8 @@
 
             try
             {
-                var user = this.UserService.LoginUser(this.Username, hashedPass);
-                RedirectDependingOnUserType(user.Type);
+                var cleareanceType = this.UserService.LoginUser(this.Username, hashedPass);
+                RedirectDependingOnUserType(cleareanceType);
 
                 Session.Instance.SetUsername(this.Username);
 
