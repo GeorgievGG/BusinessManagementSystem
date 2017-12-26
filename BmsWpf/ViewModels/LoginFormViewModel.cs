@@ -22,6 +22,7 @@
 
         public IBmsData BmsData { get; set; }
         public IViewManager ViewManager { get; set; }
+        public IUserService UserService { get; set; }
 
         public string Username { get; set; }
 
@@ -61,15 +62,11 @@
         {
             var box = (PasswordBox)parameter;
             var pass = box.Password;
-            var hashedPass = HashToSha1(pass);
-
-            Session.Instance.SetBmsData(this.BmsData);
-
-            var userService = Session.Instance.UserService;
+            var hashedPass = this.UserService.HashToSha1(pass);
 
             try
             {
-                var user = userService.LoginUser(this.Username, hashedPass);
+                var user = this.UserService.LoginUser(this.Username, hashedPass);
                 RedirectDependingOnUserType(user.Type);
 
                 Session.Instance.SetUsername(this.Username);
@@ -85,23 +82,6 @@
         private void HandleCloseAppCommand(object parameter)
         {
             Environment.Exit(0);
-        }
-
-        private static string HashToSha1(string pass)
-        {
-            using (SHA1Managed sha1 = new SHA1Managed())
-            {
-                var hash = sha1.ComputeHash(Encoding.UTF8.GetBytes(pass));
-                var sb = new StringBuilder(hash.Length * 2);
-
-                foreach (byte b in hash)
-                {
-                    // can be "x2" if you want lowercase
-                    sb.Append(b.ToString("X2"));
-                }
-
-                return sb.ToString();
-            }
         }
 
         private void RedirectDependingOnUserType(ClearenceType type)

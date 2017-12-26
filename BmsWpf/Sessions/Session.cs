@@ -1,6 +1,5 @@
 ﻿namespace BmsWpf.Sessions
 {
-    using BmsWpf.Services.Contracts;
     using BmsWpf.Services.Services;
 
     public sealed class Session
@@ -15,7 +14,6 @@
 
         public string Username { get; private set; }
         public bool IsLogged { get; private set; }
-        public IBmsData BmsData { get; private set; }
 
         public static Session Instance
         {
@@ -29,18 +27,6 @@
             }
         }
 
-        public UserService UserService
-        {
-            get
-            {
-                if (userService == null)
-                {
-                    userService = new UserService(BmsData);
-                }
-                return userService;
-            }
-        }
-
         public void SetUsername(string username)
         {
             this.Username = username;
@@ -51,11 +37,6 @@
         {
             this.Username = null;
             this.IsLogged = false;
-        }
-
-        public void SetBmsData(IBmsData bmsData)
-        {
-            this.BmsData = bmsData;
         }
     }
 }

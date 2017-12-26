@@ -15,7 +15,7 @@
             InitializeComponent();
         }
 
-        public LoginForm(IBmsData bmsData, IViewManager viewManager)
+        public LoginForm(IBmsData bmsData, IViewManager viewManager, IUserService userService)
         {
             InitializeComponent();
 
@@ -26,6 +26,7 @@
 
             vm.BmsData = bmsData;
             vm.ViewManager = viewManager;
+            vm.UserService = userService;
         }
     }
 }
