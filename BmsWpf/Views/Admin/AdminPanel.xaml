@@ -3,13 +3,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:BmsWpf.Views.Admin"
+        xmlns:viewModels="clr-namespace:BmsWpf.ViewModels"
         mc:Ignorable="d"
         Title="AdminPanel" Height="400" Width="400">
+    <Window.DataContext>
+        <viewModels:AdminPanelViewModel />
+    </Window.DataContext>
     <Grid Background="#FF2E3137">
 
         <Button 
-            Click="AddNewUser"
             Content="Add new user"
             HorizontalAlignment="Left"
             Margin="137,107,0,0"
@@ -18,9 +20,9 @@
             Background="#FF5D85B0"
             FontWeight="Bold" 
             FontSize="14"
-            Foreground="White"/>
+            Foreground="White"
+            Command="{Binding AddNewUser}"/>
         <Button 
-                Click="ManageUsers"
                 Content="Manage Users"
                 HorizontalAlignment="Left"
                 Margin="137,191,0,0"
@@ -29,7 +31,8 @@
                 Background="#FF5D85B0" 
                 FontSize="14"
                 FontWeight="Bold" 
-                Foreground="White"/>
+                Foreground="White"
+                Command="{Binding ManageUsers}"/>
         <TextBox HorizontalAlignment="Left"
                  Height="30" Margin="126,36,0,0"
                  TextWrapping="Wrap"
@@ -43,13 +46,14 @@
         <Separator HorizontalAlignment="Left" Height="23" Margin="82,71,0,0" VerticalAlignment="Top" Width="240"/>
         <Separator HorizontalAlignment="Left" Height="18" Margin="82,262,0,0" VerticalAlignment="Top" Width="240"/>
         <Button 
-            Click="Logout"
             Content="LOGOUT" 
             HorizontalAlignment="Left" 
             Margin="155,307,0,0"
             VerticalAlignment="Top"
             Width="99"
             Background="#FF831C1C"
-            Foreground="White" Height="34"/>
+            Foreground="White" 
+            Height="34"
+            Command="{Binding Logout}"/>
     </Grid>
 </Window>

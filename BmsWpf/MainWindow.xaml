@@ -4,22 +4,28 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BmsWpf"
+        xmlns:viewModels="clr-namespace:BmsWpf.ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" Height="549.935" Width="725.398" FontSize="14" Background="#FF030F1D">
-    <Border Background="#2e3137" CornerRadius="20" Margin="20,20,20.2,13">
-        <Grid Margin="10,0,-9.8,-36.8" RenderTransformOrigin="0.376,0.485" Height="524" VerticalAlignment="Top">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="464*"/>
-                <RowDefinition Height="57*"/>
-            </Grid.RowDefinitions>
-            <Label Content="Welcome!" Foreground="White" FontSize="36" HorizontalAlignment="Center" RenderTransformOrigin="3.536,-1.191" Margin="247,37,252,376.4" Width="180" FontWeight="Bold"/>
-            <Button Content="Active Projects" Background="#FF104C71" Margin="67,151,359,242.4" Foreground="White" FontSize="22" Click="projects_Click"/>
-            <Button Content="Manage Offers" Background="#FF104C71" Margin="67,282,359,117.4" Foreground="White" FontSize="22" Click="offers_Click"/>
-            <Button Content="Inquiries" Background="#FF104C71" Margin="358,282,68,122.4" Foreground="White" FontSize="22" RenderTransformOrigin="0.537,1.588" Click="inquiries_Click"/>
-            <Button Content="Contragents" Background="#FF104C71" Margin="358,151,68,242.4" Foreground="White" FontSize="22" Click="contragents_Click"/>
-            <Separator HorizontalAlignment="Left" Height="27" Margin="67,90,0,0" VerticalAlignment="Top" Width="544"/>
-            <Separator HorizontalAlignment="Left" Height="27" Margin="67,376,0,0" VerticalAlignment="Top" Width="544"/>
-            <Button Click="Logout" Content="LOGOUT" Background="#FF972B2B" Margin="475,408,68,15.4" Foreground="White" FontSize="22"/>
-        </Grid>
-    </Border>
+	<Window.DataContext>
+		<viewModels:MainWindowViewModel />
+	</Window.DataContext>
+	<Border Background="#2e3137" CornerRadius="20" Margin="20,20,20.2,13">
+		<Grid Margin="10,0,-9.8,-36.8" RenderTransformOrigin="0.376,0.485" Height="524" VerticalAlignment="Top">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="464*"/>
+				<RowDefinition Height="57*"/>
+			</Grid.RowDefinitions>
+			<Label Content="Welcome!" Foreground="White" FontSize="36" HorizontalAlignment="Center" RenderTransformOrigin="3.536,-1.191" Margin="247,37,252,376.4" Width="180" FontWeight="Bold"/>
+			<Button Content="Active Projects" Background="#FF104C71" Margin="67,151,359,259" Foreground="White" FontSize="22"/>
+			<Button Content="Manage Offers" Background="#FF104C71" Margin="67,224,359,186" Foreground="White" FontSize="22"/>
+			<Button Content="Inquiries" Background="#FF104C71" Margin="358,224,68,186" Foreground="White" FontSize="22"/>
+			<Button Name="Clients" Content="Clients" Background="#FF104C71" Margin="358,151,68,259" Foreground="White" FontSize="22" Command="{Binding Client}"/>
+			<Button Content="Contracts" Background="#FF104C71" Margin="358,294,68,116" Foreground="White" FontSize="22"/>
+			<Button Content="Suppliers" Background="#FF104C71" Margin="67,294,359,116" Foreground="White" FontSize="22"/>
+			<Separator HorizontalAlignment="Left" Height="27" Margin="67,90,0,0" VerticalAlignment="Top" Width="544"/>
+			<Separator HorizontalAlignment="Left" Height="27" Margin="67,381,0,0" VerticalAlignment="Top" Width="544"/>
+			<Button Click="Logout" Content="LOGOUT" Background="#FF972B2B" Margin="475,413,68,10.4" Foreground="White" FontSize="22"/>
+		</Grid>
+	</Border>
 </Window>

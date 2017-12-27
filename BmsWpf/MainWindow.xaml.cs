@@ -1,22 +1,9 @@
-﻿using BmsWpf.Views;
-using BmsWpf.Views.ChildWindows;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
-namespace BmsWpf
+﻿namespace BmsWpf
 {
+    using BmsWpf.Views.ChildWindows;
+    using BmsWpf.Views.Forms;
+    using System.Windows;
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -29,7 +16,7 @@ namespace BmsWpf
 
         private void Logout(object sender, RoutedEventArgs e)
         {
-            LoginFormView dash = new LoginFormView();
+            LoginForm dash = new LoginForm();
             dash.Show();
             this.Close();
         }

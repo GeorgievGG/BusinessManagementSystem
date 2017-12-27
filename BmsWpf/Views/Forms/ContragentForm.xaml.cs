@@ -24,11 +24,29 @@ namespace BmsWpf.Views.Forms
         {
             InitializeComponent();
         }
+
+
+		private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+		{
+
+		}
+
+		private void VATNumber_TextChanged(object sender, TextChangedEventArgs e)
+		{
+
+		}
+
         private void Back_Click(object sender, RoutedEventArgs e)
         {
             var dash = new MainContragents();
             dash.Show();
             this.Close();
         }
-    }
+
+		private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
+		{
+
+		}
+	}
+
 }

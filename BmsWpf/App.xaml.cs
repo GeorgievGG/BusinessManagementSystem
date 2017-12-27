@@ -1,17 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
-
-namespace BmsWpf
+﻿namespace BmsWpf
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
+    using BmsWpf.Services.Services;
+    using BmsWpf.Views.Forms;
+    using System.Windows;
+
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+            var viewManager = new ViewManager();
+            Current.MainWindow = viewManager.ComposeObjects<LoginForm>();
+            Current.MainWindow.Show();
+        }
     }
 }

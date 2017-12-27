@@ -1,4 +1,4 @@
-﻿namespace BmsWpf.Services.Repositories
+﻿namespace BmsWpf.Services.Contracts
 {
     using System.Linq;
 

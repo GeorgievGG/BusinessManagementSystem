@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BmsWpf.Sessions
+﻿namespace BmsWpf.Sessions
 {
+    using BmsWpf.Services.Services;
+
     public sealed class Session
     {
         private static Session instance;
+        private UserService userService;
 
         private Session()
         {
@@ -34,6 +31,12 @@ namespace BmsWpf.Sessions
         {
             this.Username = username;
             this.IsLogged = true;
+        }
+
+        public void Logout()
+        {
+            this.Username = null;
+            this.IsLogged = false;
         }
     }
 }

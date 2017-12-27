@@ -46,7 +46,22 @@ public void Handle[ИмеНаКоманда]Command(object parameter)
 	userService.LoginUser(this.Username, hashedPass);
 }
 
-5: Към съответните методи и пропъртита се слагат Binding пропъртита на полетата/бутоните в XAML:
+5: За да можете да си затворите екрана, ви трябват следните неща:
+
+	- Във VM правите CloseAction(): 
+
+        public Action CloseAction { get; set; }
+		
+	- Във cs файла на XAML формата слагате следната логика:
+	
+		AdminPanelViewModel vm = (AdminPanelViewModel)this.DataContext; // this creates an instance of the ViewModel
+
+            if (vm.CloseAction == null)
+                vm.CloseAction = new Action(() => this.Close());
+	
+	- Когато искате да затворите формата, просто във командата пишете this.CloseAction();
+
+6: Към съответните методи и пропъртита се слагат Binding пропъртита на полетата/бутоните в XAML:
 
 <Button x:Name="closeBtn"
                     Content="Close" 
@@ -62,17 +77,40 @@ public void Handle[ИмеНаКоманда]Command(object parameter)
                          FontSize="18" 
                          Text="{Binding Username}"/> <- Това е за поленце
 						 
-6: За да се възползвате от ViewModel-а, трябва да направите връзка от XAML през namespace:
+7: За да се възползвате от ViewModel-а, трябва да BUILD-нете и след това да направите връзка от XAML през namespace:
 
 xmlns:viewModels="clr-namespace:BmsWpf.ViewModels" <- слага се като атрибут на Window/Control елемента
 
-7: Връзва се към модела по namespace. Парчето код се добавя СЛЕД описанието на Window/Control и ПРЕДИ всичко останало, включително <border>:
+8: Връзва се към модела по namespace. Парчето код се добавя СЛЕД описанието на Window/Control и ПРЕДИ всичко останало, включително <border>:
 
 <UserControl.DataContext>
 	<viewModels:LoginFormViewModel />
 </UserControl.DataContext>
 
-8: Ако всичко е преминало без грешки, не ви трябва нищо друго - включително и ButtonClick събития.
+9: Ако искате да ползвате ViewManager и Service-и, трябва да ги закачите по следния начин:
+	- В cs файла на XAML формата - слагате конструктор, приемащ необходимите интерфейси, после ги включвате към VM-а:
+	
+		public LoginForm(IBmsData bmsData, IViewManager viewManager, IUserService userService)
+		{
+			InitializeComponent();
+
+			LoginFormViewModel vm = (LoginFormViewModel)this.DataContext; // this creates an instance of the ViewModel
+
+			if (vm.CloseAction == null)
+				vm.CloseAction = new Action(() => this.Close());
+
+			vm.BmsData = bmsData;
+			vm.ViewManager = viewManager;
+			vm.UserService = userService;
+		}
+	
+	- Логично е, но все пак - за да направите това, трябва да имате съответните параметри в VM-a.
+	
+	- Ако сте си направили нов сървис, за да се инжектира в горните конструктори трябва да го включите в ConfigureContainer-а на ViewManager-a:
+	
+		container.Bind<I!Вашия!Service>().To<!Вашия!Service>().InTransientScope();
+            
+10: Ако всичко е преминало без грешки, не ви трябва нищо друго - включително и ButtonClick събития.
 Не е задължително да подавате параметри - аз го правя, за да използвам коректно паролата.
 
 HAVE FUN!

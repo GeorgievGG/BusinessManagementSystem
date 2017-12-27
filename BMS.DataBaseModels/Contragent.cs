@@ -23,7 +23,7 @@
         [StringLength(250,MinimumLength = 3)]
         public string Name { get; set; }
 
-        public int PersonalIndentityNumber { get; set; }
+        public string PersonalIndentityNumber { get; set; }
 
         public string PersonalVatNumber { get; set; }
 
@@ -40,10 +40,12 @@
 
         public string Description { get; set; }
 
+		//This should be checked agian 
         public int? ProjectId { get; set; }
         public Project Project { get; set; }
 
-        public int? InvoiceId { get; set; }
+	    //This should be checked agian
+		public int? InvoiceId { get; set; }
 
         public ICollection<Invoice> ClientInvoices { get; set; }
         public ICollection<Invoice> SupplierInvoices { get; set; }

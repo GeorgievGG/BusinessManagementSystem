@@ -1,12 +1,13 @@
-﻿using BMS.DataBaseData;
-using BMS.DataBaseModels;
-using BmsWpf.Services.Repositories;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-
-namespace BmsWpf.Services.UnitOfWork
+﻿namespace BmsWpf.Services.UnitOfWork
 {
+    using BMS.DataBaseData;
+    using BMS.DataBaseModels;
+    using BmsWpf.Services.Contracts;
+    using BmsWpf.Services.Repositories;
+    using Microsoft.EntityFrameworkCore;
+    using System;
+    using System.Collections.Generic;
+
     public class BmsData : IBmsData
     {
         private readonly DbContext dbContext;
@@ -42,7 +43,6 @@ namespace BmsWpf.Services.UnitOfWork
         public IRepository<Note> Notes
         {
             get { return this.GetRepository<Note>(); }
-
         }
 
         public IRepository<Offer> Offers

@@ -1,7 +1,8 @@
-﻿
-namespace BmsWpf.Services.Repositories
+﻿namespace BmsWpf.Services.Repositories
 {
+    using BmsWpf.Services.Contracts;
     using Microsoft.EntityFrameworkCore;
+
     public class GenericEfRepository<TEntity> : IRepository<TEntity> where TEntity : class
     {
         private DbContext dbContext;
