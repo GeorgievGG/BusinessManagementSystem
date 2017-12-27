@@ -142,9 +142,6 @@
     <Compile Include="Views\Forms\LoginForm.xaml.cs">
       <DependentUpon>LoginForm.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Forms\UserForm.xaml.cs">
-      <DependentUpon>UserForm.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Forms\ContragentForm.xaml.cs">
       <DependentUpon>ContragentForm.xaml</DependentUpon>
     </Compile>
@@ -197,9 +194,6 @@
     </Page>
     <Page Include="Views\Forms\LoginForm.xaml">
       <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Forms\UserForm.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ChildWindows\MainOffers.xaml">
