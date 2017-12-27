@@ -2,8 +2,6 @@
 {
     using BmsWpf.Services.Contracts;
     using BmsWpf.ViewModels;
-    using BmsWpf.Views.ChildWindows;
-    using BmsWpf.Views.Forms;
     using System;
     using System.Windows;
 

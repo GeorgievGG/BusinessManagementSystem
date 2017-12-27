@@ -120,6 +120,7 @@
     <Compile Include="ViewModels\ContragentViewModel.cs" />
     <Compile Include="ViewModels\IPageViewModel.cs" />
     <Compile Include="ViewModels\LoginFormViewModel.cs" />
+    <Compile Include="ViewModels\ManageUserViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\Admin\AddUser.xaml.cs">
       <DependentUpon>AddUser.xaml</DependentUpon>

@@ -3,25 +3,41 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:BmsWpf.Views.Admin"
+        xmlns:ie="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:viewModels="clr-namespace:BmsWpf.ViewModels"
         mc:Ignorable="d"
         Title="ManageUser" Height="300" Width="400">
+
+    <ie:Interaction.Triggers>
+        <ie:EventTrigger EventName="Loaded">
+            <ie:InvokeCommandAction Command="{Binding WindowLoaded}"/>
+        </ie:EventTrigger>
+    </ie:Interaction.Triggers>
+    <Window.DataContext>
+        <viewModels:ManageUserViewModel />
+    </Window.DataContext>
     <Grid Background="#FF2E3137">
         <Label Content="Manage Users" HorizontalAlignment="Left" Margin="140,30,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Background="#FF2E3137" Foreground="White"/>
         <Separator HorizontalAlignment="Left" Height="9" Margin="118,62,0,0" VerticalAlignment="Top" Width="155"/>
-        <Button Content="Back" HorizontalAlignment="Left" Margin="287,229,0,0" VerticalAlignment="Top" Width="75" Click="Back_click" Background="#FFCB4040" Foreground="White" FontSize="14"/>
-        <ListBox x:Name="UserBox" HorizontalAlignment="Left" Height="145" Margin="24,84,0,0" VerticalAlignment="Top" Width="154" SelectionChanged="UserBox_SelectionChanged"/>
+        <ListBox x:Name="UserBox" HorizontalAlignment="Left" Height="145" Margin="24,84,0,0" VerticalAlignment="Top" Width="154" ItemsSource="{Binding Users}" SelectedItem="{Binding SelectedUserString, Mode=TwoWay}" >
+            <ie:Interaction.Triggers>
+                <ie:EventTrigger EventName="SelectionChanged">
+                    <ie:InvokeCommandAction Command="{Binding SelectionChanged}"  CommandParameter="{Binding ElementName=UserBox, Path=SelectedItem}"/>
+                </ie:EventTrigger>
+            </ie:Interaction.Triggers>
+        </ListBox>
         <Label Content="Username" HorizontalAlignment="Left" Margin="203,84,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Label Content="Role" HorizontalAlignment="Left" Margin="203,149,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White"/>
-        <TextBox x:Name="txtUser" HorizontalAlignment="Left" Height="23" Margin="203,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtUser" HorizontalAlignment="Left" Height="23" Margin="203,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False"  Text="{Binding Username}"/>
         <ComboBox Name="txtRole"
             HorizontalAlignment="Left"
             Margin="203,188,0,0" 
             VerticalAlignment="Top" 
-            Width="120">
-            <ComboBoxItem Name="first" />
-            <ComboBoxItem Name="second"/>
+            Width="120"
+            ItemsSource="{Binding ClearenceTypes}"
+            SelectedItem="{Binding SelectedClearenceType, Mode=TwoWay}">
         </ComboBox>
-        <Button Content="Save" HorizontalAlignment="Left" Margin="198,229,0,0" VerticalAlignment="Top" Width="75" Click="Save_Click" Background="#FF4074CB" Foreground="White" FontSize="14"/>
+        <Button Content="Save" HorizontalAlignment="Left" Margin="198,229,0,0" VerticalAlignment="Top" Width="75" Background="#FF4074CB" Foreground="White" FontSize="14" Command="{Binding Save}"/>
+        <Button Content="Back" HorizontalAlignment="Left" Margin="287,229,0,0" VerticalAlignment="Top" Width="75" Background="#FFCB4040" Foreground="White" FontSize="14" Command="{Binding Back}"/>
     </Grid>
 </Window>

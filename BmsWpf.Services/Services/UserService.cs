@@ -18,8 +18,7 @@
 
         public ClearenceType LoginUser(string username, string password)
         {
-            var users = bmsData.Users.All();
-            var user = users.FirstOrDefault(e => e.Username == username);
+            var user = this.GetUserByUsername(username);
 
             if (user == null)
             {
@@ -36,8 +35,7 @@
 
         public string CreateUser(string username, string password, ClearenceType userType)
         {
-            var users = bmsData.Users.All();
-            var existingUser = users.FirstOrDefault(e => e.Username == username);
+            var existingUser = this.GetUserByUsername(username);
 
             if (existingUser != null)
             {
@@ -74,6 +72,30 @@
 
                 return sb.ToString();
             }
+        }
+
+        public IQueryable<string> GetUsers()
+        {
+            return bmsData.Users.All().Select(x => $"{x.Username}|{x.Type}");
+        }
+
+        public string ModifyUser(string username, ClearenceType selectedClearenceType)
+        {
+            var user = this.GetUserByUsername(username);
+            user.Type = selectedClearenceType;
+
+            bmsData.Users.Update(user);
+
+            bmsData.SaveChanges();
+
+            return $"User {username} clearance type changed successfully to {selectedClearenceType}";
+        }
+
+        private User GetUserByUsername(string username)
+        {
+            var user = this.bmsData.Users.All().FirstOrDefault(x => x.Username == username);
+
+            return user;
         }
     }
 }

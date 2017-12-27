@@ -16,7 +16,7 @@
     {
         public ICommand SaveCommand;
         public ICommand BackCommand;
-        public readonly ObservableCollection<ClearenceType> clearenceTypes;
+        private readonly ObservableCollection<ClearenceType> clearenceTypes;
 
         public AddUserViewModel()
         {
