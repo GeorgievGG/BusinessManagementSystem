@@ -1,11 +1,9 @@
 ﻿namespace BmsWpf.Services.Services
 {
-    using AutoMapper;
-    using BmsWpf.Services.Contracts;
-    using System.Linq;
-    using System;
     using BMS.DataBaseModels;
-    using System.Collections.Generic;
+    using BmsWpf.Services.Contracts;
+    using System;
+    using System.Linq;
 
     public class ProjectService : IProjectService
     {

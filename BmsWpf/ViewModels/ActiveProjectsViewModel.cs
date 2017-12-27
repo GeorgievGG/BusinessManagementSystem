@@ -1,12 +1,10 @@
 ﻿namespace BmsWpf.ViewModels
 {
-    using BMS.DataBaseModels;
     using BmsWpf.Behaviour;
     using BmsWpf.Services.Contracts;
     using BmsWpf.Views.Forms;
     using System;
     using System.Collections.ObjectModel;
-    using System.Linq;
     using System.Windows.Input;
 
     public class ActiveProjectsViewModel : ViewModelBase, IPageViewModel

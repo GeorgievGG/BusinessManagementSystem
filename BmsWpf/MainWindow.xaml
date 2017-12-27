@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:BmsWpf"
         xmlns:viewModels="clr-namespace:BmsWpf.ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" Height="549.935" Width="725.398" FontSize="14" Background="#FF030F1D">
@@ -17,15 +16,13 @@
 				<RowDefinition Height="57*"/>
 			</Grid.RowDefinitions>
 			<Label Content="Welcome!" Foreground="White" FontSize="36" HorizontalAlignment="Center" RenderTransformOrigin="3.536,-1.191" Margin="247,37,252,376.4" Width="180" FontWeight="Bold"/>
-			<Button Content="Active Projects" Background="#FF104C71" Margin="67,151,359,259" Foreground="White" FontSize="22"/>
-			<Button Content="Manage Offers" Background="#FF104C71" Margin="67,224,359,186" Foreground="White" FontSize="22"/>
-			<Button Content="Inquiries" Background="#FF104C71" Margin="358,224,68,186" Foreground="White" FontSize="22"/>
-			<Button Name="Clients" Content="Clients" Background="#FF104C71" Margin="358,151,68,259" Foreground="White" FontSize="22" Command="{Binding Client}"/>
-			<Button Content="Contracts" Background="#FF104C71" Margin="358,294,68,116" Foreground="White" FontSize="22"/>
-			<Button Content="Suppliers" Background="#FF104C71" Margin="67,294,359,116" Foreground="White" FontSize="22"/>
-			<Separator HorizontalAlignment="Left" Height="27" Margin="67,90,0,0" VerticalAlignment="Top" Width="544"/>
+            <Button Content="Active Projects" Background="#FF104C71" Margin="67,151,359,259" Foreground="White" FontSize="22" Command="{Binding ActiveProjects}" />
+			<Button Content="Offers" Background="#FF104C71" Margin="67,224,359,186" Foreground="White" FontSize="22" Command="{Binding Offers}" />
+			<Button Content="Inquiries" Background="#FF104C71" Margin="358,224,68,186" Foreground="White" FontSize="22" Command="{Binding Inquiries}" />
+			<Button Name="Contragents" Content="Contragents" Background="#FF104C71" Margin="358,151,68,259" Foreground="White" FontSize="22" Command="{Binding Contragents}"/>
+            <Separator HorizontalAlignment="Left" Height="27" Margin="67,90,0,0" VerticalAlignment="Top" Width="544"/>
 			<Separator HorizontalAlignment="Left" Height="27" Margin="67,381,0,0" VerticalAlignment="Top" Width="544"/>
-			<Button Click="Logout" Content="LOGOUT" Background="#FF972B2B" Margin="475,413,68,10.4" Foreground="White" FontSize="22"/>
+            <Button Content="LOGOUT" Background="#FF972B2B" Margin="475,333,68,90.4" Foreground="White" FontSize="22" Command="{Binding Logout}" />
 		</Grid>
 	</Border>
 </Window>

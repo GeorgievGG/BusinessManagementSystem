@@ -1,7 +1,10 @@
 ﻿namespace BmsWpf
 {
+    using BmsWpf.Services.Contracts;
+    using BmsWpf.ViewModels;
     using BmsWpf.Views.ChildWindows;
     using BmsWpf.Views.Forms;
+    using System;
     using System.Windows;
 
     /// <summary>
@@ -14,39 +17,51 @@
             InitializeComponent();
         }
 
-        private void Logout(object sender, RoutedEventArgs e)
+        public MainWindow(IViewManager viewManager)
         {
-            LoginForm dash = new LoginForm();
-            dash.Show();
-            this.Close();
+            InitializeComponent();
+
+            var vm = (MainWindowViewModel)this.DataContext; // this creates an instance of the ViewModel
+
+            if (vm.CloseAction == null)
+                vm.CloseAction = new Action(() => this.Close());
+            
+            vm.ViewManager = viewManager;
         }
 
-        private void projects_Click(object sender, RoutedEventArgs e)
-        {
-            var dash = new ActiveProjects();
-            dash.Show();
-            this.Close();
-        }
+        //private void Logout(object sender, RoutedEventArgs e)
+        //{
+        //    LoginForm dash = new LoginForm();
+        //    dash.Show();
+        //    this.Close();
+        //}
 
-        private void contragents_Click(object sender, RoutedEventArgs e)
-        {
-            var dash = new MainContragents();
-            dash.Show();
-            this.Close();
-        }
+        //private void projects_Click(object sender, RoutedEventArgs e)
+        //{
+        //    var dash = new ActiveProjects();
+        //    dash.Show();
+        //    this.Close();
+        //}
 
-        private void offers_Click(object sender, RoutedEventArgs e)
-        {
-            var dash = new MainOffers();
-            dash.Show();
-            this.Close();
-        }
+        //private void contragents_Click(object sender, RoutedEventArgs e)
+        //{
+        //    var dash = new MainContragents();
+        //    dash.Show();
+        //    this.Close();
+        //}
 
-        private void inquiries_Click(object sender, RoutedEventArgs e)
-        {
-            var dash = new MainInquiries();
-            dash.Show();
-            this.Close();
-        }
+        //private void offers_Click(object sender, RoutedEventArgs e)
+        //{
+        //    var dash = new MainOffers();
+        //    dash.Show();
+        //    this.Close();
+        //}
+
+        //private void inquiries_Click(object sender, RoutedEventArgs e)
+        //{
+        //    var dash = new MainInquiries();
+        //    dash.Show();
+        //    this.Close();
+        //}
     }
 }
