@@ -33,7 +33,7 @@
         public Offer Offer { get; set; }
 
         public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public DateTime? EndDate { get; set; }
         public DateTime DeadLine { get; set; }
         
         public int ClientId { get; set; }

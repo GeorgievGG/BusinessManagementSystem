@@ -112,8 +112,8 @@ namespace BMS.DataBase
             var project = new[]
             {
                 new Project { ClientId = 1, CreatorId = 2, OfferId = 1, StartDate = DateTime.Now ,EndDate = DateTime.Now,DeadLine = DateTime.Now, InquiryId = 1, Name = "Android App"},
-                new Project { ClientId = 2, CreatorId = 3, OfferId = 2, StartDate = DateTime.Now ,EndDate = DateTime.Now,DeadLine = DateTime.Now, InquiryId = 2, Name = "Desktop App"},                                           
-                new Project { ClientId = 3, CreatorId = 4, OfferId = 3, StartDate = DateTime.Now ,EndDate = DateTime.Now,DeadLine = DateTime.Now, InquiryId = 3, Name = "Web App"},                                              
+                new Project { ClientId = 2, CreatorId = 3, OfferId = 2, StartDate = DateTime.Now ,DeadLine = DateTime.Now, InquiryId = 2, Name = "Desktop App"},                                           
+                new Project { ClientId = 3, CreatorId = 4, OfferId = 3, StartDate = DateTime.Now ,DeadLine = DateTime.Now, InquiryId = 3, Name = "Web App"},                                              
                 new Project { ClientId = 4, CreatorId = 5, OfferId = 4, StartDate = DateTime.Now ,EndDate = DateTime.Now,DeadLine = DateTime.Now, InquiryId = 4, Name = "Sports WebSite"},                                       
                 new Project { ClientId = 5, CreatorId = 6, OfferId = 5, StartDate = DateTime.Now ,EndDate = DateTime.Now,DeadLine = DateTime.Now, InquiryId = 5, Name = "Production Management System"}
             };

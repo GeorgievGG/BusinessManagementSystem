@@ -3,23 +3,32 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:BmsWpf.Views.ChildWindows"
+        xmlns:viewModels="clr-namespace:BmsWpf.ViewModels"
+        xmlns:intr="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         mc:Ignorable="d"
         Title="ActiveProjects" Height="529.268" Width="671.951">
+    <Window.DataContext>
+        <viewModels:ActiveProjectsViewModel />
+    </Window.DataContext>
+    <intr:Interaction.Triggers>
+        <intr:EventTrigger EventName="Loaded">
+            <intr:InvokeCommandAction Command="{Binding WindowLoaded}"/>
+        </intr:EventTrigger>
+    </intr:Interaction.Triggers>
     <Grid Background="#FF2E3137" Margin="0,0,3.6,-3">
         <Label Content="ACTIVE PROJECTS" HorizontalAlignment="Left" Margin="211,22,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Background="#FF2E3137" Foreground="White"/>
-        <DatePicker HorizontalAlignment="Left" Margin="102,106,0,0" VerticalAlignment="Top"/>
-        <DatePicker HorizontalAlignment="Left" Margin="247,106,0,0" VerticalAlignment="Top"/>
-        <Button Content="Search" HorizontalAlignment="Left" Margin="386,110,0,0" VerticalAlignment="Top" Width="75" Background="#FF1A76AE" Foreground="White" FontWeight="Bold"/>
+        <DatePicker HorizontalAlignment="Left" Margin="102,106,0,0" VerticalAlignment="Top" SelectedDate="{Binding Path=BeginDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <DatePicker HorizontalAlignment="Left" Margin="247,106,0,0" VerticalAlignment="Top" SelectedDate="{Binding Path=EndDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Content="Search" HorizontalAlignment="Left" Margin="386,110,0,0" VerticalAlignment="Top" Width="75" Background="#FF1A76AE" Foreground="White" FontWeight="Bold" Command="{Binding Search}"/>
         <Button Content="Sort" HorizontalAlignment="Left" Margin="298,151,0,0" VerticalAlignment="Top" Width="75" Foreground="White" FontWeight="Bold" Background="#FF247114" Height="22"/>
         <ComboBox HorizontalAlignment="Left" Margin="149,151,0,0" VerticalAlignment="Top" Width="120"/>
         <Label Content="Sort by:" HorizontalAlignment="Left" Margin="77,149,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="White"/>
         <Label Content="From" HorizontalAlignment="Left" Margin="60,104,0,0" VerticalAlignment="Top" Foreground="#FFDCE4DC" FontWeight="Bold"/>
         <Label Content="To" HorizontalAlignment="Left" Margin="220,104,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="White"/>
         <Separator HorizontalAlignment="Left" Height="17" Margin="171,64,0,0" VerticalAlignment="Top" Width="303"/>
-        <ListBox HorizontalAlignment="Left" Height="195" Margin="45,201,0,0" VerticalAlignment="Top" Width="577"/>
-        <Button Content="Edit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="Edit_click" Background="#FF4074CB" Foreground="White" FontSize="14" Margin="435,457,0,0"/>
-        <Button Content="Add new" HorizontalAlignment="Left" Margin="45,415,0,0" VerticalAlignment="Top" Width="75" Click="Add_New_Click" Background="#FF0D5923" Foreground="White" FontSize="14"/>
-        <Button Content="Back" HorizontalAlignment="Left" Margin="547,457,0,0" VerticalAlignment="Top" Width="75" Click="Back_click" Background="#FFCB4040" Foreground="White" FontSize="14"/>
+        <ListBox Name="ChosenProjects" HorizontalAlignment="Left" Height="195" Margin="45,201,0,0" VerticalAlignment="Top" Width="577" ItemsSource="{Binding ChosenProjects}"/>
+        <Button Content="Edit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Background="#FF4074CB" Foreground="White" FontSize="14" Margin="435,457,0,0" Command="{Binding EditProject}"/>
+        <Button Content="Add new" HorizontalAlignment="Left" Margin="45,415,0,0" VerticalAlignment="Top" Width="75" Background="#FF0D5923" Foreground="White" FontSize="14" Command="{Binding AddNewProject}"/>
+        <Button Content="Back" HorizontalAlignment="Left" Margin="547,457,0,0" VerticalAlignment="Top" Width="75" Background="#FFCB4040" Foreground="White" FontSize="14" Command="{Binding Back}"/>
     </Grid>
 </Window>

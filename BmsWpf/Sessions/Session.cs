@@ -5,7 +5,6 @@
     public sealed class Session
     {
         private static Session instance;
-        private UserService userService;
 
         private Session()
         {

@@ -16,7 +16,6 @@
 
         public Action CloseAction { get; set; }
 
-        public IBmsData BmsData { get; set; }
         public IViewManager ViewManager { get; set; }
 
         public string ViewName
@@ -63,26 +62,21 @@
             }
         }
 
-        public void HandleCloseAppCommand(object parameter)
-        {
-            Environment.Exit(0);
-        }
-
-        private void HandleAddNewUserCommand(object sender)
+        private void HandleAddNewUserCommand(object parameter)
         {
             var addUserView = this.ViewManager.ComposeObjects<AddUser>();
             addUserView.Show();
             this.CloseAction();
         }
 
-        private void HandleManageUsersCommand(object sender)
+        private void HandleManageUsersCommand(object parameter)
         {
             var manageUsersView = this.ViewManager.ComposeObjects<ManageUser>();
             manageUsersView.Show();
             this.CloseAction();
         }
 
-        private void HandleLogoutCommand(object sender)
+        private void HandleLogoutCommand(object parameter)
         {
             var loginForm = this.ViewManager.ComposeObjects<LoginForm>();
             Session.Instance.Logout();

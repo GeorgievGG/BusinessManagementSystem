@@ -19,6 +19,7 @@
             container.Bind<IBmsData>().To<BmsData>().InTransientScope();
             container.Bind<IViewManager>().To<ViewManager>().InTransientScope();
             container.Bind<IUserService>().To<UserService>().InTransientScope();
+            container.Bind<IProjectService>().To<ProjectService>().InTransientScope();
         }
 
         public T ComposeObjects<T>()

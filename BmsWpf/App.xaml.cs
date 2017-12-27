@@ -1,7 +1,9 @@
 ﻿namespace BmsWpf
 {
+    using BmsWpf.Services.Automapper;
     using BmsWpf.Services.Services;
-    using BmsWpf.Views.Forms;
+    using BmsWpf.Views.Admin;
+    using BmsWpf.Views.ChildWindows;
     using System.Windows;
 
     public partial class App : Application
@@ -10,8 +12,9 @@
         {
             base.OnStartup(e);
             var viewManager = new ViewManager();
-            Current.MainWindow = viewManager.ComposeObjects<LoginForm>();
+            Current.MainWindow = viewManager.ComposeObjects<ActiveProjects>();
             Current.MainWindow.Show();
+            //AutoMapperConfiguration.Configure();
         }
     }
 }
