@@ -5,17 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BmsWpf.Views.ChildWindows"
         mc:Ignorable="d"
-        Title="MainOffers" Height="382.683" Width="429.512" Background="#2e3137">
-    <Grid Margin="0,0,3.2,-2.2">
-        <ListBox HorizontalAlignment="Left" Height="172" Margin="37,86,0,0" VerticalAlignment="Top" Width="349"/>
+        Title="MainOffers" Height="425.618" Width="553.651" Background="#2e3137">
+    <Grid Margin="0,0,3.2,1">
         <Label Content="Offers" 
             Foreground="White" 
             FontSize="25" 
             HorizontalAlignment="Center" Margin="180,23,147,288" RenderTransformOrigin="0.5,0.5" Width="93"/>
-        <Button Content="Back" HorizontalAlignment="Left" Margin="324,313,0,0" VerticalAlignment="Top" Width="75" Click="Back_click" Background="#FFCB4040" Foreground="White" FontSize="14"/>
-        <Button Content="Edit" HorizontalAlignment="Left" Margin="217,313,0,0" VerticalAlignment="Top" Width="75" Click="Edit_Click" Background="#FF4074CB" Foreground="White" FontSize="14"/>
-        <Button Content="Add new" HorizontalAlignment="Left" Margin="37,263,0,0" VerticalAlignment="Top" Width="75" Click="Add_New_Click" Background="#FF0D5923" Foreground="White" FontSize="14"/>
-        <Separator HorizontalAlignment="Left" Height="11" Margin="140,56,0,0" VerticalAlignment="Top" Width="152"/>
+        <Button Content="Back" HorizontalAlignment="Left" Margin="442,325,0,0" VerticalAlignment="Top" Width="75" Click="Back_click" Background="#FFCB4040" Foreground="White" FontSize="14" RenderTransformOrigin="-0.794,0.572"/>
+        <Button Content="Edit" HorizontalAlignment="Left" Margin="337,325,0,0" VerticalAlignment="Top" Width="75" Click="Edit_Click" Background="#FF4074CB" Foreground="White" FontSize="14" RenderTransformOrigin="2.997,1.16"/>
+        <Button Content="Add new" HorizontalAlignment="Left" Margin="37,278,0,0" VerticalAlignment="Top" Width="93" Click="Add_New_Click" Background="#FF0D5923" Foreground="White" FontSize="14" Height="29"/>
+        <Separator HorizontalAlignment="Left" Height="11" Margin="237,65,0,0" VerticalAlignment="Top" Width="152"/>
+        <DataGrid Name="OffersDataGrid"
+                 HorizontalAlignment="Left"
+                  Height="156" 
+                  Margin="37,103,0,0"
+                  VerticalAlignment="Top"
+                  Width="480"
+                  IsReadOnly="True"
+                  MouseDoubleClick="OffersDataGrid_MouseDoubleClick"
+                  Loaded="OffersDataGrid_Loaded"/>
 
     </Grid>
 </Window>
