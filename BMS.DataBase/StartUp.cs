@@ -15,9 +15,7 @@ namespace BMS.DataBase
                 //context.Database.EnsureDeleted();
                 //context.Database.EnsureCreated();
                 //Seed();
-
             }
-        
         }
         // enter in the admin panel with:
         // Username: admin
