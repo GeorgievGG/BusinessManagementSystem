@@ -1,0 +1,69 @@
+﻿<Window x:Class="BmsWpf.Views.Forms.ProjectWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BmsWpf.Views.Forms"
+        mc:Ignorable="d"
+        Title="ProjectWindow" Height="600" Width="750" Background="#2e3137">
+    <Grid>
+
+        <TabControl HorizontalAlignment="Left" Height="600" VerticalAlignment="Top" Width="750" Background="#2e3137" SelectionChanged="TabControl_SelectionChanged">
+            <TabItem Header="Project Overveiw">
+                <Grid Background="#2e3137">
+                    <Label Content="Name" HorizontalAlignment="Left" Margin="21,70,0,0" TextInput="UIElement_OnTextInput"  VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
+                    <TextBox HorizontalAlignment="Left" Height="30" Margin="126,70,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200"/>
+                    <Label Content="Client" HorizontalAlignment="Left" Margin="21,176,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
+                    <TextBox HorizontalAlignment="Left" Height="30" Margin="126,176,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200"/>
+                    <Label Content="Contact to" HorizontalAlignment="Left" Margin="21,211,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
+                    <TextBox HorizontalAlignment="Left" Height="30" Margin="126,212,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200"/>
+                    <Label Content="Offer" HorizontalAlignment="Left" Margin="21,104,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
+                    <ComboBox HorizontalAlignment="Left" Height="30" Margin="126,104,0,0"  VerticalAlignment="Top" Width="200"/>
+                    <Label Content="Inquire" HorizontalAlignment="Left" Margin="21,139,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
+                    <ComboBox HorizontalAlignment="Left" Height="30" Margin="126,139,0,0"  VerticalAlignment="Top" Width="200"/>
+                    <Label Content="Telephone" HorizontalAlignment="Left" Margin="21,246,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
+                    <TextBox HorizontalAlignment="Left" Height="30" Margin="126,246,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200"/>
+                    <TextBlock Name="NotesAndEvents" HorizontalAlignment="Left" Margin="391,228,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="243" Width="285" Background="AliceBlue"/>
+                    <Label Content="Incomes" HorizontalAlignment="Left" Margin="24,355,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
+                    <TextBox HorizontalAlignment="Left" Height="30" Margin="126,355,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200"/>
+                    <Label Content="Expences" HorizontalAlignment="Left" Margin="24,390,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
+                    <TextBox HorizontalAlignment="Left" Height="30" Margin="126,391,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200"/>
+                    <Label Content="Profit" HorizontalAlignment="Left" Margin="24,425,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
+                    <TextBox HorizontalAlignment="Left" Height="30" Margin="126,425,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200"/>
+                    <Label Content="Start Date" HorizontalAlignment="Left" Margin="417,70,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
+                    <Label Content="TimeLine" HorizontalAlignment="Left" Margin="417,105,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
+                    <Label Content="End Date" HorizontalAlignment="Left" Margin="417,140,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue" />
+                    <DatePicker Name="StartDatePicker" HorizontalAlignment="Left" Margin="522,70,0,0" VerticalAlignment="Top" Height="30" Width="100"/>
+                    <DatePicker Name="EndDatePicker" HorizontalAlignment="Left" Margin="522,133,0,0" VerticalAlignment="Top" Height="30" Width="100"/>
+                    <DatePicker Name="LimitDatePicker" HorizontalAlignment="Left" Margin="522,103,0,0" VerticalAlignment="Top" Height="30" Width="100"/>
+                    <Label Content="Notes and Events" HorizontalAlignment="Left" Margin="391,188,0,0" VerticalAlignment="Top" Width="285" Height="40" FontSize="20" Foreground="AliceBlue"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Incomes">
+                <Grid Background="#2e3137">
+                    <Label Content="Invoices" HorizontalAlignment="Left" Margin="49,10,0,0" VerticalAlignment="Top" Width="285" Height="40" FontSize="28" Foreground="AliceBlue"/>
+                    <DataGrid Name="InvoiceIncome" HorizontalAlignment="Left" Height="156" Margin="49,50,0,0" VerticalAlignment="Top" Width="629"/>
+                    <Label Content="Payments" HorizontalAlignment="Left" Margin="49,251,0,0" VerticalAlignment="Top" Width="285" Height="55" FontSize="28" Foreground="AliceBlue"/>
+                    <DataGrid x:Name="IncomePayments" HorizontalAlignment="Left" Height="183" Margin="49,306,0,0" VerticalAlignment="Top" Width="629"/>
+                </Grid>
+
+            </TabItem>
+            <TabItem Header="Expences">
+                <Grid Background="#2e3137">
+                    <DataGrid Name="InvoiceExpences" HorizontalAlignment="Left" Height="183" Margin="49,50,0,0" VerticalAlignment="Top" Width="629"/>
+                    <DataGrid x:Name="ExpencesPayments" HorizontalAlignment="Left" Height="183" Margin="49,306,0,0" VerticalAlignment="Top" Width="629"/>
+                   
+                    <Label Content="Invoices" HorizontalAlignment="Left" Margin="49,10,0,0" VerticalAlignment="Top" Width="285" Height="40" FontSize="28" Foreground="AliceBlue"/>
+                    <Label Content="Payments" HorizontalAlignment="Left" Margin="49,251,0,0" VerticalAlignment="Top" Width="285" Height="55" FontSize="28" Foreground="AliceBlue"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Notes">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+     
+        </TabControl>
+
+
+    </Grid>
+</Window>
