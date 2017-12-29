@@ -4,3 +4,9 @@ C:\Users\Triple G\Desktop\Business\Softuni\4.0. TeamWork\BusinessManagementSyste
 C:\Users\Triple G\Desktop\Business\Softuni\4.0. TeamWork\BusinessManagementSystem\BMS.DataBaseModels\obj\Debug\BMS.DataBaseModels.csproj.CoreCompileInputs.cache
 C:\Users\Triple G\Desktop\Business\Softuni\4.0. TeamWork\BusinessManagementSystem\BMS.DataBaseModels\obj\Debug\BMS.DataBaseModels.dll
 C:\Users\Triple G\Desktop\Business\Softuni\4.0. TeamWork\BusinessManagementSystem\BMS.DataBaseModels\obj\Debug\BMS.DataBaseModels.pdb
+D:\Програмиране\SoftUni Homeworks\SoftUni - Local\TeamWork\BusinessManagementSystem\BusinessManagementSystem\BMS.DataBaseModels\bin\Debug\BMS.DataBaseModels.dll
+D:\Програмиране\SoftUni Homeworks\SoftUni - Local\TeamWork\BusinessManagementSystem\BusinessManagementSystem\BMS.DataBaseModels\bin\Debug\BMS.DataBaseModels.pdb
+D:\Програмиране\SoftUni Homeworks\SoftUni - Local\TeamWork\BusinessManagementSystem\BusinessManagementSystem\BMS.DataBaseModels\obj\Debug\BMS.DataBaseModels.csprojResolveAssemblyReference.cache
+D:\Програмиране\SoftUni Homeworks\SoftUni - Local\TeamWork\BusinessManagementSystem\BusinessManagementSystem\BMS.DataBaseModels\obj\Debug\BMS.DataBaseModels.csproj.CoreCompileInputs.cache
+D:\Програмиране\SoftUni Homeworks\SoftUni - Local\TeamWork\BusinessManagementSystem\BusinessManagementSystem\BMS.DataBaseModels\obj\Debug\BMS.DataBaseModels.dll
+D:\Програмиране\SoftUni Homeworks\SoftUni - Local\TeamWork\BusinessManagementSystem\BusinessManagementSystem\BMS.DataBaseModels\obj\Debug\BMS.DataBaseModels.pdb

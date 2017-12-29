@@ -5,25 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BmsWpf.Views.ChildWindows"
         mc:Ignorable="d"
-        Title="MainOffers" Height="425.618" Width="553.651" Background="#2e3137">
-    <Grid Margin="0,0,3.2,1">
+        Title="MainOffers" Height="450.151" Width="483.648" Background="#2e3137">
+    <Grid Margin="0,0,3.6,-2.6">
         <Label Content="Offers" 
             Foreground="White" 
             FontSize="25" 
-            HorizontalAlignment="Center" Margin="180,23,147,288" RenderTransformOrigin="0.5,0.5" Width="93"/>
-        <Button Content="Back" HorizontalAlignment="Left" Margin="442,325,0,0" VerticalAlignment="Top" Width="75" Click="Back_click" Background="#FFCB4040" Foreground="White" FontSize="14" RenderTransformOrigin="-0.794,0.572"/>
-        <Button Content="Edit" HorizontalAlignment="Left" Margin="337,325,0,0" VerticalAlignment="Top" Width="75" Click="Edit_Click" Background="#FF4074CB" Foreground="White" FontSize="14" RenderTransformOrigin="2.997,1.16"/>
-        <Button Content="Add new" HorizontalAlignment="Left" Margin="37,278,0,0" VerticalAlignment="Top" Width="93" Click="Add_New_Click" Background="#FF0D5923" Foreground="White" FontSize="14" Height="29"/>
-        <Separator HorizontalAlignment="Left" Height="11" Margin="237,65,0,0" VerticalAlignment="Top" Width="152"/>
-        <DataGrid Name="OffersDataGrid"
-                 HorizontalAlignment="Left"
-                  Height="156" 
-                  Margin="37,103,0,0"
-                  VerticalAlignment="Top"
-                  Width="480"
-                  IsReadOnly="True"
-                  MouseDoubleClick="OffersDataGrid_MouseDoubleClick"
-                  Loaded="OffersDataGrid_Loaded"/>
+               Height="50"
+            HorizontalAlignment="Center" Margin="210,31,172,332.4" RenderTransformOrigin="0.5,0.5" Width="92"/>
+        <Button Content="Back" HorizontalAlignment="Left" Margin="376,363,0,0" VerticalAlignment="Top" Width="75" Click="Back_click" Background="#FFCB4040" Foreground="White" FontSize="14"/>
+        <Button Content="Edit" HorizontalAlignment="Left" Margin="124,312,0,0" VerticalAlignment="Top" Width="79" Click="Edit_Click" Background="#FF4074CB" Foreground="White" FontSize="14" RenderTransformOrigin="-0.774,-1.496" Height="33"/>
+        <Button Content="Add new" HorizontalAlignment="Left" Margin="37,312,0,0" VerticalAlignment="Top" Width="82" Click="Add_New_Click" Background="#FF0D5923" Foreground="White" FontSize="14" Height="33"/>
+        <Separator HorizontalAlignment="Left" Height="16" Margin="167,70,0,0" VerticalAlignment="Top" Width="152"/>
+        <DataGrid Name="OffersDataGrid" HorizontalAlignment="Left" Height="195" Margin="37,112,0,0" VerticalAlignment="Top" Width="397" Loaded="OffersDataGrid_Loaded" SelectionMode="Single" MouseDoubleClick="OffersDataGrid_MouseDoubleClick"/>
+        <Button Content="Delete" HorizontalAlignment="Left" Margin="208,312,0,0" VerticalAlignment="Top" Width="79" Click="Delete_Click" Background="#FFCB4040" Foreground="White" FontSize="14" Height="33" RenderTransformOrigin="-0.048,0.621"/>
 
     </Grid>
 </Window>

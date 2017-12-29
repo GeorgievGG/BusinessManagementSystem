@@ -15,18 +15,24 @@
     <Grid Margin="0,0,4,-0.4" Background="#FF2E3137">
         <Separator Margin="71,59,89,418" />
         <Label Content="INQUIRE FORM"  HorizontalAlignment="Left" Foreground="#FFA1EAE8" FontSize="30" FontWeight="Bold" Margin="96,10,0,0" VerticalAlignment="Top"/>
-        <TextBox Height="130" Margin="42,186,51,0" Foreground="Gray"  BorderThickness="2"  BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" VerticalContentAlignment="Center" Text="Description" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" />
-        <TextBox Height="30" Margin="221,104,51,0" Foreground="Gray"  BorderThickness="2"  BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" VerticalContentAlignment="Center" Text="Client" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178"/>
-        <Button Content="Save" HorizontalAlignment="Left" Margin="221,440,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.36,-0.52" Background="#FF17597C" FontWeight="Bold" FontSize="16" Foreground="White"/>
+        <TextBox Name="description_form" Height="130" Margin="42,197,51,0"  BorderThickness="2"  BorderBrush="#313c4f" TextWrapping="Wrap"  VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" />
+        <TextBox Name="poc_form" Height="30" Margin="221,104,51,0" BorderThickness="2"  BorderBrush="#313c4f"  TextWrapping="Wrap" VerticalContentAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" IsReadOnly="True" Background="LightGray"/>
+        <Button Content="Save" HorizontalAlignment="Left" Margin="221,440,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.36,-0.52" Background="#FF17597C" FontWeight="Bold" FontSize="16" Foreground="White" Click="Save_Click"/>
         <Button Content="Back" HorizontalAlignment="Left" Margin="312,440,0,0" VerticalAlignment="Top" Width="75" Click="Back_Click" Background="#FFAE3434" FontWeight="Bold" FontSize="16" Foreground="White"/>
-        <TextBox Height="30" Margin="42,138,212,0" Foreground="Gray"  BorderThickness="2"  BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" VerticalContentAlignment="Center" Text="Email" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178"/>
-        <TextBox Height="30" Margin="221,139,51,0" Foreground="Gray"  BorderThickness="2"  BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" VerticalContentAlignment="Center" Text="Phone" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178"/>
-        <ComboBox HorizontalAlignment="Left" Margin="42,358,0,0" VerticalAlignment="Top" Width="128"/>
+        <TextBox Name="email_form" Height="30" Margin="42,149,212,0" BorderThickness="2"  BorderBrush="#313c4f"   TextWrapping="Wrap" VerticalContentAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" IsReadOnly="True" Background="LightGray"/>
+        <TextBox Name="phone_form" Height="30" Margin="221,150,51,0" BorderThickness="2"  BorderBrush="#313c4f"   TextWrapping="Wrap" VerticalContentAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" IsReadOnly="True" Background="LightGray"/>
+        <ComboBox Name="CreatorCombo" HorizontalAlignment="Left" Margin="42,358,0,0" VerticalAlignment="Top" Width="138"/>
         <Label Content="Creator" HorizontalAlignment="Left" Margin="42,332,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
-        <ComboBox HorizontalAlignment="Left" Margin="42,104,0,0" VerticalAlignment="Top" Width="170"/>
+        <ComboBox Name="ClientCombo" HorizontalAlignment="Left" Margin="42,104,0,0" VerticalAlignment="Top" Width="170" SelectionChanged="ClientCombo_SelectionChanged"/>
         <Label Content="Client" HorizontalAlignment="Left" Margin="42,76,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
         <Separator Margin="71,399,89,78" />
-        <DatePicker HorizontalAlignment="Left" Margin="189,357,0,0" VerticalAlignment="Top" Width="107"/>
-        <DatePicker HorizontalAlignment="Left" Margin="312,358,0,0" VerticalAlignment="Top"/>
+        <DatePicker Name="date" HorizontalAlignment="Left" Margin="200,358,0,0" VerticalAlignment="Top" Width="107"/>
+        <TextBox Name="inquiry_id" Height="24" Margin="322,358,75,0" Foreground="Gray"  BorderThickness="2"  BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" VerticalContentAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" IsReadOnly="True" Background="LightGray"/>
+        <Label Content="Date" HorizontalAlignment="Left" Margin="200,332,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+        <Label Content="Id" HorizontalAlignment="Left" Margin="322,327,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" RenderTransformOrigin="1.772,0.508"/>
+        <Label Content="Phone" HorizontalAlignment="Left" Margin="221,131,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+        <Label Content="Email" HorizontalAlignment="Left" Margin="42,126,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" RenderTransformOrigin="0.459,0.359"/>
+        <Label Content="Person of contact" HorizontalAlignment="Left" Margin="221,78,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+        <Label Content="Description" HorizontalAlignment="Left" Margin="42,179,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" RenderTransformOrigin="0.602,2.328"/>
     </Grid>
 </Window>
