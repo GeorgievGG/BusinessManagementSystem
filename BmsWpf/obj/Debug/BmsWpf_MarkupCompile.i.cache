@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\Програмиране\SoftUni Homeworks\SoftUni - Local\TeamWork\BusinessManagementSystem\BusinessManagementSystem\BmsWpf\obj\Debug\
+\\vmware-host\Shared Folders\Desktop\Git\TeamProjectFinal\BusinessManagementSystem\BmsWpf\obj\Debug\
 BmsWpf
 none
 false
 DEBUG;TRACE
-D:\Програмиране\SoftUni Homeworks\SoftUni - Local\TeamWork\BusinessManagementSystem\BusinessManagementSystem\BmsWpf\App.xaml
+\\vmware-host\Shared Folders\Desktop\Git\TeamProjectFinal\BusinessManagementSystem\BmsWpf\App.xaml
 14552266583
 
-36484713179
-144-146504332
+362099058812
+144629970667
 MainWindow.xaml;Views\Admin\AddUser.xaml;Views\Admin\AdminPanel.xaml;Views\Admin\ManageUser.xaml;Views\ChildWindows\ActiveProjects.xaml;Views\ChildWindows\MainContragents.xaml;Views\ChildWindows\MainInquiries.xaml;Views\Forms\LoginForm.xaml;Views\ChildWindows\MainOffers.xaml;Views\Forms\InvoiceForm.xaml;Views\Forms\ContragentForm.xaml;Views\Forms\InquireForm.xaml;Views\Forms\OfferForm.xaml;Views\Forms\ProjectForm.xaml;
 
 True

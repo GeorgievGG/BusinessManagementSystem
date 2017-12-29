@@ -38,3 +38,23 @@ D:\Програмиране\SoftUni Homeworks\SoftUni - Local\TeamWork\BusinessM
 D:\Програмиране\SoftUni Homeworks\SoftUni - Local\TeamWork\BusinessManagementSystem\BusinessManagementSystem\BmsWpf.Services\obj\Debug\netstandard2.0\BmsWpf.Services.AssemblyInfo.cs
 D:\Програмиране\SoftUni Homeworks\SoftUni - Local\TeamWork\BusinessManagementSystem\BusinessManagementSystem\BmsWpf.Services\obj\Debug\netstandard2.0\BmsWpf.Services.dll
 D:\Програмиране\SoftUni Homeworks\SoftUni - Local\TeamWork\BusinessManagementSystem\BusinessManagementSystem\BmsWpf.Services\obj\Debug\netstandard2.0\BmsWpf.Services.pdb
+\\vmware-host\Shared Folders\Desktop\Git\TeamProjectFinal\BusinessManagementSystem\BmsWpf.Services\bin\Debug\netstandard2.0\BmsWpf.Services.deps.json
+\\vmware-host\Shared Folders\Desktop\Git\TeamProjectFinal\BusinessManagementSystem\BmsWpf.Services\bin\Debug\netstandard2.0\BmsWpf.Services.dll
+\\vmware-host\Shared Folders\Desktop\Git\TeamProjectFinal\BusinessManagementSystem\BmsWpf.Services\bin\Debug\netstandard2.0\BmsWpf.Services.pdb
+\\vmware-host\Shared Folders\Desktop\Git\TeamProjectFinal\BusinessManagementSystem\BmsWpf.Services\bin\Debug\netstandard2.0\BMS.DataBaseData.dll
+\\vmware-host\Shared Folders\Desktop\Git\TeamProjectFinal\BusinessManagementSystem\BmsWpf.Services\bin\Debug\netstandard2.0\BMS.DataBaseModels.dll
+\\vmware-host\Shared Folders\Desktop\Git\TeamProjectFinal\BusinessManagementSystem\BmsWpf.Services\bin\Debug\netstandard2.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+\\vmware-host\Shared Folders\Desktop\Git\TeamProjectFinal\BusinessManagementSystem\BmsWpf.Services\bin\Debug\netstandard2.0\Microsoft.EntityFrameworkCore.Relational.dll
+\\vmware-host\Shared Folders\Desktop\Git\TeamProjectFinal\BusinessManagementSystem\BmsWpf.Services\bin\Debug\netstandard2.0\System.Data.SqlClient.dll
+\\vmware-host\Shared Folders\Desktop\Git\TeamProjectFinal\BusinessManagementSystem\BmsWpf.Services\bin\Debug\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll
+\\vmware-host\Shared Folders\Desktop\Git\TeamProjectFinal\BusinessManagementSystem\BmsWpf.Services\bin\Debug\netstandard2.0\BMS.DataBaseData.pdb
+\\vmware-host\Shared Folders\Desktop\Git\TeamProjectFinal\BusinessManagementSystem\BmsWpf.Services\bin\Debug\netstandard2.0\BMS.DataBaseModels.pdb
+\\vmware-host\Shared Folders\Desktop\Git\TeamProjectFinal\BusinessManagementSystem\BmsWpf.Services\bin\Debug\netstandard2.0\Microsoft.EntityFrameworkCore.SqlServer.xml
+\\vmware-host\Shared Folders\Desktop\Git\TeamProjectFinal\BusinessManagementSystem\BmsWpf.Services\bin\Debug\netstandard2.0\Microsoft.EntityFrameworkCore.Relational.xml
+\\vmware-host\Shared Folders\Desktop\Git\TeamProjectFinal\BusinessManagementSystem\BmsWpf.Services\bin\Debug\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.xml
+\\vmware-host\Shared Folders\Desktop\Git\TeamProjectFinal\BusinessManagementSystem\BmsWpf.Services\obj\Debug\netstandard2.0\BmsWpf.Services.csprojResolveAssemblyReference.cache
+\\vmware-host\Shared Folders\Desktop\Git\TeamProjectFinal\BusinessManagementSystem\BmsWpf.Services\obj\Debug\netstandard2.0\BmsWpf.Services.csproj.CoreCompileInputs.cache
+\\vmware-host\Shared Folders\Desktop\Git\TeamProjectFinal\BusinessManagementSystem\BmsWpf.Services\obj\Debug\netstandard2.0\BmsWpf.Services.AssemblyInfoInputs.cache
+\\vmware-host\Shared Folders\Desktop\Git\TeamProjectFinal\BusinessManagementSystem\BmsWpf.Services\obj\Debug\netstandard2.0\BmsWpf.Services.AssemblyInfo.cs
+\\vmware-host\Shared Folders\Desktop\Git\TeamProjectFinal\BusinessManagementSystem\BmsWpf.Services\obj\Debug\netstandard2.0\BmsWpf.Services.dll
+\\vmware-host\Shared Folders\Desktop\Git\TeamProjectFinal\BusinessManagementSystem\BmsWpf.Services\obj\Debug\netstandard2.0\BmsWpf.Services.pdb

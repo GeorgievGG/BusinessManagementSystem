@@ -262,3 +262,5 @@ D:\Програмиране\SoftUni Homeworks\SoftUni - Local\TeamWork\BusinessM
 D:\Програмиране\SoftUni Homeworks\SoftUni - Local\TeamWork\BusinessManagementSystem\BusinessManagementSystem\BmsWpf.Services\obj\Debug\net462\BmsWpf.Services.AssemblyInfo.cs
 D:\Програмиране\SoftUni Homeworks\SoftUni - Local\TeamWork\BusinessManagementSystem\BusinessManagementSystem\BmsWpf.Services\obj\Debug\net462\BmsWpf.Services.dll
 D:\Програмиране\SoftUni Homeworks\SoftUni - Local\TeamWork\BusinessManagementSystem\BusinessManagementSystem\BmsWpf.Services\obj\Debug\net462\BmsWpf.Services.pdb
+\\vmware-host\Shared Folders\Desktop\Git\TeamProjectFinal\BusinessManagementSystem\BmsWpf.Services\obj\Debug\net462\BmsWpf.Services.dll
+\\vmware-host\Shared Folders\Desktop\Git\TeamProjectFinal\BusinessManagementSystem\BmsWpf.Services\obj\Debug\net462\BmsWpf.Services.pdb

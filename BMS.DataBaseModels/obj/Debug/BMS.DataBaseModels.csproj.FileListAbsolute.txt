@@ -10,3 +10,9 @@ D:\Програмиране\SoftUni Homeworks\SoftUni - Local\TeamWork\BusinessM
 D:\Програмиране\SoftUni Homeworks\SoftUni - Local\TeamWork\BusinessManagementSystem\BusinessManagementSystem\BMS.DataBaseModels\obj\Debug\BMS.DataBaseModels.csproj.CoreCompileInputs.cache
 D:\Програмиране\SoftUni Homeworks\SoftUni - Local\TeamWork\BusinessManagementSystem\BusinessManagementSystem\BMS.DataBaseModels\obj\Debug\BMS.DataBaseModels.dll
 D:\Програмиране\SoftUni Homeworks\SoftUni - Local\TeamWork\BusinessManagementSystem\BusinessManagementSystem\BMS.DataBaseModels\obj\Debug\BMS.DataBaseModels.pdb
+\\vmware-host\Shared Folders\Desktop\Git\TeamProjectFinal\BusinessManagementSystem\BMS.DataBaseModels\bin\Debug\BMS.DataBaseModels.dll
+\\vmware-host\Shared Folders\Desktop\Git\TeamProjectFinal\BusinessManagementSystem\BMS.DataBaseModels\bin\Debug\BMS.DataBaseModels.pdb
+\\vmware-host\Shared Folders\Desktop\Git\TeamProjectFinal\BusinessManagementSystem\BMS.DataBaseModels\obj\Debug\BMS.DataBaseModels.csprojResolveAssemblyReference.cache
+\\vmware-host\Shared Folders\Desktop\Git\TeamProjectFinal\BusinessManagementSystem\BMS.DataBaseModels\obj\Debug\BMS.DataBaseModels.csproj.CoreCompileInputs.cache
+\\vmware-host\Shared Folders\Desktop\Git\TeamProjectFinal\BusinessManagementSystem\BMS.DataBaseModels\obj\Debug\BMS.DataBaseModels.dll
+\\vmware-host\Shared Folders\Desktop\Git\TeamProjectFinal\BusinessManagementSystem\BMS.DataBaseModels\obj\Debug\BMS.DataBaseModels.pdb

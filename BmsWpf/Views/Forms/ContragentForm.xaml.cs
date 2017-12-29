@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BmsWpf.ViewModels;
 
 namespace BmsWpf.Views.Forms
 {
@@ -22,8 +23,12 @@ namespace BmsWpf.Views.Forms
     {
         public ContragentForm()
         {
-            InitializeComponent();
-        }
+			InitializeComponent();
+	        var vm = new ContragentViewModel();
+	        this.DataContext = vm;
+	        if (vm.CloseAction == null)
+		        vm.CloseAction = new Action(() => this.Close());
+		}
 
 
 		private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
