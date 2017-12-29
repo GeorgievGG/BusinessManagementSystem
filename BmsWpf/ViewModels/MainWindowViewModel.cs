@@ -110,9 +110,9 @@
 
         private void HandleInquiriesCommand(object parameter)
         {
-            var inquiriesWindow = ViewManager.ComposeObjects<MainInquiries>();
-            inquiriesWindow.Show();
-            this.CloseAction();
+             var inquiriesWindow = ViewManager.ComposeObjects<MainInquiries>();
+             inquiriesWindow.Show();
+             this.CloseAction();
         }
 
         private void HandleLogoutCommand(object parameter)
