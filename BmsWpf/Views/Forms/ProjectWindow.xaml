@@ -23,7 +23,6 @@
                     <ComboBox HorizontalAlignment="Left" Height="30" Margin="126,139,0,0"  VerticalAlignment="Top" Width="200"/>
                     <Label Content="Telephone" HorizontalAlignment="Left" Margin="21,246,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
                     <TextBox HorizontalAlignment="Left" Height="30" Margin="126,246,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200"/>
-                    <TextBlock Name="NotesAndEvents" HorizontalAlignment="Left" Margin="391,228,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="243" Width="285" Background="AliceBlue"/>
                     <Label Content="Incomes" HorizontalAlignment="Left" Margin="24,355,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
                     <TextBox HorizontalAlignment="Left" Height="30" Margin="126,355,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200"/>
                     <Label Content="Expences" HorizontalAlignment="Left" Margin="24,390,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
@@ -37,31 +36,52 @@
                     <DatePicker Name="EndDatePicker" HorizontalAlignment="Left" Margin="522,133,0,0" VerticalAlignment="Top" Height="30" Width="100"/>
                     <DatePicker Name="LimitDatePicker" HorizontalAlignment="Left" Margin="522,103,0,0" VerticalAlignment="Top" Height="30" Width="100"/>
                     <Label Content="Notes and Events" HorizontalAlignment="Left" Margin="391,188,0,0" VerticalAlignment="Top" Width="285" Height="40" FontSize="20" Foreground="AliceBlue"/>
+                    <ListBox HorizontalAlignment="Left" Height="223" Margin="391,233,0,0" VerticalAlignment="Top" Width="267"/>
 
                 </Grid>
             </TabItem>
             <TabItem Header="Incomes">
                 <Grid Background="#2e3137">
                     <Label Content="Invoices" HorizontalAlignment="Left" Margin="49,10,0,0" VerticalAlignment="Top" Width="285" Height="40" FontSize="28" Foreground="AliceBlue"/>
-                    <DataGrid Name="InvoiceIncome" HorizontalAlignment="Left" Height="156" Margin="49,50,0,0" VerticalAlignment="Top" Width="629"/>
+                    <DataGrid Name="InvoiceIncome" HorizontalAlignment="Left" Height="156" Margin="49,55,0,0" VerticalAlignment="Top" Width="629"/>
                     <Label Content="Payments" HorizontalAlignment="Left" Margin="49,251,0,0" VerticalAlignment="Top" Width="285" Height="55" FontSize="28" Foreground="AliceBlue"/>
-                    <DataGrid x:Name="IncomePayments" HorizontalAlignment="Left" Height="183" Margin="49,306,0,0" VerticalAlignment="Top" Width="629"/>
+                    <DataGrid x:Name="IncomePayments" HorizontalAlignment="Left" Height="183" Margin="49,300,0,0" VerticalAlignment="Top" Width="629"/>
+                    <Button Content="Add new invoice" HorizontalAlignment="Left" Margin="380,20,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
+                    <Button Content="Edit invoice" HorizontalAlignment="Left" Margin="478,20,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
+                    <Button Content="Delete" HorizontalAlignment="Left" Margin="578,20,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
+                    <Button Content="Add new payment" HorizontalAlignment="Left" Margin="378,261,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
+                    <Button Content="Edit payment" HorizontalAlignment="Left" Margin="476,261,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
+                    <Button Content="Delete" HorizontalAlignment="Left" Margin="576,261,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
+
                 </Grid>
 
             </TabItem>
             <TabItem Header="Expences">
                 <Grid Background="#2e3137">
                     <DataGrid Name="InvoiceExpences" HorizontalAlignment="Left" Height="183" Margin="49,50,0,0" VerticalAlignment="Top" Width="629"/>
-                    <DataGrid x:Name="ExpencesPayments" HorizontalAlignment="Left" Height="183" Margin="49,306,0,0" VerticalAlignment="Top" Width="629"/>
-                   
+                    <DataGrid x:Name="ExpencesPayments" HorizontalAlignment="Left" Height="183" Margin="47,296,0,0" VerticalAlignment="Top" Width="629"/>
+                    <Button Content="Add new invoice" HorizontalAlignment="Left" Margin="380,20,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
+                    <Button Content="Edit invoice" HorizontalAlignment="Left" Margin="478,20,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
+                    <Button Content="Delete" HorizontalAlignment="Left" Margin="578,20,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
+
                     <Label Content="Invoices" HorizontalAlignment="Left" Margin="49,10,0,0" VerticalAlignment="Top" Width="285" Height="40" FontSize="28" Foreground="AliceBlue"/>
                     <Label Content="Payments" HorizontalAlignment="Left" Margin="49,251,0,0" VerticalAlignment="Top" Width="285" Height="55" FontSize="28" Foreground="AliceBlue"/>
+                    <Button Content="Add new payment" HorizontalAlignment="Left" Margin="378,261,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
+                    <Button Content="Edit payment" HorizontalAlignment="Left" Margin="476,261,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
+                    <Button Content="Delete" HorizontalAlignment="Left" Margin="576,261,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
+
                 </Grid>
             </TabItem>
             <TabItem Header="Notes">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#2e3137">
+                    <ListBox HorizontalAlignment="Left" Height="488" Margin="285,24,0,0" VerticalAlignment="Top" Width="403"/>
+                    <Button Content="Add new note" HorizontalAlignment="Left" Margin="32,24,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
+                    <Button Content="Edit note" HorizontalAlignment="Left" Margin="32,59,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
+                    <Button Content="Delete note" HorizontalAlignment="Left" Margin="32,94,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
+
+                </Grid>
             </TabItem>
-     
+
         </TabControl>
 
 
