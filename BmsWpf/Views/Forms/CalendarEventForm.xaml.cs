@@ -34,7 +34,6 @@
         private void Button_Click_Save(object sender, RoutedEventArgs e)
         {
             var db = new BmsContex();
-            const string Format = "d.MM.yyyy г. h:mm:ss";
             var title = this.TitleBox.Text;
             var description = this.DescriptionBox.Text;
             var startDate = this.StartDateBox.SelectedDate.Value.Date;

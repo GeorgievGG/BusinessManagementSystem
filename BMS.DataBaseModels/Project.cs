@@ -41,6 +41,9 @@
 
         public int? SuplierId { get; set; }
 
+        public string ContactPerson { get; set; }
+        public string ContactPhone { get; set; }
+
         public ICollection<Contragent> Suppliers { get; set; }
         public ICollection<Invoice> ClientInvoices { get; set; }
         public ICollection<Invoice> SuplierInvoices { get; set; }
