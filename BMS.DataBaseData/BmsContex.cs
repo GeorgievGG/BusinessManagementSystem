@@ -47,9 +47,13 @@
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new ContragentConfiguration());
-            modelBuilder.ApplyConfiguration(new ProjectConfiguration());
             modelBuilder.ApplyConfiguration(new CalendarEventsConfiguration());
+            modelBuilder.ApplyConfiguration(new ContragentConfiguration());
+            modelBuilder.ApplyConfiguration(new InquiryConfiguration());
+            modelBuilder.ApplyConfiguration(new NoteConfiguration());
+            modelBuilder.ApplyConfiguration(new OfferConfiguration());
+            modelBuilder.ApplyConfiguration(new ProjectConfiguration());
+            modelBuilder.ApplyConfiguration(new UserConfiguration());
 
         }
     }

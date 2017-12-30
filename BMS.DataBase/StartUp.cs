@@ -83,11 +83,11 @@ namespace BMS.DataBase
             var context = new BmsContex();
             var inquiries = new[]
             {
-                new Inquiry { ClientId = 1, CreatorId = 2, Date = DateTime.Now ,  Description = "Create me Web App"},
-                new Inquiry { ClientId = 2, CreatorId = 3, Date = DateTime.Now ,  Description = "Sell that stock"},
-                new Inquiry { ClientId = 3, CreatorId = 4, Date = DateTime.Now ,  Description = "Configure Computer"},
-                new Inquiry { ClientId = 4, CreatorId = 5, Date = DateTime.Now ,  Description = "Reinstall Windows"},
-                new Inquiry { ClientId = 5, CreatorId = 6, Date = DateTime.Now ,  Description = "Android App Inquiry"}
+                new Inquiry { ContragentId = 1, CreatorId = 2, Date = DateTime.Now ,  Description = "Create me Web App"},
+                new Inquiry { ContragentId = 2, CreatorId = 3, Date = DateTime.Now ,  Description = "Sell that stock"},
+                new Inquiry { ContragentId = 3, CreatorId = 4, Date = DateTime.Now ,  Description = "Configure Computer"},
+                new Inquiry { ContragentId = 4, CreatorId = 5, Date = DateTime.Now ,  Description = "Reinstall Windows"},
+                new Inquiry { ContragentId = 5, CreatorId = 6, Date = DateTime.Now ,  Description = "Android App Inquiry"}
             };
             context.Inquiries.AddRange(inquiries);
             context.SaveChanges();
@@ -98,11 +98,11 @@ namespace BMS.DataBase
             var context = new BmsContex();
             var offers = new[]
             {
-                new Offer { ClientId = 1, CreatorId = 2, Date = DateTime.Now , InquiryId = 1, Description = "Cost: $1300"},
-                new Offer { ClientId = 2, CreatorId = 3, Date = DateTime.Now , InquiryId = 2, Description = "Cost: $2500"},
-                new Offer { ClientId = 3, CreatorId = 4, Date = DateTime.Now , InquiryId = 3, Description = "Cost: $3300"},
-                new Offer { ClientId = 4, CreatorId = 5, Date = DateTime.Now , InquiryId = 4, Description = "Cost: $1800"},
-                new Offer { ClientId = 5, CreatorId = 6, Date = DateTime.Now , InquiryId = 5, Description = "Cost: $3200"}
+                new Offer { ContragentId = 1, CreatorId = 2, Date = DateTime.Now , InquiryId = 1, Description = "Cost: $1300"},
+                new Offer { ContragentId = 2, CreatorId = 3, Date = DateTime.Now , InquiryId = 2, Description = "Cost: $2500"},
+                new Offer { ContragentId = 3, CreatorId = 4, Date = DateTime.Now , InquiryId = 3, Description = "Cost: $3300"},
+                new Offer { ContragentId = 4, CreatorId = 5, Date = DateTime.Now , InquiryId = 4, Description = "Cost: $1800"},
+                new Offer { ContragentId = 5, CreatorId = 6, Date = DateTime.Now , InquiryId = 5, Description = "Cost: $3200"}
             };
             context.Offers.AddRange(offers);
             context.SaveChanges();
@@ -113,11 +113,11 @@ namespace BMS.DataBase
             var context = new BmsContex();
             var project = new[]
             {
-                new Project { ClientId = 1, CreatorId = 2, OfferId = 1, StartDate = DateTime.Now ,EndDate = DateTime.Now,DeadLine = DateTime.Now, InquiryId = 1, Name = "Android App"},
-                new Project { ClientId = 2, CreatorId = 3, OfferId = 2, StartDate = DateTime.Now ,EndDate = DateTime.Now,DeadLine = DateTime.Now, InquiryId = 2, Name = "Desktop App"},                                           
-                new Project { ClientId = 3, CreatorId = 4, OfferId = 3, StartDate = DateTime.Now ,EndDate = DateTime.Now,DeadLine = DateTime.Now, InquiryId = 3, Name = "Web App"},                                              
-                new Project { ClientId = 4, CreatorId = 5, OfferId = 4, StartDate = DateTime.Now ,EndDate = DateTime.Now,DeadLine = DateTime.Now, InquiryId = 4, Name = "Sports WebSite"},                                       
-                new Project { ClientId = 5, CreatorId = 6, OfferId = 5, StartDate = DateTime.Now ,EndDate = DateTime.Now,DeadLine = DateTime.Now, InquiryId = 5, Name = "Production Management System"}
+                new Project { ContragentId = 1, CreatorId = 2, OfferId = 1, StartDate = DateTime.Now ,EndDate = DateTime.Now,DeadLine = DateTime.Now, InquiryId = 1, Name = "Android App"},
+                new Project { ContragentId = 2, CreatorId = 3, OfferId = 2, StartDate = DateTime.Now ,EndDate = DateTime.Now,DeadLine = DateTime.Now, InquiryId = 2, Name = "Desktop App"},                                           
+                new Project { ContragentId = 3, CreatorId = 4, OfferId = 3, StartDate = DateTime.Now ,EndDate = DateTime.Now,DeadLine = DateTime.Now, InquiryId = 3, Name = "Web App"},                                              
+                new Project { ContragentId = 4, CreatorId = 5, OfferId = 4, StartDate = DateTime.Now ,EndDate = DateTime.Now,DeadLine = DateTime.Now, InquiryId = 4, Name = "Sports WebSite"},                                       
+                new Project { ContragentId = 5, CreatorId = 6, OfferId = 5, StartDate = DateTime.Now ,EndDate = DateTime.Now,DeadLine = DateTime.Now, InquiryId = 5, Name = "Production Management System"}
             };
             context.Projects.AddRange(project);
             context.SaveChanges();

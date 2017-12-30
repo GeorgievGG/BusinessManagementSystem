@@ -70,7 +70,7 @@ namespace BmsWpf.Views.Forms
             {
                 Name = name,
                 Creator = creator,
-                Client = client,
+                Contragent = client,
                 Offer = offer,
                 OfferId = offerArgs,
                 Inquiry = inquire,

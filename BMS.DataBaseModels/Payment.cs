@@ -9,11 +9,10 @@
         [Key]
         public int Id { get; set; }
 
-        public int? SupplierId { get; set; }
-        public Contragent Supplier { get; set; }
+        public int ContragentId { get; set; }
+        public Contragent SuplierContragent { get; set; }
+        public Contragent ClientContragent { get; set; }
 
-        public int? ClientId { get; set; }
-        public Contragent Client { get; set; }
 
         public DateTime Date { get; set; }
         public decimal Price { get; set; }

@@ -14,8 +14,8 @@
         public int? InquiryId { get; set; }
         public Inquiry Inquiry { get; set; }
 
-        public int ClientId { get; set; }
-        public Contragent Client { get; set; }
+        public int ContragentId { get; set; }
+        public Contragent Contragent { get; set; }
 
         public int CreatorId { get; set; }
         public User Creator { get; set; }

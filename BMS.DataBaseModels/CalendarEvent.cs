@@ -15,5 +15,8 @@
         public Color Color { get; set; }
         public int CreatorId { get; set; }
         public User Creator { get; set; }
+        public int? ProjectId { get; set; }
+        public Project Project { get; set; }
+       
     }
 }
