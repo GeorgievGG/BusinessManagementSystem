@@ -38,9 +38,7 @@
             var title = this.TitleBox.Text;
             var description = this.DescriptionBox.Text;
             var startDate = this.StartDateBox.SelectedDate.Value.Date;
-           // var startDateToDateTime = DateTime.ParseExact(startDate, Format, CultureInfo.InvariantCulture);
             var endDate = this.EndDateBox.SelectedDate.Value.Date;
-          //  var endDateToDateTime = DateTime.ParseExact(endDate, Format, CultureInfo.InvariantCulture);
             Enum.TryParse(this.ColorPickerBox.Text, out Color color);
             var creatorArgs = this.CreatorBox.ToString();
             var creator = db.Users.FirstOrDefault(u => u.Username == creatorArgs);
