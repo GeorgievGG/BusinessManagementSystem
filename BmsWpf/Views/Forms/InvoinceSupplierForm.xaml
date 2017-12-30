@@ -45,7 +45,7 @@
         </Canvas>
         <Label Content="/" HorizontalAlignment="Left" FontSize="30" Margin="292,247,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.155,0.604"/>
         <Button Name="ButtonSave" Content="Save" HorizontalAlignment="Left" Margin="415,730,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="ButtonSave_Click"/>
-        <Button Name="ButtonEdit" Content="Edit" HorizontalAlignment="Left" Margin="513,730,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="ButtonEdit_Click"/>
+        <Button Name="ButtonEdit" Content="Edit" HorizontalAlignment="Left" Margin="513,730,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="ButtonEdit_Click" RenderTransformOrigin="0.5,0.5"/>
         <Button Name="ButtonPrint" Content="Print" HorizontalAlignment="Left" Margin="611,730,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="ButtonPrint_Click"/>
         <TextBox Name="BankDetailsBox" Foreground="Black" Margin="151,596,368,104.4"/>
         <Label Content="Банкови реквизити" FontSize="12" Foreground="Black" Margin="41,596,598,129.4"/>

@@ -12,13 +12,19 @@
             InitializeComponent();
         }
 
-        private void Back_Click(object sender, RoutedEventArgs e)
+        private void ButtonSave_Click(object sender, RoutedEventArgs e)
         {
-                var dash = new MainWindow();
-                dash.Show();
-                this.Close();
+
         }
 
+        private void ButtonEdit_Click(object sender, RoutedEventArgs e)
+        {
 
+        }
+
+        private void ButtonPrint_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
