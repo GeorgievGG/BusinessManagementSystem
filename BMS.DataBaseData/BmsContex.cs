@@ -34,6 +34,8 @@
 
         public DbSet<User> Users { get; set; }
 
+        public DbSet<CalendarEvent> CalendarEvents { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
             if (!builder.IsConfigured)
@@ -47,6 +49,7 @@
         {
             modelBuilder.ApplyConfiguration(new ContragentConfiguration());
             modelBuilder.ApplyConfiguration(new ProjectConfiguration());
+            modelBuilder.ApplyConfiguration(new CalendarEventsConfiguration());
 
         }
     }

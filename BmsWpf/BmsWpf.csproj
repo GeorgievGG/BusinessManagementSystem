@@ -114,6 +114,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Sessions\Session.cs" />
@@ -121,6 +124,7 @@
     <Compile Include="ViewModels\ActiveProjectsViewModel.cs" />
     <Compile Include="ViewModels\AddNewUserViewModel.cs" />
     <Compile Include="ViewModels\AdminPanelViewModel.cs" />
+    <Compile Include="ViewModels\CalendarEventsViewModel.cs" />
     <Compile Include="ViewModels\ContragentViewModel.cs" />
     <Compile Include="ViewModels\IPageViewModel.cs" />
     <Compile Include="ViewModels\LoginFormViewModel.cs" />
@@ -138,14 +142,23 @@
     <Compile Include="Views\ChildWindows\ActiveProjects.xaml.cs">
       <DependentUpon>ActiveProjects.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ChildWindows\MainCalendarEvents.xaml.cs">
+      <DependentUpon>MainCalendarEvents.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ChildWindows\MainContragents.xaml.cs">
       <DependentUpon>MainContragents.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ChildWindows\MainInquiries.xaml.cs">
       <DependentUpon>MainInquiries.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ChildWindows\MainInvoices.xaml.cs">
+      <DependentUpon>MainInvoices.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ChildWindows\MainOffers.xaml.cs">
       <DependentUpon>MainOffers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Forms\CalendarEventForm.xaml.cs">
+      <DependentUpon>CalendarEventForm.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Forms\InvoiceForm.xaml.cs">
       <DependentUpon>InvoiceForm.xaml</DependentUpon>
@@ -166,19 +179,18 @@
       <DependentUpon>ProjectForm.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
+    <Compile Include="Views\Forms\ProjectWindow.xaml.cs">
+      <DependentUpon>ProjectWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Behaviour\RelayCommand.cs" />
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\Admin\AddUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -195,6 +207,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ChildWindows\MainCalendarEvents.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\ChildWindows\MainContragents.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -202,6 +218,14 @@
     <Page Include="Views\ChildWindows\MainInquiries.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ChildWindows\MainInvoices.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Forms\CalendarEventForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Forms\LoginForm.xaml">
       <SubType>Designer</SubType>
@@ -230,6 +254,10 @@
     <Page Include="Views\Forms\ProjectForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Forms\ProjectWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>

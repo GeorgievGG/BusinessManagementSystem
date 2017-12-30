@@ -103,6 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BmsContex.cs" />
+    <Compile Include="EntityConfiguration\CalendarEventsConfiguration.cs" />
     <Compile Include="EntityConfiguration\ContragentConfiguration.cs" />
     <Compile Include="EntityConfiguration\ProjectConfiguration.cs" />
     <Compile Include="ServerConfiguration.cs" />

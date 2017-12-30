@@ -41,8 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CalendarEvent.cs" />
     <Compile Include="Enums\ClearenceType.cs" />
     <Compile Include="Contragent.cs" />
+    <Compile Include="Enums\Color.cs" />
     <Compile Include="Enums\NoteType.cs" />
     <Compile Include="Inquiry.cs" />
     <Compile Include="Invoice.cs" />
