@@ -17,6 +17,9 @@ namespace BmsWpf.Views.ChildWindows
     using BmsWpf.Behaviour;
     using BmsWpf.Views.Forms;
 
+    using BMS.DataBaseData;
+    using BMS.DataBaseModels;
+
     /// <summary>
     /// Interaction logic for MainCalendarEvents.xaml
     /// </summary>
@@ -26,6 +29,15 @@ namespace BmsWpf.Views.ChildWindows
         public MainCalendarEvents()
         {
             InitializeComponent();
+            FillGrid();
+        }
+
+        private void FillGrid()
+        {
+            var context = new BmsContex();
+            var events = context.CalendarEvents.Select(ce => ce.EndTime > DateTime.Now).ToList();
+            this.eventView.ItemsSource = events;
+
         }
 
         private void Back_OnClickButton_Click(object sender, RoutedEventArgs e)
@@ -42,9 +54,6 @@ namespace BmsWpf.Views.ChildWindows
             this.Close();
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
 
-        }
     }
 }

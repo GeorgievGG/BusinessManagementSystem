@@ -1,8 +1,6 @@
 ﻿namespace BmsWpf.Views.Forms
 {
     using System;
-    using System.Data;
-    using System.Globalization;
     using System.Linq;
     using System.Windows;
     using System.Windows.Controls;
@@ -26,8 +24,8 @@
 
         private void FillComboBox()
         {
-            var db = new BmsContex();
-            var creators = db.Users.ToList();
+            var context = new BmsContex();
+            var creators = context.Users.ToList();
             this.CreatorBox.ItemsSource = creators.Select(c => c.Username);
         }
 
@@ -40,7 +38,7 @@
             var endDate = this.EndDateBox.SelectedDate.Value.Date;
             Enum.TryParse(this.ColorPickerBox.Text, out Color color);
             var creatorArgs = this.CreatorBox.ToString();
-            var creator = db.Users.FirstOrDefault(u => u.Username == creatorArgs);
+            var creator = db.Users.FirstOrDefault(u => u.Username == creatorArgs).Id;
 
 
 
@@ -51,7 +49,7 @@
                 Color = color,
                 StartTime = startDate,
                 EndTime = endDate,
-                Creator = creator,
+                CreatorId = creator,
             };
 
             db.CalendarEvents.Add(newCalendarEvent);
