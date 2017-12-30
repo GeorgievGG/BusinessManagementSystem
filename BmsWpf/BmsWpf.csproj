@@ -160,8 +160,11 @@
     <Compile Include="Views\Forms\CalendarEventForm.xaml.cs">
       <DependentUpon>CalendarEventForm.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Forms\InvoiceForm.xaml.cs">
-      <DependentUpon>InvoiceForm.xaml</DependentUpon>
+    <Compile Include="Views\Forms\InvoiceClientForm.xaml.cs">
+      <DependentUpon>InvoiceClientForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Forms\InvoinceSupplierForm.xaml.cs">
+      <DependentUpon>InvoinceSupplierForm.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Forms\LoginForm.xaml.cs">
       <DependentUpon>LoginForm.xaml</DependentUpon>
@@ -230,6 +233,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\Forms\InvoinceSupplierForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Forms\LoginForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -238,7 +245,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Forms\InvoiceForm.xaml">
+    <Page Include="Views\Forms\InvoiceClientForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

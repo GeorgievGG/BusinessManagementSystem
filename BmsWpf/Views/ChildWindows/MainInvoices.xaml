@@ -5,8 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BmsWpf.Views.ChildWindows"
         mc:Ignorable="d"
-        Title="MainInvoices" Height="300" Width="300">
+        Title="MainInvoices" Height="600" Width="750" FontSize="16" Background="#FF030F1D">
     <Grid>
-        
+        <Label Content="INVOICES" HorizontalAlignment="Left" Margin="298,10,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Background="#FF2E3137" Foreground="White"/>
+        <Button Name="SearchButton" Content="Search" HorizontalAlignment="Left" Margin="584,112,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="SearchButton_Click"/>
+        <DataGrid Name="ClientInvoicesGrid" HorizontalAlignment="Left" Height="365" Margin="36,163,0,0" VerticalAlignment="Top" Width="648"/>
+        <TextBox Name="SearchTextBox" HorizontalAlignment="Left" Height="30" Margin="36,112,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="543"/>
+        <Menu HorizontalAlignment="Left" Height="22" Margin="36,69,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.562,0.65">
+            <MenuItem Header="Menu">
+                <MenuItem Header="Add client invoice" Click="AddClientInvoiceButton_Click"></MenuItem>
+                <MenuItem Header="Edit client invoice" Click="EditClientInvoicesButton_Click"></MenuItem>
+                <MenuItem Header="Add supplier invoice" Click="AddSupplierInvoiceButton_Click"></MenuItem>
+                <MenuItem Header="Edit supplier invoice" Click="EditSupplierInvoiceButton_Click"></MenuItem>
+                <MenuItem Header="Delete" Click="DeleteInvoiceButton_Click" ></MenuItem>
+            </MenuItem>
+        </Menu>
+
     </Grid>
 </Window>

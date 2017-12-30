@@ -3,11 +3,11 @@
     using System.Windows;
 
     /// <summary>
-    /// Interaction logic for InvoiceForm.xaml
+    /// Interaction logic for InvoiceClientForm.xaml
     /// </summary>
-    public partial class InvoiceForm : Window
+    public partial class InvoiceClientForm : Window
     {
-        public InvoiceForm()
+        public InvoiceClientForm()
         {
             InitializeComponent();
         }
