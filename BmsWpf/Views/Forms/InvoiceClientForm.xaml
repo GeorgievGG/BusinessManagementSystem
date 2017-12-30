@@ -5,18 +5,49 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BmsWpf.Views.Forms"
         mc:Ignorable="d"
-        Title="InvoiceClientForm" Height="600" Width="750" FontSize="16" Background="#FF030F1D">
-    <Grid Margin="0,0,-6.4,-1.6" Background="#FF2E3137">
-        <Separator Margin="42,60,62.6,379.6" />
-        <Label Content="Client Invoice"  HorizontalAlignment="Left" Foreground="#FFA1EAE8" FontSize="30" FontWeight="Bold" Margin="10,5,0,0" VerticalAlignment="Top" Width="740"/>
-        <TextBox Height="30" BorderThickness="2"  BorderBrush="#313c4f" Margin="42,103,401,0" Foreground="Gray"  TextAlignment="Center" TextWrapping="Wrap" Text="Id" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" VerticalContentAlignment="Center"/>
-        <TextBox Height="130" Margin="42,147,51,0" Foreground="Gray"  BorderThickness="2"  BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" VerticalContentAlignment="Center" Text="Text" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" />
-        <TextBox Height="30" Margin="276,102,52,0" Foreground="Gray"  BorderThickness="2"  BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" VerticalContentAlignment="Center" Text="Supplier / Client" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" />
-        <Button Content="Save" HorizontalAlignment="Left" Margin="225,411,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.36,-0.52" Background="#FF17597C" FontWeight="Bold" FontSize="16" Foreground="White"/>
-        <TextBox Height="30" Margin="340,291,51.6,0" Foreground="Gray"  BorderThickness="2"  BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" VerticalContentAlignment="Center" Text="Price" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" />
-        <TextBox Height="30" Margin="340,326,51.6,0" Foreground="Gray"  BorderThickness="2"  BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" VerticalContentAlignment="Center" Text="VAT" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" />
-        <TextBox Height="30" Margin="340,361,50.6,0" Foreground="Gray"  BorderThickness="2"  BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" VerticalContentAlignment="Center" Text="Total" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" />
-        <DatePicker HorizontalAlignment="Left" Margin="104,105,0,0" VerticalAlignment="Top" Width="140" Height="27"/>
-        <Button Content="Back" HorizontalAlignment="Left" Margin="314,411,0,0" VerticalAlignment="Top" Width="75" Click="Back_Click" Background="#FFAE3434" FontWeight="Bold" FontSize="16" Foreground="White"/>
+        Title="InvoiceClientForm" Height="800" Width="750" FontSize="16" Background="#F2FAFD">
+    <Grid Background="#F2FAFD">
+        <Label Content="INVOICE"  HorizontalAlignment="Left" Foreground="Black" FontSize="24" FontWeight="Bold" Margin="331,217,0,0" VerticalAlignment="Top" Width="106" Height="40"/>
+        <TextBox Name="NumberTextBox" Height="30" Margin="100,261,458,0" Text="Номер" Foreground="Black" TextAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" />
+        <TextBox Name="DateTextBox" Height="30" Margin="318,261,254,0" Text="Дата" Foreground="Black" TextAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" />
+
+        <TextBox Height="252" Margin="46,316,46,0" Foreground="Gray"  BorderThickness="2"  BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" VerticalContentAlignment="Center" Text="Text" VerticalAlignment="Top" />
+        <TextBox Name="TownTextBox" Height="30" Margin="501,261,92,0" Foreground="Black" TextAlignment="Left" TextWrapping="Wrap" VerticalContentAlignment="Center" Text="Град" VerticalAlignment="Top" />
+        <Canvas  HorizontalAlignment="Left" Height="169" Margin="39,28,0,0" VerticalAlignment="Top" Width="300" Grid.RowSpan="2">
+            <Border BorderBrush="Black" BorderThickness="1" Height="170" Width="300"/>
+            <TextBox Name="NameBox" Height="25" Foreground="Black" Canvas.Left="73" Width="225"/>
+            <Label Content="Получател" Height="25" Width="75" FontSize="12" Foreground="Black" Margin="0,0,319.2,0"/>
+            <TextBox Name="EikBox" Height="25" Foreground="Black" Canvas.Left="73" Width="225" Canvas.Top="25"/>
+            <Label Content="ЕИК" Height="25" Width="75" FontSize="12" Foreground="Black" Canvas.Top="25"/>
+            <TextBox Name="DdsBox" Height="25" Foreground="Black" Canvas.Left="73" Width="225" Canvas.Top="50"/>
+            <Label Content="ДДС" Height="25" Width="75" FontSize="12" Foreground="Black" Canvas.Top="50"/>
+            <TextBox Name="Town" Height="25" Foreground="Black" Canvas.Left="73" Width="225" Canvas.Top="74" RenderTransformOrigin="0.506,0.407"/>
+            <Label Content="Град" Height="25" Width="75" FontSize="12" Foreground="Black" Canvas.Top="75"/>
+            <TextBox Name="AddressBox" Height="45" Foreground="Black" Canvas.Left="73" Width="225" Canvas.Top="99"/>
+            <Label Content="Адрес" Height="25" Width="75" FontSize="12" Foreground="Black" Canvas.Top="100"/>
+            <TextBox Name="MolBox" Height="25" Foreground="Black" Canvas.Left="73" Width="225" Canvas.Top="144"/>
+            <Label Content="МОЛ" Height="25" Width="75" FontSize="12" Foreground="Black" Canvas.Top="144"/>
+        </Canvas>
+        <Canvas  HorizontalAlignment="Left" Height="169" Margin="411,28,0,0" VerticalAlignment="Top" Width="300">
+            <Border BorderBrush="Black" BorderThickness="1" Height="170" Width="300" Canvas.Left="-2"/>
+            <TextBox Name="NameSuplierBox" Height="25" Foreground="Black" Canvas.Left="73" Width="225" Canvas.Top="1"/>
+            <Label Content="Доставчик" Height="25" Width="75" FontSize="12" Foreground="Black" Canvas.Top="1"/>
+            <TextBox Name="SupplierEikBox" Height="25" Foreground="Black" Canvas.Left="73" Width="225" Canvas.Top="26"/>
+            <Label Content="ЕИК" Height="25" Width="75" FontSize="12" Foreground="Black" Canvas.Top="26"/>
+            <TextBox Name="SupplierDdsBox" Height="25" Foreground="Black" Canvas.Left="73" Width="225" Canvas.Top="50"/>
+            <Label Content="ДДС" Height="25" Width="75" FontSize="12" Foreground="Black" Canvas.Top="50"/>
+            <TextBox Name="SupplierTown" Height="25" Foreground="Black" Canvas.Left="73" Width="225" Canvas.Top="74" RenderTransformOrigin="0.506,0.407"/>
+            <Label Content="Град" Height="25" Width="75" FontSize="12" Foreground="Black" Canvas.Top="75" Canvas.Left="-2"/>
+            <TextBox Name="SupplierAddressBox" Height="45" Foreground="Black" Canvas.Left="73" Width="225" Canvas.Top="100"/>
+            <Label Content="Адрес" Height="25" Width="75" FontSize="12" Foreground="Black" Canvas.Top="100"/>
+            <TextBox Name="SupplierMolBox" Height="25" Foreground="Black" Canvas.Left="73" Width="225" Canvas.Top="144"/>
+            <Label Content="МОЛ" Height="25" Width="75" FontSize="12" Foreground="Black" Canvas.Top="145"/>
+        </Canvas>
+        <Label Content="/" HorizontalAlignment="Left" FontSize="30" Margin="292,247,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.155,0.604"/>
+        <Button Name="ButtonSave" Content="Save" HorizontalAlignment="Left" Margin="415,730,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="ButtonSave_Click"/>
+        <Button Name="ButtonEdit" Content="Edit" HorizontalAlignment="Left" Margin="513,730,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="ButtonEdit_Click"/>
+        <Button Name="ButtonPrint" Content="Print" HorizontalAlignment="Left" Margin="611,730,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="ButtonPrint_Click"/>
+        <TextBox Name="BankDetailsBox" Foreground="Black" Margin="151,596,368,104.4"/>
+        <Label Content="Банкови реквизити" FontSize="12" Foreground="Black" Margin="41,596,598,129.4"/>
     </Grid>
 </Window>

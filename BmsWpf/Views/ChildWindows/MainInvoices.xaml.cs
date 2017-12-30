@@ -65,5 +65,12 @@
         {
 
         }
+
+        private void BackButton_OnClickButton_Click(object sender, RoutedEventArgs e)
+        {
+            var dash = new MainWindow();
+            dash.Show();
+            this.Close();
+        }
     }
 }
