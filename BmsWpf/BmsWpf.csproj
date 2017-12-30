@@ -179,6 +179,9 @@
     <Compile Include="Views\Forms\PaymentClientForm.xaml.cs">
       <DependentUpon>PaymentClientForm.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Forms\PaymentSupplierForm.xaml.cs">
+      <DependentUpon>PaymentSupplierForm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Forms\ProjectWindow.xaml.cs">
       <DependentUpon>ProjectWindow.xaml</DependentUpon>
     </Compile>
@@ -252,6 +255,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Forms\PaymentClientForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Forms\PaymentSupplierForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

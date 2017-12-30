@@ -81,7 +81,7 @@ namespace BmsWpf.Views.Forms
             {
                 var newOffer = new Offer
                 {
-                    ClientId = clientId,
+                    ContragentId = clientId,
                     CreatorId = creatorId,
                     InquiryId = inquiryId,
                     Description = desc_form,
@@ -94,7 +94,7 @@ namespace BmsWpf.Views.Forms
             else
             {
                 var currentOffer = db.Offers.Where(o => o.Id.ToString() == offerId).SingleOrDefault();
-                currentOffer.ClientId = clientId;
+                currentOffer.ContragentId = clientId;
                 currentOffer.CreatorId = creatorId;
                 currentOffer.Date = DateTime.ParseExact(date_form, format, CultureInfo.InvariantCulture);
                 currentOffer.Description = desc_form;

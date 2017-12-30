@@ -52,7 +52,7 @@ namespace BmsWpf.Views.Forms
         private void ClientCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var db = new BmsContex();
-            var inqu = db.Inquiries.Include(i => i.Client).ToList();
+            var inqu = db.Inquiries.Include(i => i.Contragent).ToList();
             var clients = db.Contragents.ToList();
 
             var clientName = ClientCombo.SelectedItem.ToString();
@@ -90,7 +90,7 @@ namespace BmsWpf.Views.Forms
             {
                 var newInquiry = new Inquiry
                 {
-                    ClientId = clientId,
+                    ContragentId = clientId,
                     CreatorId = creatorId,
                     Description = description_form.Text,
                     Date = DateTime.ParseExact(date_form, format, CultureInfo.InvariantCulture)
@@ -102,7 +102,7 @@ namespace BmsWpf.Views.Forms
             else
             {
                 var currentInquiry = db.Inquiries.Where(o => o.Id.ToString() == inquiryId).SingleOrDefault();
-                currentInquiry.ClientId = clientId;
+                currentInquiry.ContragentId = clientId;
                 currentInquiry.CreatorId = creatorId;
                 currentInquiry.Date = DateTime.ParseExact(date_form, format, CultureInfo.InvariantCulture);
                 currentInquiry.Description = description_form.Text;

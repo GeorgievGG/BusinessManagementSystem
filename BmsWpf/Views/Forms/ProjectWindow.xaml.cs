@@ -92,5 +92,75 @@ namespace BmsWpf.Views.Forms
 
         }
 
+        private void AddNewPaymentButton_Click(object sender, RoutedEventArgs e)
+        {
+            var newPayment = new PaymentForm();
+            newPayment.Show();
+            
+            var display = new HashSet<PaymentForm>
+            {
+                newPayment
+            };
+
+            this.IncomePayments.ItemsSource = display;
+        }
+
+        private void AddInvoiceButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void EditInvoicesButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void EditSupplierPaymentsButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddNewSupplierInvoiceButton_Click(object sender, RoutedEventArgs e)
+        {
+            var newPayment = new PaymentSupplierForm();
+            newPayment.Show();
+
+            var display = new HashSet<PaymentSupplierForm>
+                              {
+                                  newPayment
+                              };
+
+            this.ExpencesPayments.ItemsSource = display;
+        }
+
+        private void EditSupplierInvocesButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonSupplierPayment_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void EditSuppliersPayments_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddNewNoteButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void EditNotesButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DeleteNoteButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

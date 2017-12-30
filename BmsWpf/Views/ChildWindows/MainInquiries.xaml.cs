@@ -60,14 +60,14 @@ namespace BmsWpf.Views.ChildWindows
             dt.Columns.Add(date);
 
 
-            var inquiries = db.Inquiries.Include(e => e.Client).Include(e => e.Creator).ToArray();
+            var inquiries = db.Inquiries.Include(e => e.Contragent).Include(e => e.Creator).ToArray();
 
             foreach (var inqu in inquiries)
             {
                 DataRow row = dt.NewRow();
                 row[0] = inqu.Id;
                 row[1] = inqu.Creator.Username;
-                row[2] = inqu.Client.Name;
+                row[2] = inqu.Contragent.Name;
                 row[3] = inqu.Description;
                 row[4] = inqu.Date;
                 dt.Rows.Add(row);
@@ -96,7 +96,7 @@ namespace BmsWpf.Views.ChildWindows
         private void EditForm()
         {
             var db = new BmsContex();
-            var inqu = db.Inquiries.Include(i => i.Client).ToList();
+            var inqu = db.Inquiries.Include(i => i.Contragent).ToList();
           
             var dash = new InquireForm();
             DataRowView dataRow = (DataRowView)InquDataGrid.SelectedItem;
@@ -105,9 +105,9 @@ namespace BmsWpf.Views.ChildWindows
             dash.CreatorCombo.SelectedItem = dataRow.Row.ItemArray[1].ToString();
             dash.ClientCombo.SelectedItem = dataRow.Row.ItemArray[2].ToString();
             dash.description_form.Text = dataRow.Row.ItemArray[3].ToString();
-            dash.poc_form.Text = currentInqu.Client.PersonForContact.ToString();
-            dash.email_form.Text = currentInqu.Client.Email.ToString();
-            dash.phone_form.Text = currentInqu.Client.Telephone.ToString();
+            dash.poc_form.Text = currentInqu.Contragent.PersonForContact.ToString();
+            dash.email_form.Text = currentInqu.Contragent.Email.ToString();
+            dash.phone_form.Text = currentInqu.Contragent.Telephone.ToString();
             dash.Show();
             this.Close();
         }

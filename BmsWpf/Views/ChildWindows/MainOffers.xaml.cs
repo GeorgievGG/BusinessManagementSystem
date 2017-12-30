@@ -68,14 +68,14 @@ namespace BmsWpf.Views.ChildWindows
             dt.Columns.Add(date);
 
  
-            var offers = db.Offers.Include(e => e.Client).Include(e => e.Creator).Include(e => e.Inquiry).ToArray();
+            var offers = db.Offers.Include(e => e.Contragent).Include(e => e.Creator).Include(e => e.Inquiry).ToArray();
 
             foreach (var offer in offers)
             {
                 DataRow row = dt.NewRow();
                 row[0] = offer.Id;
                 row[1] = offer.Creator.Username;
-                row[2] = offer.Client.Name;
+                row[2] = offer.Contragent.Name;
                 row[3] = offer.Inquiry.Description;
                 row[4] = offer.Description;
                 row[5] = offer.Date;
