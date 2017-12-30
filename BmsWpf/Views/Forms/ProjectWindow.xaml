@@ -50,11 +50,11 @@
                     <DataGrid Name="InvoiceIncome" HorizontalAlignment="Left" Height="156" Margin="49,55,0,0" VerticalAlignment="Top" Width="629"/>
                     <Label Content="Payments" HorizontalAlignment="Left" Margin="49,251,0,0" VerticalAlignment="Top" Width="285" Height="55" FontSize="28" Foreground="AliceBlue"/>
                     <DataGrid x:Name="IncomePayments" HorizontalAlignment="Left" Height="183" Margin="49,300,0,0" VerticalAlignment="Top" Width="629"/>
-                    <Button Content="Add new invoice" HorizontalAlignment="Left" Margin="380,20,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
-                    <Button Content="Edit invoice" HorizontalAlignment="Left" Margin="478,20,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
+                    <Button Name="AddInvoiceButton" Content="Add new invoice" HorizontalAlignment="Left" Margin="380,20,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
+                    <Button Name="EditInvoicesButton" Content="Edit invoice" HorizontalAlignment="Left" Margin="478,20,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
                     <Button Content="Delete" HorizontalAlignment="Left" Margin="578,20,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
-                    <Button Content="Add new payment" HorizontalAlignment="Left" Margin="378,261,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
-                    <Button Content="Edit payment" HorizontalAlignment="Left" Margin="476,261,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
+                    <Button Name ="AddNewPaymentButton" Content="Add new payment" HorizontalAlignment="Left" Margin="378,261,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
+                    <Button Name="EditPaymentsButton"  Content="Edit payment" HorizontalAlignment="Left" Margin="476,261,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
                     <Button Content="Delete" HorizontalAlignment="Left" Margin="576,261,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
 
                 </Grid>

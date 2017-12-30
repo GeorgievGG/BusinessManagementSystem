@@ -175,10 +175,10 @@
     <Compile Include="Views\Forms\OfferForm.xaml.cs">
       <DependentUpon>OfferForm.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Forms\ProjectForm.xaml.cs">
-      <DependentUpon>ProjectForm.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="Views\Forms\PaymentClientForm.xaml.cs">
+      <DependentUpon>PaymentClientForm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Forms\ProjectWindow.xaml.cs">
       <DependentUpon>ProjectWindow.xaml</DependentUpon>
     </Compile>
@@ -251,7 +251,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Forms\ProjectForm.xaml">
+    <Page Include="Views\Forms\PaymentClientForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
