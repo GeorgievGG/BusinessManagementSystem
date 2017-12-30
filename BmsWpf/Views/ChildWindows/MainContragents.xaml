@@ -5,17 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BmsWpf.Views.ChildWindows"
         mc:Ignorable="d"
-        Title="MainContragents" Height="377.195" Width="455.122"  Background="#2e3137">
-    <Grid Margin="0,0,-6.2,-0.8">
+        Title="MainContragents" Height="425.955" Width="902.235"  Background="#2e3137">
+    <Grid Margin="0,0,4,0">
         <Label Content="Contragents" 
             Foreground="White" 
             FontSize="25" 
-            HorizontalAlignment="Center" Margin="82,10,59.6,217.4" Width="152"/>
-        <ListBox HorizontalAlignment="Left" Height="193" Margin="47,74,0,0" VerticalAlignment="Top" Width="347"/>
-        <Button Content="Back" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="Back_click" Background="#FFCB4040" Foreground="White" FontSize="14" Margin="352,299,0,0"/>
-        <Button Content="Edit" HorizontalAlignment="Left" Margin="254,299,0,0" VerticalAlignment="Top" Width="75" Click="Edit_Click" Background="#FF4074CB" Foreground="White" FontSize="14"/>
-        <Button Content="Add new" HorizontalAlignment="Left" Margin="47,272,0,0" VerticalAlignment="Top" Width="75" Click="Add_New_Click" Background="#FF0D5923" Foreground="White" FontSize="14"/>
-        <Separator HorizontalAlignment="Left" Height="11" Margin="145,45,0,0" VerticalAlignment="Top" Width="184"/>
+            HorizontalAlignment="Center" Margin="298,10,247.8,324.6" Width="152"/>
+        <Button Content="Back" HorizontalAlignment="Left" VerticalAlignment="Top" Width="81" Click="Back_click" Background="#FFCB4040" Foreground="White" FontSize="14" Margin="793,336,0,0" Height="27"/>
+        <Button Content="Edit" HorizontalAlignment="Left" Margin="114,277,0,0" VerticalAlignment="Top" Width="79" Click="Edit_Click" Background="#FF4074CB" Foreground="White" FontSize="14" Height="28"/>
+        <Button Content="Add new" HorizontalAlignment="Left" Margin="30,277,0,0" VerticalAlignment="Top" Width="79" Click="Add_New_Click" Background="#FF0D5923" Foreground="White" FontSize="14" Height="28"/>
+        <Separator HorizontalAlignment="Left" Height="7" Margin="358,64,0,0" VerticalAlignment="Top" Width="221" RenderTransformOrigin="0.5,0.5">
+            <Separator.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.362"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Separator.RenderTransform>
+        </Separator>
+        <DataGrid Name="ContragentDataGrid" SelectionMode="Single" HorizontalAlignment="Left" Height="183" Margin="30,89,0,0" VerticalAlignment="Top" Width="844" Loaded="ContragentDataGrid_Loaded" MouseDoubleClick="ContragentDataGrid_MouseDoubleClick"/>
+        <Button Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Width="84" Click="Delete_Click" Background="#FFCB4040" Foreground="White" FontSize="14" Margin="198,277,0,0" Height="28" VerticalContentAlignment="Center"/>
 
     </Grid>
 </Window>
