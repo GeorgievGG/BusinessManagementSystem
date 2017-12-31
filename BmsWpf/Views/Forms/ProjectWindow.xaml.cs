@@ -122,15 +122,7 @@ namespace BmsWpf.Views.Forms
 
         private void AddNewSupplierInvoiceButton_Click(object sender, RoutedEventArgs e)
         {
-            var newPayment = new PaymentSupplierForm();
-            newPayment.Show();
 
-            var display = new HashSet<PaymentSupplierForm>
-                              {
-                                  newPayment
-                              };
-
-            this.ExpencesPayments.ItemsSource = display;
         }
 
         private void EditSupplierInvocesButton_Click(object sender, RoutedEventArgs e)
@@ -140,7 +132,15 @@ namespace BmsWpf.Views.Forms
 
         private void ButtonSupplierPayment_Click(object sender, RoutedEventArgs e)
         {
+            var newPayment = new PaymentSupplierForm();
+            newPayment.Show();
 
+            var display = new HashSet<PaymentSupplierForm>
+                              {
+                                  newPayment
+                              };
+
+            this.ExpencesPayments.ItemsSource = display;
         }
 
         private void EditSuppliersPayments_Click(object sender, RoutedEventArgs e)

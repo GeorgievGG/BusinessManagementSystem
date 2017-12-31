@@ -37,7 +37,7 @@
             <Button Content="Save" Canvas.Left="185" Canvas.Top="346" Width="50" Click="Button_Click_Save"/>
             <Button Content="Back" Width="50"  Canvas.Top="346" Canvas.Left="350" Click="Button_Click_Back"></Button>
             <Button Content="Edit" Width="50"  Canvas.Top="346" Canvas.Left="268" Click="Button_Click_Edit"></Button>
-            <ComboBox x:Name="CreatorBox"  Canvas.Left="185" Canvas.Top="267" Width="215" ItemsSource="{Binding Color, Mode=TwoWay}" SelectionChanged="Creator_SelectionChanged">
+            <ComboBox Name="CreatorBox"  Canvas.Left="185" Canvas.Top="267" Width="215">
             </ComboBox>
 
         </Canvas>
