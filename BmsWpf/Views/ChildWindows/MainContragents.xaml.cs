@@ -1,4 +1,6 @@
-﻿namespace BmsWpf.Views.ChildWindows
+﻿using BMS.DataBaseModels;
+
+namespace BmsWpf.Views.ChildWindows
 {
     using BMS.DataBaseData;
     using BmsWpf.Views.Forms;
@@ -79,12 +81,40 @@
 
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
-            openEditForm();
-        }
+	        DataRowView dataRow = (DataRowView)ContragentDataGrid.SelectedItem;
+	        if (dataRow == null)
+	        {
+				MessageBox.Show("Please select a contragent to continue");
+		        return;
+			}
+			EditForm();
+		}
 
         private void ContragentDataGrid_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            openEditForm();
+			EditForm();
+		}
+
+		private void EditForm()
+        {
+            var db = new BmsContex();
+            var contr = db.Contragents.ToList();
+          
+            var dash = new ContragentForm();
+            DataRowView dataRow = (DataRowView)ContragentDataGrid.SelectedItem;
+            Contragent currentContr = contr.Where(u => u.Id.ToString() == dataRow.Row.ItemArray[0].ToString()).SingleOrDefault();
+			dash.Show();
+	        dash.Name.Text = currentContr.Name.ToString();
+	        dash.PersonalVatNumber.Text = currentContr.PersonalVatNumber.ToString();
+	        dash.PersonalIndentityNumber.Text = currentContr.PersonalIndentityNumber.ToString();
+	        dash.PersonForContact.Text = currentContr.PersonForContact.ToString();
+	        dash.Telephone.Text = currentContr.Telephone.ToString();
+	        dash.Email.Text = currentContr.Email.ToString();
+	        dash.Address.Text = currentContr.Address.ToString();
+	        dash.BankDetails.Text = currentContr.BankDetails.ToString();
+	        dash.Description.Text = currentContr.Description.ToString();
+            //dash.Show();
+            this.Close();
         }
 
         private void Back_click(object sender, RoutedEventArgs e)
@@ -108,11 +138,11 @@
             this.Close();
         }
 
-        private void openEditForm()
-        {
-            var dash = new ContragentForm();
-            dash.Show();
-            this.Close();
-        }
+//        private void openEditForm()
+//        {
+//            var dash = new ContragentForm();
+//            dash.Show();
+//            this.Close();
+//        }
     }
 }
