@@ -1,20 +1,25 @@
 ﻿namespace BmsWpf.ViewModels
 {
+    using System;
+    using System.Windows.Input;
+
     using BmsWpf.Behaviour;
     using BmsWpf.Services.Contracts;
     using BmsWpf.Sessions;
     using BmsWpf.Views.ChildWindows;
     using BmsWpf.Views.Forms;
-    using System;
-    using System.Windows.Input;
 
     public class MainWindowViewModel : ViewModelBase, IPageViewModel
-	{
-		public ICommand ActiveProjectsCommand;
+    {
+        public ICommand ActiveProjectsCommand;
         public ICommand ContragentsCommand;
         public ICommand OffersCommand;
         public ICommand InquiriesCommand;
         public ICommand LogoutCommand;
+
+        public ICommand InvoicesCommand;
+
+        public ICommand CalendarEventsCommand;
 
         public Action CloseAction { get; set; }
         public IViewManager ViewManager { get; set; }
@@ -28,15 +33,15 @@
         }
 
         public ICommand ActiveProjects
-		{
-			get
-			{
-				if (this.ActiveProjectsCommand == null)
-				{
-					this.ActiveProjectsCommand = new RelayCommand(this.HandleActiveProjectsCommand);
-				}
-				return this.ActiveProjectsCommand;
-			}
+        {
+            get
+            {
+                if (this.ActiveProjectsCommand == null)
+                {
+                    this.ActiveProjectsCommand = new RelayCommand(this.HandleActiveProjectsCommand);
+                }
+                return this.ActiveProjectsCommand;
+            }
         }
 
         public ICommand Contragents
@@ -75,6 +80,30 @@
             }
         }
 
+        public ICommand Invoices
+        {
+            get
+            {
+                if (this.InvoicesCommand == null)
+                {
+                    this.InvoicesCommand = new RelayCommand(this.HandleInvoicesCommand);
+                }
+                return this.InvoicesCommand;
+            }
+        }
+
+        public ICommand CalendarEvents
+        {
+            get
+            {
+                if (this.CalendarEventsCommand == null)
+                {
+                    this.CalendarEventsCommand = new RelayCommand(this.HandelCalendarEventsCommand);
+                }
+                return this.CalendarEventsCommand;
+            }
+        }
+
         public ICommand Logout
         {
             get
@@ -85,6 +114,20 @@
                 }
                 return this.LogoutCommand;
             }
+        }
+
+        private void HandelCalendarEventsCommand(object parameter)
+        {
+            var calendarEventWindow = ViewManager.ComposeObjects<MainCalendarEvents>();
+            calendarEventWindow.Show();
+            this.CloseAction();
+        }
+
+        private void HandleInvoicesCommand(object parameter)
+        {
+            var invoicesWindow = this.ViewManager.ComposeObjects<MainInvoices>();
+            invoicesWindow.Show();
+            this.CloseAction();
         }
 
         private void HandleActiveProjectsCommand(object parameter)
@@ -103,7 +146,7 @@
 
         private void HandleOffersCommand(object parameter)
         {
-            var offersWindow = ViewManager.ComposeObjects<MainOffers>();
+            var offersWindow = this.ViewManager.ComposeObjects<MainOffers>();
             offersWindow.Show();
             this.CloseAction();
         }
@@ -113,6 +156,7 @@
              var inquiriesWindow = ViewManager.ComposeObjects<MainInquiries>();
              inquiriesWindow.Show();
              this.CloseAction();
+
         }
 
         private void HandleLogoutCommand(object parameter)

@@ -9,8 +9,9 @@
     {
         public void Configure(EntityTypeBuilder<Project> builder)
         {
-            builder.HasOne(c => c.Client).WithMany(p => p.Projects).HasForeignKey(c => c.ClientId);
-           
+            builder.HasOne(c => c.Contragent).WithMany(p => p.Projects).HasForeignKey(c => c.ContragentId);
+            builder.Property(n => n.Name).IsUnicode();
+
         }
     }
 }

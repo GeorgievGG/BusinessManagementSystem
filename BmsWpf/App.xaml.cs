@@ -1,6 +1,7 @@
 ﻿namespace BmsWpf
 {
     using BmsWpf.Services.Services;
+    using BmsWpf.Views.ChildWindows;
     using BmsWpf.Views.Forms;
     using System.Windows;
 

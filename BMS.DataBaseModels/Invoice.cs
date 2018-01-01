@@ -16,11 +16,9 @@
         public decimal Vat { get; set; }
         public decimal Total { get; set; }
 
-        public int? SupplierId { get; set; }
-        public Contragent Supplier { get; set; }
-
-        public int? ClientId { get; set; }
-        public Contragent Client { get; set; }
+        public int ContragentId { get; set; }
+        public Contragent SuplierContragent { get; set; }
+        public Contragent ClientContragent { get; set; }
 
 
     }

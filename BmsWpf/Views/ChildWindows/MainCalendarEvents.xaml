@@ -1,0 +1,29 @@
+﻿<Window x:Class="BmsWpf.Views.ChildWindows.MainCalendarEvents"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BmsWpf.Views.ChildWindows"
+        mc:Ignorable="d"
+        Title="MainCalendarEvents" Height="600" Width="750" Background="#2e3137">
+    <Grid>
+        <Calendar VerticalAlignment="Top" HorizontalAlignment="Left" Margin="28,48,0,0" Height="166" Width="181"></Calendar>
+        <Button x:Name ="BackButton" Click="Back_OnClickButton_Click" Content="Back" Background="AliceBlue" Height="30" Margin="28,401,535,139.4"/>
+        <Button x:Name="addEventButton" Content="Add new event" Click="addEventButton_Click" Background="AliceBlue"  Margin="28,348,535,192.4"/>
+        <ScrollViewer Background="AntiqueWhite" HorizontalAlignment="Right" Height="383" Margin="0,48,63,0" VerticalAlignment="Top" Width="428" VerticalScrollBarVisibility="Auto">
+            <ListView Name="eventView">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Title" Width="30" DisplayMemberBinding="{Binding Title}"></GridViewColumn>
+                        <GridViewColumn Header="Description" Width="250" DisplayMemberBinding="{Binding Description}"></GridViewColumn>
+                        <GridViewColumn Header="Start Time" Width="70" DisplayMemberBinding="{Binding StartTime}"></GridViewColumn>
+                        <GridViewColumn Header="End Time" Width="70" DisplayMemberBinding="{Binding EndTime}"></GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </ScrollViewer>
+        <TextBlock x:Name="timeView" HorizontalAlignment="Left" Margin="377,21,0,0" TextWrapping="Wrap" Text="Time" VerticalAlignment="Top" FontSize="16" Width="131" Foreground="White"/>
+        <Label Content="Events for:" Foreground="White" FontSize="18" HorizontalAlignment="Left" Margin="253,14,0,0" VerticalAlignment="Top" Width="100"/>
+    </Grid>
+
+</Window>

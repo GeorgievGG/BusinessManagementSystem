@@ -4,6 +4,9 @@
     using BmsWpf.ViewModels;
     using System;
     using System.Windows;
+
+    using BmsWpf.Views.Forms;
+
     /// <summary>
     /// Interaction logic for ActiveProjects.xaml
     /// </summary>
@@ -25,6 +28,13 @@
 
             vm.ViewManager = viewManager;
             vm.ProjectService = projectService;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var addNewProject = new ProjectWindow();
+            addNewProject.Show();
+            this.Close();
         }
 
         //private void Add_New_Click(object sender, RoutedEventArgs e)

@@ -126,14 +126,14 @@
 
         private void HandleAddNewProjectCommand(object parameter)
         {
-            var addPrjView = this.ViewManager.ComposeObjects<ProjectForm>();
+            var addPrjView = this.ViewManager.ComposeObjects<ProjectWindow>();
             addPrjView.Show();
             this.CloseAction();
         }
 
         private void HandleEditProjectCommand(object parameter)
         {
-            var editPrjView = this.ViewManager.ComposeObjects<ProjectForm>();
+            var editPrjView = this.ViewManager.ComposeObjects<ProjectWindow>();
             editPrjView.Show();
             this.CloseAction();
         }

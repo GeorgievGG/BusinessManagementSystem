@@ -13,6 +13,7 @@
             this.SuplierInvoices = new List<Invoice>();
             this.SuplierPayments = new List<Payment>();
             this.Notes = new List<Note>();
+            this.Events = new List<CalendarEvent>();
             this.Suppliers = new List<Contragent>();
         }
 
@@ -36,10 +37,11 @@
         public DateTime? EndDate { get; set; }
         public DateTime DeadLine { get; set; }
         
-        public int ClientId { get; set; }
-        public Contragent Client { get; set; }
+        public int ContragentId { get; set; }
+        public Contragent Contragent { get; set; }
 
-        public int? SuplierId { get; set; }
+        public string ContactPerson { get; set; }
+        public string ContactPhone { get; set; }
 
         public ICollection<Contragent> Suppliers { get; set; }
         public ICollection<Invoice> ClientInvoices { get; set; }
@@ -49,5 +51,6 @@
         public ICollection<Payment> SuplierPayments { get; set; }
 
         public ICollection<Note> Notes { get; set; }
+        public ICollection<CalendarEvent> Events { get; set; }
     }
 }
