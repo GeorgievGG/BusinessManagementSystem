@@ -34,8 +34,8 @@
                 },
                 Client = new ContragentListDto()
                 {
-                    Id = x.Client.Id,
-                    NameAndIdentity = x.Client.Name + "|" + (x.Client.PersonalIndentityNumber == null ? x.Client.PersonalVatNumber : x.Client.PersonalIndentityNumber)
+                    Id = x.Contragent.Id,
+                    NameAndIdentity = x.Contragent.Name + "|" + (x.Contragent.PersonalIndentityNumber == null ? x.Contragent.PersonalVatNumber : x.Contragent.PersonalIndentityNumber)
                 },
                 InquiryID = new InquiryListDto()
                 {
@@ -79,7 +79,7 @@
         {
             var offer = new Offer()
             {
-                ClientId = newOffer.ClientId,
+                ContragentId = newOffer.ClientId,
                 CreatorId = newOffer.CreatorId,
                 InquiryId = newOffer.InquiryId,
                 Description = newOffer.Description,
@@ -98,7 +98,7 @@
 
             offer.InquiryId = newOffer.InquiryId;
             offer.CreatorId = newOffer.CreatorId;
-            offer.ClientId = newOffer.ClientId;
+            offer.ContragentId = newOffer.ClientId;
             offer.Description = newOffer.Description;
             offer.Date = newOffer.Date;
 

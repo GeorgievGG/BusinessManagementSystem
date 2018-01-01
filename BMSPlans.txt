@@ -2,6 +2,8 @@ empty edit -> error
 outputwriter -> errors should be in red
 get entity by keystring
 maybe not close windows on AddNew
-Enter association with login
+OnChangeClientEverything should change
 
 Removed BMSData from view constructors
+Replace strings with nameof
+Creator disabled textbox

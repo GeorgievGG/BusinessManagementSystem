@@ -21,7 +21,7 @@
 
         private void EditSupplierInvoiceButton_Click(object sender, RoutedEventArgs e)
         {
-           
+
         }
 
         private void AddClientInvoiceButton_Click(object sender, RoutedEventArgs e)
@@ -57,7 +57,7 @@
             {
                 this.ClientInvoicesGrid.ItemsSource = f.ToString();
             }
-            
+
 
         }
 

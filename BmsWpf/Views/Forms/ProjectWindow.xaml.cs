@@ -94,10 +94,10 @@ namespace BmsWpf.Views.Forms
 
         private void AddNewPaymentButton_Click(object sender, RoutedEventArgs e)
         {
-            var newPayment = new PaymentForm();
+            var newPayment = new PaymentClientForm();
             newPayment.Show();
-            
-            var display = new HashSet<PaymentForm>
+
+            var display = new HashSet<PaymentClientForm>
             {
                 newPayment
             };

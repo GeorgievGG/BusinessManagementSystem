@@ -90,6 +90,7 @@
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.2.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.4.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Interactive.Async, Version=3.0.3000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Interactive.Async.3.1.1\lib\net46\System.Interactive.Async.dll</HintPath>
     </Reference>
@@ -101,6 +102,7 @@
       <HintPath>..\packages\System.ValueTuple.4.4.0\lib\net461\System.ValueTuple.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -148,17 +150,29 @@
     <Compile Include="Views\ChildWindows\ActiveProjects.xaml.cs">
       <DependentUpon>ActiveProjects.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ChildWindows\MainCalendarEvents.xaml.cs">
+      <DependentUpon>MainCalendarEvents.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ChildWindows\MainContragents.xaml.cs">
       <DependentUpon>MainContragents.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ChildWindows\MainInquiries.xaml.cs">
       <DependentUpon>MainInquiries.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ChildWindows\MainInvoices.xaml.cs">
+      <DependentUpon>MainInvoices.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ChildWindows\MainOffers.xaml.cs">
       <DependentUpon>MainOffers.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Forms\InvoiceForm.xaml.cs">
-      <DependentUpon>InvoiceForm.xaml</DependentUpon>
+    <Compile Include="Views\Forms\CalendarEventForm.xaml.cs">
+      <DependentUpon>CalendarEventForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Forms\InvoiceClientForm.xaml.cs">
+      <DependentUpon>InvoiceClientForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Forms\InvoinceSupplierForm.xaml.cs">
+      <DependentUpon>InvoinceSupplierForm.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Forms\LoginForm.xaml.cs">
       <DependentUpon>LoginForm.xaml</DependentUpon>
@@ -172,10 +186,16 @@
     <Compile Include="Views\Forms\OfferForm.xaml.cs">
       <DependentUpon>OfferForm.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Forms\ProjectForm.xaml.cs">
-      <DependentUpon>ProjectForm.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="Views\Forms\PaymentClientForm.xaml.cs">
+      <DependentUpon>PaymentClientForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Forms\PaymentSupplierForm.xaml.cs">
+      <DependentUpon>PaymentSupplierForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Forms\ProjectWindow.xaml.cs">
+      <DependentUpon>ProjectWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -205,6 +225,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ChildWindows\MainCalendarEvents.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\ChildWindows\MainContragents.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -213,15 +237,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ChildWindows\MainInvoices.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Forms\CalendarEventForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Forms\InvoiceClientForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Forms\InvoinceSupplierForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\Forms\LoginForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ChildWindows\MainOffers.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Forms\InvoiceForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -237,7 +273,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Forms\ProjectForm.xaml">
+    <Page Include="Views\Forms\PaymentClientForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Forms\PaymentSupplierForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Forms\ProjectWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

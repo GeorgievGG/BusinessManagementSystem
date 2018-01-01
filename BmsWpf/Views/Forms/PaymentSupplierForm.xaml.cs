@@ -17,9 +17,9 @@ namespace BmsWpf.Views.Forms
     using BMS.DataBaseData;
     using BMS.DataBaseModels;
 
-    /// <summary>
+    ///<summary>
     /// Interaction logic for PaymentSupplierForm.xaml
-    /// </summary>
+    ///</summary>
     public partial class PaymentSupplierForm : Window
     {
         public PaymentSupplierForm()
@@ -46,13 +46,13 @@ namespace BmsWpf.Views.Forms
             var total = decimal.Parse(this.TotalBox.Text);
 
             var payment = new Payment()
-                              {
-                                  ContragentId = contragent.Id,
-                                  Date = date,
-                                  Price = price,
-                                  Vat = vat,
-                                  Total = total
-                              };
+            {
+                ContragentId = contragent.Id,
+                Date = date,
+                Price = price,
+                Vat = vat,
+                Total = total
+            };
 
             context.Payments.Add(payment);
             context.SaveChanges();

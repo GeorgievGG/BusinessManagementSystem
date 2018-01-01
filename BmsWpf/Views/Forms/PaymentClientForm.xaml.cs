@@ -10,9 +10,9 @@
     /// <summary>
     /// Interaction logic for PaymentForm.xaml
     /// </summary>
-    public partial class PaymentForm : Window
+    public partial class PaymentClientForm : Window
     {
-        public PaymentForm()
+        public PaymentClientForm()
         {
             InitializeComponent();
             FillComboBox();
@@ -36,13 +36,13 @@
             var total = decimal.Parse(this.TotalBox.Text);
 
             var payment = new Payment()
-                              {
-                                  ContragentId = contragent.Id,
-                                  Date = date,
-                                  Price = price,
-                                  Vat = vat,
-                                  Total = total
-                              };
+            {
+                ContragentId = contragent.Id,
+                Date = date,
+                Price = price,
+                Vat = vat,
+                Total = total
+            };
 
             context.Payments.Add(payment);
             context.SaveChanges();

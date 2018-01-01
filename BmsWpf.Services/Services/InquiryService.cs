@@ -34,8 +34,8 @@
                                             },
                                             Client = new ContragentListDto()
                                             {
-                                                Id = x.Client.Id,
-                                                NameAndIdentity = x.Client.Name + "|" + (x.Client.PersonalIndentityNumber == null ? x.Client.PersonalVatNumber : x.Client.PersonalIndentityNumber)
+                                                Id = x.Contragent.Id,
+                                                NameAndIdentity = x.Contragent.Name + "|" + (x.Contragent.PersonalIndentityNumber == null ? x.Contragent.PersonalVatNumber : x.Contragent.PersonalIndentityNumber)
                                             },
                                             Description = x.Description,
                                             Date = x.Date
@@ -88,7 +88,7 @@
             var inquiry = new Inquiry()
             {
                 CreatorId = newInquiry.CreatorId,
-                ClientId = newInquiry.ClientId,
+                ContragentId = newInquiry.ClientId,
                 Description = newInquiry.Description,
                 Date = newInquiry.Date
             };
@@ -103,7 +103,7 @@
             var inquiryToUpdate = bmsData.Inquiries.Find(newInquiry.Id);
 
             inquiryToUpdate.CreatorId = newInquiry.CreatorId;
-            inquiryToUpdate.ClientId = newInquiry.ClientId;
+            inquiryToUpdate.ContragentId = newInquiry.ClientId;
             inquiryToUpdate.Description = newInquiry.Description;
             inquiryToUpdate.Date = newInquiry.Date;
 

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Triple G\Desktop\Business\Softuni\4.0. TeamWork\BusinessManagementSystem\BmsWpf\App.xaml
-14552266583
+20-63793768
 
-40-346419384
-1461939729684
-MainWindow.xaml;Views\Admin\AddUser.xaml;Views\Admin\AdminPanel.xaml;Views\Admin\ManageUser.xaml;Views\ChildWindows\ActiveProjects.xaml;Views\ChildWindows\MainContragents.xaml;Views\ChildWindows\MainInquiries.xaml;Views\Forms\LoginForm.xaml;Views\ChildWindows\MainOffers.xaml;Views\Forms\InvoiceForm.xaml;Views\Forms\ContragentForm.xaml;Views\Forms\InquireForm.xaml;Views\Forms\OfferForm.xaml;Views\Forms\ProjectForm.xaml;
+46-809978170
+148-1940510000
+MainWindow.xaml;Views\Admin\AddUser.xaml;Views\Admin\AdminPanel.xaml;Views\Admin\ManageUser.xaml;Views\ChildWindows\ActiveProjects.xaml;Views\ChildWindows\MainCalendarEvents.xaml;Views\ChildWindows\MainContragents.xaml;Views\ChildWindows\MainInquiries.xaml;Views\ChildWindows\MainInvoices.xaml;Views\Forms\CalendarEventForm.xaml;Views\Forms\InvoiceClientForm.xaml;Views\Forms\InvoinceSupplierForm.xaml;Views\Forms\LoginForm.xaml;Views\ChildWindows\MainOffers.xaml;Views\Forms\ContragentForm.xaml;Views\Forms\InquireForm.xaml;Views\Forms\OfferForm.xaml;Views\Forms\PaymentClientForm.xaml;Views\Forms\PaymentSupplierForm.xaml;Views\Forms\ProjectWindow.xaml;
 
-False
+True
 
