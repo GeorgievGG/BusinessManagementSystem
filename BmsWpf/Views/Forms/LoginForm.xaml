@@ -9,6 +9,10 @@
     <Window.DataContext>
         <viewModels:LoginFormViewModel />
     </Window.DataContext>
+    <Window.InputBindings>
+        <KeyBinding Command="{Binding Login}" CommandParameter="{Binding ElementName=PasswordField}"
+              Gesture="Enter" />
+    </Window.InputBindings>
     <Border Background="#2e3137" 
             CornerRadius="20" 
             Margin="10">
@@ -48,7 +52,8 @@
                     Background="#FF852035" 
                     Foreground="White" 
                     FontSize="18" 
-                    Command="{Binding CloseApp}" RenderTransformOrigin="0.485,-0.289" />
+                    Command="{Binding CloseApp}" 
+                    RenderTransformOrigin="0.485,-0.289" />
             <Separator Margin="40,277,40.8,36.6"></Separator>
         </Grid>
     </Border>

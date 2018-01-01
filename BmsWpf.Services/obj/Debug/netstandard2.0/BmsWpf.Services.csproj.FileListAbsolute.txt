@@ -5,7 +5,6 @@ C:\Users\Triple G\Desktop\Business\Softuni\4.0. TeamWork\BusinessManagementSyste
 C:\Users\Triple G\Desktop\Business\Softuni\4.0. TeamWork\BusinessManagementSystem\BmsWpf.Services\bin\Debug\netstandard2.0\BMS.DataBaseModels.dll
 C:\Users\Triple G\Desktop\Business\Softuni\4.0. TeamWork\BusinessManagementSystem\BmsWpf.Services\bin\Debug\netstandard2.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Users\Triple G\Desktop\Business\Softuni\4.0. TeamWork\BusinessManagementSystem\BmsWpf.Services\bin\Debug\netstandard2.0\Microsoft.EntityFrameworkCore.Relational.dll
-C:\Users\Triple G\Desktop\Business\Softuni\4.0. TeamWork\BusinessManagementSystem\BmsWpf.Services\bin\Debug\netstandard2.0\System.Data.SqlClient.dll
 C:\Users\Triple G\Desktop\Business\Softuni\4.0. TeamWork\BusinessManagementSystem\BmsWpf.Services\bin\Debug\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll
 C:\Users\Triple G\Desktop\Business\Softuni\4.0. TeamWork\BusinessManagementSystem\BmsWpf.Services\bin\Debug\netstandard2.0\BMS.DataBaseData.pdb
 C:\Users\Triple G\Desktop\Business\Softuni\4.0. TeamWork\BusinessManagementSystem\BmsWpf.Services\bin\Debug\netstandard2.0\BMS.DataBaseModels.pdb

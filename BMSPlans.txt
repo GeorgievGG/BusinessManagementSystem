@@ -1,0 +1,7 @@
+empty edit -> error
+outputwriter -> errors should be in red
+get entity by keystring
+maybe not close windows on AddNew
+Enter association with login
+
+Removed BMSData from view constructors

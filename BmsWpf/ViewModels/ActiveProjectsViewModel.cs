@@ -19,8 +19,7 @@
         private ObservableCollection<string> chosenProjects;
 
         public Action CloseAction { get; set; }
-
-        public IBmsData BmsData { get; set; }
+        
         public IViewManager ViewManager { get; set; }
         public IProjectService ProjectService { get; set; }
 

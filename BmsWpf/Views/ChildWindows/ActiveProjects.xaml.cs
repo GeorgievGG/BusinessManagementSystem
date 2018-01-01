@@ -14,7 +14,7 @@
             InitializeComponent();
         }
 
-        public ActiveProjects(IBmsData bmsData, IViewManager viewManager, IProjectService projectService)
+        public ActiveProjects(IViewManager viewManager, IProjectService projectService)
         {
             InitializeComponent();
 
@@ -23,7 +23,6 @@
             if (vm.CloseAction == null)
                 vm.CloseAction = new Action(() => this.Close());
 
-            vm.BmsData = bmsData;
             vm.ViewManager = viewManager;
             vm.ProjectService = projectService;
         }

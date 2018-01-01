@@ -122,7 +122,6 @@ C:\Users\Triple G\Desktop\Business\Softuni\4.0. TeamWork\BusinessManagementSyste
 C:\Users\Triple G\Desktop\Business\Softuni\4.0. TeamWork\BusinessManagementSystem\BmsWpf\bin\Debug\System.Windows.Interactivity.dll
 C:\Users\Triple G\Desktop\Business\Softuni\4.0. TeamWork\BusinessManagementSystem\BmsWpf\bin\Debug\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Users\Triple G\Desktop\Business\Softuni\4.0. TeamWork\BusinessManagementSystem\BmsWpf\bin\Debug\Microsoft.EntityFrameworkCore.Relational.dll
-C:\Users\Triple G\Desktop\Business\Softuni\4.0. TeamWork\BusinessManagementSystem\BmsWpf\bin\Debug\System.Data.SqlClient.dll
 C:\Users\Triple G\Desktop\Business\Softuni\4.0. TeamWork\BusinessManagementSystem\BmsWpf\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.dll
 C:\Users\Triple G\Desktop\Business\Softuni\4.0. TeamWork\BusinessManagementSystem\BmsWpf\bin\Debug\BMS.DataBaseData.pdb
 C:\Users\Triple G\Desktop\Business\Softuni\4.0. TeamWork\BusinessManagementSystem\BmsWpf\bin\Debug\BMS.DataBaseModels.pdb
@@ -416,3 +415,6 @@ D:\Програмиране\SoftUni Homeworks\SoftUni - Local\TeamWork\BusinessM
 D:\Програмиране\SoftUni Homeworks\SoftUni - Local\TeamWork\BusinessManagementSystem\BusinessManagementSystem\BmsWpf\obj\Debug\BmsWpf.csproj.CoreCompileInputs.cache
 D:\Програмиране\SoftUni Homeworks\SoftUni - Local\TeamWork\BusinessManagementSystem\BusinessManagementSystem\BmsWpf\obj\Debug\BmsWpf.exe
 D:\Програмиране\SoftUni Homeworks\SoftUni - Local\TeamWork\BusinessManagementSystem\BusinessManagementSystem\BmsWpf\obj\Debug\BmsWpf.pdb
+C:\Users\Triple G\Desktop\Business\Softuni\4.0. TeamWork\BusinessManagementSystem\BmsWpf\bin\Debug\MoreLinq.dll
+C:\Users\Triple G\Desktop\Business\Softuni\4.0. TeamWork\BusinessManagementSystem\BmsWpf\bin\Debug\MoreLinq.xml
+C:\Users\Triple G\Desktop\Business\Softuni\4.0. TeamWork\BusinessManagementSystem\BmsWpf\bin\Debug\System.Data.SqlClient.dll

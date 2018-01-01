@@ -2,6 +2,7 @@
 {
     using BMS.DataBaseModels;
     using BmsWpf.Services.Contracts;
+    using BmsWpf.Services.DTOs;
     using System;
     using System.Linq;
     using System.Security.Cryptography;
@@ -77,6 +78,15 @@
         public IQueryable<string> GetUsers()
         {
             return bmsData.Users.All().Select(x => $"{x.Username}|{x.Type}");
+        }
+
+        public IQueryable<UserListDto> GetUsernames()
+        {
+            return bmsData.Users.All().Select(x => new UserListDto()
+                                                {
+                                                    Id = x.Id,
+                                                    Username = x.Username
+                                                });
         }
 
         public string ModifyUser(string username, ClearenceType selectedClearenceType)

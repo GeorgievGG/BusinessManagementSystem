@@ -3,21 +3,92 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:BmsWpf.Views.ChildWindows"
+        xmlns:viewModels="clr-namespace:BmsWpf.ViewModels"
+        xmlns:intr="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         mc:Ignorable="d"
-        Title="MainOffers" Height="450.151" Width="483.648" Background="#2e3137">
+        Title="MainOffers" 
+        Height="450.151" 
+        Width="483.648" 
+        Background="#2e3137">
+
+    <Window.DataContext>
+        <viewModels:MainOffersViewModel />
+    </Window.DataContext>
+    <intr:Interaction.Triggers>
+        <intr:EventTrigger EventName="Loaded">
+            <intr:InvokeCommandAction Command="{Binding WindowLoaded}"/>
+        </intr:EventTrigger>
+    </intr:Interaction.Triggers>
     <Grid Margin="0,0,3.6,-2.6">
         <Label Content="Offers" 
             Foreground="White" 
-            FontSize="25" 
-               Height="50"
-            HorizontalAlignment="Center" Margin="210,31,172,332.4" RenderTransformOrigin="0.5,0.5" Width="92"/>
-        <Button Content="Back" HorizontalAlignment="Left" Margin="376,363,0,0" VerticalAlignment="Top" Width="75" Click="Back_click" Background="#FFCB4040" Foreground="White" FontSize="14"/>
-        <Button Content="Edit" HorizontalAlignment="Left" Margin="124,312,0,0" VerticalAlignment="Top" Width="79" Click="Edit_Click" Background="#FF4074CB" Foreground="White" FontSize="14" RenderTransformOrigin="-0.774,-1.496" Height="33"/>
-        <Button Content="Add new" HorizontalAlignment="Left" Margin="37,312,0,0" VerticalAlignment="Top" Width="82" Click="Add_New_Click" Background="#FF0D5923" Foreground="White" FontSize="14" Height="33"/>
-        <Separator HorizontalAlignment="Left" Height="16" Margin="167,70,0,0" VerticalAlignment="Top" Width="152"/>
-        <DataGrid Name="OffersDataGrid" HorizontalAlignment="Left" Height="195" Margin="37,112,0,0" VerticalAlignment="Top" Width="397" Loaded="OffersDataGrid_Loaded" SelectionMode="Single" MouseDoubleClick="OffersDataGrid_MouseDoubleClick"/>
-        <Button Content="Delete" HorizontalAlignment="Left" Margin="208,312,0,0" VerticalAlignment="Top" Width="79" Click="Delete_Click" Background="#FFCB4040" Foreground="White" FontSize="14" Height="33" RenderTransformOrigin="-0.048,0.621"/>
-
+            FontSize="25"
+            Height="50"
+            HorizontalAlignment="Center"
+            Margin="210,31,172,332.4"
+            RenderTransformOrigin="0.5,0.5" 
+            Width="92"/>
+        <Button Content="Add new" 
+                HorizontalAlignment="Left" 
+                Margin="37,312,0,0" 
+                VerticalAlignment="Top" 
+                Width="82" 
+                Background="#FF0D5923" 
+                Foreground="White" 
+                FontSize="14" 
+                Height="33"
+                Command="{Binding AddNew}"/>
+        <Button Content="Edit" 
+                HorizontalAlignment="Left" 
+                Margin="124,312,0,0" 
+                VerticalAlignment="Top" 
+                Width="79" 
+                Background="#FF4074CB" 
+                Foreground="White" 
+                FontSize="14" 
+                RenderTransformOrigin="-0.774,-1.496" 
+                Height="33"
+                Command="{Binding Edit}"/>
+        <Button Content="Delete" 
+                HorizontalAlignment="Left" 
+                Margin="208,312,0,0" 
+                VerticalAlignment="Top" 
+                Width="79" 
+                Background="#FFCB4040" 
+                Foreground="White" 
+                FontSize="14" 
+                Height="33" 
+                RenderTransformOrigin="-0.048,0.621"
+                Command="{Binding Delete}"/>
+        <Separator HorizontalAlignment="Left" 
+                   Height="16" 
+                   Margin="167,70,0,0" 
+                   VerticalAlignment="Top" 
+                   Width="152"/>
+        <DataGrid Name="OffersDataGrid" 
+                  HorizontalAlignment="Left" 
+                  Height="195" 
+                  Margin="37,112,0,0" 
+                  VerticalAlignment="Top" 
+                  Width="397" 
+                  SelectionMode="Single" 
+                  CanUserAddRows="false"
+                  ItemsSource="{Binding Offers}"
+                  SelectedItem="{Binding SelectedOffer}">
+            <intr:Interaction.Triggers>
+                <intr:EventTrigger EventName="MouseDoubleClick">
+                    <intr:InvokeCommandAction Command="{Binding DoubleClick}" />
+                </intr:EventTrigger>
+            </intr:Interaction.Triggers>
+        </DataGrid>
+        <Button Content="Back" 
+                HorizontalAlignment="Left" 
+                Margin="376,363,0,0" 
+                VerticalAlignment="Top"
+                Width="75"
+                Background="#FFCB4040"
+                Foreground="White" 
+                FontSize="14"
+                Command="{Binding Back}"/>
     </Grid>
 </Window>

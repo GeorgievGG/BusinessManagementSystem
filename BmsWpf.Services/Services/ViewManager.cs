@@ -20,6 +20,9 @@
             container.Bind<IViewManager>().To<ViewManager>().InTransientScope();
             container.Bind<IUserService>().To<UserService>().InTransientScope();
             container.Bind<IProjectService>().To<ProjectService>().InTransientScope();
+            container.Bind<IInquiryService>().To<InquiryService>().InTransientScope();
+            container.Bind<IOfferService>().To<OfferService>().InTransientScope();
+            container.Bind<IContragentService>().To<ContragentService>().InTransientScope();
         }
 
         public T ComposeObjects<T>()

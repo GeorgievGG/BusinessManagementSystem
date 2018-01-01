@@ -30,7 +30,7 @@
             DataContext = new AddUserViewModel();
         }
 
-        public AddUser(IBmsData bmsData, IViewManager viewManager, IUserService userService)
+        public AddUser(IViewManager viewManager, IUserService userService)
         {
             InitializeComponent();
             DataContext = new AddUserViewModel();
@@ -40,7 +40,6 @@
             if (vm.CloseAction == null)
                 vm.CloseAction = new Action(() => this.Close());
 
-            vm.BmsData = bmsData;
             vm.ViewManager = viewManager;
             vm.UserService = userService;
         }

@@ -15,7 +15,7 @@
             InitializeComponent();
         }
 
-        public LoginForm(IBmsData bmsData, IViewManager viewManager, IUserService userService)
+        public LoginForm(IViewManager viewManager, IUserService userService)
         {
             InitializeComponent();
 
@@ -23,8 +23,7 @@
 
             if (vm.CloseAction == null)
                 vm.CloseAction = new Action(() => this.Close());
-
-            vm.BmsData = bmsData;
+            
             vm.ViewManager = viewManager;
             vm.UserService = userService;
         }

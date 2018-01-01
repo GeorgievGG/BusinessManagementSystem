@@ -26,8 +26,7 @@
         }
 
         public Action CloseAction { get; set; }
-
-        public IBmsData BmsData { get; set; }
+        
         public IViewManager ViewManager { get; set; }
         public IUserService UserService { get; set; }
 

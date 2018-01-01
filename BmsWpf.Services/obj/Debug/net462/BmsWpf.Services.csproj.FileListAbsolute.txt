@@ -262,3 +262,4 @@ D:\Програмиране\SoftUni Homeworks\SoftUni - Local\TeamWork\BusinessM
 D:\Програмиране\SoftUni Homeworks\SoftUni - Local\TeamWork\BusinessManagementSystem\BusinessManagementSystem\BmsWpf.Services\obj\Debug\net462\BmsWpf.Services.AssemblyInfo.cs
 D:\Програмиране\SoftUni Homeworks\SoftUni - Local\TeamWork\BusinessManagementSystem\BusinessManagementSystem\BmsWpf.Services\obj\Debug\net462\BmsWpf.Services.dll
 D:\Програмиране\SoftUni Homeworks\SoftUni - Local\TeamWork\BusinessManagementSystem\BusinessManagementSystem\BmsWpf.Services\obj\Debug\net462\BmsWpf.Services.pdb
+C:\Users\Triple G\Desktop\Business\Softuni\4.0. TeamWork\BusinessManagementSystem\BmsWpf.Services\bin\Debug\net462\MoreLinq.dll
