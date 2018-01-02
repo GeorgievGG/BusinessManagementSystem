@@ -113,11 +113,11 @@ namespace BMS.DataBase
             var context = new BmsContex();
             var project = new[]
             {
-                new Project { ContragentId = 1, CreatorId = 2, OfferId = 1, StartDate = DateTime.Now ,EndDate = DateTime.Now,DeadLine = DateTime.Now, InquiryId = 1, Name = "Android App"},
-                new Project { ContragentId = 2, CreatorId = 3, OfferId = 2, StartDate = DateTime.Now ,EndDate = DateTime.Now,DeadLine = DateTime.Now, InquiryId = 2, Name = "Desktop App"},                                           
-                new Project { ContragentId = 3, CreatorId = 4, OfferId = 3, StartDate = DateTime.Now ,EndDate = DateTime.Now,DeadLine = DateTime.Now, InquiryId = 3, Name = "Web App"},                                              
-                new Project { ContragentId = 4, CreatorId = 5, OfferId = 4, StartDate = DateTime.Now ,EndDate = DateTime.Now,DeadLine = DateTime.Now, InquiryId = 4, Name = "Sports WebSite"},                                       
-                new Project { ContragentId = 5, CreatorId = 6, OfferId = 5, StartDate = DateTime.Now ,EndDate = DateTime.Now,DeadLine = DateTime.Now, InquiryId = 5, Name = "Production Management System"}
+                new Project { ContragentId = 1, CreatorId = 2, OfferId = 1, StartDate = DateTime.Today.AddDays(-10) ,EndDate = DateTime.Today.AddDays(20),DeadLine = DateTime.Today.AddDays(18), InquiryId = 1, Name = "Android App"},
+                new Project { ContragentId = 2, CreatorId = 3, OfferId = 2, StartDate =DateTime.Today.AddDays(-32) ,EndDate =  DateTime.Today.AddDays(30),DeadLine = DateTime.Today.AddDays(28), InquiryId = 2, Name = "Desktop App"},                
+                new Project { ContragentId = 3, CreatorId = 4, OfferId = 3, StartDate = DateTime.Today.AddDays(-40) ,EndDate = DateTime.Today.AddDays(40),DeadLine = DateTime.Today.AddDays(38), InquiryId = 3, Name = "Web App"},                   
+                new Project { ContragentId = 4, CreatorId = 5, OfferId = 4, StartDate = DateTime.Today.AddDays(-52) ,EndDate = DateTime.Today.AddDays(50),DeadLine = DateTime.Today.AddDays(48), InquiryId = 4, Name = "Sports WebSite"},             
+                new Project { ContragentId = 5, CreatorId = 6, OfferId = 5, StartDate = DateTime.Today.AddDays(-16) ,EndDate = DateTime.Today.AddDays(35),DeadLine = DateTime.Today.AddDays(33), InquiryId = 5, Name = "Product Management"}
             };
             context.Projects.AddRange(project);
             context.SaveChanges();

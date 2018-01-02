@@ -77,8 +77,8 @@ namespace BmsWpf.Views.Forms
                 StartDate = startDate,
                 DeadLine = timeLimit,
                 EndDate = endDate,
-                ContactPerson = contact,
-                ContactPhone = phone,
+                //ContactPerson = contact,
+                //ContactPhone = phone,
             };
 
             context.Projects.Add(project);

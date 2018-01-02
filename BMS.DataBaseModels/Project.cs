@@ -40,8 +40,9 @@
         public int ContragentId { get; set; }
         public Contragent Contragent { get; set; }
 
-        public string ContactPerson { get; set; }
-        public string ContactPhone { get; set; }
+        //public string ContactPerson { get; set; }
+        //public string ContactPhone { get; set; }
+
 
         public ICollection<Contragent> Suppliers { get; set; }
         public ICollection<Invoice> ClientInvoices { get; set; }

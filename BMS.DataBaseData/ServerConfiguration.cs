@@ -2,6 +2,6 @@
 {
     public class ServerConfiguration
     {
-        public static string ConfigurationString = @"Server=.;Database=BMS;Integrated Security=True;";
+        public static string ConfigurationString = @"Server=.;Database=BmsData;Integrated Security=True;";
     }
 }
