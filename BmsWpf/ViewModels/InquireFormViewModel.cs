@@ -14,9 +14,9 @@
     public class InquireFormViewModel : ViewModelBase, IPageViewModel
     {
         private ContragentListDto selectedClient;
+        private UserListDto selectedUsername;
         private ObservableCollection<UserListDto> usernamesList;
         private ObservableCollection<ContragentListDto> clientsList;
-        private UserListDto selectedUsername;
         private int id;
         private string personOfContact;
         private string email;
@@ -244,7 +244,7 @@
         private void HandleLoadedCommand(object parameter)
         {
             this.UsernameList = new ObservableCollection<UserListDto>(this.UserService.GetUsernames());
-            this.ClientsList = new ObservableCollection<ContragentListDto>(this.ContragentService.GetAllContragents());
+            this.ClientsList = new ObservableCollection<ContragentListDto>(this.ContragentService.GetContragentsForDropdown());
             if (this.SelectedInquiry != null)
             {
                 this.Id = (int)selectedInquiry.Row.ItemArray[0];
@@ -289,7 +289,7 @@
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                result = e.Message;
             }
             MessageBox.Show(result);
             this.RedirectToMainInquiries();
@@ -297,7 +297,7 @@
 
         private void HandleBackCommand(object parameter)
         {
-            RedirectToMainInquiries();
+            this.RedirectToMainInquiries();
         }
 
         private void HandleSelectionChangedCommand(object parameter)

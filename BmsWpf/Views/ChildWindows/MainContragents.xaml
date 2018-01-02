@@ -3,17 +3,23 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:BmsWpf.Views.ChildWindows"
+        xmlns:viewModels="clr-namespace:BmsWpf.ViewModels"
+        xmlns:intr="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         mc:Ignorable="d"
         Title="MainContragents" Height="425.955" Width="549.978"  Background="#2e3137">
+    <Window.DataContext>
+        <viewModels:MainContragentsViewModel />
+    </Window.DataContext>
+    <intr:Interaction.Triggers>
+        <intr:EventTrigger EventName="Loaded">
+            <intr:InvokeCommandAction Command="{Binding WindowLoaded}"/>
+        </intr:EventTrigger>
+    </intr:Interaction.Triggers>
 	<Grid Margin="0,0,4,0">
 		<Label Content="Contragents" 
             Foreground="White" 
             FontSize="25" 
             HorizontalAlignment="Center" Margin="243,10,144,325" Width="151"/>
-		<Button Content="Back" HorizontalAlignment="Left" VerticalAlignment="Top" Width="81" Click="Back_click" Background="#FFCB4040" Foreground="White" FontSize="14" Margin="435,327,0,0" Height="27"/>
-		<Button Content="Edit" HorizontalAlignment="Left" Margin="114,277,0,0" VerticalAlignment="Top" Width="79" Click="Edit_Click" Background="#FF4074CB" Foreground="White" FontSize="14" Height="28"/>
-		<Button Content="Add new" HorizontalAlignment="Left" Margin="30,277,0,0" VerticalAlignment="Top" Width="79" Click="Add_New_Click" Background="#FF0D5923" Foreground="White" FontSize="14" Height="28"/>
 		<Separator HorizontalAlignment="Left" Height="7" Margin="199,58,0,0" VerticalAlignment="Top" Width="221" RenderTransformOrigin="0.5,0.5">
 			<Separator.RenderTransform>
 				<TransformGroup>
@@ -24,8 +30,62 @@
 				</TransformGroup>
 			</Separator.RenderTransform>
 		</Separator>
-		<DataGrid Name="ContragentDataGrid" SelectionMode="Single" HorizontalAlignment="Left" Height="183" Margin="30,89,0,0" VerticalAlignment="Top" Width="486" Loaded="ContragentDataGrid_Loaded" MouseDoubleClick="ContragentDataGrid_MouseDoubleClick"/>
-		<Button Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Width="84" Click="Delete_Click" Background="#FFCB4040" Foreground="White" FontSize="14" Margin="198,277,0,0" Height="28" VerticalContentAlignment="Center"/>
-
-	</Grid>
+        <DataGrid Name="ContragentDataGrid" 
+                  SelectionMode="Single" 
+                  HorizontalAlignment="Left" 
+                  Height="183" 
+                  Margin="30,89,0,0" 
+                  VerticalAlignment="Top" 
+                  Width="486" 
+                  CanUserAddRows="False"
+                  ItemsSource="{Binding Contragents}"
+                  SelectedItem="{Binding SelectedContragent}" >
+            <intr:Interaction.Triggers>
+                <intr:EventTrigger EventName="MouseDoubleClick">
+                    <intr:InvokeCommandAction Command="{Binding DoubleClick}" />
+                </intr:EventTrigger>
+            </intr:Interaction.Triggers>
+        </DataGrid>
+        <Button Content="Add new" 
+                HorizontalAlignment="Left" 
+                Margin="30,277,0,0" 
+                VerticalAlignment="Top" 
+                Width="79" 
+                Background="#FF0D5923" 
+                Foreground="White" 
+                FontSize="14" 
+                Height="28"
+                Command="{Binding AddNew}"/>
+        <Button Content="Edit" 
+                HorizontalAlignment="Left" 
+                Margin="114,277,0,0" 
+                VerticalAlignment="Top" 
+                Width="79" 
+                Background="#FF4074CB" 
+                Foreground="White" 
+                FontSize="14" 
+                Height="28"
+                Command="{Binding Edit}"/>
+        <Button Content="Delete" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Width="84" 
+                Background="#FFCB4040" 
+                Foreground="White" 
+                FontSize="14" 
+                Margin="198,277,0,0" 
+                Height="28" 
+                VerticalContentAlignment="Center"
+                Command="{Binding Delete}"/>
+        <Button Content="Back" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Width="81" 
+                Background="#FFCB4040" 
+                Foreground="White" 
+                FontSize="14" 
+                Margin="435,327,0,0" 
+                Height="27"
+                Command="{Binding Back}"/>
+    </Grid>
 </Window>

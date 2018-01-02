@@ -133,10 +133,11 @@
     <Compile Include="ViewModels\ActiveProjectsViewModel.cs" />
     <Compile Include="ViewModels\AddNewUserViewModel.cs" />
     <Compile Include="ViewModels\AdminPanelViewModel.cs" />
-    <Compile Include="ViewModels\ContragentViewModel.cs" />
+    <Compile Include="ViewModels\ContragentFormViewModel.cs" />
     <Compile Include="ViewModels\InquireFormViewModel.cs" />
     <Compile Include="ViewModels\IPageViewModel.cs" />
     <Compile Include="ViewModels\LoginFormViewModel.cs" />
+    <Compile Include="ViewModels\MainContragentsViewModel.cs" />
     <Compile Include="ViewModels\MainInquiriesViewModel.cs" />
     <Compile Include="ViewModels\MainOffersViewModel.cs" />
     <Compile Include="ViewModels\ManageUserViewModel.cs" />

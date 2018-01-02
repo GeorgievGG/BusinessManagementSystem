@@ -148,6 +148,11 @@
 
         private void HandleEditCommand(object parameter)
         {
+            if (this.SelectedInquiry == null)
+            {
+                MessageBox.Show("Please select an inquiry to continue");
+                return;
+            }
             var addNewInquiryWindow = this.ViewManager.ComposeObjects<InquireForm>();
             var vm = (InquireFormViewModel)addNewInquiryWindow.DataContext;
             vm.SelectedInquiry = this.selectedInquiry;

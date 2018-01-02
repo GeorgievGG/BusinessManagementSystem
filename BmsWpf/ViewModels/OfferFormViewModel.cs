@@ -219,7 +219,7 @@
         private void HandleLoadedCommand(object parameter)
         {
             this.UsernameList = new ObservableCollection<UserListDto>(this.UserService.GetUsernames());
-            this.ClientsList = new ObservableCollection<ContragentListDto>(this.ContragentService.GetAllContragents());
+            this.ClientsList = new ObservableCollection<ContragentListDto>(this.ContragentService.GetContragentsForDropdown());
             this.InquiriesList = new ObservableCollection<InquiryListDto>(this.InquiryService.GetInquiriesList());
             if (this.SelectedOffer != null)
             {

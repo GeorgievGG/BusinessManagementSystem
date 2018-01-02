@@ -8,10 +8,10 @@
     using System.Windows;
     using System.Windows.Input;
 
-    public class MainOffersViewModel : ViewModelBase, IPageViewModel
+    public class MainContragentsViewModel : ViewModelBase, IPageViewModel
     {
-        private DataTable offers;
-        private DataRowView selectedOffer;
+        private DataTable contragents;
+        private DataRowView selectedContragent;
 
         public ICommand WindowLoadedCommand;
         public ICommand DoubleClickCommand;
@@ -20,7 +20,7 @@
         public ICommand DeleteCommand;
         public ICommand BackCommand;
 
-        public IOfferService OfferService { get; set; }
+        public IContragentService ContragentService { get; set; }
         public IViewManager ViewManager { get; set; }
 
         public Action CloseAction { get; set; }
@@ -29,33 +29,33 @@
         {
             get
             {
-                return "Offers main page";
+                return "Contragents main page";
             }
         }
 
-        public DataRowView SelectedOffer
+        public DataRowView SelectedContragent
         {
             get
             {
-                return this.selectedOffer;
+                return this.selectedContragent;
             }
             set
             {
-                this.selectedOffer = value;
-                this.OnPropertyChanged(nameof(SelectedOffer));
+                this.selectedContragent = value;
+                this.OnPropertyChanged(nameof(SelectedContragent));
             }
         }
 
-        public DataTable Offers
+        public DataTable Contragents
         {
             get
             {
-                return offers;
+                return contragents;
             }
             private set
             {
-                this.offers = value;
-                this.OnPropertyChanged(nameof(Offers));
+                this.contragents = value;
+                this.OnPropertyChanged(nameof(Contragents));
             }
         }
 
@@ -133,39 +133,39 @@
 
         private void HandleLoadedCommand(object parameter)
         {
-            this.Offers = OfferService.GetOffersAsDataTable();
+            this.Contragents = ContragentService.GetAllContragents();
         }
 
         private void HandleAddNewCommand(object parameter)
         {
-            var addNewInquiryWindow = this.ViewManager.ComposeObjects<OfferForm>();
-            addNewInquiryWindow.Show();
+            var addNewContragentWindow = this.ViewManager.ComposeObjects<ContragentForm>();
+            addNewContragentWindow.Show();
             this.CloseAction();
         }
 
         private void HandleEditCommand(object parameter)
         {
-            if (this.SelectedOffer == null)
+            if (this.SelectedContragent == null)
             {
-                MessageBox.Show("Please select an offer to continue");
+                MessageBox.Show("Please select a contragent to continue");
                 return;
             }
-            var addNewInquiryWindow = this.ViewManager.ComposeObjects<OfferForm>();
-            var vm = (OfferFormViewModel)addNewInquiryWindow.DataContext;
-            vm.SelectedOffer = this.selectedOffer;
-            addNewInquiryWindow.Show();
+            var addNewContragentWindow = this.ViewManager.ComposeObjects<ContragentForm>();
+            var vm = (ContragentFormViewModel)addNewContragentWindow.DataContext;
+            vm.SelectedContragent = this.SelectedContragent;
+            addNewContragentWindow.Show();
             this.CloseAction();
         }
 
         private void HandleDeleteCommand(object parameter)
         {
-            var offerId = (int)selectedOffer.Row.ItemArray[0];
+            var contragentId = (int)SelectedContragent.Row.ItemArray[0];
 
             var result = string.Empty;
 
             try
             {
-                result = this.OfferService.Delete(offerId);
+                result = this.ContragentService.Delete(contragentId);
             }
             catch (Exception e)
             {

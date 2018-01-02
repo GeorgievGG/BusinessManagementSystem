@@ -1,11 +1,16 @@
-﻿using System.Collections.Generic;
-using BmsWpf.Services.DTOs;
-
-namespace BmsWpf.Services.Contracts
+﻿namespace BmsWpf.Services.Contracts
 {
+    using System.Collections.Generic;
+    using BmsWpf.Services.DTOs;
+    using System.Data;
+
     public interface IContragentService
     {
-        IEnumerable<ContragentListDto> GetAllContragents();
+        DataTable GetAllContragents();
+        IEnumerable<ContragentListDto> GetContragentsForDropdown();
         ContragentInfoForInquiryDto GetClientById(int clientId);
+        string Delete(int contragentId);
+        string CreateContragent(ContragentPostDto newContragent);
+        string EditContragent(ContragentPostDto newContragent);
     }
 }
