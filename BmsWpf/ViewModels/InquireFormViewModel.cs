@@ -59,7 +59,7 @@
             set
             {
                 this.id = value;
-                this.OnPropertyChanged("Id");
+                this.OnPropertyChanged(nameof(Id));
             }
         }
 
@@ -72,7 +72,7 @@
             set
             {
                 this.personOfContact = value;
-                this.OnPropertyChanged("PersonOfContact");
+                this.OnPropertyChanged(nameof(PersonOfContact));
             }
         }
 
@@ -85,7 +85,7 @@
             set
             {
                 this.email = value;
-                this.OnPropertyChanged("Email");
+                this.OnPropertyChanged(nameof(Email));
             }
         }
 
@@ -98,7 +98,7 @@
             set
             {
                 this.phoneNum = value;
-                this.OnPropertyChanged("PhoneNum");
+                this.OnPropertyChanged(nameof(PhoneNum));
             }
         }
 
@@ -111,7 +111,7 @@
             set
             {
                 this.description = value;
-                this.OnPropertyChanged("Description");
+                this.OnPropertyChanged(nameof(Description));
             }
         }
 
@@ -124,7 +124,7 @@
             set
             {
                 this.date = value;
-                this.OnPropertyChanged("Date");
+                this.OnPropertyChanged(nameof(Date));
             }
         }
 
@@ -137,7 +137,7 @@
             set
             {
                 this.selectedInquiry = value;
-                this.OnPropertyChanged("SelectedInquiry");
+                this.OnPropertyChanged(nameof(SelectedInquiry));
             }
         }
 
@@ -150,7 +150,7 @@
             set
             {
                 this.selectedUsername = value;
-                this.OnPropertyChanged("SelectedUsername");
+                this.OnPropertyChanged(nameof(SelectedUsername));
             }
         }
 
@@ -163,7 +163,7 @@
             set
             {
                 this.usernamesList = value;
-                OnPropertyChanged("UsernameList");
+                OnPropertyChanged(nameof(UsernameList));
             }
         }
 
@@ -176,7 +176,7 @@
             set
             {
                 this.selectedClient = value;
-                OnPropertyChanged("SelectedClient");
+                OnPropertyChanged(nameof(SelectedClient));
             }
         }
 

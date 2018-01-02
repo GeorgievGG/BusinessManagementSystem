@@ -59,7 +59,7 @@
             set
             {
                 this.id = value;
-                this.OnPropertyChanged("Id");
+                this.OnPropertyChanged(nameof(Id));
             }
         }
 
@@ -72,7 +72,7 @@
             set
             {
                 this.description = value;
-                this.OnPropertyChanged("Description");
+                this.OnPropertyChanged(nameof(Description));
             }
         }
 
@@ -85,7 +85,7 @@
             set
             {
                 this.date = value;
-                this.OnPropertyChanged("Date");
+                this.OnPropertyChanged(nameof(Date));
             }
         }
 
@@ -98,7 +98,7 @@
             set
             {
                 this.selectedOffer = value;
-                this.OnPropertyChanged("SelectedOffer");
+                this.OnPropertyChanged(nameof(SelectedOffer));
             }
         }
 
@@ -111,7 +111,7 @@
             set
             {
                 this.selectedUsername = value;
-                this.OnPropertyChanged("SelectedUsername");
+                this.OnPropertyChanged(nameof(SelectedUsername));
             }
         }
 
@@ -124,7 +124,7 @@
             set
             {
                 this.usernamesList = value;
-                OnPropertyChanged("UsernameList");
+                OnPropertyChanged(nameof(UsernameList));
             }
         }
 
@@ -137,7 +137,7 @@
             set
             {
                 this.selectedClient = value;
-                OnPropertyChanged("SelectedClient");
+                OnPropertyChanged(nameof(SelectedClient));
             }
         }
 
@@ -150,7 +150,7 @@
             set
             {
                 this.clientsList = value;
-                OnPropertyChanged("ClientsList");
+                OnPropertyChanged(nameof(ClientsList));
             }
         }
 
@@ -163,7 +163,7 @@
             set
             {
                 this.selectedInquiry = value;
-                OnPropertyChanged("SelectedInquiry");
+                OnPropertyChanged(nameof(SelectedInquiry));
             }
         }
 
@@ -176,7 +176,7 @@
             set
             {
                 this.inquiriesList = value;
-                OnPropertyChanged("InquiriesList");
+                OnPropertyChanged(nameof(InquiriesList));
             }
         }
 

@@ -12,23 +12,25 @@
             <TabItem Header="Project Overveiw">
                 <Grid Background="#2e3137">
                     <Label Content="Name" HorizontalAlignment="Left" Margin="21,70,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
-                    <TextBox Name ="NameTextBox" HorizontalAlignment="Left" Height="30" Margin="126,70,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200"/>
-                    <Label Content="Client" HorizontalAlignment="Left" Margin="21,174,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
+                    <TextBox Name ="NameTextBox" HorizontalAlignment="Left" Height="30" Margin="126,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
+					<Label Content="Offer" HorizontalAlignment="Left" Margin="21,104,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
+	                <ComboBox Name="OfferComboBox" HorizontalAlignment="Left" Height="30" Margin="126,104,0,0"  VerticalAlignment="Top" Width="200"/>
+	                <Label Content="Inquire" HorizontalAlignment="Left" Margin="21,139,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
+	                <ComboBox Name="InquireComboBox" HorizontalAlignment="Left" Height="30" Margin="126,139,0,0"  VerticalAlignment="Top" Width="200"/>
+					<Label Content="Client" HorizontalAlignment="Left" Margin="21,174,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
                     <ComboBox Name="ClientBox" HorizontalAlignment="Left" Height="30" Margin="126,174,0,0" Text="TextBox" VerticalAlignment="Top" Width="200"/>
                     <Label Content="Contact to" HorizontalAlignment="Left" Margin="21,209,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
-                    <TextBox Name="ContactTextBox" HorizontalAlignment="Left" Height="30" Margin="126,210,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200"/>
-                    <Label Content="Offer" HorizontalAlignment="Left" Margin="21,104,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
-                    <ComboBox Name="OfferComboBox" HorizontalAlignment="Left" Height="30" Margin="126,104,0,0"  VerticalAlignment="Top" Width="200"/>
-                    <Label Content="Inquire" HorizontalAlignment="Left" Margin="21,139,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
-                    <ComboBox Name="InquireComboBox" HorizontalAlignment="Left" Height="30" Margin="126,139,0,0"  VerticalAlignment="Top" Width="200"/>
-                    <Label Content="Telephone" HorizontalAlignment="Left" Margin="21,244,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
-                    <TextBox Name="PhoneBox" HorizontalAlignment="Left" Height="30" Margin="126,244,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200"/>
-                    <Label Content="Incomes" HorizontalAlignment="Left" Margin="24,355,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
-                    <TextBox HorizontalAlignment="Left" Height="30" Margin="126,355,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200"/>
+					<TextBox Name="ContactTextBox" HorizontalAlignment="Left" Height="30" Margin="126,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
+					<Label Content="Telephone" HorizontalAlignment="Left" Margin="21,244,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
+                    <TextBox Name="PhoneBox" HorizontalAlignment="Left" Height="30" Margin="126,244,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
+	                <Label Content="Creator" HorizontalAlignment="Left" Margin="21,279,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
+	                <ComboBox Name="CreatorCombobox" HorizontalAlignment="Left" Height="30" Margin="126,279,0,0" Text="TextBox" VerticalAlignment="Top" Width="200"/>
+					<Label Content="Incomes" HorizontalAlignment="Left" Margin="24,355,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
+                    <TextBox HorizontalAlignment="Left" Height="30" Margin="126,355,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
                     <Label Content="Expences" HorizontalAlignment="Left" Margin="24,390,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
-                    <TextBox HorizontalAlignment="Left" Height="30" Margin="126,391,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200"/>
+                    <TextBox HorizontalAlignment="Left" Height="30" Margin="126,391,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
                     <Label Content="Profit" HorizontalAlignment="Left" Margin="24,425,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
-                    <TextBox HorizontalAlignment="Left" Height="30" Margin="126,425,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200"/>
+                    <TextBox HorizontalAlignment="Left" Height="30" Margin="126,425,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
                     <Label Content="Start Date" HorizontalAlignment="Left" Margin="417,70,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
                     <Label Content="TimeLine" HorizontalAlignment="Left" Margin="417,105,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
                     <Label Content="End Date" HorizontalAlignment="Left" Margin="417,140,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue" />
@@ -38,11 +40,8 @@
                     <Label Content="Notes and Events" HorizontalAlignment="Left" Margin="391,188,0,0" VerticalAlignment="Top" Width="285" Height="40" FontSize="20" Foreground="AliceBlue"/>
                     <ListBox HorizontalAlignment="Left" Height="223" Margin="391,233,0,0" VerticalAlignment="Top" Width="267"/>
                     <Button Name="ButtonSave" Content="Save" HorizontalAlignment="Left" Margin="252,491,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="ButtonSave_Click"/>
-                    <Button Name="ButtonEdit" Content="Edit" HorizontalAlignment="Left" Margin="350,491,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="ButtonEdit_Click"/>
-                    <Label Content="Creator" HorizontalAlignment="Left" Margin="21,279,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
-                    <ComboBox Name="CreatorCombobox" HorizontalAlignment="Left" Height="30" Margin="126,279,0,0" Text="TextBox" VerticalAlignment="Top" Width="200"/>
-
-                </Grid>
+					<Button Name="ButtonEdit" Content="Back" HorizontalAlignment="Left" Margin="350,491,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="ButtonEdit_Click"/>
+				</Grid>
             </TabItem>
             <TabItem Header="Incomes">
                 <Grid Background="#2e3137">

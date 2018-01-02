@@ -49,7 +49,7 @@
             private set
             {
                 this.chosenProjects = value;
-                this.OnPropertyChanged("ChosenProjects");
+                this.OnPropertyChanged(nameof(ChosenProjects));
             }
         }
 
@@ -77,17 +77,17 @@
             }
         }
 
-        public ICommand AddNewProject
-        {
-            get
-            {
-                if (this.AddNewProjectCommand == null)
-                {
-                    this.AddNewProjectCommand = new RelayCommand(this.HandleAddNewProjectCommand);
-                }
-                return this.AddNewProjectCommand;
-            }
-        }
+//        public ICommand AddNewProject
+//        {
+////            get
+////            {
+////                if (this.AddNewProjectCommand == null)
+////                {
+////                    this.AddNewProjectCommand = new RelayCommand(this.HandleAddNewProjectCommand);
+////                }
+////                return this.AddNewProjectCommand;
+////            }
+//        }
 
         public ICommand EditProject
         {
@@ -124,12 +124,12 @@
             this.ChosenProjects = new ObservableCollection<string>(chosenProjectsQueryable);
         }
 
-        private void HandleAddNewProjectCommand(object parameter)
-        {
-            var addPrjView = this.ViewManager.ComposeObjects<ProjectWindow>();
-            addPrjView.Show();
-            this.CloseAction();
-        }
+//        private void HandleAddNewProjectCommand(object parameter)
+//        {
+//            var addPrjView = this.ViewManager.ComposeObjects<ProjectWindow>();
+//            addPrjView.Show();
+//            this.CloseAction();
+//        }
 
         private void HandleEditProjectCommand(object parameter)
         {
