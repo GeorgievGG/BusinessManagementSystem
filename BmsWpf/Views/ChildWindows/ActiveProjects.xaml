@@ -30,3 +30,4 @@
         <Button Content="Delete" HorizontalAlignment="Left" Margin="247,408,0,0" VerticalAlignment="Top" Width="83" Background="#FFCB4040" Foreground="White" FontSize="14" Command="{Binding Delete}" Height="34"/>
     </Grid>
 </Window>
+

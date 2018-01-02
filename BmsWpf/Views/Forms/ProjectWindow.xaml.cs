@@ -64,7 +64,7 @@ namespace BmsWpf.Views.Forms
             var creator = context.Users.FirstOrDefault(u => u.Username == cretorArgs);
             var startDate = this.StartDatePicker.SelectedDate.Value.Date;
             var timeLimit = this.LimitDatePicker.SelectedDate.Value.Date;
-            var endDate = this.EndDatePicker.SelectedDate.Value.Date;
+            DateTime? endDate = this.EndDatePicker.SelectedDate;
 
             var project = new Project()
             {
