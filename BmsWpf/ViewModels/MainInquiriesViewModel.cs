@@ -44,7 +44,7 @@
             set
             {
                 this.selectedInquiry = value;
-                this.OnPropertyChanged("SelectedInquiry");
+                this.OnPropertyChanged(nameof(SelectedInquiry));
             }
         }
 
@@ -57,7 +57,7 @@
             private set
             {
                 this.inquiries = value;
-                this.OnPropertyChanged("Inquiries");
+                this.OnPropertyChanged(nameof(Inquiries));
             }
         }
 

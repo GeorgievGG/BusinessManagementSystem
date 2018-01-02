@@ -49,7 +49,7 @@
             private set
             {
                 this.chosenProjects = value;
-                this.OnPropertyChanged("ChosenProjects");
+                this.OnPropertyChanged(nameof(ChosenProjects));
             }
         }
 

@@ -42,7 +42,7 @@
             set
             {
                 this.selectedOffer = value;
-                this.OnPropertyChanged("SelectedOffer");
+                this.OnPropertyChanged(nameof(SelectedOffer));
             }
         }
 
@@ -55,7 +55,7 @@
             private set
             {
                 this.offers = value;
-                this.OnPropertyChanged("Offers");
+                this.OnPropertyChanged(nameof(Offers));
             }
         }
 

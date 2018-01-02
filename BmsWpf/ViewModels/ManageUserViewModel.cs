@@ -51,7 +51,7 @@
             set
             {
                 this.username = value;
-                this.OnPropertyChanged("Username");
+                this.OnPropertyChanged(nameof(Username));
             }
         }
 
@@ -76,7 +76,7 @@
             set
             {
                 this.selectedClearenceType = value;
-                this.OnPropertyChanged("SelectedClearenceType");
+                this.OnPropertyChanged(nameof(SelectedClearenceType));
             }
         }
 
@@ -89,7 +89,7 @@
             private set
             {
                 this.users = value;
-                this.OnPropertyChanged("Users");
+                this.OnPropertyChanged(nameof(Users));
             }
         }
 
