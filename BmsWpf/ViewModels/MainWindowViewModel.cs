@@ -118,7 +118,7 @@
 
         private void HandelCalendarEventsCommand(object parameter)
         {
-            var calendarEventWindow = ViewManager.ComposeObjects<MainCalendarEvents>();
+            var calendarEventWindow = this.ViewManager.ComposeObjects<MainCalendarEvents>();
             calendarEventWindow.Show();
             this.CloseAction();
         }

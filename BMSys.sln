@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2008
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BMS.DataBase", "BMS.DataBase\BMS.DataBase.csproj", "{50336769-96B7-4D5D-87EE-DDCA6AFEB1E4}"
 EndProject
@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BMS.DataBaseModels", "BMS.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BmsWpf", "BmsWpf\BmsWpf.csproj", "{4A235AC7-3CD6-4BDD-AEEF-95A676303FB2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BmsWpf.Services", "BmsWpf.Services\BmsWpf.Services.csproj", "{9B90F644-AD46-47F8-BC65-F9426B0E211B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BmsWpf.Services", "BmsWpf.Services\BmsWpf.Services.csproj", "{9B90F644-AD46-47F8-BC65-F9426B0E211B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

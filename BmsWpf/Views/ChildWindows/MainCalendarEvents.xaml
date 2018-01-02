@@ -7,9 +7,12 @@
         mc:Ignorable="d"
         Title="MainCalendarEvents" Height="600" Width="750" Background="#2e3137">
     <Grid>
-        <Calendar VerticalAlignment="Top" HorizontalAlignment="Left" Margin="28,48,0,0" Height="166" Width="181"></Calendar>
-        <Button x:Name ="BackButton" Click="Back_OnClickButton_Click" Content="Back" Background="AliceBlue" Height="30" Margin="28,401,535,139.4"/>
-        <Button x:Name="addEventButton" Content="Add new event" Click="addEventButton_Click" Background="AliceBlue"  Margin="28,348,535,192.4"/>
+        <Calendar VerticalAlignment="Top" HorizontalAlignment="Left" Margin="28,48,0,0" Height="166" Width="180"></Calendar>
+        <Button Name ="BackButton" Click="Back_OnClickButton_Click" Content="Back" Background="AliceBlue" Height="50" Width="180" Margin="501,481,63,39.4"/>
+        <Button Name="AddEventButton" Content="Add new event" Click="addEventButton_Click" Background="AliceBlue" Height="50" Width="180" Margin="28,265,536,255.4"/>
+        <Button Name="EditEventButton" Content="Edit event" Click="EditEventButton_OnClickEventButton_Click" Background="AliceBlue" Height="50" Width="180" Margin="28,322,536,198.4" RenderTransformOrigin="0.503,0.266"/>
+        <Button Name="DeleteEventButton" Content="Delete event" Click="DeleteEventButton_OnClickEventButton_Click" Background="AliceBlue" Height="50" Width="180" Margin="28,381,536,139.4"/>
+
         <ScrollViewer Background="AntiqueWhite" HorizontalAlignment="Right" Height="383" Margin="0,48,63,0" VerticalAlignment="Top" Width="428" VerticalScrollBarVisibility="Auto">
             <ListView Name="eventView">
                 <ListView.View>
@@ -22,7 +25,7 @@
                 </ListView.View>
             </ListView>
         </ScrollViewer>
-        <TextBlock x:Name="timeView" HorizontalAlignment="Left" Margin="377,21,0,0" TextWrapping="Wrap" Text="Time" VerticalAlignment="Top" FontSize="16" Width="131" Foreground="White"/>
+        <Label Name="timeView" HorizontalAlignment="Left" Margin="377,14,0,0" VerticalAlignment="Top" FontSize="16" Width="304" Foreground="White" Height="29"/>
         <Label Content="Events for:" Foreground="White" FontSize="18" HorizontalAlignment="Left" Margin="253,14,0,0" VerticalAlignment="Top" Width="100"/>
     </Grid>
 
