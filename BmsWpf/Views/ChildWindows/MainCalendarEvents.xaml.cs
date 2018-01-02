@@ -29,13 +29,20 @@ namespace BmsWpf.Views.ChildWindows
         public MainCalendarEvents()
         {
             InitializeComponent();
+            ShowTime();
             FillGrid();
+            DataContext = new BmsContex();
+        }
+
+        private void ShowTime()
+        {
+            this.timeView.Content = DateTime.Today.ToShortDateString();
         }
 
         private void FillGrid()
         {
             var context = new BmsContex();
-            var events = context.CalendarEvents.Select(ce => ce.EndTime > DateTime.Now).ToList();
+            var events = context.CalendarEvents.Where(ce => ce.EndTime > DateTime.Now).ToList();
             this.eventView.ItemsSource = events;
 
         }
@@ -54,6 +61,14 @@ namespace BmsWpf.Views.ChildWindows
             this.Close();
         }
 
+        private void EditEventButton_OnClickEventButton_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
 
+        private void DeleteEventButton_OnClickEventButton_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

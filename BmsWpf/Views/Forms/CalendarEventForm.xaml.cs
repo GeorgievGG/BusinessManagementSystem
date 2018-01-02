@@ -38,21 +38,25 @@
             var endDate = this.EndDateBox.SelectedDate.Value.Date;
             Enum.TryParse(this.ColorPickerBox.Text, out Color color);
             var creatorArgs = this.CreatorBox.ToString();
-            var creator = db.Users.FirstOrDefault(u => u.Username == creatorArgs).Id;
-
-
-
-            var newCalendarEvent = new CalendarEvent
+            User firstOrDefault = db.Users.FirstOrDefault(u => u.Username == creatorArgs);
+            if (firstOrDefault != null)
             {
-                Title = title,
-                Description = description,
-                Color = color,
-                StartTime = startDate,
-                EndTime = endDate,
-                CreatorId = creator,
-            };
+                var creator = firstOrDefault.Id;
 
-            db.CalendarEvents.Add(newCalendarEvent);
+
+
+                var newCalendarEvent = new CalendarEvent
+                                           {
+                                               Title = title,
+                                               Description = description,
+                                               Color = color,
+                                               StartTime = startDate,
+                                               EndTime = endDate,
+                                               CreatorId = creator,
+                                           };
+
+                db.CalendarEvents.Add(newCalendarEvent);
+            }
             db.SaveChanges();
             MessageBox.Show("The event was created successfully");
 
@@ -72,11 +76,6 @@
             var dash = new MainCalendarEvents();
             dash.Show();
             this.Close();
-        }
-
-        private void Creator_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }

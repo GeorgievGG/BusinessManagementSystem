@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BmsWpf.Views.Forms"
         mc:Ignorable="d"
-        Title="PaymentClientForm" Height="600" Width="750" Background="#2e3137">
+        Title="Payment Client Form" Height="600" Width="750" Background="#2e3137">
     <Grid Margin="0,25,0,-24.6">
         <Label Content="Client" HorizontalAlignment="Left" Margin="42,110,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
         <ComboBox Name="ClientComboBox" HorizontalAlignment="Left" Height="30" Margin="142,110,0,0" Text="TextBox" VerticalAlignment="Top" Width="200"/>
