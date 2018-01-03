@@ -77,7 +77,7 @@
             </TabItem>
             <TabItem Header="Notes">
                 <Grid Background="#2e3137">
-                    <ListBox HorizontalAlignment="Left" Height="488" Margin="285,24,0,0" VerticalAlignment="Top" Width="403"/>
+                    <DataGrid HorizontalAlignment="Left" Height="488" Margin="285,24,0,0" VerticalAlignment="Top" Width="403"/>
                     <Button Name ="AddNewNoteButton" Content="Add new note" HorizontalAlignment="Left" Margin="32,24,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="AddNewNoteButton_Click"/>
                     <Button Name="EditNotesButton" Content="Edit note" HorizontalAlignment="Left" Margin="32,59,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="EditNotesButton_Click"/>
                     <Button Name="DeleteNoteButton" Content="Delete note" HorizontalAlignment="Left" Margin="32,94,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="DeleteNoteButton_Click"/>

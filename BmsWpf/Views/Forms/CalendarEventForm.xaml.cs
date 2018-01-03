@@ -3,7 +3,6 @@
     using System;
     using System.Linq;
     using System.Windows;
-    using System.Windows.Controls;
 
     using BmsWpf.Views.ChildWindows;
 
@@ -31,39 +30,34 @@
 
         private void Button_Click_Save(object sender, RoutedEventArgs e)
         {
-            var db = new BmsContex();
+            var context = new BmsContex();
             var title = this.TitleBox.Text;
             var description = this.DescriptionBox.Text;
             var startDate = this.StartDateBox.SelectedDate.Value.Date;
             var endDate = this.EndDateBox.SelectedDate.Value.Date;
+
+
             Enum.TryParse(this.ColorPickerBox.Text, out Color color);
-            var creatorArgs = this.CreatorBox.ToString();
-            User firstOrDefault = db.Users.FirstOrDefault(u => u.Username == creatorArgs);
-            if (firstOrDefault != null)
+            var creatorArgs = this.CreatorBox.Text;
+            var creator = context.Users.FirstOrDefault(u => u.Username == creatorArgs);
+
+            var newCalendarEvent = new CalendarEvent
             {
-                var creator = firstOrDefault.Id;
+                Title = title,
+                Description = description,
+                Color = color,
+                StartTime = startDate,
+                EndTime = endDate,
+                CreatorId = creator.Id,
+            };
 
-
-
-                var newCalendarEvent = new CalendarEvent
-                                           {
-                                               Title = title,
-                                               Description = description,
-                                               Color = color,
-                                               StartTime = startDate,
-                                               EndTime = endDate,
-                                               CreatorId = creator,
-                                           };
-
-                db.CalendarEvents.Add(newCalendarEvent);
-            }
-            db.SaveChanges();
+            context.CalendarEvents.Add(newCalendarEvent);
+            context.SaveChanges();
             MessageBox.Show("The event was created successfully");
 
             var dash = new MainCalendarEvents();
             dash.Show();
             this.Close();
-
         }
 
         private void Button_Click_Edit(object sender, RoutedEventArgs e)

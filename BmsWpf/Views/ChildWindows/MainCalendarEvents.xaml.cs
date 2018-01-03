@@ -25,13 +25,13 @@ namespace BmsWpf.Views.ChildWindows
     /// </summary>
     public partial class MainCalendarEvents : Window
     {
- 
+
         public MainCalendarEvents()
         {
             InitializeComponent();
             ShowTime();
             FillGrid();
-            DataContext = new BmsContex();
+            this.DataContext = new BmsContex();
         }
 
         private void ShowTime()
@@ -57,7 +57,7 @@ namespace BmsWpf.Views.ChildWindows
         private void addEventButton_Click(object sender, RoutedEventArgs e)
         {
             var addNewEvent = new CalendarEventForm();
-           addNewEvent.Show();
+            addNewEvent.Show();
             this.Close();
         }
 
@@ -69,6 +69,11 @@ namespace BmsWpf.Views.ChildWindows
         private void DeleteEventButton_OnClickEventButton_Click(object sender, RoutedEventArgs e)
         {
             throw new NotImplementedException();
+        }
+
+        private void eventView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
