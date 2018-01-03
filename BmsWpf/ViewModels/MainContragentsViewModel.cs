@@ -2,6 +2,7 @@
 {
     using BmsWpf.Behaviour;
     using BmsWpf.Services.Contracts;
+    using BmsWpf.Views.ChildWindows;
     using BmsWpf.Views.Forms;
     using System;
     using System.Data;
@@ -173,6 +174,9 @@
             }
 
             MessageBox.Show(result);
+            var mainContragentsWindow = this.ViewManager.ComposeObjects<MainContragents>();
+            mainContragentsWindow.Show();
+            this.CloseAction();
         }
 
         private void HandleBackCommand(object parameter)
