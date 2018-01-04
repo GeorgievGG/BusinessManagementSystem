@@ -188,6 +188,9 @@
     <Compile Include="Views\Forms\InquireForm.xaml.cs">
       <DependentUpon>InquireForm.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Forms\NoteForm.xaml.cs">
+      <DependentUpon>NoteForm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Forms\OfferForm.xaml.cs">
       <DependentUpon>OfferForm.xaml</DependentUpon>
     </Compile>
@@ -271,6 +274,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Forms\InquireForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Forms\NoteForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

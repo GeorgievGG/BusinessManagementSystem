@@ -8,24 +8,39 @@
         Title="ProjectWindow" Height="600" Width="750" Background="#2e3137">
     <Grid>
 
-        <TabControl HorizontalAlignment="Left" Height="600" VerticalAlignment="Top" Width="750" Background="#2e3137" SelectionChanged="TabControl_SelectionChanged">
-            <TabItem Header="Project Overveiw">
+        <TabControl Name ="ProjectTabs" TabStripPlacement ="Right" HorizontalAlignment="Left" Height="600" VerticalAlignment="Top" Width="750" Background="#2e3137" SelectionChanged="TabControl_SelectionChanged">
+            <TabControl.Resources>
+                <Style TargetType="{x:Type TabItem}">
+                    <Setter Property="HeaderTemplate">
+                        <Setter.Value>
+                            <DataTemplate>
+                                <ContentPresenter Content="{TemplateBinding Content}">
+                                    <ContentPresenter.LayoutTransform>
+                                        <RotateTransform Angle="90"></RotateTransform>
+                                    </ContentPresenter.LayoutTransform>
+                                </ContentPresenter>
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </TabControl.Resources>
+            <TabItem Header="Project Overveiw" Width="35" Height="100" FontSize="12">
                 <Grid Background="#2e3137">
                     <Label Content="Name" HorizontalAlignment="Left" Margin="21,70,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
                     <TextBox Name ="NameTextBox" HorizontalAlignment="Left" Height="30" Margin="126,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
-					<Label Content="Offer" HorizontalAlignment="Left" Margin="21,104,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
-	                <ComboBox Name="OfferComboBox" HorizontalAlignment="Left" Height="30" Margin="126,104,0,0"  VerticalAlignment="Top" Width="200"/>
-	                <Label Content="Inquire" HorizontalAlignment="Left" Margin="21,139,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
-	                <ComboBox Name="InquireComboBox" HorizontalAlignment="Left" Height="30" Margin="126,139,0,0"  VerticalAlignment="Top" Width="200"/>
-					<Label Content="Client" HorizontalAlignment="Left" Margin="21,174,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
+                    <Label Content="Offer" HorizontalAlignment="Left" Margin="21,104,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
+                    <ComboBox Name="OfferComboBox" HorizontalAlignment="Left" Height="30" Margin="126,104,0,0"  VerticalAlignment="Top" Width="200"/>
+                    <Label Content="Inquire" HorizontalAlignment="Left" Margin="21,139,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
+                    <ComboBox Name="InquireComboBox" HorizontalAlignment="Left" Height="30" Margin="126,139,0,0"  VerticalAlignment="Top" Width="200"/>
+                    <Label Content="Client" HorizontalAlignment="Left" Margin="21,174,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
                     <ComboBox Name="ClientBox" HorizontalAlignment="Left" Height="30" Margin="126,174,0,0" Text="TextBox" VerticalAlignment="Top" Width="200"/>
                     <Label Content="Contact to" HorizontalAlignment="Left" Margin="21,209,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
-					<TextBox Name="ContactTextBox" HorizontalAlignment="Left" Height="30" Margin="126,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
-					<Label Content="Telephone" HorizontalAlignment="Left" Margin="21,244,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
+                    <TextBox Name="ContactTextBox" HorizontalAlignment="Left" Height="30" Margin="126,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
+                    <Label Content="Telephone" HorizontalAlignment="Left" Margin="21,244,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
                     <TextBox Name="PhoneBox" HorizontalAlignment="Left" Height="30" Margin="126,244,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
-	                <Label Content="Creator" HorizontalAlignment="Left" Margin="21,279,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
-	                <ComboBox Name="CreatorCombobox" HorizontalAlignment="Left" Height="30" Margin="126,279,0,0" Text="TextBox" VerticalAlignment="Top" Width="200"/>
-					<Label Content="Incomes" HorizontalAlignment="Left" Margin="24,355,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
+                    <Label Content="Creator" HorizontalAlignment="Left" Margin="21,279,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
+                    <ComboBox Name="CreatorCombobox" HorizontalAlignment="Left" Height="30" Margin="126,279,0,0" Text="TextBox" VerticalAlignment="Top" Width="200"/>
+                    <Label Content="Incomes" HorizontalAlignment="Left" Margin="24,355,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
                     <TextBox HorizontalAlignment="Left" Height="30" Margin="126,355,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
                     <Label Content="Expences" HorizontalAlignment="Left" Margin="24,390,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
                     <TextBox HorizontalAlignment="Left" Height="30" Margin="126,391,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
@@ -40,10 +55,10 @@
                     <Label Content="Notes and Events" HorizontalAlignment="Left" Margin="391,188,0,0" VerticalAlignment="Top" Width="285" Height="40" FontSize="20" Foreground="AliceBlue"/>
                     <ListBox HorizontalAlignment="Left" Height="223" Margin="391,233,0,0" VerticalAlignment="Top" Width="267"/>
                     <Button Name="ButtonSave" Content="Save" HorizontalAlignment="Left" Margin="252,491,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="ButtonSave_Click"/>
-					<Button Name="ButtonEdit" Content="Back" HorizontalAlignment="Left" Margin="350,491,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="ButtonEdit_Click"/>
-				</Grid>
+                    <Button Name="ButtonEdit" Content="Back" HorizontalAlignment="Left" Margin="350,491,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="ButtonEdit_Click"/>
+                </Grid>
             </TabItem>
-            <TabItem Header="Incomes">
+            <TabItem Header="Incomes"  Width="35" Height="100" FontSize="12">
                 <Grid Background="#2e3137">
                     <Label Content="Invoices" HorizontalAlignment="Left" Margin="49,10,0,0" VerticalAlignment="Top" Width="285" Height="40" FontSize="28" Foreground="AliceBlue"/>
                     <DataGrid Name="InvoiceIncome" HorizontalAlignment="Left" Height="156" Margin="49,55,0,0" VerticalAlignment="Top" Width="629"/>
@@ -59,7 +74,7 @@
                 </Grid>
 
             </TabItem>
-            <TabItem Header="Expences">
+            <TabItem Header="Expences"  Width="35" Height="100" FontSize="12">
                 <Grid Background="#2e3137">
                     <DataGrid Name="InvoiceExpences" HorizontalAlignment="Left" Height="183" Margin="49,50,0,0" VerticalAlignment="Top" Width="629"/>
                     <DataGrid Name="ExpencesPayments" HorizontalAlignment="Left" Height="183" Margin="47,296,0,0" VerticalAlignment="Top" Width="629"/>
@@ -75,9 +90,17 @@
 
                 </Grid>
             </TabItem>
-            <TabItem Header="Notes">
+            <TabItem Header="Notes"  Width="35" Height="100" FontSize="12">
                 <Grid Background="#2e3137">
-                    <DataGrid HorizontalAlignment="Left" Height="488" Margin="285,24,0,0" VerticalAlignment="Top" Width="403"/>
+                    <ScrollViewer Background="AntiqueWhite" HorizontalAlignment="Right" Margin="0,24,40.8,58" Width="513">
+                        <DataGrid HorizontalAlignment="Left" Height="488" VerticalAlignment="Top" Width="510">
+                            <GridView>
+                                <GridViewColumn Header="Note" Width="205" DisplayMemberBinding="{Binding Desciption}"></GridViewColumn>
+                                <GridViewColumn Header="Type" Width="205" DisplayMemberBinding="{Binding Type}"></GridViewColumn>
+                            </GridView>
+                        </DataGrid>
+                    </ScrollViewer>
+
                     <Button Name ="AddNewNoteButton" Content="Add new note" HorizontalAlignment="Left" Margin="32,24,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="AddNewNoteButton_Click"/>
                     <Button Name="EditNotesButton" Content="Edit note" HorizontalAlignment="Left" Margin="32,59,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="EditNotesButton_Click"/>
                     <Button Name="DeleteNoteButton" Content="Delete note" HorizontalAlignment="Left" Margin="32,94,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="DeleteNoteButton_Click"/>
