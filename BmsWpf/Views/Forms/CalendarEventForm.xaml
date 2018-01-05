@@ -29,7 +29,6 @@
                 <ComboBoxItem Content="Green"></ComboBoxItem>
                 <ComboBoxItem Content="Red"></ComboBoxItem>
                 <ComboBoxItem Content="Blue"></ComboBoxItem>
-                <ComboBoxItem Content="Red"></ComboBoxItem>
                 <ComboBoxItem Content="Pink"></ComboBoxItem>
                 <ComboBoxItem Content="Yellow"></ComboBoxItem>
             </ComboBox>

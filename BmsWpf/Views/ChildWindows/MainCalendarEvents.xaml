@@ -14,7 +14,7 @@
         <Button Name="DeleteEventButton" Content="Delete event" Click="DeleteEventButton_OnClickEventButton_Click" Background="AliceBlue" Height="50" Width="180" Margin="28,381,536,139.4"/>
 
         <ScrollViewer Background="AntiqueWhite" HorizontalAlignment="Right" Height="383" Margin="0,48,63,0" VerticalAlignment="Top" Width="428" VerticalScrollBarVisibility="Auto">
-            <ListView Name="eventView">
+            <ListView Name="eventView" SelectionChanged="eventView_SelectionChanged">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Title" Width="30" DisplayMemberBinding="{Binding Title}"></GridViewColumn>
