@@ -139,6 +139,7 @@
     <Compile Include="ViewModels\LoginFormViewModel.cs" />
     <Compile Include="ViewModels\MainContragentsViewModel.cs" />
     <Compile Include="ViewModels\MainInquiriesViewModel.cs" />
+    <Compile Include="ViewModels\MainInvoicesViewModel.cs" />
     <Compile Include="ViewModels\MainOffersViewModel.cs" />
     <Compile Include="ViewModels\ManageUserViewModel.cs" />
     <Compile Include="ViewModels\OfferFormViewModel.cs" />
