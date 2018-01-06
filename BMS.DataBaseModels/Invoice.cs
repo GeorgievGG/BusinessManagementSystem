@@ -1,7 +1,6 @@
 ﻿namespace BMS.DataBaseModels
 {
     using System;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     public class Invoice
@@ -18,6 +17,7 @@
 
         public int ContragentId { get; set; }
         public Contragent SuplierContragent { get; set; }
+        public int SupplierId { get; set; }
         public Contragent ClientContragent { get; set; }
 
 

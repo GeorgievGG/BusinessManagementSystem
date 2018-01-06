@@ -18,6 +18,7 @@
         private string name;
         private string personalVatNumber;
         private string personalIndentityNumber;
+        private string town;
         private string address;
         private string telephone;
         private string bankDetails;
@@ -91,6 +92,19 @@
             {
                 this.personalIndentityNumber = value;
                 this.OnPropertyChanged(nameof(PersonalIndentityNumber));
+            }
+        }
+
+        public string Town
+        {
+            get
+            {
+                return this.town;
+            }
+            set
+            {
+                this.town = value;
+                this.OnPropertyChanged(nameof(Town));
             }
         }
 

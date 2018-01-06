@@ -41,6 +41,7 @@
                                         x.Name,
                                         x.PersonalIndentityNumber,
                                         x.PersonalVatNumber,
+                                        x.Town,
                                         x.Address,
                                         x.Telephone,
                                         x.Email,
@@ -95,6 +96,7 @@
                 Name = newContragent.Name,
                 PersonalIndentityNumber = newContragent.PersonalIndentityNumber,
                 PersonalVatNumber = newContragent.PersonalVatNumber,
+                Town = newContragent.Town,
                 Address = newContragent.Address,
                 Telephone = newContragent.Telephone,
                 Email = newContragent.Email,
@@ -115,6 +117,7 @@
             contragentToUpdate.Name = newContragent.Name;
             contragentToUpdate.PersonalIndentityNumber = newContragent.PersonalIndentityNumber;
             contragentToUpdate.PersonalVatNumber = newContragent.PersonalVatNumber;
+            contragentToUpdate.Town = newContragent.Town;
             contragentToUpdate.Address = newContragent.Address;
             contragentToUpdate.Telephone = newContragent.Telephone;
             contragentToUpdate.Email = newContragent.Email;

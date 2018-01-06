@@ -6,9 +6,8 @@
     using System;
     using System.Collections.Generic;
     using System.Data;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+    using System.Globalization;
+    using System.Windows;
     using System.Windows.Input;
 
     public class MainInvoicesViewModel : ViewModelBase, IPageViewModel
@@ -17,7 +16,7 @@
         private DataRowView selectedInvoice;
 
         public ICommand WindowLoadedCommand;
-        public ICommand DoubleClickCommand;
+        public ICommand SearchCommand;
         public ICommand AddNewCICommand;
         public ICommand EditCICommand;
         public ICommand AddNewSICommand;
@@ -25,7 +24,23 @@
         public ICommand DeleteCommand;
         public ICommand BackCommand;
 
-        public IOfferService OfferService { get; set; }
+        public MainInvoicesViewModel()
+        {
+            this.SearchText = "Search....";
+            this.MenuItems = new List<string>();
+            this.MenuItems.Add("Add New Client Invoice");
+            this.MenuItems.Add("Edit Client Invoice");
+            this.MenuItems.Add("Add New Supplier Invoice");
+            this.MenuItems.Add("Edit Supplier Invoice");
+            this.MenuItems.Add("Delete");
+        }
+
+        public string Text { get; set; }
+
+        public string SelectedMenuItem { get; set; }
+        public IList<string> MenuItems { get; private set; }
+
+        public IInvoiceService InvoiceService { get; set; }
         public IViewManager ViewManager { get; set; }
 
         public Action CloseAction { get; set; }
@@ -64,6 +79,8 @@
             }
         }
 
+        public string SearchText { get; set; }
+
         public ICommand WindowLoaded
         {
             get
@@ -76,15 +93,15 @@
             }
         }
 
-        public ICommand DoubleClick
+        public ICommand Search
         {
             get
             {
-                if (this.DoubleClickCommand == null)
+                if (this.SearchCommand == null)
                 {
-                    this.DoubleClickCommand = new RelayCommand(this.HandleEditCommand);
+                    this.SearchCommand = new RelayCommand(this.HandleSearchCommand);
                 }
-                return this.DoubleClickCommand;
+                return this.SearchCommand;
             }
         }
 
@@ -165,6 +182,15 @@
             this.Invoices = InvoiceService.GetInvoicesAsDataTable();
         }
 
+        private void HandleSearchCommand(object parameter)
+        {
+            var datesearch = DateTime.Now;
+            DateTime.TryParseExact(this.SearchText, "dd/MM/yy", CultureInfo.InvariantCulture, DateTimeStyles.None, out datesearch);
+            var idSearch = 0;
+            int.TryParse(this.SearchText, out idSearch);
+            var found = this.InvoiceService.Search(datesearch, idSearch, this.SearchText);
+        }
+
         private void HandleAddNewCICommand(object parameter)
         {
             var addNewInquiryWindow = this.ViewManager.ComposeObjects<InvoiceClientForm>();
@@ -174,14 +200,14 @@
 
         private void HandleEditCICommand(object parameter)
         {
-            if (this.SelectedOffer == null)
+            if (this.SelectedInvoice == null)
             {
                 MessageBox.Show("Please select an offer to continue");
                 return;
             }
             var addNewInquiryWindow = this.ViewManager.ComposeObjects<InvoiceClientForm>();
-            var vm = (OfferFormViewModel)addNewInquiryWindow.DataContext;
-            vm.SelectedOffer = this.selectedOffer;
+            var vm = (InvoiceClientFormViewModel)addNewInquiryWindow.DataContext;
+            vm.SelectedInvoice = this.SelectedInvoice;
             addNewInquiryWindow.Show();
             this.CloseAction();
         }
@@ -195,27 +221,27 @@
 
         private void HandleEditSICommand(object parameter)
         {
-            if (this.SelectedOffer == null)
+            if (this.SelectedInvoice == null)
             {
                 MessageBox.Show("Please select an offer to continue");
                 return;
             }
             var addNewInquiryWindow = this.ViewManager.ComposeObjects<InvoinceSupplierForm>();
-            var vm = (OfferFormViewModel)addNewInquiryWindow.DataContext;
-            vm.SelectedOffer = this.selectedOffer;
+            var vm = (InvoiceSupplierFormViewModel)addNewInquiryWindow.DataContext;
+            vm.SelectedInvoice = this.SelectedInvoice;
             addNewInquiryWindow.Show();
             this.CloseAction();
         }
 
         private void HandleDeleteCommand(object parameter)
         {
-            var offerId = (int)selectedOffer.Row.ItemArray[0];
+            var invoiceId = (int)this.SelectedInvoice.Row.ItemArray[0];
 
             var result = string.Empty;
 
             try
             {
-                result = this.OfferService.Delete(offerId);
+                result = this.InvoiceService.Delete(invoiceId);
             }
             catch (Exception e)
             {

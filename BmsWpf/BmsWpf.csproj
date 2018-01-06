@@ -129,12 +129,15 @@
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Sessions\Session.cs" />
+    <Compile Include="Utilities\MenuInterpreter.cs" />
     <Compile Include="Utilities\MultiValueConverter.cs" />
     <Compile Include="ViewModels\ActiveProjectsViewModel.cs" />
     <Compile Include="ViewModels\AddNewUserViewModel.cs" />
     <Compile Include="ViewModels\AdminPanelViewModel.cs" />
     <Compile Include="ViewModels\ContragentFormViewModel.cs" />
     <Compile Include="ViewModels\InquireFormViewModel.cs" />
+    <Compile Include="ViewModels\InvoiceClientFormViewModel.cs" />
+    <Compile Include="ViewModels\InvoiceSupplierFormViewModel.cs" />
     <Compile Include="ViewModels\IPageViewModel.cs" />
     <Compile Include="ViewModels\LoginFormViewModel.cs" />
     <Compile Include="ViewModels\MainContragentsViewModel.cs" />

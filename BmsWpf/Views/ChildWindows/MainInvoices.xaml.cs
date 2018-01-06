@@ -8,6 +8,8 @@
     using BmsWpf.Views.Forms;
 
     using BMS.DataBaseData;
+    using BmsWpf.Services.Contracts;
+    using BmsWpf.ViewModels;
 
     /// <summary>
     /// Interaction logic for MainInvoices.xaml
@@ -17,6 +19,19 @@
         public MainInvoices()
         {
             InitializeComponent();
+        }
+
+        public MainInvoices(IViewManager viewManager, IInvoiceService invoiceService)
+        {
+            InitializeComponent();
+
+            MainInvoicesViewModel vm = (MainInvoicesViewModel)this.DataContext; // this creates an instance of the ViewModel
+
+            if (vm.CloseAction == null)
+                vm.CloseAction = new Action(() => this.Close());
+
+            vm.ViewManager = viewManager;
+            vm.InvoiceService = invoiceService;
         }
 
         private void EditSupplierInvoiceButton_Click(object sender, RoutedEventArgs e)

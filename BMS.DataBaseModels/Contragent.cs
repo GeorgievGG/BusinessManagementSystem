@@ -27,6 +27,9 @@
 
         public string PersonalVatNumber { get; set; }
 
+        [StringLength(250, MinimumLength = 2)]
+        public string Town { get; set; }
+
         [StringLength(250, MinimumLength = 3)]
         public string Address { get; set; }
         [StringLength(250, MinimumLength = 3)]

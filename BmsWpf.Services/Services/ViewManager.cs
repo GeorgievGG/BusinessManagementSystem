@@ -23,6 +23,7 @@
             container.Bind<IInquiryService>().To<InquiryService>().InTransientScope();
             container.Bind<IOfferService>().To<OfferService>().InTransientScope();
             container.Bind<IContragentService>().To<ContragentService>().InTransientScope();
+            container.Bind<IInvoiceService>().To<InvoiceService>().InTransientScope();
         }
 
         public T ComposeObjects<T>()
