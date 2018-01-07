@@ -5,14 +5,14 @@
 
     using Microsoft.EntityFrameworkCore;
 
-    public class BmsContex : DbContext
+    public class BmsContext : DbContext
     {
-        public BmsContex()
+        public BmsContext()
         {
 
         }
 
-        public BmsContex(DbContextOptions options)
+        public BmsContext(DbContextOptions options)
             : base(options)
         {
 
