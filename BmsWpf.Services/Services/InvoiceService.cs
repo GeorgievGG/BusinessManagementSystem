@@ -25,6 +25,7 @@
             IQueryable<IInvoice> invoices = GetAllInvoices();
             var invoicesDataTable = invoices.Select(x => new InvoiceForMainInvoicesDto
             {
+                Id = x.Id,
                 Client = new ContragentListDto
                 {
                     Id = x.Client.Id,
@@ -40,6 +41,8 @@
                     Id = x.Project.Id,
                     Name = x.Project.Name
                 },
+                Text = x.Text,
+                BankRequisits = x.BankRequisits,
                 Date = x.Date,
                 Price = x.Price,
                 VAT = x.Vat,

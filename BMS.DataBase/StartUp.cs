@@ -1,11 +1,10 @@
-﻿using BMS.DataBaseData;
-using BMS.DataBaseModels;
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-
-namespace BMS.DataBase
+﻿namespace BMS.DataBase
 {
+    using BMS.DataBaseData;
+    using BMS.DataBaseModels;
+    using System;
+    using System.Collections.Generic;
+
     public class StartUp
     {
         public static void Main()

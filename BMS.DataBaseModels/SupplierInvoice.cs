@@ -10,6 +10,8 @@
 
         public DateTime Date { get; set; }
 
+        public string Text { get; set; }
+        public string BankRequisits { get; set; }
         public decimal Price { get; set; }
         public decimal Vat { get; set; }
         public decimal Total { get; set; }
@@ -18,7 +20,7 @@
         public Contragent Supplier { get; set; }
         public int SupplierId { get; set; }
         public Contragent Client { get; set; }
-        public int ProjectId { get; set; }
+        public int? ProjectId { get; set; }
         public Project Project { get; set; }
     }
 }

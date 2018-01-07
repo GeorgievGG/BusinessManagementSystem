@@ -13,7 +13,6 @@
 
     internal class InvoiceFormViewModel : ViewModelBase, IPageViewModel
     {
-        private int id;
         private string clientName;
         private string clientPersonalNumber;
         private string clientVatNumber;
@@ -26,7 +25,7 @@
         private string supplierTown;
         private string supplierAddress;
         private string supplierPersonForContact;
-        private string invoiceNum;
+        private int invoiceNum;
         private DateTime invoiceDate;
         private string invoiceTown;
         private string invoiceText;
@@ -142,19 +141,7 @@
                 this.OnPropertyChanged(nameof(Projects));
             }
         }
-
-        public int Id
-        {
-            get
-            {
-                return this.id;
-            }
-            set
-            {
-                this.id = value;
-                this.OnPropertyChanged(nameof(Id));
-            }
-        }
+        
         public string ClientName
         {
             get
@@ -299,7 +286,7 @@
                 this.OnPropertyChanged(nameof(SupplierPersonForContact));
             }
         }
-        public string InvoiceNum
+        public int InvoiceNum
         {
             get
             {
@@ -475,7 +462,7 @@
             this.Projects = new ObservableCollection<ProjectListDto>(this.ProjectService.GetProjectsForDropdown());
             if (this.SelectedInvoice != null)
             {
-                this.Id = (int)SelectedInvoice.Row.ItemArray[0];
+                this.InvoiceNum = (int)SelectedInvoice.Row.ItemArray[0];
                 var clientDto = (ContragentListDto)SelectedInvoice.Row.ItemArray[1];
                 this.SelectedClient = Clients.SingleOrDefault(x => x.Id == clientDto.Id);
                 var supplierDto = (ContragentListDto)SelectedInvoice.Row.ItemArray[2];
@@ -494,23 +481,13 @@
 
                 var client = this.ContragentService.GetClientByIdInvoices(clientId);
 
-                this.ClientName = client.Name;
-                this.ClientPersonalNumber = client.PersonalNum;
-                this.ClientVatNumber = client.VatNum;
-                this.ClientTown = client.Town;
-                this.ClientAddress = client.Address;
-                this.ClientPersonForContact = client.PersonForContact;
+                this.FillClientInformation(client);
 
                 var supplierId = supplierDto.Id;
 
                 var supplier = this.ContragentService.GetClientByIdInvoices(supplierId);
 
-                this.SupplierName = supplier.Name;
-                this.SupplierPersonalNumber = supplier.PersonalNum;
-                this.SupplierVatNumber = supplier.VatNum;
-                this.SupplierTown = supplier.Town;
-                this.SupplierAddress = supplier.Address;
-                this.SupplierPersonForContact = supplier.PersonForContact;
+                this.FillSupplierInformation(supplier);
             }
         }
 
@@ -519,7 +496,7 @@
             var result = string.Empty;
             var newInvoice = new InvoicePostDto()
             {
-                Id = this.Id,
+                Id = this.InvoiceNum,
                 ClientId = this.SelectedClient.Id,
                 SupplierId = this.SelectedSupplier.Id,
                 ProjectId = this.SelectedProject.Id,
@@ -544,7 +521,7 @@
                 result = e.Message;
             }
             MessageBox.Show(result);
-            this.RedirectToMainInquiries();
+            this.RedirectToMainInvoices();
         }
 
         private void HandlePrintCommand(object parameter)
@@ -554,7 +531,7 @@
 
         private void HandleBackCommand(object parameter)
         {
-            this.RedirectToMainInquiries();
+            this.RedirectToMainInvoices();
         }
 
         private void HandleSelectionChangedClientCommand(object parameter)
@@ -563,19 +540,28 @@
             {
                 var client = this.ContragentService.GetClientByIdInvoices(this.SelectedClient.Id);
 
-                this.ClientName = client.Name;
-                this.ClientPersonalNumber = client.PersonalNum;
-                this.ClientVatNumber = client.VatNum;
-                this.ClientTown = client.Town;
-                this.ClientAddress = client.Address;
-                this.ClientPersonForContact = client.PersonForContact;
+                FillClientInformation(client);
             }
         }
 
         private void HandleSelectionChangedSupplierCommand(object parameter)
         {
             var supplier = this.ContragentService.GetClientByIdInvoices(this.SelectedSupplier.Id);
+            FillSupplierInformation(supplier);
+        }
 
+        private void FillClientInformation(ContragentInfoForInvoiceDto client)
+        {
+            this.ClientName = client.Name;
+            this.ClientPersonalNumber = client.PersonalNum;
+            this.ClientVatNumber = client.VatNum;
+            this.ClientTown = client.Town;
+            this.ClientAddress = client.Address;
+            this.ClientPersonForContact = client.PersonForContact;
+        }
+
+        private void FillSupplierInformation(ContragentInfoForInvoiceDto supplier)
+        {
             this.SupplierName = supplier.Name;
             this.SupplierPersonalNumber = supplier.PersonalNum;
             this.SupplierVatNumber = supplier.VatNum;
@@ -584,10 +570,10 @@
             this.SupplierPersonForContact = supplier.PersonForContact;
         }
 
-        private void RedirectToMainInquiries()
+        private void RedirectToMainInvoices()
         {
-            var mainInquiriesWindow = this.ViewManager.ComposeObjects<MainInvoices>();
-            mainInquiriesWindow.Show();
+            var mainInvoicesWindow = this.ViewManager.ComposeObjects<MainInvoices>();
+            mainInvoicesWindow.Show();
             this.CloseAction();
         }
     }
