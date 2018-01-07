@@ -166,7 +166,7 @@
             //Seed ClientInvoices
             var clientInvoices = new List<ClientInvoice>();
 
-            for (int i = 0; i < 77; i++)
+            for (int i = 0; i < 20; i++)
             {
                 var clientId = random.Next(0, contragents.Length);
                 var supplierId = random.Next(0, contragents.Length);
@@ -197,7 +197,7 @@
             //Seed SupplierInvoices
             var supplierInvoices = new List<SupplierInvoice>();
 
-            for (int i = 0; i < 77; i++)
+            for (int i = 0; i < 20; i++)
             {
                 var clientId = random.Next(0, contragents.Length);
                 var supplierId = random.Next(0, contragents.Length);
@@ -225,8 +225,9 @@
 
             context.SupplierInvoices.AddRange(supplierInvoices);
 
+            //Validate Payments
             var payments = new List<Payment>();
-            for (int i = 0; i < 200; i++)
+            for (int i = 0; i < 50; i++)
             {
                 var clientId = random.Next(0, contragents.Length);
                 var supplierId = random.Next(0, contragents.Length);
@@ -251,6 +252,39 @@
             }
 
             context.Payments.AddRange(payments);
+
+            var events = new List<CalendarEvent>();
+
+            for (int i = 0; i < 50; i++)
+            {
+
+                var startDate = RandomDate(random);
+                var endDate = RandomDate(random);
+                while (startDate >= endDate)
+                {
+                    startDate = RandomDate(random);
+                }
+
+                var @event = new CalendarEvent
+                {
+                    Color = RandomEnum<Color>(random),
+                    Creator = users[random.Next(0, users.Count)],
+                    Description = RandomDescription(random),
+                    Project = projects[random.Next(0, projects.Length)],
+                    StartTime = startDate,
+                    EndTime = endDate,
+                    Title = RandomTitle(random)
+                };
+
+                while (events.Any(e => e.Title == @event.Title))
+                {
+                    @event.Title = RandomTitle(random);
+                }
+
+                events.Add(@event);
+            }
+
+            context.CalendarEvents.AddRange(events);
 
             context.SaveChanges();
 
@@ -380,6 +414,14 @@
             var sentence = string.Join(" ", wordsToAdd);
 
             return sentence;
+        }
+
+        private static string RandomTitle(Random random)
+        {
+            var randomSentence = RandomDescription(random);
+            var randomTitle = randomSentence.Split()[random.Next(0, randomSentence.Split().Length)];
+
+            return randomTitle;
         }
     }
 }
