@@ -1,9 +1,9 @@
-﻿using System;
-using System.Data;
-using BmsWpf.Services.DTOs;
-
-namespace BmsWpf.Services.Contracts
+﻿namespace BmsWpf.Services.Contracts
 {
+    using BmsWpf.Services.DTOs;
+    using System;
+    using System.Data;
+
     public interface IInvoiceService
     {
         string CreateInvoice(InvoicePostDto newInvoice);

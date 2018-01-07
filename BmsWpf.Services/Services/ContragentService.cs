@@ -62,6 +62,24 @@
             return clientDto;
         }
 
+        public ContragentInfoForInvoiceDto GetClientByIdInvoices(int clientId)
+        {
+            var client = this.bmsData.Contragents.Find(clientId);
+
+            var clientDto = new ContragentInfoForInvoiceDto
+            {
+                Id = client.Id,
+                Name = client.Name,
+                PersonalNum = client.PersonalIndentityNumber,
+                VatNum = client.PersonalVatNumber,
+                Town = client.Town,
+                Address = client.Address,
+                PersonForContact = client.PersonForContact
+            };
+
+            return clientDto;
+        }
+
         public string Delete(int contragentId)
         {
             var contragent = this.bmsData.Contragents.Find(contragentId);

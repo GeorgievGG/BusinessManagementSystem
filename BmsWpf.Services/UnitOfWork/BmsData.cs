@@ -35,9 +35,14 @@
             get { return this.GetRepository<Inquiry>(); }
         }
 
-        public IRepository<ClientInvoice> Invoices
+        public IRepository<ClientInvoice> ClientInvoices
         {
             get { return this.GetRepository<ClientInvoice>(); }
+        }
+
+        public IRepository<SupplierInvoice> SupplierInvoices
+        {
+            get { return this.GetRepository<SupplierInvoice>(); }
         }
 
         public IRepository<Note> Notes

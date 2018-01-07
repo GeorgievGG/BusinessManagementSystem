@@ -155,7 +155,7 @@
             }
             var addNewInquiryWindow = this.ViewManager.ComposeObjects<InquireForm>();
             var vm = (InquireFormViewModel)addNewInquiryWindow.DataContext;
-            vm.SelectedInquiry = this.selectedInquiry;
+            vm.SelectedInquiry = this.SelectedInquiry;
             addNewInquiryWindow.Show();
             this.CloseAction();
         }

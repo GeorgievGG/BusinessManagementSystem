@@ -46,6 +46,7 @@
     <Compile Include="Contragent.cs" />
     <Compile Include="Enums\Color.cs" />
     <Compile Include="Enums\NoteType.cs" />
+    <Compile Include="IInvoice.cs" />
     <Compile Include="Inquiry.cs" />
     <Compile Include="ClientInvoice.cs" />
     <Compile Include="Note.cs" />

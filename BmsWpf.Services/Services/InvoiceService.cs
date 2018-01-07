@@ -6,6 +6,7 @@
     using Microsoft.EntityFrameworkCore;
     using MoreLinq;
     using System;
+    using System.Collections.Generic;
     using System.Data;
     using System.Data.SqlClient;
     using System.Linq;
@@ -21,7 +22,7 @@
 
         public DataTable GetInvoicesAsDataTable()
         {
-            IQueryable<ClientInvoice> invoices = GetAllInvoices();
+            IQueryable<IInvoice> invoices = GetAllInvoices();
             var invoicesDataTable = invoices.Select(x => new InvoiceForMainInvoicesDto
             {
                 Client = new ContragentListDto
@@ -34,6 +35,11 @@
                     Id = x.Supplier.Id,
                     NameAndIdentity = x.Supplier.Name
                 },
+                Project = new ProjectListDto
+                {
+                    Id = x.Project.Id,
+                    Name = x.Project.Name
+                },
                 Date = x.Date,
                 Price = x.Price,
                 VAT = x.Vat,
@@ -42,11 +48,17 @@
             return invoicesDataTable;
         }
 
-        private IQueryable<ClientInvoice> GetAllInvoices()
+        private IQueryable<IInvoice> GetAllInvoices()
         {
-            return this.bmsData
-                        .Invoices
-                        .All();
+            var invoices = new List<IInvoice>();
+            invoices.AddRange(this.bmsData
+                        .ClientInvoices
+                        .All());
+            invoices.AddRange(this.bmsData
+                        .SupplierInvoices
+                        .All());
+
+            return invoices.AsQueryable();
         }
 
         //public IEnumerable<InvoiceListDto> GetInvoicesList()
@@ -91,29 +103,58 @@
         public string CreateInvoice(InvoicePostDto newInvoice)
         {
             var userSrv = new UserService(bmsData);
-            var invoice = new ClientInvoice()
+            IInvoice invoice;
+            if (newInvoice.ClientId == 1)//our id
             {
-                //CreatorId = newInquiry.CreatorId,
-                //ContragentId = newInquiry.ClientId,
-                //Description = newInquiry.Description,
-                //Date = newInquiry.Date
-            };
-            bmsData.Invoices.Add(invoice);
+                invoice = new ClientInvoice()
+                {
+                    //CreatorId = newInquiry.CreatorId,
+                    //ContragentId = newInquiry.ClientId,
+                    //Description = newInquiry.Description,
+                    //Date = newInquiry.Date
+                };
+                bmsData.ClientInvoices.Add((ClientInvoice)invoice);
+            }
+            else
+            {
+                invoice = new SupplierInvoice()
+                {
+                    //CreatorId = newInquiry.CreatorId,
+                    //ContragentId = newInquiry.ClientId,
+                    //Description = newInquiry.Description,
+                    //Date = newInquiry.Date
+                };
+                bmsData.SupplierInvoices.Add((SupplierInvoice)invoice);
+            }
             bmsData.SaveChanges();
 
-            return $"Invoice for {invoice.Client.Name} from date {invoice.Date.ToShortDateString()} successfully created!";
+            return $"Invoice for {invoice.Client.Name} from date {newInvoice.Date.ToShortDateString()} successfully created!";
         }
 
         public string EditInvoice(InvoicePostDto newInvoice)
         {
-            var invoiceToUpdate = bmsData.Invoices.Find(newInvoice.Id);
+            if (newInvoice.ClientId == 1)//our id
+            {
+                var invoiceToUpdate = bmsData.ClientInvoices.Find(newInvoice.Id);
 
-            //inquiryToUpdate.CreatorId = newInquiry.CreatorId;
-            //inquiryToUpdate.ContragentId = newInquiry.ClientId;
-            //inquiryToUpdate.Description = newInquiry.Description;
-            //inquiryToUpdate.Date = newInquiry.Date;
+                //inquiryToUpdate.CreatorId = newInquiry.CreatorId;
+                //inquiryToUpdate.ContragentId = newInquiry.ClientId;
+                //inquiryToUpdate.Description = newInquiry.Description;
+                //inquiryToUpdate.Date = newInquiry.Date;
 
-            bmsData.Invoices.Update(invoiceToUpdate);
+                bmsData.ClientInvoices.Update(invoiceToUpdate);
+            }
+            else
+            {
+                var invoiceToUpdate = bmsData.SupplierInvoices.Find(newInvoice.Id);
+
+                //inquiryToUpdate.CreatorId = newInquiry.CreatorId;
+                //inquiryToUpdate.ContragentId = newInquiry.ClientId;
+                //inquiryToUpdate.Description = newInquiry.Description;
+                //inquiryToUpdate.Date = newInquiry.Date;
+
+                bmsData.SupplierInvoices.Update(invoiceToUpdate);
+            }
             bmsData.SaveChanges();
 
             return $"Inquiry with ID {newInvoice.Id} successfully updated!";

@@ -3,7 +3,7 @@
     using System;
     using System.ComponentModel.DataAnnotations;
 
-    public class SupplierInvoice
+    public class SupplierInvoice : IInvoice
     {
         [Key]
         public int Id { get; set; }
@@ -18,5 +18,7 @@
         public Contragent Supplier { get; set; }
         public int SupplierId { get; set; }
         public Contragent Client { get; set; }
+        public int ProjectId { get; set; }
+        public Project Project { get; set; }
     }
 }

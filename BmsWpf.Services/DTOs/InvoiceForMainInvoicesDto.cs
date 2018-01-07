@@ -1,12 +1,13 @@
-﻿using System;
-using BmsWpf.Services.DTOs;
-
-namespace BmsWpf.Services.DTOs
+﻿namespace BmsWpf.Services.DTOs
 {
-    internal class InvoiceForMainInvoicesDto
+    using System;
+
+    public class InvoiceForMainInvoicesDto
     {
+        public int Id { get; set; }
         public ContragentListDto Client { get; set; }
         public ContragentListDto Supplier { get; set; }
+        public ProjectListDto Project { get; set; }
         public DateTime Date { get; set; }
         public decimal Price { get; set; }
         public decimal VAT { get; set; }

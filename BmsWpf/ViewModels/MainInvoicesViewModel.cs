@@ -193,7 +193,7 @@
 
         private void HandleAddNewCICommand(object parameter)
         {
-            var addNewInquiryWindow = this.ViewManager.ComposeObjects<InvoiceClientForm>();
+            var addNewInquiryWindow = this.ViewManager.ComposeObjects<InvoiceForm>();
             addNewInquiryWindow.Show();
             this.CloseAction();
         }
@@ -205,8 +205,8 @@
                 MessageBox.Show("Please select an offer to continue");
                 return;
             }
-            var addNewInquiryWindow = this.ViewManager.ComposeObjects<InvoiceClientForm>();
-            var vm = (InvoiceClientFormViewModel)addNewInquiryWindow.DataContext;
+            var addNewInquiryWindow = this.ViewManager.ComposeObjects<InvoiceForm>();
+            var vm = (InvoiceFormViewModel)addNewInquiryWindow.DataContext;
             vm.SelectedInvoice = this.SelectedInvoice;
             addNewInquiryWindow.Show();
             this.CloseAction();
@@ -214,7 +214,7 @@
 
         private void HandleAddNewSICommand(object parameter)
         {
-            var addNewInquiryWindow = this.ViewManager.ComposeObjects<InvoinceSupplierForm>();
+            var addNewInquiryWindow = this.ViewManager.ComposeObjects<InvoiceForm>();
             addNewInquiryWindow.Show();
             this.CloseAction();
         }
@@ -226,8 +226,8 @@
                 MessageBox.Show("Please select an offer to continue");
                 return;
             }
-            var addNewInquiryWindow = this.ViewManager.ComposeObjects<InvoinceSupplierForm>();
-            var vm = (InvoiceSupplierFormViewModel)addNewInquiryWindow.DataContext;
+            var addNewInquiryWindow = this.ViewManager.ComposeObjects<InvoiceForm>();
+            var vm = (InvoiceFormViewModel)addNewInquiryWindow.DataContext;
             vm.SelectedInvoice = this.SelectedInvoice;
             addNewInquiryWindow.Show();
             this.CloseAction();

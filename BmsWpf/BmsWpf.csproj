@@ -129,15 +129,13 @@
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Sessions\Session.cs" />
-    <Compile Include="Utilities\MenuInterpreter.cs" />
     <Compile Include="Utilities\MultiValueConverter.cs" />
     <Compile Include="ViewModels\ActiveProjectsViewModel.cs" />
     <Compile Include="ViewModels\AddNewUserViewModel.cs" />
     <Compile Include="ViewModels\AdminPanelViewModel.cs" />
     <Compile Include="ViewModels\ContragentFormViewModel.cs" />
     <Compile Include="ViewModels\InquireFormViewModel.cs" />
-    <Compile Include="ViewModels\InvoiceClientFormViewModel.cs" />
-    <Compile Include="ViewModels\InvoiceSupplierFormViewModel.cs" />
+    <Compile Include="ViewModels\InvoiceFormViewModel.cs" />
     <Compile Include="ViewModels\IPageViewModel.cs" />
     <Compile Include="ViewModels\LoginFormViewModel.cs" />
     <Compile Include="ViewModels\MainContragentsViewModel.cs" />
@@ -177,11 +175,8 @@
     <Compile Include="Views\Forms\CalendarEventForm.xaml.cs">
       <DependentUpon>CalendarEventForm.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Forms\InvoiceClientForm.xaml.cs">
-      <DependentUpon>InvoiceClientForm.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Forms\InvoinceSupplierForm.xaml.cs">
-      <DependentUpon>InvoinceSupplierForm.xaml</DependentUpon>
+    <Compile Include="Views\Forms\InvoiceForm.xaml.cs">
+      <DependentUpon>InvoiceForm.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Forms\LoginForm.xaml.cs">
       <DependentUpon>LoginForm.xaml</DependentUpon>
@@ -257,11 +252,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Forms\InvoiceClientForm.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\Forms\InvoinceSupplierForm.xaml">
+    <Page Include="Views\Forms\InvoiceForm.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

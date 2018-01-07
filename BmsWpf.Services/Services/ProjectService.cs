@@ -2,7 +2,9 @@
 {
     using BMS.DataBaseModels;
     using BmsWpf.Services.Contracts;
+    using BmsWpf.Services.DTOs;
     using System;
+    using System.Collections.Generic;
     using System.Linq;
 
     public class ProjectService : IProjectService
@@ -24,6 +26,17 @@
         {
             var activeProjects = this.GetActiveProjects().Select(x => $"Project \"{x.Name}\" from {x.StartDate.ToShortDateString()}");
             return activeProjects;
+        }
+
+        public IEnumerable<ProjectListDto> GetProjectsForDropdown()
+        {
+            var projectNames = bmsData.Projects
+                                    .All().Select(x => new ProjectListDto()
+                                    {
+                                        Id = x.Id,
+                                        Name = x.Name
+                                    });
+            return projectNames;
         }
 
         private IQueryable<Project> GetActiveProjects()

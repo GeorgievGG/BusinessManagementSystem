@@ -189,7 +189,7 @@
             set
             {
                 this.clientsList = value;
-                OnPropertyChanged("ClientsList");
+                OnPropertyChanged(nameof(ClientsList));
             }
         }
 

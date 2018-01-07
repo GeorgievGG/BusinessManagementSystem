@@ -5,9 +5,9 @@
     /// <summary>
     /// Interaction logic for InvoiceClientForm.xaml
     /// </summary>
-    public partial class InvoiceClientForm : Window
+    public partial class InvoiceForm : Window
     {
-        public InvoiceClientForm()
+        public InvoiceForm()
         {
             InitializeComponent();
         }

@@ -41,7 +41,7 @@
 
         private void AddClientInvoiceButton_Click(object sender, RoutedEventArgs e)
         {
-            var clientInvoice = new InvoiceClientForm();
+            var clientInvoice = new InvoiceForm();
             clientInvoice.Show();
             this.ClientInvoicesGrid.ItemsSource = clientInvoice.Content.ToString();
         }
@@ -53,7 +53,7 @@
 
         private void AddSupplierInvoiceButton_Click(object sender, RoutedEventArgs e)
         {
-            var supplierInvoice = new InvoinceSupplierForm();
+            var supplierInvoice = new InvoiceForm();
             supplierInvoice.Show();
             this.ClientInvoicesGrid.ItemsSource = supplierInvoice.Content.ToString();
 

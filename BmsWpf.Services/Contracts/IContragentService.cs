@@ -9,6 +9,7 @@
         DataTable GetAllContragents();
         IEnumerable<ContragentListDto> GetContragentsForDropdown();
         ContragentInfoForInquiryDto GetClientById(int clientId);
+        ContragentInfoForInvoiceDto GetClientByIdInvoices(int clientId);
         string Delete(int contragentId);
         string CreateContragent(ContragentPostDto newContragent);
         string EditContragent(ContragentPostDto newContragent);
