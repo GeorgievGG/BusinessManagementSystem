@@ -3,10 +3,8 @@
     using BmsWpf.Behaviour;
     using BmsWpf.Services.Contracts;
     using BmsWpf.Views.Forms;
-    using MoreLinq;
     using System;
     using System.Data;
-    using System.Linq;
     using System.Windows;
     using System.Windows.Input;
 
@@ -135,8 +133,7 @@
 
         private void HandleLoadedCommand(object parameter)
         {
-            var inquiriesDtos = InquiryService.GetMainInquiriesInfo();
-            this.Inquiries = inquiriesDtos.ToDataTable();
+            this.Inquiries = InquiryService.GetMainInquiriesInfo();
         }
 
         private void HandleAddNewCommand(object parameter)

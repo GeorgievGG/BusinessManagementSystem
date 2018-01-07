@@ -14,11 +14,6 @@
 
         private readonly IDictionary<Type, object> repositories;
 
-        public BmsData()
-            : this(new BmsContex())
-        {
-        }
-
         public BmsData(DbContext dbContext)
         {
             this.dbContext = dbContext;

@@ -4,6 +4,7 @@
     using BmsWpf.Services.Contracts;
     using BmsWpf.Services.DTOs;
     using Microsoft.EntityFrameworkCore;
+    using MoreLinq;
     using System;
     using System.Collections.Generic;
     using System.Data;
@@ -19,7 +20,7 @@
             this.bmsData = bmsData;
         }
 
-        public IEnumerable<InquiriesMainWindowDto> GetMainInquiriesInfo()
+        public DataTable GetMainInquiriesInfo()
         {
             var inquiries = this.bmsData
                         .Inquiries
@@ -39,7 +40,7 @@
                                             },
                                             Description = x.Description,
                                             Date = x.Date
-                                        });
+                                        }).ToDataTable();
             return inquiriesDtos;
         }
 

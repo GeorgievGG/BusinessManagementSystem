@@ -1,7 +1,9 @@
 ﻿namespace BmsWpf.Services.Services
 {
+    using BMS.DataBaseData;
     using BmsWpf.Services.Contracts;
     using BmsWpf.Services.UnitOfWork;
+    using Microsoft.EntityFrameworkCore;
     using Ninject;
 
     public class ViewManager : IViewManager
@@ -16,6 +18,7 @@
         private void ConfigureContainer()
         {
             this.container = new StandardKernel();
+            container.Bind<DbContext>().To<BmsContex>().InTransientScope();
             container.Bind<IBmsData>().To<BmsData>().InTransientScope();
             container.Bind<IViewManager>().To<ViewManager>().InTransientScope();
             container.Bind<IUserService>().To<UserService>().InTransientScope();
