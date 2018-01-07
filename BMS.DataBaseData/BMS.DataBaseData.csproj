@@ -108,6 +108,7 @@
     <Compile Include="EntityConfiguration\InquiryConfiguration.cs" />
     <Compile Include="EntityConfiguration\NoteConfiguration.cs" />
     <Compile Include="EntityConfiguration\OfferConfiguration.cs" />
+    <Compile Include="EntityConfiguration\PaymentConfiguration.cs" />
     <Compile Include="EntityConfiguration\ProjectConfiguration.cs" />
     <Compile Include="EntityConfiguration\UserConfiguration.cs" />
     <Compile Include="ServerConfiguration.cs" />

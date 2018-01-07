@@ -14,17 +14,15 @@
             builder.Property(n => n.Name).IsUnicode();
             builder.Property(p => p.PersonForContact).IsUnicode();
 
+            builder.HasOne(c => c.Project).WithMany(s => s.Suppliers).HasForeignKey(p => p.ProjectId);
 
+            builder.HasMany(c => c.ClientInvoices).WithOne(cc => cc.Client).HasForeignKey(cc => cc.ClientId).OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasOne(p => p.Project).WithMany(s => s.Suppliers).HasForeignKey(p => p.ProjectId);
+            builder.HasMany(c => c.SupplierInvoices).WithOne(sc => sc.Supplier).HasForeignKey(sc => sc.SupplierId).OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasMany(c => c.ClientInvoices).WithOne(c => c.ClientContragent).HasForeignKey(c => c.ContragentId);
+            builder.HasMany(c => c.ClientPayments).WithOne(cc => cc.Client).HasForeignKey(cc => cc.ClientId).OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasMany(c => c.SupplierInvoices).WithOne(s => s.SuplierContragent).HasForeignKey(s => s.ContragentId);
-
-            builder.HasMany(p => p.ClientPayments).WithOne(s => s.ClientContragent).HasForeignKey(c => c.ContragentId);
-
-            builder.HasMany(c => c.SupplierPayments).WithOne(s => s.SuplierContragent).HasForeignKey(s => s.ContragentId);
+            builder.HasMany(c => c.SupplierPayments).WithOne(sc => sc.Supplier).HasForeignKey(sc => sc.SupplierId).OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

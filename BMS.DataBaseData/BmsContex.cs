@@ -18,11 +18,13 @@
 
         }
 
-        public DbSet<Contragent> Contragents { get; set; }
-
         public DbSet<Inquiry> Inquiries { get; set; }
 
-        public DbSet<Invoice> Invoices { get; set; }
+        public DbSet<SupplierInvoice> SupplierInvoices { get; set; }
+
+        public DbSet<ClientInvoice> ClientIncoices { get; set; }
+
+        public DbSet<Contragent> Contragents { get; set; }
 
         public DbSet<Note> Notes { get; set; }
 
@@ -54,6 +56,7 @@
             modelBuilder.ApplyConfiguration(new OfferConfiguration());
             modelBuilder.ApplyConfiguration(new ProjectConfiguration());
             modelBuilder.ApplyConfiguration(new UserConfiguration());
+            modelBuilder.ApplyConfiguration(new PaymentConfiguration());
 
         }
     }

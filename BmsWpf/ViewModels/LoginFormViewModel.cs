@@ -64,11 +64,11 @@
             try
             {
                 var cleareanceType = this.UserService.LoginUser(this.Username, hashedPass);
-                RedirectDependingOnUserType(cleareanceType);
+                this.RedirectDependingOnUserType(cleareanceType);
 
                 Session.Instance.SetUsername(this.Username);
 
-                CloseAction();
+                this.CloseAction();
             }
             catch (Exception e)
             {

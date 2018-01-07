@@ -160,6 +160,11 @@
 
         private void HandleDeleteCommand(object parameter)
         {
+            if (this.SelectedContragent == null)
+            {
+                MessageBox.Show("You must select a contragent first!");
+                return;
+            }
             var contragentId = (int)SelectedContragent.Row.ItemArray[0];
 
             var result = string.Empty;

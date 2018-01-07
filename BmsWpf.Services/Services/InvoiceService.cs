@@ -21,18 +21,18 @@
 
         public DataTable GetInvoicesAsDataTable()
         {
-            IQueryable<Invoice> invoices = GetAllInvoices();
+            IQueryable<ClientInvoice> invoices = GetAllInvoices();
             var invoicesDataTable = invoices.Select(x => new InvoiceForMainInvoicesDto
             {
                 Client = new ContragentListDto
                 {
-                    Id = x.ClientContragent.Id,
-                    NameAndIdentity = x.ClientContragent.Name
+                    Id = x.Client.Id,
+                    NameAndIdentity = x.Client.Name
                 },
                 Supplier = new ContragentListDto
                 {
-                    Id = x.SuplierContragent.Id,
-                    NameAndIdentity = x.SuplierContragent.Name
+                    Id = x.Supplier.Id,
+                    NameAndIdentity = x.Supplier.Name
                 },
                 Date = x.Date,
                 Price = x.Price,
@@ -42,7 +42,7 @@
             return invoicesDataTable;
         }
 
-        private IQueryable<Invoice> GetAllInvoices()
+        private IQueryable<ClientInvoice> GetAllInvoices()
         {
             return this.bmsData
                         .Invoices
@@ -91,7 +91,7 @@
         public string CreateInvoice(InvoicePostDto newInvoice)
         {
             var userSrv = new UserService(bmsData);
-            var invoice = new Invoice()
+            var invoice = new ClientInvoice()
             {
                 //CreatorId = newInquiry.CreatorId,
                 //ContragentId = newInquiry.ClientId,
@@ -101,7 +101,7 @@
             bmsData.Invoices.Add(invoice);
             bmsData.SaveChanges();
 
-            return $"Invoice for {invoice.ClientContragent.Name} from date {invoice.Date.ToShortDateString()} successfully created!";
+            return $"Invoice for {invoice.Client.Name} from date {invoice.Date.ToShortDateString()} successfully created!";
         }
 
         public string EditInvoice(InvoicePostDto newInvoice)
@@ -123,7 +123,7 @@
         {
             var invoices = this.GetAllInvoices();
 
-            var invoicesDataTable = invoices.Where(s => s.Date == datesearch || s.ClientContragent.Name == searchText || s.Id == idSearch).ToDataTable();
+            var invoicesDataTable = invoices.Where(s => s.Date == datesearch || s.Client.Name == searchText || s.Id == idSearch).ToDataTable();
 
             return invoicesDataTable;
         }

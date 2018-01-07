@@ -273,7 +273,6 @@
                 result = e.Message;
             }
             MessageBox.Show(result);
-            this.RedirectToMainContragents();
 
             //using (var context = new BmsContex())
             //{
@@ -295,9 +294,9 @@
             //	MessageBox.Show("Contragent details saved successfully");
 
             this.RedirectToMainContragents();
-		}
+        }
 
-		private void HandleBackCommand(object parameter)
+        private void HandleBackCommand(object parameter)
         {
             this.RedirectToMainContragents();
         }

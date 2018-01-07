@@ -47,7 +47,8 @@ namespace BmsWpf.Views.Forms
 
             var payment = new Payment()
             {
-                ContragentId = contragent.Id,
+                ClientId = contragent.Id,
+                SupplierId = 0,//to be changed
                 Date = date,
                 Price = price,
                 Vat = vat,

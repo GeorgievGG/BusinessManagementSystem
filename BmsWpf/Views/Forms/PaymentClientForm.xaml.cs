@@ -37,7 +37,8 @@
 
             var payment = new Payment()
             {
-                ContragentId = contragent.Id,
+                ClientId = contragent.Id,
+                SupplierId = 0, //needs change
                 Date = date,
                 Price = price,
                 Vat = vat,
