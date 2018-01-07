@@ -10,7 +10,7 @@
     {
         public static void Main()
         {
-            using (var context = new BmsContext())
+            using (var context = new BmsContex())
             {
                 context.Database.EnsureDeleted();
                 context.Database.EnsureCreated();
@@ -21,7 +21,7 @@
         // enter in the admin panel with:
         // Username: admin
         // Password: 123
-        public static void Seed(BmsContext context)
+        public static void Seed(BmsContex context)
         {
             var random = new Random();
 
@@ -167,7 +167,7 @@
 
         public static void SeedUsers()
         {
-            var db = new BmsContext();
+            var db = new BmsContex();
             var users = new List<User>();
             string[] names = new string[] { "viktor", "koko", "gogi", "vankata", "violeta" };
 
@@ -196,7 +196,7 @@
 
         public static void SeedContragents()
         {
-            var context = new BmsContext();
+            var context = new BmsContex();
 
             var contragents = new[]
              {
@@ -213,7 +213,7 @@
 
         public static void SeedInquiry()
         {
-            var context = new BmsContext();
+            var context = new BmsContex();
             var inquiries = new[]
             {
                 new Inquiry { ContragentId = 1, CreatorId = 2, Date = DateTime.Now ,  Description = "Create me Web App"},
@@ -228,7 +228,7 @@
 
         public static void SeedOffers()
         {
-            var context = new BmsContext();
+            var context = new BmsContex();
             var offers = new[]
             {
                 new Offer { ContragentId = 1, CreatorId = 2, Date = DateTime.Now , InquiryId = 1, Description = "Cost: $1300"},
@@ -243,7 +243,7 @@
 
         public static void SeedProjects()
         {
-            var context = new BmsContext();
+            var context = new BmsContex();
             var project = new[]
             {
                 new Project { ContragentId = 1, CreatorId = 2, OfferId = 1, StartDate = DateTime.Today.AddDays(-10) ,EndDate = DateTime.Today.AddDays(20),DeadLine = DateTime.Today.AddDays(18), InquiryId = 1, Name = "Android App"},
