@@ -1,14 +1,17 @@
 ﻿namespace BmsWpf.Services.Services
 {
-    using BMS.DataBaseModels;
-    using BmsWpf.Services.Contracts;
-    using BmsWpf.Services.DTOs;
-    using Microsoft.EntityFrameworkCore;
     using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Data.SqlClient;
     using System.Linq;
+
+    using BMS.DataBaseModels;
+
+    using BmsWpf.Services.Contracts;
+    using BmsWpf.Services.DTOs;
+
+    using Microsoft.EntityFrameworkCore;
 
     public class InquiryService : IInquiryService
     {
@@ -25,21 +28,21 @@
                         .Inquiries
                         .All();
             var inquiriesDtos = inquiries.Select(x => new InquiriesMainWindowDto
-                                        {
-                                            Id = x.Id,
-                                            Creator = new UserListDto()
-                                            {
-                                                Id = x.Creator.Id,
-                                                Username = x.Creator.Username
-                                            },
-                                            Client = new ContragentListDto()
-                                            {
-                                                Id = x.Contragent.Id,
-                                                NameAndIdentity = x.Contragent.Name + "|" + (x.Contragent.PersonalIndentityNumber == null ? x.Contragent.PersonalVatNumber : x.Contragent.PersonalIndentityNumber)
-                                            },
-                                            Description = x.Description,
-                                            Date = x.Date
-                                        });
+            {
+                Id = x.Id,
+                Creator = new UserListDto()
+                {
+                    Id = x.Creator.Id,
+                    Username = x.Creator.Username
+                },
+                Client = new ContragentListDto()
+                {
+                    Id = x.Contragent.Id,
+                    NameAndIdentity = x.Contragent.Name + "|" + (x.Contragent.PersonalIndentityNumber == null ? x.Contragent.PersonalVatNumber : x.Contragent.PersonalIndentityNumber)
+                },
+                Description = x.Description,
+                Date = x.Date
+            });
             return inquiriesDtos;
         }
 
@@ -49,10 +52,10 @@
                         .Inquiries
                         .All();
             var inquiriesDtos = inquiries.Select(x => new InquiryListDto
-                                            {
-                                                Id = x.Id,
-                                                Description = x.Description
-                                            });
+            {
+                Id = x.Id,
+                Description = x.Description
+            });
             return inquiriesDtos;
         }
 

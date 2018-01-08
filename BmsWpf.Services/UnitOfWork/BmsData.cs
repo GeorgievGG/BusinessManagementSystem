@@ -70,6 +70,14 @@
             get { return this.GetRepository<User>(); }
         }
 
+        public IRepository<CalendarEvent> CalendarEvents
+        {
+            get
+            {
+                return this.GetRepository<CalendarEvent>();
+            }
+        }
+
         public void SaveChanges()
         {
             this.dbContext.SaveChanges();
