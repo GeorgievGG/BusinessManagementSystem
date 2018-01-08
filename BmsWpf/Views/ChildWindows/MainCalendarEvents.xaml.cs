@@ -2,6 +2,8 @@
 {
     using System;
     using System.Windows;
+
+    using BmsWpf.Services.Contracts;
     using BmsWpf.ViewModels;
 
     /// <summary>

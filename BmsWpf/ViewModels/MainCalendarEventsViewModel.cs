@@ -6,6 +6,7 @@
     using System.Windows.Input;
 
     using BmsWpf.Behaviour;
+    using BmsWpf.Services.Contracts;
     using BmsWpf.Views.Forms;
 
     public class MainCalendarEventsViewModel:ViewModelBase,IPageViewModel
@@ -20,6 +21,7 @@
         public ICommand DeleteCommand;
         public ICommand BackCommand;
 
+        public ICalendarEventService CalendarEventService { get; set; }
         //  public IInquiryService InquiryService { get; set; }
         public IViewManager ViewManager { get; set; }
 

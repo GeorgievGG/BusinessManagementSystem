@@ -11,7 +11,7 @@
     using System.Windows;
     using System.Windows.Input;
 
-    public class InquireFormViewModel : ViewModelBase, IPageViewModel
+    public class OffersFormViewModel : ViewModelBase, IPageViewModel
     {
         private ContragentListDto selectedClient;
         private UserListDto selectedUsername;
@@ -22,6 +22,7 @@
         private string email;
         private string phoneNum;
         private string description;
+        private string inquiryCreator;
         private DateTime date;
 
         public ICommand WindowLoadedCommand;
@@ -30,7 +31,7 @@
         public ICommand SelectionChangedCommand;
         public DataRowView selectedInquiry;
 
-        public InquireFormViewModel()
+        public OffersFormViewModel()
         {
             this.Date = DateTime.Now;
         }
@@ -86,6 +87,19 @@
             {
                 this.email = value;
                 this.OnPropertyChanged(nameof(Email));
+            }
+        }
+
+        public string InquiryCreator
+        {
+            get
+            {
+                return this.inquiryCreator;
+            }
+            set
+            {
+                this.inquiryCreator = value;
+                this.OnPropertyChanged(nameof(InquiryCreator));
             }
         }
 
@@ -262,7 +276,8 @@
                 this.PersonOfContact = client.Contact;
                 this.Email = client.Email;
                 this.PhoneNum = client.PhoneNum;
-            }
+                this.InquiryCreator = selectedUsername.Username;
+    }
         }
 
         private void HandleSaveCommand(object parameter)

@@ -5,6 +5,7 @@
     using BMS.DataBaseModels.Enums;
     using System;
     using System.Collections.Generic;
+    using System.Linq;
 
     public class StartUp
     {
@@ -146,6 +147,7 @@
             };
             context.Projects.AddRange(projects);
 
+            //Seed Notes
             var notes = new List<Note>();
             for (int i = 0; i < 50; i++)
             {
@@ -159,6 +161,130 @@
                 notes.Add(note);
             }
             context.Notes.AddRange(notes);
+
+
+            //Seed ClientInvoices
+            var clientInvoices = new List<ClientInvoice>();
+
+            for (int i = 0; i < 20; i++)
+            {
+                var clientId = random.Next(0, contragents.Length);
+                var supplierId = random.Next(0, contragents.Length);
+
+                while (clientId == supplierId)
+                {
+                    clientId = random.Next(0, contragents.Length);
+                }
+
+                var clientInvoice = new ClientInvoice
+                {
+                    Project = projects[random.Next(0, projects.Length)],
+                    Client = contragents[clientId],
+                    Supplier = contragents[supplierId],
+                    Text = RandomDescription(random),
+                    Date = RandomDate(random),
+                    Price = (decimal)(random.Next(10, 1000) * 1.24),
+                    Vat = random.Next(7, 21),
+                };
+
+                clientInvoice.Total = clientInvoice.Price * clientInvoice.Vat;
+
+                clientInvoices.Add(clientInvoice);
+            }
+
+            context.ClientIncoices.AddRange(clientInvoices);
+
+            //Seed SupplierInvoices
+            var supplierInvoices = new List<SupplierInvoice>();
+
+            for (int i = 0; i < 20; i++)
+            {
+                var clientId = random.Next(0, contragents.Length);
+                var supplierId = random.Next(0, contragents.Length);
+
+                while (clientId == supplierId)
+                {
+                    clientId = random.Next(0, contragents.Length);
+                }
+
+                var supplierInvoice = new SupplierInvoice
+                {
+                    Project = projects[random.Next(0, projects.Length)],
+                    Client = contragents[clientId],
+                    Supplier = contragents[supplierId],
+                    Text = RandomDescription(random),
+                    Date = RandomDate(random),
+                    Price = (decimal)(random.Next(10, 1000) * 1.24),
+                    Vat = random.Next(7, 21),
+                };
+
+                supplierInvoice.Total = supplierInvoice.Price * supplierInvoice.Vat;
+
+                supplierInvoices.Add(supplierInvoice);
+            }
+
+            context.SupplierInvoices.AddRange(supplierInvoices);
+
+            //Validate Payments
+            var payments = new List<Payment>();
+            for (int i = 0; i < 50; i++)
+            {
+                var clientId = random.Next(0, contragents.Length);
+                var supplierId = random.Next(0, contragents.Length);
+
+                while (clientId == supplierId)
+                {
+                    clientId = random.Next(0, contragents.Length);
+                }
+
+                var payment = new Payment
+                {
+                    Project = projects[random.Next(0, projects.Length)],
+                    Client = contragents[clientId],
+                    Supplier = contragents[supplierId],
+                    Date = RandomDate(random),
+                    Price = (decimal)(random.Next(13, 1000) * 1.35),
+                    Vat = random.Next(3, 21),
+                };
+                payment.Total = payment.Price * payment.Vat;
+
+                payments.Add(payment);
+            }
+
+            context.Payments.AddRange(payments);
+
+            var events = new List<CalendarEvent>();
+
+            for (int i = 0; i < 50; i++)
+            {
+
+                var startDate = RandomDate(random);
+                var endDate = RandomDate(random);
+                while (startDate >= endDate)
+                {
+                    startDate = RandomDate(random);
+                }
+
+                var @event = new CalendarEvent
+                {
+                    Color = RandomEnum<Color>(random),
+                    Creator = users[random.Next(0, users.Count)],
+                    Description = RandomDescription(random),
+                    Project = projects[random.Next(0, projects.Length)],
+                    StartTime = startDate,
+                    EndTime = endDate,
+                    Title = RandomTitle(random)
+                };
+
+                while (events.Any(e => e.Title == @event.Title))
+                {
+                    @event.Title = RandomTitle(random);
+                }
+
+                events.Add(@event);
+            }
+
+            context.CalendarEvents.AddRange(events);
 
             context.SaveChanges();
 
@@ -288,6 +414,14 @@
             var sentence = string.Join(" ", wordsToAdd);
 
             return sentence;
+        }
+
+        private static string RandomTitle(Random random)
+        {
+            var randomSentence = RandomDescription(random);
+            var randomTitle = randomSentence.Split()[random.Next(0, randomSentence.Split().Length)];
+
+            return randomTitle;
         }
     }
 }

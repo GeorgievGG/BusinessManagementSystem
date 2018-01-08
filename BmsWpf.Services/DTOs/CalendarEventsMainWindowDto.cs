@@ -1,7 +1,7 @@
 ﻿namespace BmsWpf.Services.DTOs
 {
     using System;
-    using BMS.DataBaseModels;
+    using BMS.DataBaseModels.Enums;
 
     public class CalendarEventsMainWindowDto
     {

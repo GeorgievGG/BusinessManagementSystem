@@ -20,7 +20,7 @@
         {
             InitializeComponent();
 
-            InquireFormViewModel vm = (InquireFormViewModel)this.DataContext; // this creates an instance of the ViewModel
+            OffersFormViewModel vm = (OffersFormViewModel)this.DataContext; // this creates an instance of the ViewModel
 
             if (vm.CloseAction == null)
                 vm.CloseAction = new Action(() => this.Close());
