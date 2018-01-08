@@ -61,15 +61,8 @@
                  RenderTransformOrigin="0.323,-1.178" 
                  Text="{Binding Description}"/>
         <Label Content="Creator" HorizontalAlignment="Left" Margin="42,252,0,0" VerticalAlignment="Top" Background="#00000000" Foreground="White" RenderTransformOrigin="-0.99,1.266"/>
-        <ComboBox Name="CreatorCombo" 
-                  HorizontalAlignment="Left"
-                  Margin="42,278,0,0" 
-                  VerticalAlignment="Top" 
-                  Width="183" 
-                  Height="27"
-                  ItemsSource="{Binding UsernameList}"
-                  SelectedItem="{Binding SelectedUsername}"/>
         <Label Content="Date" HorizontalAlignment="Left" Margin="262,252,0,0" VerticalAlignment="Top" Background="#00000000" Foreground="White" RenderTransformOrigin="-0.99,1.266"/>
+        
         <DatePicker Name="date" 
                     HorizontalAlignment="Left" 
                     Margin="262,276,0,0" 
@@ -98,5 +91,18 @@
                 Foreground="White" 
                 RenderTransformOrigin="0.973,-3.875"
                 Command="{Binding Back}"/>
+        <TextBox x:Name="creatorBox" 
+            Height="24" 
+            Margin="42,283,342,0"  
+            BorderThickness="2"  
+            BorderBrush="#313c4f" 
+            TextWrapping="Wrap"  
+            VerticalAlignment="Top" 
+            RenderTransformOrigin="0.323,-1.178"
+            IsReadOnly="True" 
+            Background="LightGray"
+            HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+            Text="{Binding InquiryCreator}"/>
     </Grid>
 </Window>

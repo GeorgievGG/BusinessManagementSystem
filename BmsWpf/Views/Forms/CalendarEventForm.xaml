@@ -4,9 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModels="clr-namespace:BmsWpf.ViewModels"
+        xmlns:intr="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         mc:Ignorable="d"
-        Title="CalendarEventForm" Height="600" Width="750" Background="#2e3137">
-
+        Title="Calendar Event Form" Height="600" Width="750" Background="#2e3137">
+    <Window.DataContext>
+        <viewModels:CalendarEventFormViewModel/>
+    </Window.DataContext>
+    <intr:Interaction.Triggers>
+        <intr:EventTrigger EventName="Loaded">
+            <intr:InvokeCommandAction Command="{Binding WindowLoaded}"/>
+        </intr:EventTrigger>
+    </intr:Interaction.Triggers>
     <Grid>
         <Label Content="Add new event" 
                Foreground="White" 
@@ -20,12 +28,12 @@
             <Label Content="Pick color" Canvas.Left="13" Canvas.Top="232" Width="100" FontSize="16" Foreground="AntiqueWhite"/>
             <Label Content="Creator" Canvas.Left="13" Canvas.Top="264" Width="100" FontSize="16" Foreground="AntiqueWhite" RenderTransformOrigin="0.524,2.113"/>
 
-            <DatePicker Name="StartDateBox" Canvas.Left="185" Canvas.Top="170" Width="215" Height="32" SelectedDate="{Binding PropertyName, StringFormat=dd/MM/yyyy}" />
-            <DatePicker Name="EndDateBox" Canvas.Left="185" Canvas.Top="200" Width="215" Height="32" SelectedDate="{Binding PropertyName, StringFormat=dd/MM/yyyy}" />
-            <TextBox Name="TitleBox"  Height="40" Canvas.Left="185" TextWrapping="Wrap" Text="{Binding Title,Mode=TwoWay}" Canvas.Top="10" Width="215" BorderBrush="Beige"/>
+            <DatePicker Name="StartDateBox" Canvas.Left="185" Canvas.Top="170" Width="215" Height="32" SelectedDate="{Binding Path=StartDate, StringFormat=dd/MM/yyyy}" />
+            <DatePicker Name="EndDateBox" Canvas.Left="185" Canvas.Top="200" Width="215" Height="32" SelectedDate="{Binding Path=EndDate, StringFormat=dd/MM/yyyy}" />
+            <TextBox Name="TitleBox" Height="40" Canvas.Left="185" TextWrapping="Wrap" Text="{Binding Title,Mode=TwoWay}" Canvas.Top="10" Width="215" BorderBrush="Beige"/>
             <TextBox Name="DescriptionBox" Height="100" Canvas.Left="185" TextWrapping="Wrap" Text="{Binding Description,Mode=TwoWay}" Canvas.Top="60" Width="215" BorderBrush="Beige"/>
 
-            <ComboBox Name="ColorPickerBox"  Canvas.Left="185" Canvas.Top="237" Width="215" ItemsSource="{Binding Color,Mode=TwoWay}">
+            <ComboBox Name="ColorPickerBox"  Canvas.Left="185" Canvas.Top="237" Width="215" ItemsSource="{Binding}">
                 <ComboBoxItem Content="Green"></ComboBoxItem>
                 <ComboBoxItem Content="Red"></ComboBoxItem>
                 <ComboBoxItem Content="Blue"></ComboBoxItem>
@@ -33,12 +41,12 @@
                 <ComboBoxItem Content="Yellow"></ComboBoxItem>
             </ComboBox>
 
-            <Button Content="Save" Canvas.Left="185" Canvas.Top="346" Width="50" Click="Button_Click_Save"/>
-            <Button Content="Back" Width="50"  Canvas.Top="346" Canvas.Left="350" Click="Button_Click_Back"></Button>
-            <Button Content="Edit" Width="50"  Canvas.Top="346" Canvas.Left="268" Click="Button_Click_Edit"></Button>
+            <Button Content="Save" Canvas.Left="185" Canvas.Top="346" Width="50" Command="{Binding Save}"/>
+            <Button Content="Back" Width="50"  Canvas.Top="346" Canvas.Left="350" Command="{Binding Back}"></Button>
             <ComboBox Name="CreatorBox"  Canvas.Left="185" Canvas.Top="267" Width="215">
             </ComboBox>
 
         </Canvas>
     </Grid>
 </Window>
+

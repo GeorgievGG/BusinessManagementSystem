@@ -133,6 +133,8 @@
     <Compile Include="ViewModels\ActiveProjectsViewModel.cs" />
     <Compile Include="ViewModels\AddNewUserViewModel.cs" />
     <Compile Include="ViewModels\AdminPanelViewModel.cs" />
+    <Compile Include="ViewModels\CalendarEventFormViewModel.cs" />
+    <Compile Include="ViewModels\MainCalendarEventsViewModel.cs" />
     <Compile Include="ViewModels\ContragentFormViewModel.cs" />
     <Compile Include="ViewModels\InquireFormViewModel.cs" />
     <Compile Include="ViewModels\InvoiceFormViewModel.cs" />

@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="InquireForm" Height="523.2" Width="434.234">
     <Window.DataContext>
-        <viewModels:InquireFormViewModel />
+        <viewModels:OffersFormViewModel />
     </Window.DataContext>
     <intr:Interaction.Triggers>
         <intr:EventTrigger EventName="Loaded">
@@ -48,7 +48,8 @@
                  VerticalContentAlignment="Center" 
                  VerticalAlignment="Top" 
                  RenderTransformOrigin="0.323,-1.178" 
-                 IsEnabled="False" 
+                 IsReadOnly="True" 
+                 Background="LightGray" 
                  Text="{Binding PersonOfContact}"/>
         <Label Content="Email" HorizontalAlignment="Left" Margin="42,126,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" RenderTransformOrigin="0.459,0.359"/>
         <TextBox Name="email_form" 
@@ -60,7 +61,8 @@
                  VerticalContentAlignment="Center" 
                  VerticalAlignment="Top" 
                  RenderTransformOrigin="0.323,-1.178" 
-                 IsEnabled="False"
+                 IsReadOnly="True" 
+                 Background="LightGray"
                  Text="{Binding Email}"/>
         <Label Content="Phone" HorizontalAlignment="Left" Margin="221,131,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
         <TextBox Name="phone_form" 
@@ -72,7 +74,8 @@
                  VerticalContentAlignment="Center" 
                  VerticalAlignment="Top" 
                  RenderTransformOrigin="0.323,-1.178" 
-                 IsEnabled="False" 
+                 IsReadOnly="True" 
+                 Background="LightGray"
                  Text="{Binding PhoneNum}"/>
         <Label Content="Description" HorizontalAlignment="Left" Margin="42,179,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" RenderTransformOrigin="0.602,2.328"/>
         <TextBox Name="description_form" 
@@ -85,13 +88,19 @@
                  RenderTransformOrigin="0.323,-1.178"
                  Text="{Binding Description}"/>
         <Label Content="Creator" HorizontalAlignment="Left" Margin="42,332,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
-        <ComboBox Name="CreatorCombo" 
-                  HorizontalAlignment="Left" 
-                  Margin="42,358,0,0" 
-                  VerticalAlignment="Top" 
-                  Width="138"
-                  ItemsSource="{Binding UsernameList}"
-                  SelectedItem="{Binding SelectedUsername}"/>
+        <TextBox Name="creatorBox" 
+                 Height="24" 
+                 Margin="42,358,285,0"  
+                 BorderThickness="2"  
+                 BorderBrush="#313c4f" 
+                 TextWrapping="Wrap"  
+                 VerticalAlignment="Top" 
+                 RenderTransformOrigin="0.323,-1.178"
+                IsReadOnly="True" 
+                 Background="LightGray"
+                 HorizontalContentAlignment="Center"
+                 VerticalContentAlignment="Center"
+                 Text="{Binding InquiryCreator}"/>
         <Label Content="Date" HorizontalAlignment="Left" Margin="200,332,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
         <DatePicker Name="date" 
                     HorizontalAlignment="Left" 
@@ -112,7 +121,8 @@
                  VerticalContentAlignment="Center" 
                  VerticalAlignment="Top" 
                  RenderTransformOrigin="0.323,-1.178" 
-                 IsEnabled="False" 
+                 IsReadOnly="True" 
+                 Background="LightGray"
                  Text="{Binding Id}"/>
         <Button Content="Save" 
                 HorizontalAlignment="Left" 

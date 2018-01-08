@@ -1,19 +1,18 @@
 ﻿namespace BmsWpf.ViewModels
 {
-    using BmsWpf.Behaviour;
-    using BmsWpf.Services.Contracts;
-    using BmsWpf.Sessions;
-    using BmsWpf.Views.Forms;
     using System;
     using System.Data;
     using System.Windows;
     using System.Windows.Input;
 
-    public class MainInquiriesViewModel : ViewModelBase, IPageViewModel
+    using BmsWpf.Behaviour;
+    using BmsWpf.Services.Contracts;
+    using BmsWpf.Views.Forms;
+
+    public class MainCalendarEventsViewModel:ViewModelBase,IPageViewModel
     {
-        private DataTable inquiries;
-        private DataRowView selectedInquiry;
-        private string inquiryCreator;
+        private DataTable calendarEvents;
+        private DataRowView selectedCalendarEvents;
 
         public ICommand WindowLoadedCommand;
         public ICommand DoubleClickCommand;
@@ -22,7 +21,8 @@
         public ICommand DeleteCommand;
         public ICommand BackCommand;
 
-        public IInquiryService InquiryService { get; set; }
+        public ICalendarEventService CalendarEventService { get; set; }
+        //  public IInquiryService InquiryService { get; set; }
         public IViewManager ViewManager { get; set; }
 
         public Action CloseAction { get; set; }
@@ -31,46 +31,33 @@
         {
             get
             {
-                return "Inquiries main page";
+                return "Calendar Events";
             }
         }
 
-        public DataRowView SelectedInquiry
+        public DataRowView SelectedCalendarEvents
         {
             get
             {
-                return this.selectedInquiry;
+                return this.selectedCalendarEvents;
             }
             set
             {
-                this.selectedInquiry = value;
-                this.OnPropertyChanged(nameof(SelectedInquiry));
+                this.selectedCalendarEvents = value;
+                this.OnPropertyChanged(nameof(this.SelectedCalendarEvents));
             }
         }
 
-        public DataTable Inquiries
+        public DataTable CalendarEvents
         {
             get
             {
-                return inquiries;
+                return this.calendarEvents;
             }
             private set
             {
-                this.inquiries = value;
-                this.OnPropertyChanged(nameof(Inquiries));
-            }
-        }
-
-        public string InquiryCreator
-        {
-            get
-            {
-                return this.inquiryCreator;
-            }
-            set
-            {
-                this.inquiryCreator = value;
-                this.OnPropertyChanged(nameof(InquiryCreator));
+                this.calendarEvents = value;
+                this.OnPropertyChanged(nameof(this.calendarEvents));
             }
         }
 
@@ -148,41 +135,40 @@
 
         private void HandleLoadedCommand(object parameter)
         {
-            this.Inquiries = InquiryService.GetMainInquiriesInfo();
+            var calendarEventsDtos = CalendarEventService.GetMainInquiriesInfo();
+            this.CalendarEvents = calendarEventsDtos.ToDataTable();
         }
 
         private void HandleAddNewCommand(object parameter)
         {
-            var addNewInquiryWindow = this.ViewManager.ComposeObjects<InquireForm>();
-            var vm = (OffersFormViewModel)addNewInquiryWindow.DataContext;
-            vm.InquiryCreator = Session.Instance.Username;
-            addNewInquiryWindow.Show();
+            var addNewCalendarEventWindow = this.ViewManager.ComposeObjects<CalendarEventForm>();
+            addNewCalendarEventWindow.Show();
             this.CloseAction();
         }
 
         private void HandleEditCommand(object parameter)
         {
-            if (this.SelectedInquiry == null)
+            if (this.SelectedCalendarEvents == null)
             {
-                MessageBox.Show("Please select an inquiry to continue");
+                MessageBox.Show("Please select an event to continue");
                 return;
             }
-            var addNewInquiryWindow = this.ViewManager.ComposeObjects<InquireForm>();
-            var vm = (OffersFormViewModel)addNewInquiryWindow.DataContext;
-            vm.SelectedInquiry = this.SelectedInquiry;
-            addNewInquiryWindow.Show();
+            var addNewCalendarEventWindow = this.ViewManager.ComposeObjects<CalendarEventForm>();
+            var vm = (CalendarEventFormViewModel)addNewCalendarEventWindow.DataContext;
+            vm.SelectedCalendarEvent = this.SelectedCalendarEvents;
+            addNewCalendarEventWindow.Show();
             this.CloseAction();
         }
 
         private void HandleDeleteCommand(object parameter)
         {
-            var inquiryId = (int)selectedInquiry.Row.ItemArray[0];
+            var calendarEventId = (int)this.selectedCalendarEvents.Row.ItemArray[0];
 
             var result = string.Empty;
 
             try
             {
-                result = this.InquiryService.Delete(inquiryId);
+                result = this.CalendarEventService.Delete(calendarEventId);
             }
             catch (Exception e)
             {
@@ -199,4 +185,5 @@
             this.CloseAction();
         }
     }
+}
 }

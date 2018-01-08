@@ -39,7 +39,6 @@
                     <Label Content="Telephone" HorizontalAlignment="Left" Margin="21,244,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
                     <TextBox Name="PhoneBox" HorizontalAlignment="Left" Height="30" Margin="126,244,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
                     <Label Content="Creator" HorizontalAlignment="Left" Margin="21,279,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
-                    <ComboBox Name="CreatorCombobox" HorizontalAlignment="Left" Height="30" Margin="126,279,0,0" Text="TextBox" VerticalAlignment="Top" Width="200"/>
                     <Label Content="Incomes" HorizontalAlignment="Left" Margin="24,355,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
                     <TextBox HorizontalAlignment="Left" Height="30" Margin="126,355,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
                     <Label Content="Expences" HorizontalAlignment="Left" Margin="24,390,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
@@ -54,6 +53,18 @@
                     <DatePicker Name="LimitDatePicker" HorizontalAlignment="Left" Margin="522,103,0,0" VerticalAlignment="Top" Height="30" Width="100"/>
                     <Label Content="Notes and Events" HorizontalAlignment="Left" Margin="391,188,0,0" VerticalAlignment="Top" Width="285" Height="40" FontSize="20" Foreground="AliceBlue"/>
                     <ListBox HorizontalAlignment="Left" Height="223" Margin="391,233,0,0" VerticalAlignment="Top" Width="267"/>
+                    <TextBox x:Name="creatorBox" 
+                              Height="24" 
+                              Margin="129,285,382,0"  
+                              BorderThickness="2"  
+                              BorderBrush="#313c4f" 
+                              TextWrapping="Wrap"  
+                              VerticalAlignment="Top" 
+                              RenderTransformOrigin="0.323,-1.178"
+                              IsReadOnly="True" 
+                              Background="LightGray"
+                              HorizontalContentAlignment="Center"
+                              VerticalContentAlignment="Center"/>
                     <Button Name="ButtonSave" Content="Save" HorizontalAlignment="Left" Margin="252,491,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="ButtonSave_Click"/>
                     <Button Name="ButtonEdit" Content="Back" HorizontalAlignment="Left" Margin="350,491,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="ButtonEdit_Click"/>
                 </Grid>
@@ -109,6 +120,7 @@
             </TabItem>
 
         </TabControl>
+
 
 
     </Grid>

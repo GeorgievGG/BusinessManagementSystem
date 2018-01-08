@@ -21,6 +21,8 @@ namespace BmsWpf.Services.Contracts
         IRepository<Project> Projects { get; }
         
         IRepository<User> Users { get; }
+
+        IRepository<CalendarEvent> CalendarEvents { get;}
         
         void SaveChanges();
     }

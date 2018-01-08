@@ -1,24 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-
-namespace BmsWpf.Views.ChildWindows
+﻿namespace BmsWpf.Views.ChildWindows
 {
-    using BmsWpf.Behaviour;
-    using BmsWpf.Views.Forms;
+    using System;
+    using System.Windows;
 
-    using BMS.DataBaseData;
-    using BMS.DataBaseModels;
+    using BmsWpf.Services.Contracts;
+    using BmsWpf.ViewModels;
 
     /// <summary>
     /// Interaction logic for MainCalendarEvents.xaml
@@ -30,8 +16,8 @@ namespace BmsWpf.Views.ChildWindows
         {
             InitializeComponent();
             ShowTime();
-            FillGrid();
-            this.DataContext = new BmsContex();
+            //FillGrid();
+            //this.DataContext = new BmsContex();
         }
 
         private void ShowTime()
@@ -39,41 +25,53 @@ namespace BmsWpf.Views.ChildWindows
             this.timeView.Content = DateTime.Today.ToShortDateString();
         }
 
-        private void FillGrid()
+        public MainCalendarEvents(IViewManager viewManager, ICalendarEventService calendarEventService)
         {
-            var context = new BmsContex();
-            var events = context.CalendarEvents.Where(ce => ce.EndTime > DateTime.Now).ToList();
-            this.eventView.ItemsSource = events;
+            InitializeComponent();
 
+            MainCalendarEventsViewModel vm = (MainCalendarEventsViewModel)this.DataContext; // this creates an instance of the ViewModel
+
+            if (vm.CloseAction == null)
+                vm.CloseAction = new Action(() => this.Close());
+
+            vm.ViewManager = viewManager;
+            vm.CalendarEventService = calendarEventService;
         }
+        //private void FillGrid()
+        //{
+        //    var context = new BmsContex();
+        //    var events = context.CalendarEvents.Where(ce => ce.EndTime > DateTime.Now).ToList();
+        //    this.eventView.ItemsSource = events;
 
-        private void Back_OnClickButton_Click(object sender, RoutedEventArgs e)
-        {
-            var dash = new MainWindow();
-            dash.Show();
-            this.Close();
-        }
+        //}
 
-        private void addEventButton_Click(object sender, RoutedEventArgs e)
-        {
-            var addNewEvent = new CalendarEventForm();
-            addNewEvent.Show();
-            this.Close();
-        }
+        //private void Back_OnClickButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    var dash = new MainWindow();
+        //    dash.Show();
+        //    this.Close();
+        //}
 
-        private void EditEventButton_OnClickEventButton_Click(object sender, RoutedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
+        //private void addEventButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    var addNewEvent = new CalendarEventForm();
+        //    addNewEvent.Show();
+        //    this.Close();
+        //}
 
-        private void DeleteEventButton_OnClickEventButton_Click(object sender, RoutedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
+        //private void EditEventButton_OnClickEventButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-        private void eventView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+        //private void DeleteEventButton_OnClickEventButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-        }
+        //private void eventView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+
+        //}
     }
 }
