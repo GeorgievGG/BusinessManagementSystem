@@ -2,6 +2,7 @@
 {
     using BmsWpf.Behaviour;
     using BmsWpf.Services.Contracts;
+    using BmsWpf.Sessions;
     using BmsWpf.Views.Forms;
     using MoreLinq;
     using System;
@@ -14,6 +15,7 @@
     {
         private DataTable inquiries;
         private DataRowView selectedInquiry;
+        private string inquiryCreator;
 
         public ICommand WindowLoadedCommand;
         public ICommand DoubleClickCommand;
@@ -58,6 +60,19 @@
             {
                 this.inquiries = value;
                 this.OnPropertyChanged(nameof(Inquiries));
+            }
+        }
+
+        public string InquiryCreator
+        {
+            get
+            {
+                return this.inquiryCreator;
+            }
+            set
+            {
+                this.inquiryCreator = value;
+                this.OnPropertyChanged(nameof(InquiryCreator));
             }
         }
 
@@ -142,6 +157,8 @@
         private void HandleAddNewCommand(object parameter)
         {
             var addNewInquiryWindow = this.ViewManager.ComposeObjects<InquireForm>();
+            var vm = (OffersFormViewModel)addNewInquiryWindow.DataContext;
+            vm.InquiryCreator = Session.Instance.Username;
             addNewInquiryWindow.Show();
             this.CloseAction();
         }
@@ -154,7 +171,7 @@
                 return;
             }
             var addNewInquiryWindow = this.ViewManager.ComposeObjects<InquireForm>();
-            var vm = (InquireFormViewModel)addNewInquiryWindow.DataContext;
+            var vm = (OffersFormViewModel)addNewInquiryWindow.DataContext;
             vm.SelectedInquiry = this.SelectedInquiry;
             addNewInquiryWindow.Show();
             this.CloseAction();

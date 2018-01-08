@@ -15,6 +15,7 @@
     using System.Windows.Shapes;
     using BMS.DataBaseData;
     using BMS.DataBaseModels;
+    using BmsWpf.Sessions;
 
     /// <summary>
     /// Interaction logic for ProjectWindow.xaml
@@ -38,7 +39,7 @@
             var inquires = context.Inquiries.ToList();
             this.InquireComboBox.ItemsSource = inquires.ToList().Select(q => q.Id);
             var creators = context.Users.ToList();
-            this.CreatorCombobox.ItemsSource = creators.Select(c => c.Username);
+            this.creatorBox.Text = Session.Instance.Username;
 
         }
 
@@ -59,7 +60,7 @@
             var client = context.Contragents.FirstOrDefault(n => n.Name == clientArgs);
             var contact = this.ContactTextBox.Text;
             var phone = this.PhoneBox.Text;
-            var cretorArgs = this.CreatorCombobox.Text;
+            var cretorArgs = this.creatorBox.Text;
             var creator = context.Users.FirstOrDefault(u => u.Username == cretorArgs);
             var startDate = this.StartDatePicker.SelectedDate.Value.Date;
             var timeLimit = this.LimitDatePicker.SelectedDate.Value.Date;

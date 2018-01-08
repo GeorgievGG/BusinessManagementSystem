@@ -22,6 +22,7 @@
 
         private int id;
         private DateTime date;
+        private string inquiryCreator;
 
         public ICommand WindowLoadedCommand;
         public ICommand SaveCommand;
@@ -60,6 +61,19 @@
             {
                 this.id = value;
                 this.OnPropertyChanged(nameof(Id));
+            }
+        }
+
+        public string InquiryCreator
+        {
+            get
+            {
+                return this.inquiryCreator;
+            }
+            set
+            {
+                this.inquiryCreator = value;
+                this.OnPropertyChanged(nameof(InquiryCreator));
             }
         }
 
@@ -232,6 +246,7 @@
                 this.SelectedInquiry = InquiriesList.SingleOrDefault(x => x.Id == inquiryDto.Id);
                 this.Description = (string)SelectedOffer.Row.ItemArray[4];
                 this.Date = (DateTime)SelectedOffer.Row.ItemArray[5];
+                this.InquiryCreator = selectedUsername.Username;
             }
         }
 

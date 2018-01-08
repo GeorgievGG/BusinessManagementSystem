@@ -2,6 +2,7 @@
 {
     using BmsWpf.Behaviour;
     using BmsWpf.Services.Contracts;
+    using BmsWpf.Sessions;
     using BmsWpf.Views.Forms;
     using System;
     using System.Data;
@@ -139,6 +140,8 @@
         private void HandleAddNewCommand(object parameter)
         {
             var addNewInquiryWindow = this.ViewManager.ComposeObjects<OfferForm>();
+            var vm = (OfferFormViewModel)addNewInquiryWindow.DataContext;
+            vm.InquiryCreator = Session.Instance.Username;
             addNewInquiryWindow.Show();
             this.CloseAction();
         }
