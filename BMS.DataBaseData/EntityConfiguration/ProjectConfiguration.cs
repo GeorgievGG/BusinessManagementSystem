@@ -12,6 +12,7 @@
             builder.HasOne(c => c.Contragent)
                 .WithMany(p => p.Projects)
                 .HasForeignKey(c => c.ContragentId);
+            builder.HasMany(p => p.Invoices).WithOne(ci => ci.Project).HasForeignKey(ci => ci.ProjectId);
             builder.Property(n => n.Name).IsUnicode();
         }
     }

@@ -19,7 +19,7 @@
     <Grid Margin="0,3,-6.4,-29.4" Background="#FF2E3137">
         <Label Content="Contragent" HorizontalAlignment="Left" Foreground="#FF97D4D3" FontSize="30" FontWeight="Bold" Margin="155,10,0,0" VerticalAlignment="Top"/>
         <Label Content="Company Name" Foreground="White" HorizontalAlignment="Left" Margin="86,108,0,0" VerticalAlignment="Top" Width="97"/>
-        <TextBox Name ="Name" 
+        <TextBox Name ="ContragentName" 
                  Height="27" 
                  Margin="207,108,92,0" 
                  BorderThickness="2"  

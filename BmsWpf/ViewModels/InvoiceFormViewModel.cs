@@ -27,6 +27,7 @@
         private string supplierPersonForContact;
         private int invoiceNum;
         private DateTime invoiceDate;
+        private string invoiceTown;
         private string invoiceText;
         private string invoiceBankRequisits;
         private decimal invoicePrice;
@@ -58,6 +59,8 @@
         public IViewManager ViewManager { get; set; }
 
         public Action CloseAction { get; set; }
+        public Action LockInvoiceNumAction { get; set; }
+        public Action UnlockInvoiceNumAction { get; set; }
 
         public string ViewName
         {
@@ -66,8 +69,7 @@
                 return "Invoice Form";
             }
         }
-
-        public int InitialClientId { get; set; }
+        
         public ContragentListDto SelectedClient
         {
             get
@@ -92,7 +94,6 @@
                 this.OnPropertyChanged(nameof(Clients));
             }
         }
-        public int InitialSupplierId { get; set; }
         public ContragentListDto SelectedSupplier
         {
             get
@@ -141,7 +142,12 @@
                 this.OnPropertyChanged(nameof(Projects));
             }
         }
-        
+
+
+
+        public int Id { get; set; }
+        public int initialClientId { get; set; }
+        public int initialSupplierId { get; set; }
         public string ClientName
         {
             get
@@ -310,6 +316,18 @@
                 this.OnPropertyChanged(nameof(InvoiceDate));
             }
         }
+        public string InvoiceTown
+        {
+            get
+            {
+                return this.invoiceTown;
+            }
+            set
+            {
+                this.invoiceTown = value;
+                this.OnPropertyChanged(nameof(InvoiceTown));
+            }
+        }
         public string InvoiceText
         {
             get
@@ -344,8 +362,10 @@
             {
                 this.invoicePrice = value;
                 this.OnPropertyChanged(nameof(InvoicePrice));
+                this.ComputeTotal(value);
             }
         }
+
         public decimal InvoiceVat
         {
             get
@@ -448,24 +468,36 @@
             this.Clients = new ObservableCollection<ContragentListDto>(this.ContragentService.GetContragentsForDropdown());
             this.Suppliers = new ObservableCollection<ContragentListDto>(this.ContragentService.GetContragentsForDropdown());
             this.Projects = new ObservableCollection<ProjectListDto>(this.ProjectService.GetProjectsForDropdown());
-            if (this.SelectedInvoice != null)
+            if (initialClientId == 1)
             {
-                this.InvoiceNum = (int)SelectedInvoice.Row.ItemArray[0];
-                var clientDto = (ContragentListDto)SelectedInvoice.Row.ItemArray[1];
+                this.SelectedClient = this.Clients.SingleOrDefault(x => x.Id == initialClientId);
+                this.HandleSelectionChangedClientCommand(null);
+            }
+            else if (initialSupplierId == 1)
+            {
+                this.SelectedSupplier = this.Suppliers.SingleOrDefault(x => x.Id == initialSupplierId);
+                this.HandleSelectionChangedSupplierCommand(null);
+            }
+            else if (this.SelectedInvoice != null)
+            {
+                this.Id = (int)SelectedInvoice.Row.ItemArray[0];
+                this.InvoiceNum = (int)SelectedInvoice.Row.ItemArray[1];
+                var clientDto = (ContragentListDto)SelectedInvoice.Row.ItemArray[2];
                 this.SelectedClient = Clients.SingleOrDefault(x => x.Id == clientDto.Id);
-                var supplierDto = (ContragentListDto)SelectedInvoice.Row.ItemArray[2];
+                var supplierDto = (ContragentListDto)SelectedInvoice.Row.ItemArray[3];
                 this.SelectedSupplier = Suppliers.SingleOrDefault(x => x.Id == supplierDto.Id);
-                var projectDto = (ProjectListDto)SelectedInvoice.Row.ItemArray[3];
+                var projectDto = (ProjectListDto)SelectedInvoice.Row.ItemArray[4];
                 if (projectDto != null)
                 {
                     this.SelectedProject = Projects.SingleOrDefault(x => x.Id == projectDto.Id);
                 }
-                this.InvoiceDate = (DateTime)SelectedInvoice.Row.ItemArray[4];
-                this.InvoiceText = (string)SelectedInvoice.Row.ItemArray[5];
-                this.InvoiceBankRequisits = (string)(SelectedInvoice.Row.ItemArray[6] == DBNull.Value ? "" : SelectedInvoice.Row.ItemArray[6]);
-                this.InvoicePrice = (decimal)SelectedInvoice.Row.ItemArray[7];
-                this.InvoiceVat = (decimal)SelectedInvoice.Row.ItemArray[8];
-                this.InvoiceTotal = (decimal)SelectedInvoice.Row.ItemArray[9];
+                this.InvoiceDate = (DateTime)SelectedInvoice.Row.ItemArray[5];
+                this.InvoiceTown = (string)(SelectedInvoice.Row.ItemArray[6] == DBNull.Value ? "" : SelectedInvoice.Row.ItemArray[6]);
+                this.InvoiceText = (string)SelectedInvoice.Row.ItemArray[7];
+                this.InvoiceBankRequisits = (string)(SelectedInvoice.Row.ItemArray[8] == DBNull.Value ? "" : SelectedInvoice.Row.ItemArray[8]);
+                this.InvoicePrice = (decimal)SelectedInvoice.Row.ItemArray[9];
+                this.InvoiceVat = (decimal)SelectedInvoice.Row.ItemArray[10];
+                this.InvoiceTotal = (decimal)SelectedInvoice.Row.ItemArray[11];
 
                 var clientId = clientDto.Id;
 
@@ -479,9 +511,55 @@
 
                 this.FillSupplierInformation(supplier);
             }
-            if (this.InitialSupplierId == 1)
+            if (this.SelectedSupplier != null && this.SelectedSupplier.Id == 1)
             {
-                this.InvoiceNum = InvoiceService.GetNextInvoiceNum();
+                if (this.SelectedInvoice == null) //isNotEditForm
+                {
+                    this.InvoiceNum = InvoiceService.GetNextInvoiceNum();
+                }
+                this.LockInvoiceNumAction();
+            }
+            else
+            {
+                this.UnlockInvoiceNumAction();
+            }
+        }
+
+        private void HandlePrintCommand(object parameter)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void HandleBackCommand(object parameter)
+        {
+            this.RedirectToMainInvoices();
+        }
+
+        private void HandleSelectionChangedClientCommand(object parameter)
+        {
+            if (this.SelectedClient != null)
+            {
+                var client = this.ContragentService.GetClientByIdInvoices(this.SelectedClient.Id);
+
+                FillClientInformation(client);
+            }
+        }
+
+        private void HandleSelectionChangedSupplierCommand(object parameter)
+        {
+            var supplier = this.ContragentService.GetClientByIdInvoices(this.SelectedSupplier.Id);
+            FillSupplierInformation(supplier);
+            if (this.SelectedSupplier.Id == 1)
+            {
+                if (this.SelectedInvoice == null) //isEditForm
+                {
+                    this.InvoiceNum = InvoiceService.GetNextInvoiceNum();
+                }
+                this.LockInvoiceNumAction();
+            }
+            else
+            {
+                this.UnlockInvoiceNumAction();
             }
         }
 
@@ -490,7 +568,11 @@
             var result = string.Empty;
             var newInvoice = new InvoicePostDto()
             {
-                Id = this.InvoiceNum,
+                Id = this.Id,
+                InvoiceNum = this.InvoiceNum,
+                Town = this.InvoiceTown,
+                Text = this.InvoiceText,
+                BankRequisits = this.InvoiceBankRequisits,
                 ClientId = this.SelectedClient.Id,
                 SupplierId = this.SelectedSupplier.Id,
                 ProjectId = this.SelectedProject.Id,
@@ -518,32 +600,6 @@
             this.RedirectToMainInvoices();
         }
 
-        private void HandlePrintCommand(object parameter)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void HandleBackCommand(object parameter)
-        {
-            this.RedirectToMainInvoices();
-        }
-
-        private void HandleSelectionChangedClientCommand(object parameter)
-        {
-            if (this.SelectedClient != null)
-            {
-                var client = this.ContragentService.GetClientByIdInvoices(this.SelectedClient.Id);
-
-                FillClientInformation(client);
-            }
-        }
-
-        private void HandleSelectionChangedSupplierCommand(object parameter)
-        {
-            var supplier = this.ContragentService.GetClientByIdInvoices(this.SelectedSupplier.Id);
-            FillSupplierInformation(supplier);
-        }
-
         private void FillClientInformation(ContragentInfoForInvoiceDto client)
         {
             this.ClientName = client.Name;
@@ -562,6 +618,12 @@
             this.SupplierTown = supplier.Town;
             this.SupplierAddress = supplier.Address;
             this.SupplierPersonForContact = supplier.PersonForContact;
+        }
+
+        private void ComputeTotal(decimal value)
+        {
+            this.InvoiceVat = value * 0.2m;
+            this.InvoiceTotal = value + this.InvoiceVat;
         }
 
         private void RedirectToMainInvoices()

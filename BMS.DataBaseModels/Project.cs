@@ -8,8 +8,7 @@
     {
         public Project()
         {
-            this.ClientInvoices = new List<Invoice>();
-            this.SuplierInvoices = new List<Invoice>();
+            this.Invoices = new List<Invoice>();
             this.Payments = new List<Payment>();
             this.Notes = new List<Note>();
             this.Events = new List<CalendarEvent>();
@@ -44,8 +43,7 @@
 
 
         public ICollection<Contragent> Suppliers { get; set; }
-        public ICollection<Invoice> ClientInvoices { get; set; }
-        public ICollection<Invoice> SuplierInvoices { get; set; }
+        public ICollection<Invoice> Invoices { get; set; }
 
         public ICollection<Payment> Payments { get; set; }
 

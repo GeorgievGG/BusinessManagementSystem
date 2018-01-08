@@ -6,6 +6,7 @@
     using System;
     using System.Data;
     using System.Globalization;
+    using System.Linq;
     using System.Windows;
     using System.Windows.Input;
 
@@ -19,7 +20,6 @@
         public ICommand AddNewCICommand;
         public ICommand AddNewSICommand;
         public ICommand EditCommand;
-        public ICommand DeleteCommand;
         public ICommand BackCommand;
 
         public MainInvoicesViewModel()
@@ -130,18 +130,6 @@
             }
         }
 
-        public ICommand Delete
-        {
-            get
-            {
-                if (this.DeleteCommand == null)
-                {
-                    this.DeleteCommand = new RelayCommand(this.HandleDeleteCommand);
-                }
-                return this.DeleteCommand;
-            }
-        }
-
         public ICommand Back
         {
             get
@@ -170,8 +158,10 @@
 
         private void HandleAddNewCICommand(object parameter)
         {
-            var addNewInquiryWindow = this.ViewManager.ComposeObjects<InvoiceForm>();
-            addNewInquiryWindow.Show();
+            var invoiceForm = this.ViewManager.ComposeObjects<InvoiceForm>();
+            var vm = (InvoiceFormViewModel)invoiceForm.DataContext;
+            vm.initialClientId = 1;
+            invoiceForm.Show();
             this.CloseAction();
         }
 
@@ -182,36 +172,20 @@
                 MessageBox.Show("Please select an offer to continue");
                 return;
             }
-            var addNewInquiryWindow = this.ViewManager.ComposeObjects<InvoiceForm>();
-            var vm = (InvoiceFormViewModel)addNewInquiryWindow.DataContext;
+            var invoiceForm = this.ViewManager.ComposeObjects<InvoiceForm>();
+            var vm = (InvoiceFormViewModel)invoiceForm.DataContext;
             vm.SelectedInvoice = this.SelectedInvoice;
-            addNewInquiryWindow.Show();
+            invoiceForm.Show();
             this.CloseAction();
         }
 
         private void HandleAddNewSICommand(object parameter)
         {
-            var addNewInquiryWindow = this.ViewManager.ComposeObjects<InvoiceForm>();
-            addNewInquiryWindow.Show();
+            var invoiceForm = this.ViewManager.ComposeObjects<InvoiceForm>();
+            var vm = (InvoiceFormViewModel)invoiceForm.DataContext;
+            vm.initialSupplierId = 1;
+            invoiceForm.Show();
             this.CloseAction();
-        }
-
-        private void HandleDeleteCommand(object parameter)
-        {
-            var invoiceId = (int)this.SelectedInvoice.Row.ItemArray[0];
-
-            var result = string.Empty;
-
-            try
-            {
-                result = this.InvoiceService.Delete(invoiceId);
-            }
-            catch (Exception e)
-            {
-                result = e.Message;
-            }
-
-            MessageBox.Show(result);
         }
 
         private void HandleBackCommand(object parameter)

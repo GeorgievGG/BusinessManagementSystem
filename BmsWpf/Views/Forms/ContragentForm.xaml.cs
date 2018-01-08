@@ -1,25 +1,10 @@
-﻿using BmsWpf.Views.ChildWindows;
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using BmsWpf.ViewModels;
-using BMS.DataBaseData;
-using BMS.DataBaseModels;
-using BmsWpf.Services.Contracts;
-
-namespace BmsWpf.Views.Forms
+﻿namespace BmsWpf.Views.Forms
 {
+    using BmsWpf.Services.Contracts;
+    using BmsWpf.ViewModels;
+    using System;
+    using System.Windows;
+
     /// <summary>
     /// Interaction logic for ContragentForm.xaml
     /// </summary>

@@ -23,6 +23,10 @@
 
             if (vm.CloseAction == null)
                 vm.CloseAction = new Action(() => this.Close());
+            if (vm.LockInvoiceNumAction == null)
+                vm.LockInvoiceNumAction = new Action(() => this.NumberTextBox.IsEnabled = false);
+            if (vm.UnlockInvoiceNumAction == null)
+                vm.UnlockInvoiceNumAction = new Action(() => this.NumberTextBox.IsEnabled = true);
 
             vm.ViewManager = viewManager;
             vm.InvoiceService = invoiceService;

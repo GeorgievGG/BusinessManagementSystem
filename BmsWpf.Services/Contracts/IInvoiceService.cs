@@ -7,7 +7,6 @@
     public interface IInvoiceService
     {
         string CreateInvoice(InvoicePostDto newInvoice);
-        string Delete(int id);
         string EditInvoice(InvoicePostDto newInvoice);
         DataTable GetInvoicesAsDataTable();
         DataTable Search(DateTime datesearch, int idSearch, string searchText);

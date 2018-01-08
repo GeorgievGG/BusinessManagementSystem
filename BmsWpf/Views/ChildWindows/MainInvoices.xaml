@@ -46,7 +46,6 @@
                 <MenuItem Header="Add client invoice" Command="{Binding AddNewCI}"/>
                 <MenuItem Header="Add supplier invoice"  Command="{Binding AddNewSI}"/>
                 <MenuItem Header="Edit invoice" Command="{Binding Edit}"/>
-                <MenuItem Header="Delete"  Command="{Binding Delete}" />
             </MenuItem>
         </Menu>
         <Button Name="BackButton" 

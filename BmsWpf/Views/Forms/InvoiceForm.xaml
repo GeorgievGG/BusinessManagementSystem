@@ -6,7 +6,7 @@
         xmlns:viewModels="clr-namespace:BmsWpf.ViewModels"
         xmlns:intr="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         mc:Ignorable="d"
-        Title="InvoiceClientForm" Height="800" Width="750" FontSize="16" Background="#F2FAFD">
+        Title="InvoiceClientForm" Height="836.8" Width="750" FontSize="16" Background="#F2FAFD">
     <Window.DataContext>
         <viewModels:InvoiceFormViewModel />
     </Window.DataContext>
@@ -81,15 +81,22 @@
             <Label Content="МОЛ" Height="25" Width="75" FontSize="12" Foreground="Black" Canvas.Top="145"/>
         </Canvas>
         <Label Content="INVOICE"  HorizontalAlignment="Left" Foreground="Black" FontSize="24" FontWeight="Bold" Margin="319,239,0,0" VerticalAlignment="Top" Width="106" Height="40"/>
-        <TextBox Name="NumberTextBox" Height="30" Margin="153,284,405,0" Foreground="Black" TextAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Text="{Binding InvoiceNum}" />
-        <DatePicker Name="DateTextBox" Height="30" Margin="371,284,201,0" Text="Дата" Foreground="Black" VerticalAlignment="Top" VerticalContentAlignment="Center" SelectedDate="{Binding Path=InvoiceDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Name="NumberTextBox" Height="30" Margin="63,284,495,0" Foreground="Black" TextAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Text="{Binding InvoiceNum}" />
+        <DatePicker Name="DateTextBox" Height="30" Margin="287,284,285,0" Text="Дата" Foreground="Black" VerticalAlignment="Top" VerticalContentAlignment="Center" SelectedDate="{Binding Path=InvoiceDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Name="TownTextBox" Height="30" Margin="481,284,77,0" Foreground="Black" TextAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Text="{Binding InvoiceTown}" />
 
         <TextBox Height="252" Margin="42,339,50,0" Foreground="Gray"  BorderThickness="2"  BorderBrush="#313c4f"  TextWrapping="Wrap" VerticalContentAlignment="Center" VerticalAlignment="Top"  TextAlignment="Left" Text="{Binding InvoiceText}"/>
-        <Label Content="/" HorizontalAlignment="Left" FontSize="30" Margin="344,268,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.155,0.604"/>
-        <TextBox Name="BankDetailsBox" Foreground="Black" Margin="151,596,368,104.4" Text="{Binding InvoiceBankRequisits}"/>
-        <Label Content="Банкови реквизити" FontSize="12" Foreground="Black" Margin="41,596,598,129.4"/>
-        <Button Name="ButtonSave" Content="Save" HorizontalAlignment="Left" Margin="415,730,0,0" VerticalAlignment="Top" Width="100" Height="30" Command="{Binding Save}"/>
-        <Button Name="ButtonPrint" Content="Print" HorizontalAlignment="Left" Margin="513,730,0,0" VerticalAlignment="Top" Width="100" Height="30" Command="{Binding Print}"/>
-        <Button Name="ButtonBack" Content="Back" HorizontalAlignment="Left" Margin="611,730,0,10.4" Width="100" Command="{Binding Back}"/>
+        <Label Content="/" HorizontalAlignment="Left" FontSize="30" Margin="254,268,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.155,0.604"/>
+        <TextBox Name="BankDetailsBox" Foreground="Black" Margin="152,694,367,47.2" Text="{Binding InvoiceBankRequisits}"/>
+        <Label Content="Общо цена" HorizontalAlignment="Left" FontSize="16" FontWeight="Bold"  Margin="42,605,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.155,0.604"/>
+        <TextBox Name="PriceTextBox" Height="30" Margin="43,642,515,0" Foreground="Black" TextAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Text="{Binding InvoicePrice}" />
+        <Label Content="ДДС" HorizontalAlignment="Left" FontSize="16" FontWeight="Bold"  Margin="273,605,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.155,0.604"/>
+        <TextBox Name="VatTextBox" Height="30" Margin="273,642,285,0" Foreground="Black" TextAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" IsEnabled="False" Text="{Binding InvoiceVat}" />
+        <Label Content="Крайна сума" HorizontalAlignment="Left" FontSize="16" FontWeight="Bold"  Margin="513,605,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.155,0.604"/>
+        <TextBox Name="TotalTextBox" Height="30" Margin="513,642,45,0" Foreground="Black" TextAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" IsEnabled="False" Text="{Binding InvoiceTotal}" />
+        <Label Content="Банкови реквизити" FontSize="12" Foreground="Black" Margin="43,694,596,84.2"/>
+        <Button Name="ButtonSave" Content="Save" HorizontalAlignment="Left" Margin="438,767,0,0" VerticalAlignment="Top" Width="100" Height="30" Command="{Binding Save}"/>
+        <Button Name="ButtonPrint" Content="Print" HorizontalAlignment="Left" Margin="536,767,0,0" VerticalAlignment="Top" Width="100" Height="30" Command="{Binding Print}"/>
+        <Button Name="ButtonBack" Content="Back" HorizontalAlignment="Left" Margin="634,767,0,0" VerticalAlignment="Top" Width="100" Height="30" Command="{Binding Back}"/>
     </Grid>
 </Window>
