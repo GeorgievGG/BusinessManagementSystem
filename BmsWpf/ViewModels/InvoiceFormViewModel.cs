@@ -27,7 +27,6 @@
         private string supplierPersonForContact;
         private int invoiceNum;
         private DateTime invoiceDate;
-        private string invoiceTown;
         private string invoiceText;
         private string invoiceBankRequisits;
         private decimal invoicePrice;
@@ -54,7 +53,6 @@
 
         public DataRowView SelectedInvoice { get; set; }
         public IInvoiceService InvoiceService { get; set; }
-        public IUserService UserService { get; set; }
         public IProjectService ProjectService { get; set; }
         public IContragentService ContragentService { get; set; }
         public IViewManager ViewManager { get; set; }
@@ -69,6 +67,7 @@
             }
         }
 
+        public int InitialClientId { get; set; }
         public ContragentListDto SelectedClient
         {
             get
@@ -93,6 +92,7 @@
                 this.OnPropertyChanged(nameof(Clients));
             }
         }
+        public int InitialSupplierId { get; set; }
         public ContragentListDto SelectedSupplier
         {
             get
@@ -310,18 +310,6 @@
                 this.OnPropertyChanged(nameof(InvoiceDate));
             }
         }
-        public string InvoiceTown
-        {
-            get
-            {
-                return this.invoiceTown;
-            }
-            set
-            {
-                this.invoiceTown = value;
-                this.OnPropertyChanged(nameof(InvoiceTown));
-            }
-        }
         public string InvoiceText
         {
             get
@@ -473,9 +461,11 @@
                     this.SelectedProject = Projects.SingleOrDefault(x => x.Id == projectDto.Id);
                 }
                 this.InvoiceDate = (DateTime)SelectedInvoice.Row.ItemArray[4];
-                this.InvoicePrice = (decimal)SelectedInvoice.Row.ItemArray[5];
-                this.InvoiceVat = (decimal)SelectedInvoice.Row.ItemArray[6];
-                this.InvoiceTotal = (decimal)SelectedInvoice.Row.ItemArray[7];
+                this.InvoiceText = (string)SelectedInvoice.Row.ItemArray[5];
+                this.InvoiceBankRequisits = (string)(SelectedInvoice.Row.ItemArray[6] == DBNull.Value ? "" : SelectedInvoice.Row.ItemArray[6]);
+                this.InvoicePrice = (decimal)SelectedInvoice.Row.ItemArray[7];
+                this.InvoiceVat = (decimal)SelectedInvoice.Row.ItemArray[8];
+                this.InvoiceTotal = (decimal)SelectedInvoice.Row.ItemArray[9];
 
                 var clientId = clientDto.Id;
 
@@ -488,6 +478,10 @@
                 var supplier = this.ContragentService.GetClientByIdInvoices(supplierId);
 
                 this.FillSupplierInformation(supplier);
+            }
+            if (this.InitialSupplierId == 1)
+            {
+                this.InvoiceNum = InvoiceService.GetNextInvoiceNum();
             }
         }
 

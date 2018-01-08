@@ -9,10 +9,8 @@ namespace BmsWpf.Services.Contracts
         IRepository<Contragent> Contragents { get; }
 
         IRepository<Inquiry> Inquiries { get; }
-        
-        IRepository<ClientInvoice> ClientInvoices { get; }
 
-        IRepository<SupplierInvoice> SupplierInvoices { get; }
+        IRepository<Invoice> Invoices { get; }
 
         IRepository<Note> Notes { get; }
         

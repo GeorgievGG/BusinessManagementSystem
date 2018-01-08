@@ -164,7 +164,7 @@
 
 
             //Seed ClientInvoices
-            var clientInvoices = new List<ClientInvoice>();
+            var clientInvoices = new List<Invoice>();
 
             for (int i = 0; i < 20; i++)
             {
@@ -176,7 +176,7 @@
                     clientId = random.Next(0, contragents.Length);
                 }
 
-                var clientInvoice = new ClientInvoice
+                var clientInvoice = new Invoice
                 {
                     Project = projects[random.Next(0, projects.Length)],
                     Client = contragents[clientId],
@@ -192,10 +192,10 @@
                 clientInvoices.Add(clientInvoice);
             }
 
-            context.ClientIncoices.AddRange(clientInvoices);
+            context.Invoices.AddRange(clientInvoices);
 
             //Seed SupplierInvoices
-            var supplierInvoices = new List<SupplierInvoice>();
+            var supplierInvoices = new List<Invoice>();
 
             for (int i = 0; i < 20; i++)
             {
@@ -207,7 +207,7 @@
                     clientId = random.Next(0, contragents.Length);
                 }
 
-                var supplierInvoice = new SupplierInvoice
+                var supplierInvoice = new Invoice
                 {
                     Project = projects[random.Next(0, projects.Length)],
                     Client = contragents[clientId],
@@ -223,7 +223,7 @@
                 supplierInvoices.Add(supplierInvoice);
             }
 
-            context.SupplierInvoices.AddRange(supplierInvoices);
+            context.Invoices.AddRange(supplierInvoices);
 
             //Validate Payments
             var payments = new List<Payment>();

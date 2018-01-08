@@ -4,7 +4,6 @@
     using BmsWpf.Services.Contracts;
     using BmsWpf.Views.Forms;
     using System;
-    using System.Collections.Generic;
     using System.Data;
     using System.Globalization;
     using System.Windows;
@@ -18,27 +17,17 @@
         public ICommand WindowLoadedCommand;
         public ICommand SearchCommand;
         public ICommand AddNewCICommand;
-        public ICommand EditCICommand;
         public ICommand AddNewSICommand;
-        public ICommand EditSICommand;
+        public ICommand EditCommand;
         public ICommand DeleteCommand;
         public ICommand BackCommand;
 
         public MainInvoicesViewModel()
         {
             this.SearchText = "Search....";
-            this.MenuItems = new List<string>();
-            this.MenuItems.Add("Add New Client Invoice");
-            this.MenuItems.Add("Edit Client Invoice");
-            this.MenuItems.Add("Add New Supplier Invoice");
-            this.MenuItems.Add("Edit Supplier Invoice");
-            this.MenuItems.Add("Delete");
         }
 
         public string Text { get; set; }
-
-        public string SelectedMenuItem { get; set; }
-        public IList<string> MenuItems { get; private set; }
 
         public IInvoiceService InvoiceService { get; set; }
         public IViewManager ViewManager { get; set; }
@@ -117,18 +106,6 @@
             }
         }
 
-        public ICommand EditCI
-        {
-            get
-            {
-                if (this.EditCICommand == null)
-                {
-                    this.EditCICommand = new RelayCommand(this.HandleEditCICommand);
-                }
-                return this.EditCICommand;
-            }
-        }
-
         public ICommand AddNewSI
         {
             get
@@ -141,15 +118,15 @@
             }
         }
 
-        public ICommand EditSI
+        public ICommand Edit
         {
             get
             {
-                if (this.EditSICommand == null)
+                if (this.EditCommand == null)
                 {
-                    this.EditSICommand = new RelayCommand(this.HandleEditSICommand);
+                    this.EditCommand = new RelayCommand(this.HandleEditCommand);
                 }
-                return this.EditSICommand;
+                return this.EditCommand;
             }
         }
 
@@ -198,7 +175,7 @@
             this.CloseAction();
         }
 
-        private void HandleEditCICommand(object parameter)
+        private void HandleEditCommand(object parameter)
         {
             if (this.SelectedInvoice == null)
             {
@@ -215,20 +192,6 @@
         private void HandleAddNewSICommand(object parameter)
         {
             var addNewInquiryWindow = this.ViewManager.ComposeObjects<InvoiceForm>();
-            addNewInquiryWindow.Show();
-            this.CloseAction();
-        }
-
-        private void HandleEditSICommand(object parameter)
-        {
-            if (this.SelectedInvoice == null)
-            {
-                MessageBox.Show("Please select an offer to continue");
-                return;
-            }
-            var addNewInquiryWindow = this.ViewManager.ComposeObjects<InvoiceForm>();
-            var vm = (InvoiceFormViewModel)addNewInquiryWindow.DataContext;
-            vm.SelectedInvoice = this.SelectedInvoice;
             addNewInquiryWindow.Show();
             this.CloseAction();
         }

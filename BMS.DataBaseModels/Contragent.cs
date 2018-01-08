@@ -7,9 +7,9 @@
     {
         public Contragent()
         {
-            this.ClientInvoices = new List<ClientInvoice>();
+            this.ClientInvoices = new List<Invoice>();
             this.ClientPayments = new List<Payment>();
-            this.SupplierInvoices = new List<SupplierInvoice>();
+            this.SupplierInvoices = new List<Invoice>();
             this.SupplierPayments = new List<Payment>();
             this.Projects = new List<Project>();
             this.Inquiries = new List<Inquiry>();
@@ -47,8 +47,8 @@
         public int? ProjectId { get; set; }
         public Project Project { get; set; }
 
-        public ICollection<ClientInvoice> ClientInvoices { get; set; }
-        public ICollection<SupplierInvoice> SupplierInvoices { get; set; }
+        public ICollection<Invoice> ClientInvoices { get; set; }
+        public ICollection<Invoice> SupplierInvoices { get; set; }
 
         public ICollection<Payment> ClientPayments { get; set; }
         public ICollection<Payment> SupplierPayments { get; set; }

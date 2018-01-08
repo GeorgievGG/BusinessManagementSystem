@@ -3,7 +3,7 @@
     using System;
     using System.ComponentModel.DataAnnotations;
 
-    public class ClientInvoice : IInvoice
+    public class Invoice
     {
         [Key]
         public int Id { get; set; }

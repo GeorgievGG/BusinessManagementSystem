@@ -46,15 +46,13 @@
     <Compile Include="Contragent.cs" />
     <Compile Include="Enums\Color.cs" />
     <Compile Include="Enums\NoteType.cs" />
-    <Compile Include="IInvoice.cs" />
     <Compile Include="Inquiry.cs" />
-    <Compile Include="ClientInvoice.cs" />
+    <Compile Include="Invoice.cs" />
     <Compile Include="Note.cs" />
     <Compile Include="Offer.cs" />
     <Compile Include="Payment.cs" />
     <Compile Include="Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SupplierInvoice.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

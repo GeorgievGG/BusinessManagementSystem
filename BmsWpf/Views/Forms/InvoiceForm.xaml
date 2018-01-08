@@ -3,51 +3,93 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:BmsWpf.Views.Forms"
+        xmlns:viewModels="clr-namespace:BmsWpf.ViewModels"
+        xmlns:intr="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         mc:Ignorable="d"
         Title="InvoiceClientForm" Height="800" Width="750" FontSize="16" Background="#F2FAFD">
+    <Window.DataContext>
+        <viewModels:InvoiceFormViewModel />
+    </Window.DataContext>
+    <intr:Interaction.Triggers>
+        <intr:EventTrigger EventName="Loaded">
+            <intr:InvokeCommandAction Command="{Binding WindowLoaded}"/>
+        </intr:EventTrigger>
+    </intr:Interaction.Triggers>
     <Grid Background="#F2FAFD">
-        <Label Content="INVOICE"  HorizontalAlignment="Left" Foreground="Black" FontSize="24" FontWeight="Bold" Margin="331,217,0,0" VerticalAlignment="Top" Width="106" Height="40"/>
-        <TextBox Name="NumberTextBox" Height="30" Margin="100,261,458,0" Text="Номер" Foreground="Black" TextAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" />
-        <TextBox Name="DateTextBox" Height="30" Margin="318,261,254,0" Text="Дата" Foreground="Black" TextAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" />
-
-        <TextBox Height="252" Margin="46,316,46,0" Foreground="Gray"  BorderThickness="2"  BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" VerticalContentAlignment="Center" Text="Text" VerticalAlignment="Top" />
-        <TextBox Name="TownTextBox" Height="30" Margin="501,261,92,0" Foreground="Black" TextAlignment="Left" TextWrapping="Wrap" VerticalContentAlignment="Center" Text="Град" VerticalAlignment="Top" />
-        <Canvas  HorizontalAlignment="Left" Height="169" Margin="39,28,0,0" VerticalAlignment="Top" Width="300" Grid.RowSpan="2">
+        <ComboBox Name="ClientCombo" 
+                  HorizontalAlignment="Left" 
+                  Margin="39,10,0,0" 
+                  VerticalAlignment="Top" 
+                  Width="170" 
+                  ItemsSource="{Binding Clients}"
+                  SelectedItem="{Binding SelectedClient}">
+            <intr:Interaction.Triggers>
+                <intr:EventTrigger EventName="SelectionChanged">
+                    <intr:InvokeCommandAction Command="{Binding SelectionClientChanged}"  CommandParameter="{Binding ElementName=ClientCombo, Path=SelectedItem}"/>
+                </intr:EventTrigger>
+            </intr:Interaction.Triggers>
+        </ComboBox>
+        <ComboBox Name="SupplierCombo" 
+                  HorizontalAlignment="Left" 
+                  Margin="289,10,0,0" 
+                  VerticalAlignment="Top" 
+                  Width="170" 
+                  ItemsSource="{Binding Suppliers}"
+                  SelectedItem="{Binding SelectedSupplier}">
+            <intr:Interaction.Triggers>
+                <intr:EventTrigger EventName="SelectionChanged">
+                    <intr:InvokeCommandAction Command="{Binding SelectionSupplierChanged}"  CommandParameter="{Binding ElementName=SupplierCombo, Path=SelectedItem}"/>
+                </intr:EventTrigger>
+            </intr:Interaction.Triggers>
+        </ComboBox>
+        <ComboBox Name="ProjectCombo" 
+                  HorizontalAlignment="Left" 
+                  Margin="541,10,0,0" 
+                  VerticalAlignment="Top" 
+                  Width="170" 
+                  ItemsSource="{Binding Projects}"
+                  SelectedItem="{Binding SelectedProject}">
+        </ComboBox>
+        <Canvas  HorizontalAlignment="Left" Height="169" Margin="39,62,0,0" VerticalAlignment="Top" Width="300">
             <Border BorderBrush="Black" BorderThickness="1" Height="170" Width="300"/>
-            <TextBox Name="NameBox" Height="25" Foreground="Black" Canvas.Left="73" Width="225"/>
+            <TextBox Name="NameBox" Height="25" Foreground="Black" Canvas.Left="73" Width="225" IsEnabled="False" Text="{Binding ClientName}"/>
             <Label Content="Получател" Height="25" Width="75" FontSize="12" Foreground="Black" Margin="0,0,319.2,0"/>
-            <TextBox Name="EikBox" Height="25" Foreground="Black" Canvas.Left="73" Width="225" Canvas.Top="25"/>
+            <TextBox Name="EikBox" Height="25" Foreground="Black" Canvas.Left="73" Width="225" Canvas.Top="25" IsEnabled="False" Text="{Binding ClientPersonalNumber}"/>
             <Label Content="ЕИК" Height="25" Width="75" FontSize="12" Foreground="Black" Canvas.Top="25"/>
-            <TextBox Name="DdsBox" Height="25" Foreground="Black" Canvas.Left="73" Width="225" Canvas.Top="50"/>
+            <TextBox Name="DdsBox" Height="25" Foreground="Black" Canvas.Left="73" Width="225" Canvas.Top="50" IsEnabled="False" Text="{Binding ClientVatNumber}"/>
             <Label Content="ДДС" Height="25" Width="75" FontSize="12" Foreground="Black" Canvas.Top="50"/>
-            <TextBox Name="Town" Height="25" Foreground="Black" Canvas.Left="73" Width="225" Canvas.Top="74" RenderTransformOrigin="0.506,0.407"/>
+            <TextBox Name="Town" Height="25" Foreground="Black" Canvas.Left="73" Width="225" Canvas.Top="74" RenderTransformOrigin="0.506,0.407" IsEnabled="False" Text="{Binding ClientTown}"/>
             <Label Content="Град" Height="25" Width="75" FontSize="12" Foreground="Black" Canvas.Top="75"/>
-            <TextBox Name="AddressBox" Height="45" Foreground="Black" Canvas.Left="73" Width="225" Canvas.Top="99"/>
+            <TextBox Name="AddressBox" Height="45" Foreground="Black" Canvas.Left="73" Width="225" Canvas.Top="99" IsEnabled="False" Text="{Binding ClientAddress}"/>
             <Label Content="Адрес" Height="25" Width="75" FontSize="12" Foreground="Black" Canvas.Top="100"/>
-            <TextBox Name="MolBox" Height="25" Foreground="Black" Canvas.Left="73" Width="225" Canvas.Top="144"/>
+            <TextBox Name="MolBox" Height="25" Foreground="Black" Canvas.Left="73" Width="225" Canvas.Top="144" IsEnabled="False" Text="{Binding ClientPersonForContact}"/>
             <Label Content="МОЛ" Height="25" Width="75" FontSize="12" Foreground="Black" Canvas.Top="144"/>
         </Canvas>
-        <Canvas  HorizontalAlignment="Left" Height="169" Margin="411,28,0,0" VerticalAlignment="Top" Width="300">
+        <Canvas  HorizontalAlignment="Left" Height="169" Margin="411,65,0,0" VerticalAlignment="Top" Width="300">
             <Border BorderBrush="Black" BorderThickness="1" Height="170" Width="300" Canvas.Left="-2"/>
-            <TextBox Name="NameSuplierBox" Height="25" Foreground="Black" Canvas.Left="73" Width="225" Canvas.Top="1"/>
+            <TextBox Name="NameSuplierBox" Height="25" Foreground="Black" Canvas.Left="73" Width="225" Canvas.Top="1" IsEnabled="False" Text="{Binding SupplierName}"/>
             <Label Content="Доставчик" Height="25" Width="75" FontSize="12" Foreground="Black" Canvas.Top="1"/>
-            <TextBox Name="SupplierEikBox" Height="25" Foreground="Black" Canvas.Left="73" Width="225" Canvas.Top="26"/>
+            <TextBox Name="SupplierEikBox" Height="25" Foreground="Black" Canvas.Left="73" Width="225" Canvas.Top="26" IsEnabled="False" Text="{Binding SupplierPersonalNumber}"/>
             <Label Content="ЕИК" Height="25" Width="75" FontSize="12" Foreground="Black" Canvas.Top="26"/>
-            <TextBox Name="SupplierDdsBox" Height="25" Foreground="Black" Canvas.Left="73" Width="225" Canvas.Top="50"/>
+            <TextBox Name="SupplierDdsBox" Height="25" Foreground="Black" Canvas.Left="73" Width="225" Canvas.Top="50" IsEnabled="False" Text="{Binding SupplierVatNumber}"/>
             <Label Content="ДДС" Height="25" Width="75" FontSize="12" Foreground="Black" Canvas.Top="50"/>
-            <TextBox Name="SupplierTown" Height="25" Foreground="Black" Canvas.Left="73" Width="225" Canvas.Top="74" RenderTransformOrigin="0.506,0.407"/>
+            <TextBox Name="SupplierTown" Height="25" Foreground="Black" Canvas.Left="73" Width="225" Canvas.Top="74" RenderTransformOrigin="0.506,0.407" IsEnabled="False" Text="{Binding SupplierTown}"/>
             <Label Content="Град" Height="25" Width="75" FontSize="12" Foreground="Black" Canvas.Top="75" Canvas.Left="-2"/>
-            <TextBox Name="SupplierAddressBox" Height="45" Foreground="Black" Canvas.Left="73" Width="225" Canvas.Top="100"/>
+            <TextBox Name="SupplierAddressBox" Height="45" Foreground="Black" Canvas.Left="73" Width="225" Canvas.Top="100" IsEnabled="False" Text="{Binding SupplierAddress}"/>
             <Label Content="Адрес" Height="25" Width="75" FontSize="12" Foreground="Black" Canvas.Top="100"/>
-            <TextBox Name="SupplierMolBox" Height="25" Foreground="Black" Canvas.Left="73" Width="225" Canvas.Top="144"/>
+            <TextBox Name="SupplierMolBox" Height="25" Foreground="Black" Canvas.Left="73" Width="225" Canvas.Top="144" IsEnabled="False" Text="{Binding SupplierPersonForContact}"/>
             <Label Content="МОЛ" Height="25" Width="75" FontSize="12" Foreground="Black" Canvas.Top="145"/>
         </Canvas>
-        <Label Content="/" HorizontalAlignment="Left" FontSize="30" Margin="292,247,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.155,0.604"/>
-        <Button Name="ButtonSave" Content="Save" HorizontalAlignment="Left" Margin="415,730,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="ButtonSave_Click"/>
-        <Button Name="ButtonEdit" Content="Edit" HorizontalAlignment="Left" Margin="513,730,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="ButtonEdit_Click"/>
-        <Button Name="ButtonPrint" Content="Print" HorizontalAlignment="Left" Margin="611,730,0,10.4" Width="100" Click="ButtonPrint_Click"/>
-        <TextBox Name="BankDetailsBox" Foreground="Black" Margin="151,596,368,104.4"/>
+        <Label Content="INVOICE"  HorizontalAlignment="Left" Foreground="Black" FontSize="24" FontWeight="Bold" Margin="319,239,0,0" VerticalAlignment="Top" Width="106" Height="40"/>
+        <TextBox Name="NumberTextBox" Height="30" Margin="153,284,405,0" Foreground="Black" TextAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Text="{Binding InvoiceNum}" />
+        <DatePicker Name="DateTextBox" Height="30" Margin="371,284,201,0" Text="Дата" Foreground="Black" VerticalAlignment="Top" VerticalContentAlignment="Center" SelectedDate="{Binding Path=InvoiceDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <TextBox Height="252" Margin="42,339,50,0" Foreground="Gray"  BorderThickness="2"  BorderBrush="#313c4f"  TextWrapping="Wrap" VerticalContentAlignment="Center" VerticalAlignment="Top"  TextAlignment="Left" Text="{Binding InvoiceText}"/>
+        <Label Content="/" HorizontalAlignment="Left" FontSize="30" Margin="344,268,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.155,0.604"/>
+        <TextBox Name="BankDetailsBox" Foreground="Black" Margin="151,596,368,104.4" Text="{Binding InvoiceBankRequisits}"/>
         <Label Content="Банкови реквизити" FontSize="12" Foreground="Black" Margin="41,596,598,129.4"/>
+        <Button Name="ButtonSave" Content="Save" HorizontalAlignment="Left" Margin="415,730,0,0" VerticalAlignment="Top" Width="100" Height="30" Command="{Binding Save}"/>
+        <Button Name="ButtonPrint" Content="Print" HorizontalAlignment="Left" Margin="513,730,0,0" VerticalAlignment="Top" Width="100" Height="30" Command="{Binding Print}"/>
+        <Button Name="ButtonBack" Content="Back" HorizontalAlignment="Left" Margin="611,730,0,10.4" Width="100" Command="{Binding Back}"/>
     </Grid>
 </Window>

@@ -44,9 +44,8 @@
         <Menu Name="ActionName" HorizontalAlignment="Left" Height="22" Margin="36,38,0,0" VerticalAlignment="Top" Width="43" RenderTransformOrigin="0.562,0.65">
             <MenuItem Header="Menu">
                 <MenuItem Header="Add client invoice" Command="{Binding AddNewCI}"/>
-                <MenuItem Header="Edit client invoice" Command="{Binding EditCI}"/>
                 <MenuItem Header="Add supplier invoice"  Command="{Binding AddNewSI}"/>
-                <MenuItem Header="Edit supplier invoice"  Command="{Binding EditSI}"/>
+                <MenuItem Header="Edit invoice" Command="{Binding Edit}"/>
                 <MenuItem Header="Delete"  Command="{Binding Delete}" />
             </MenuItem>
         </Menu>

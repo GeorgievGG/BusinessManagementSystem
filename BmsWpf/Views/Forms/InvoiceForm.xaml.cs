@@ -1,5 +1,8 @@
 ﻿namespace BmsWpf.Views.Forms
 {
+    using BmsWpf.Services.Contracts;
+    using BmsWpf.ViewModels;
+    using System;
     using System.Windows;
 
     /// <summary>
@@ -12,19 +15,19 @@
             InitializeComponent();
         }
 
-        private void ButtonSave_Click(object sender, RoutedEventArgs e)
+        public InvoiceForm(IViewManager viewManager, IInvoiceService invoiceService, IContragentService contragentService, IProjectService projectService)
         {
+            InitializeComponent();
 
-        }
+            InvoiceFormViewModel vm = (InvoiceFormViewModel)this.DataContext; // this creates an instance of the ViewModel
 
-        private void ButtonEdit_Click(object sender, RoutedEventArgs e)
-        {
+            if (vm.CloseAction == null)
+                vm.CloseAction = new Action(() => this.Close());
 
-        }
-
-        private void ButtonPrint_Click(object sender, RoutedEventArgs e)
-        {
-
+            vm.ViewManager = viewManager;
+            vm.InvoiceService = invoiceService;
+            vm.ContragentService = contragentService;
+            vm.ProjectService = projectService;
         }
     }
 }

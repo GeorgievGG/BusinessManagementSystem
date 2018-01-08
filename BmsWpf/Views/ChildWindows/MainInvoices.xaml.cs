@@ -66,7 +66,7 @@
             var dateSearch = DateTime.ParseExact(find, "dd/MM/yy", CultureInfo.InvariantCulture);
             var numberSearch = int.Parse(find);
 
-            var found = context.ClientIncoices.Select(
+            var found = context.Invoices.Select(
                 s => s.Date == dateSearch || s.Client.Name == find || s.Id == numberSearch).ToList();
             foreach (var f in found)
             {
