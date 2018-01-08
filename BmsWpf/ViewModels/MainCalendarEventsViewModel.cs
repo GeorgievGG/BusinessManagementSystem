@@ -8,6 +8,7 @@
     using BmsWpf.Behaviour;
     using BmsWpf.Services.Contracts;
     using BmsWpf.Views.Forms;
+    using MoreLinq;
 
     public class MainCalendarEventsViewModel:ViewModelBase,IPageViewModel
     {
@@ -21,7 +22,7 @@
         public ICommand DeleteCommand;
         public ICommand BackCommand;
 
-        public ICalendarEventService CalendarEventService { get; set; }
+        public ICalendarEventsService CalendarEventService { get; set; }
         //  public IInquiryService InquiryService { get; set; }
         public IViewManager ViewManager { get; set; }
 
@@ -135,7 +136,7 @@
 
         private void HandleLoadedCommand(object parameter)
         {
-            var calendarEventsDtos = CalendarEventService.GetMainInquiriesInfo();
+            var calendarEventsDtos = CalendarEventService.GetMainCalendarEventsInfo();
             this.CalendarEvents = calendarEventsDtos.ToDataTable();
         }
 
@@ -185,5 +186,4 @@
             this.CloseAction();
         }
     }
-}
 }

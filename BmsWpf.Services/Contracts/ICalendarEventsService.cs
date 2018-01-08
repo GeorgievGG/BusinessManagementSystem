@@ -1,8 +1,7 @@
 ﻿namespace BmsWpf.Services.Contracts
 {
-    using System.Collections.Generic;
-
     using BmsWpf.Services.DTOs;
+    using System.Collections.Generic;
 
     public interface ICalendarEventsService
     {

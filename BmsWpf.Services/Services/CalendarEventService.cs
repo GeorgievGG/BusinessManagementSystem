@@ -9,6 +9,7 @@
     using BmsWpf.Services.DTOs;
 
     using Microsoft.EntityFrameworkCore;
+    using BMS.DataBaseModels;
 
     public class CalendarEventService : ICalendarEventsService
     {
@@ -25,11 +26,11 @@
             var calendarEventsDtos = calendarEvents.Select(
                 x => new CalendarEventsMainWindowDto()
                 {
-                    Id = x.Id,
+                    Id = x.EventId,
                     Title = x.Title,
                     Description = x.Description,
-                    StartDate = x.StartDate,
-                    EndDate = x.EndDate,
+                    StartDate = x.StartTime,
+                    EndDate = x.EndTime,
                     Color = x.Color,
                     Creator = new UserListDto()
                                   {
@@ -46,10 +47,10 @@
             var calendarEventsDtos = calendarEvents.Select(
                 x => new CalendarEventsListDto()
                 {
-                    Description = x.Dexcription,
+                    Description = x.Description,
                     Title = x.Title,
-                    StartDate = x.StartDate,
-                    EndDate = x.EndDate,
+                    StartDate = x.StartTime,
+                    EndDate = x.EndTime,
                 });
             return calendarEventsDtos;
         }
@@ -76,7 +77,7 @@
                 }
                 throw dbEx;
             }
-            return $"You deleted event {calendarEvent.Id} from {calendarEvent.Title} successfully";
+            return $"You deleted event {calendarEvent.EventId} from {calendarEvent.Title} successfully";
         }
 
         public string CreateCalendarEvent(CalendarEventsPostDto newCalendarEvent)
@@ -100,12 +101,13 @@
         public string EditCalendarEvent(CalendarEventsPostDto newCalendarEvent)
         {
             var calendarEventToUpdate = this.bmsData.CalendarEvents.Find(newCalendarEvent.Id);
+            var creator = this.bmsData.Users.Find(newCalendarEvent.CreatorId);
 
             calendarEventToUpdate.Title = newCalendarEvent.Title;
             calendarEventToUpdate.Description = newCalendarEvent.Description;
-            calendarEventToUpdate.StartDate = newCalendarEvent.StartDate;
-            calendarEventToUpdate.EndDate = newCalendarEvent.EndDate;
-            calendarEventToUpdate.Creator = newCalendarEvent.CreatorId;
+            calendarEventToUpdate.StartTime = newCalendarEvent.StartDate;
+            calendarEventToUpdate.EndTime = newCalendarEvent.EndDate;
+            calendarEventToUpdate.Creator = creator;
             calendarEventToUpdate.Color = newCalendarEvent.Color;
 
             return $"Event {newCalendarEvent.Title} was successfully updated!";

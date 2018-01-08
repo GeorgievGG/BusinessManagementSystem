@@ -25,7 +25,7 @@
             this.timeView.Content = DateTime.Today.ToShortDateString();
         }
 
-        public MainCalendarEvents(IViewManager viewManager, ICalendarEventService calendarEventService)
+        public MainCalendarEvents(IViewManager viewManager, ICalendarEventsService calendarEventService)
         {
             InitializeComponent();
 

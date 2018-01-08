@@ -10,6 +10,9 @@
     using BmsWpf.Views.ChildWindows;
 
     using BMS.DataBaseModels.Enums;
+    using BmsWpf.Services.DTOs;
+    using BmsWpf.Services.Contracts;
+    using System.Linq;
 
     public class CalendarEventFormViewModel:ViewModelBase, IPageViewModel
     {
@@ -34,7 +37,7 @@
             this.endDate = DateTime.Now;
         }
 
-        public ICalendarEventService CalendarEventService { get; set; }
+        public ICalendarEventsService CalendarEventService { get; set; }
         public IUserService UserService { get; set; }
         public IViewManager ViewManager { get; set; }
 
@@ -225,11 +228,11 @@
             {
                 if (this.SelectedCalendarEvent == null)
                 {
-                    result = this.CalendarEventService.CreateInquiry(newCalendarEvent);
+                    result = this.CalendarEventService.CreateCalendarEvent(newCalendarEvent);
                 }
                 else
                 {
-                    result = this.CalendarEventService.EditInquiry(newCalendarEvent);
+                    result = this.CalendarEventService.EditCalendarEvent(newCalendarEvent);
                 }
             }
             catch (Exception e)

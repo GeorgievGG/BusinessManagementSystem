@@ -10,6 +10,7 @@
     using BMS.DataBaseData;
     using BMS.DataBaseModels;
     using BMS.DataBaseModels.Enums;
+    using BmsWpf.Services.Contracts;
 
     /// <summary>
     /// Interaction logic for CalendarEventForm.xaml
@@ -27,7 +28,7 @@
          //   FillComboBox();
         }
 
-        public CalendarEventForm(IViewManager viewManager, ICalendarEventService calendarEventService)
+        public CalendarEventForm(IViewManager viewManager, ICalendarEventsService calendarEventService)
         {
             InitializeComponent();
 
