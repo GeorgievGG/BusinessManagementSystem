@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Data;
     using System.Data.SqlClient;
     using System.Linq;
 
@@ -11,6 +12,8 @@
     using Microsoft.EntityFrameworkCore;
     using BMS.DataBaseModels;
 
+    using MoreLinq;
+
     public class CalendarEventService : ICalendarEventsService
     {
         private IBmsData bmsData;
@@ -19,11 +22,14 @@
         {
             this.bmsData = bmsData;
         }
-        public IEnumerable<CalendarEventsMainWindowDto> GetMainCalendarEventsInfo()
+
+        public DataTable GetCalendarEventsAsDataTable()
         {
+            //IQueryable<CalendarEvent> calendarEvents = this.GetAllCalendarEvents();
+
             var calendarEvents = this.bmsData.CalendarEvents.All();
 
-            var calendarEventsDtos = calendarEvents.Select(
+            var calendarEventsDataTable = calendarEvents.Select(
                 x => new CalendarEventsMainWindowDto()
                 {
                     Id = x.EventId,
@@ -33,13 +39,25 @@
                     EndDate = x.EndTime,
                     Color = x.Color,
                     Creator = new UserListDto()
-                                  {
-                                      Id = x.Creator.Id,
-                                      Username = x.Creator.Username
-                                  },
-                });
-            return calendarEventsDtos;
+                    {
+                        Id = x.Creator.Id,
+                        Username = x.Creator.Username
+                    },
+                    Project = new ProjectListDto
+                    {
+                        Id = x.Project.Id,
+                        Name = x.Project.Name
+                    },
+                }).ToDataTable();
+
+            return calendarEventsDataTable;
         }
+
+        //private IQueryable<CalendarEvent> GetAllCalendarEvents()
+        //{
+        //    var calendarEvents = this.bmsData.CalendarEvents.All();
+        //    return calendarEvents;
+        //}
 
         public IEnumerable<CalendarEventsListDto> GetInquiriesList()
         {
@@ -47,6 +65,7 @@
             var calendarEventsDtos = calendarEvents.Select(
                 x => new CalendarEventsListDto()
                 {
+
                     Description = x.Description,
                     Title = x.Title,
                     StartDate = x.StartTime,
@@ -84,14 +103,16 @@
         {
             var userSrv = new UserService(bmsData);
             var calendarEvent = new CalendarEvent()
-                                    {
-                                        Title = newCalendarEvent.Title,
-                                        Description = newCalendarEvent.Description,
-                                        Color = newCalendarEvent.Color,
-                                        StartTime = newCalendarEvent.StartDate,
-                                        EndTime = newCalendarEvent.EndDate,
-                                        CreatorId = newCalendarEvent.CreatorId,
-                                    };
+            {
+                EventId = newCalendarEvent.Id,
+                Title = newCalendarEvent.Title,
+                Description = newCalendarEvent.Description,
+                Color = newCalendarEvent.Color,
+                StartTime = newCalendarEvent.StartDate,
+                EndTime = newCalendarEvent.EndDate,
+                CreatorId = newCalendarEvent.CreatorId,
+                ProjectId = newCalendarEvent.ProjectId,
+            };
             this.bmsData.CalendarEvents.Add(calendarEvent);
             this.bmsData.SaveChanges();
 
@@ -110,6 +131,8 @@
             calendarEventToUpdate.Creator = creator;
             calendarEventToUpdate.Color = newCalendarEvent.Color;
 
+            this.bmsData.CalendarEvents.Update(calendarEventToUpdate);
+            this.bmsData.SaveChanges();
             return $"Event {newCalendarEvent.Title} was successfully updated!";
         }
     }

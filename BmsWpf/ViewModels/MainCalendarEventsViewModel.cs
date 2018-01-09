@@ -23,10 +23,14 @@
         public ICommand BackCommand;
 
         public ICalendarEventsService CalendarEventService { get; set; }
-        //  public IInquiryService InquiryService { get; set; }
         public IViewManager ViewManager { get; set; }
-
+        public string TimeView { get; set; }
         public Action CloseAction { get; set; }
+
+        public MainCalendarEventsViewModel()
+        {
+            this.TimeView = DateTime.Today.ToShortDateString();
+        }
 
         public string ViewName
         {
@@ -136,8 +140,7 @@
 
         private void HandleLoadedCommand(object parameter)
         {
-            var calendarEventsDtos = CalendarEventService.GetMainCalendarEventsInfo();
-            this.CalendarEvents = calendarEventsDtos.ToDataTable();
+            this.CalendarEvents = this.CalendarEventService.GetCalendarEventsAsDataTable();
         }
 
         private void HandleAddNewCommand(object parameter)

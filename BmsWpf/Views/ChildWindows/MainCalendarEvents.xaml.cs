@@ -15,19 +15,19 @@
         public MainCalendarEvents()
         {
             InitializeComponent();
-            ShowTime();
+            //  ShowTime();
             //FillGrid();
             //this.DataContext = new BmsContex();
         }
 
-        private void ShowTime()
-        {
-            this.timeView.Content = DateTime.Today.ToShortDateString();
-        }
+        //private void ShowTime()
+        //{
+        //    this.timeView.Content = DateTime.Today.ToShortDateString();
+        //}
 
         public MainCalendarEvents(IViewManager viewManager, ICalendarEventsService calendarEventService)
         {
-            InitializeComponent();
+           this.InitializeComponent();
 
             MainCalendarEventsViewModel vm = (MainCalendarEventsViewModel)this.DataContext; // this creates an instance of the ViewModel
 

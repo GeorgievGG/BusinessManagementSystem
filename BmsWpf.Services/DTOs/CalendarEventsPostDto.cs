@@ -13,5 +13,6 @@
         public DateTime EndDate { get; set; }
         public Color Color { get; set; }
         public int CreatorId { get; set; }
+        public int ProjectId { get; set; }
     }
 }

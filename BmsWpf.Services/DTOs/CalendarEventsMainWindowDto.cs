@@ -12,5 +12,6 @@
         public DateTime EndDate { get; set; }
         public Color Color { get; set; }
         public UserListDto Creator { get; set; }
+        public ProjectListDto Project { get; set; }
     }
 }

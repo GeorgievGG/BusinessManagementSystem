@@ -2,10 +2,11 @@
 {
     using BmsWpf.Services.DTOs;
     using System.Collections.Generic;
+    using System.Data;
 
     public interface ICalendarEventsService
     {
-        IEnumerable<CalendarEventsMainWindowDto> GetMainCalendarEventsInfo();
+        DataTable GetCalendarEventsAsDataTable();
         IEnumerable<CalendarEventsListDto> GetInquiriesList();
         string Delete(int id);
         string CreateCalendarEvent(CalendarEventsPostDto newCalendarEvent);

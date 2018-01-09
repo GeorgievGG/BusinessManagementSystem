@@ -16,10 +16,6 @@
         </intr:EventTrigger>
     </intr:Interaction.Triggers>
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="91*"/>
-            <ColumnDefinition Width="281*"/>
-        </Grid.ColumnDefinitions>
         <Calendar VerticalAlignment="Top" HorizontalAlignment="Left" Margin="28,48,0,0" Height="166" Width="180" Grid.ColumnSpan="2"></Calendar>
         <Button Name ="BackButton" Command="{Binding Back}"  Content="Back" Background="AliceBlue" Height="50" Width="180" Margin="318.566,481,63,39.4" Grid.Column="1"/>
         <Button Name="AddEventButton" Content="Add new event" Command="{Binding AddNew}" Background="AliceBlue" Height="50" Width="180" Margin="28,265,536,255.4" Grid.ColumnSpan="2"/>
@@ -31,7 +27,6 @@
                   HorizontalAlignment="Right" Height="383" 
                   Margin="0,48,63,0" VerticalAlignment="Top" 
                   Width="428" VerticalScrollBarVisibility="Auto" 
-                  Grid.Column="1"
                   SelectionMode="Single"
                   CanUserAddRows="false"
                   ItemsSource="{Binding CalendarEvents}"
