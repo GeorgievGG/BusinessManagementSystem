@@ -141,7 +141,7 @@
         {
             var addNewInquiryWindow = this.ViewManager.ComposeObjects<OfferForm>();
             var vm = (OfferFormViewModel)addNewInquiryWindow.DataContext;
-            vm.InquiryCreator = Session.Instance.Username;
+            vm.OfferCreator = Session.Instance.Username;
             addNewInquiryWindow.Show();
             this.CloseAction();
         }
@@ -156,6 +156,7 @@
             var addNewInquiryWindow = this.ViewManager.ComposeObjects<OfferForm>();
             var vm = (OfferFormViewModel)addNewInquiryWindow.DataContext;
             vm.SelectedOffer = this.selectedOffer;
+            vm.OfferCreator = Session.Instance.Username;
             addNewInquiryWindow.Show();
             this.CloseAction();
         }

@@ -14,10 +14,9 @@
     public class OffersFormViewModel : ViewModelBase, IPageViewModel
     {
         private ContragentListDto selectedClient;
-        private UserListDto selectedUsername;
-        private ObservableCollection<UserListDto> usernamesList;
         private ObservableCollection<ContragentListDto> clientsList;
         private int id;
+        private int creatorId;
         private string personOfContact;
         private string email;
         private string phoneNum;
@@ -155,32 +154,6 @@
             }
         }
 
-        public UserListDto SelectedUsername
-        {
-            get
-            {
-                return this.selectedUsername;
-            }
-            set
-            {
-                this.selectedUsername = value;
-                this.OnPropertyChanged(nameof(SelectedUsername));
-            }
-        }
-
-        public ObservableCollection<UserListDto> UsernameList
-        {
-            get
-            {
-                return this.usernamesList;
-            }
-            set
-            {
-                this.usernamesList = value;
-                OnPropertyChanged(nameof(UsernameList));
-            }
-        }
-
         public ContragentListDto SelectedClient
         {
             get
@@ -257,13 +230,11 @@
 
         private void HandleLoadedCommand(object parameter)
         {
-            this.UsernameList = new ObservableCollection<UserListDto>(this.UserService.GetUsernames());
             this.ClientsList = new ObservableCollection<ContragentListDto>(this.ContragentService.GetContragentsForDropdown());
+            this.creatorId = this.UserService.GetUsernames().SingleOrDefault(x => x.Username == inquiryCreator).Id;
             if (this.SelectedInquiry != null)
             {
                 this.Id = (int)selectedInquiry.Row.ItemArray[0];
-                var creatorDto = (UserListDto)SelectedInquiry.Row.ItemArray[1];
-                this.SelectedUsername = UsernameList.SingleOrDefault(x => x.Id == creatorDto.Id);
                 var clientDto = (ContragentListDto)selectedInquiry.Row.ItemArray[2];
                 this.SelectedClient = ClientsList.SingleOrDefault(x => x.NameAndIdentity == clientDto.NameAndIdentity);
                 this.Description = (string)selectedInquiry.Row.ItemArray[3];
@@ -276,7 +247,6 @@
                 this.PersonOfContact = client.Contact;
                 this.Email = client.Email;
                 this.PhoneNum = client.PhoneNum;
-                this.InquiryCreator = selectedUsername.Username;
     }
         }
 
@@ -286,7 +256,7 @@
             var newInquiry = new InquiryPostDto()
             {
                 Id = this.Id,
-                CreatorId = this.SelectedUsername.Id,
+                CreatorId = this.creatorId,
                 ClientId = this.SelectedClient.Id,
                 Description = this.Description,
                 Date = this.Date

@@ -35,7 +35,18 @@
 
 
             <Button Content="Save" Canvas.Left="380" Canvas.Top="368" Width="100" Height="30" Command="{Binding Save}"/>
-            <ComboBox Name="CreatorBox"  Canvas.Left="185" Canvas.Top="281" Width="295" ItemsSource="{Binding UsernameList}" SelectedItem="{Binding SelectedUsername}" />
+            <TextBox Name="creatorBox" 
+                 Height="27"  
+                 BorderThickness="2"  
+                 BorderBrush="#313c4f" 
+                 TextWrapping="Wrap"  
+                 VerticalAlignment="Top" 
+                 RenderTransformOrigin="0.323,-1.178"
+                 IsReadOnly="True" 
+                 Background="LightGray"
+                 HorizontalContentAlignment="Left"
+                 VerticalContentAlignment="Center"
+                 Text="{Binding EventCreator}" Canvas.Left="185" Canvas.Top="283" Width="295"/>
             <Label Content="Project" Canvas.Left="13" Canvas.Top="313" Width="100" FontSize="16" Foreground="AntiqueWhite" RenderTransformOrigin="0.524,2.113"/>
             <ComboBox Name="ProjectComboBox"  Canvas.Left="185" Canvas.Top="317" Width="295" ItemsSource="{Binding ProjectsList}" SelectedItem="{Binding SelectedProject}"/>
 

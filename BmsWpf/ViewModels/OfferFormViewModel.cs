@@ -13,16 +13,14 @@
 
     public class OfferFormViewModel : ViewModelBase, IPageViewModel
     {
-        private ObservableCollection<UserListDto> usernamesList;
         private ObservableCollection<ContragentListDto> clientsList;
         private ObservableCollection<InquiryListDto> inquiriesList;
         private ContragentListDto selectedClient;
         private InquiryListDto selectedInquiry;
-        private UserListDto selectedUsername;
 
         private int id;
         private DateTime date;
-        private string inquiryCreator;
+        private string offerCreator;
 
         public ICommand WindowLoadedCommand;
         public ICommand SaveCommand;
@@ -64,16 +62,16 @@
             }
         }
 
-        public string InquiryCreator
+        public string OfferCreator
         {
             get
             {
-                return this.inquiryCreator;
+                return this.offerCreator;
             }
             set
             {
-                this.inquiryCreator = value;
-                this.OnPropertyChanged(nameof(InquiryCreator));
+                this.offerCreator = value;
+                this.OnPropertyChanged(nameof(OfferCreator));
             }
         }
 
@@ -113,32 +111,6 @@
             {
                 this.selectedOffer = value;
                 this.OnPropertyChanged(nameof(SelectedOffer));
-            }
-        }
-
-        public UserListDto SelectedUsername
-        {
-            get
-            {
-                return this.selectedUsername;
-            }
-            set
-            {
-                this.selectedUsername = value;
-                this.OnPropertyChanged(nameof(SelectedUsername));
-            }
-        }
-
-        public ObservableCollection<UserListDto> UsernameList
-        {
-            get
-            {
-                return this.usernamesList;
-            }
-            set
-            {
-                this.usernamesList = value;
-                OnPropertyChanged(nameof(UsernameList));
             }
         }
 
@@ -194,6 +166,8 @@
             }
         }
 
+        private int creatorId;
+
         public ICommand WindowLoaded
         {
             get
@@ -232,21 +206,18 @@
 
         private void HandleLoadedCommand(object parameter)
         {
-            this.UsernameList = new ObservableCollection<UserListDto>(this.UserService.GetUsernames());
             this.ClientsList = new ObservableCollection<ContragentListDto>(this.ContragentService.GetContragentsForDropdown());
             this.InquiriesList = new ObservableCollection<InquiryListDto>(this.InquiryService.GetInquiriesList());
+            this.creatorId = this.UserService.GetUsernames().SingleOrDefault(x => x.Username == offerCreator).Id;
             if (this.SelectedOffer != null)
             {
                 this.Id = (int)SelectedOffer.Row.ItemArray[0];
-                var creatorDto = (UserListDto)SelectedOffer.Row.ItemArray[1];
-                this.SelectedUsername = UsernameList.SingleOrDefault(x => x.Id == creatorDto.Id);
                 var clientDto = (ContragentListDto)SelectedOffer.Row.ItemArray[2];
                 this.SelectedClient = ClientsList.SingleOrDefault(x => x.Id == clientDto.Id);
                 var inquiryDto = (InquiryListDto)SelectedOffer.Row.ItemArray[3];
                 this.SelectedInquiry = InquiriesList.SingleOrDefault(x => x.Id == inquiryDto.Id);
                 this.Description = (string)SelectedOffer.Row.ItemArray[4];
                 this.Date = (DateTime)SelectedOffer.Row.ItemArray[5];
-                this.InquiryCreator = selectedUsername.Username;
             }
         }
 
@@ -256,7 +227,7 @@
             var newOffer = new OfferPostDto()
             {
                 Id = this.Id,
-                CreatorId = this.SelectedUsername.Id,
+                CreatorId = creatorId,
                 ClientId = this.SelectedClient.Id,
                 InquiryId = this.SelectedInquiry.Id,
                 Description = this.Description,

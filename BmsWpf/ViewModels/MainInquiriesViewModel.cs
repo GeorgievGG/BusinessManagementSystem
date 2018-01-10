@@ -170,6 +170,7 @@
             var addNewInquiryWindow = this.ViewManager.ComposeObjects<InquireForm>();
             var vm = (OffersFormViewModel)addNewInquiryWindow.DataContext;
             vm.SelectedInquiry = this.SelectedInquiry;
+            vm.InquiryCreator = Session.Instance.Username;
             addNewInquiryWindow.Show();
             this.CloseAction();
         }

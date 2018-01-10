@@ -1,26 +1,24 @@
 ﻿namespace BmsWpf.ViewModels
 {
+    using BMS.DataBaseModels.Enums;
+    using BmsWpf.Behaviour;
+    using BmsWpf.Services.Contracts;
+    using BmsWpf.Services.DTOs;
+    using BmsWpf.Views.ChildWindows;
     using System;
     using System.Collections.ObjectModel;
     using System.Data;
+    using System.Linq;
     using System.Windows;
     using System.Windows.Input;
 
-    using BmsWpf.Behaviour;
-    using BmsWpf.Views.ChildWindows;
-
-    using BMS.DataBaseModels.Enums;
-    using BmsWpf.Services.DTOs;
-    using BmsWpf.Services.Contracts;
-    using System.Linq;
-
     public class CalendarEventFormViewModel : ViewModelBase, IPageViewModel
     {
-        private UserListDto selectedUsername;
-        private ObservableCollection<UserListDto> usernamesList;
         private ProjectListDto selectedProject;
         private ObservableCollection<ProjectListDto> projectsList;
         private int id;
+        private int creatorId;
+        private string eventCreator;
         private string title;
         private string description;
         private DateTime startDate;
@@ -136,29 +134,16 @@
             }
         }
 
-        public UserListDto SelectedUsername
+        public string EventCreator
         {
             get
             {
-                return this.selectedUsername;
+                return this.eventCreator;
             }
             set
             {
-                this.selectedUsername = value;
-                this.OnPropertyChanged(nameof(this.SelectedUsername));
-            }
-        }
-
-        public ObservableCollection<UserListDto> UsernameList
-        {
-            get
-            {
-                return this.usernamesList;
-            }
-            set
-            {
-                this.usernamesList = value;
-                OnPropertyChanged(nameof(this.UsernameList));
+                this.eventCreator = value;
+                this.OnPropertyChanged(nameof(this.EventCreator));
             }
         }
 
@@ -248,8 +233,8 @@
 
         private void HandleLoadedCommand(object parameter)
         {
-            this.UsernameList = new ObservableCollection<UserListDto>(this.UserService.GetUsernames());
             this.ProjectsList = new ObservableCollection<ProjectListDto>(this.ProjectService.GetProjectsForDropdown());
+            this.creatorId = this.UserService.GetUsernames().SingleOrDefault(x => x.Username == EventCreator).Id;
             if (this.SelectedCalendarEvent != null)
             {
                 this.Id = (int)this.selectedCalendarEvent.Row.ItemArray[0];
@@ -258,9 +243,7 @@
                 this.StartDate = (DateTime)this.selectedCalendarEvent.Row.ItemArray[3];
                 this.EndDate = (DateTime)this.selectedCalendarEvent.Row.ItemArray[4];
                 this.selectedColor = (Color)this.selectedCalendarEvent.Row.ItemArray[5];
-                var creatorDto = (UserListDto)SelectedCalendarEvent.Row.ItemArray[6];
-                this.SelectedUsername = UsernameList.SingleOrDefault(x => x.Id == creatorDto.Id); //You saw this one! It is important to do this selection, because it will not select username if you directly pass the dto.
-                var projectDto = (ProjectListDto)SelectedCalendarEvent.Row.ItemArray[7];
+                var projectDto = (ProjectListDto)SelectedCalendarEvent.Row.ItemArray[7];//You saw this one! It is important to do this selection, because it will not select username if you directly pass the dto.
                 this.SelectedProject = ProjectsList.SingleOrDefault(x => x.Id == projectDto.Id);
             }
         }
@@ -271,7 +254,7 @@
             var newCalendarEvent = new CalendarEventsPostDto()
                                        {
                                            Id = this.Id,
-                                           CreatorId = this.SelectedUsername.Id,
+                                           CreatorId = this.creatorId,
                                            ProjectId = this.SelectedProject.Id,
                                            Title = this.Title,
                                            Description = this.Description,

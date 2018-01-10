@@ -2,6 +2,7 @@
 {
     using BmsWpf.Behaviour;
     using BmsWpf.Services.Contracts;
+    using BmsWpf.Sessions;
     using BmsWpf.Views.ChildWindows;
     using BmsWpf.Views.Forms;
     using System;
@@ -145,6 +146,8 @@
         private void HandleAddNewCommand(object parameter)
         {
             var addNewCalendarEventWindow = this.ViewManager.ComposeObjects<CalendarEventForm>();
+            var vm = (CalendarEventFormViewModel)addNewCalendarEventWindow.DataContext;
+            vm.EventCreator = Session.Instance.Username;
             addNewCalendarEventWindow.Show();
             this.CloseAction();
         }
@@ -159,6 +162,7 @@
             var addNewCalendarEventWindow = this.ViewManager.ComposeObjects<CalendarEventForm>();
             var vm = (CalendarEventFormViewModel)addNewCalendarEventWindow.DataContext;
             vm.SelectedCalendarEvent = this.SelectedCalendarEvents;
+            vm.EventCreator = Session.Instance.Username;
             addNewCalendarEventWindow.Show();
             this.CloseAction();
         }
