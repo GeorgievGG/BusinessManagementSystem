@@ -1,20 +1,17 @@
 ﻿namespace BmsWpf.Services.Services
 {
+    using BMS.DataBaseModels;
+    using BmsWpf.Services.Contracts;
+    using BmsWpf.Services.DTOs;
+    using Microsoft.EntityFrameworkCore;
+    using MoreLinq;
     using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Data.SqlClient;
     using System.Linq;
 
-    using BmsWpf.Services.Contracts;
-    using BmsWpf.Services.DTOs;
-
-    using Microsoft.EntityFrameworkCore;
-    using BMS.DataBaseModels;
-
-    using MoreLinq;
-
-    public class CalendarEventService : ICalendarEventsService
+    public class CalendarEventService : ICalendarEventService
     {
         private IBmsData bmsData;
 
@@ -59,13 +56,13 @@
         //    return calendarEvents;
         //}
 
-        public IEnumerable<CalendarEventsListDto> GetInquiriesList()
+        public IEnumerable<CalendarEventsListDto> GetEventsList()
         {
             var calendarEvents = this.bmsData.CalendarEvents.All();
             var calendarEventsDtos = calendarEvents.Select(
                 x => new CalendarEventsListDto()
                 {
-
+                    Id = x.EventId, //Added event ID to the DTO
                     Description = x.Description,
                     Title = x.Title,
                     StartDate = x.StartTime,

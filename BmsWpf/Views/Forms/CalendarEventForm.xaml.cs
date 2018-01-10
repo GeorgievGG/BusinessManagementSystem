@@ -28,7 +28,7 @@
          //   FillComboBox();
         }
 
-        public CalendarEventForm(IViewManager viewManager, ICalendarEventsService calendarEventService)
+        public CalendarEventForm(IViewManager viewManager, ICalendarEventService calendarEventService, IUserService userService, IProjectService projectService)//You missed IUserService, which is used in your VM
         {
             InitializeComponent();
 
@@ -39,6 +39,8 @@
 
             vm.ViewManager = viewManager;
             vm.CalendarEventService = calendarEventService;
+            vm.UserService = userService;
+            vm.ProjectService = projectService;
         }
 
 

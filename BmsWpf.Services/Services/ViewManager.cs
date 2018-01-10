@@ -27,6 +27,7 @@
             container.Bind<IOfferService>().To<OfferService>().InTransientScope();
             container.Bind<IContragentService>().To<ContragentService>().InTransientScope();
             container.Bind<IInvoiceService>().To<InvoiceService>().InTransientScope();
+            container.Bind<ICalendarEventService>().To<CalendarEventService>().InTransientScope();
         }
 
         public T ComposeObjects<T>()

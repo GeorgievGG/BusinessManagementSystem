@@ -1,19 +1,18 @@
 ﻿namespace BmsWpf.ViewModels
 {
+    using BmsWpf.Behaviour;
+    using BmsWpf.Services.Contracts;
+    using BmsWpf.Views.ChildWindows;
+    using BmsWpf.Views.Forms;
     using System;
     using System.Data;
     using System.Windows;
     using System.Windows.Input;
 
-    using BmsWpf.Behaviour;
-    using BmsWpf.Services.Contracts;
-    using BmsWpf.Views.Forms;
-    using MoreLinq;
-
     public class MainCalendarEventsViewModel:ViewModelBase,IPageViewModel
     {
         private DataTable calendarEvents;
-        private DataRowView selectedCalendarEvents;
+        private DataRowView selectedCalendarEvent;
 
         public ICommand WindowLoadedCommand;
         public ICommand DoubleClickCommand;
@@ -22,7 +21,7 @@
         public ICommand DeleteCommand;
         public ICommand BackCommand;
 
-        public ICalendarEventsService CalendarEventService { get; set; }
+        public ICalendarEventService CalendarEventService { get; set; }
         public IViewManager ViewManager { get; set; }
         public string TimeView { get; set; }
         public Action CloseAction { get; set; }
@@ -44,11 +43,11 @@
         {
             get
             {
-                return this.selectedCalendarEvents;
+                return this.selectedCalendarEvent;
             }
             set
             {
-                this.selectedCalendarEvents = value;
+                this.selectedCalendarEvent = value;
                 this.OnPropertyChanged(nameof(this.SelectedCalendarEvents));
             }
         }
@@ -166,7 +165,12 @@
 
         private void HandleDeleteCommand(object parameter)
         {
-            var calendarEventId = (int)this.selectedCalendarEvents.Row.ItemArray[0];
+            if (this.SelectedCalendarEvents == null)
+            {
+                MessageBox.Show("Please select an event to continue");
+                return;
+            }
+            var calendarEventId = (int)this.selectedCalendarEvent.Row.ItemArray[0];
 
             var result = string.Empty;
 
@@ -180,6 +184,9 @@
             }
 
             MessageBox.Show(result);
+            var mainEventsWindow = this.ViewManager.ComposeObjects<MainCalendarEvents>();
+            mainEventsWindow.Show();
+            this.CloseAction();
         }
 
         private void HandleBackCommand(object parameter)

@@ -4,10 +4,10 @@
     using System.Collections.Generic;
     using System.Data;
 
-    public interface ICalendarEventsService
+    public interface ICalendarEventService
     {
         DataTable GetCalendarEventsAsDataTable();
-        IEnumerable<CalendarEventsListDto> GetInquiriesList();
+        IEnumerable<CalendarEventsListDto> GetEventsList();
         string Delete(int id);
         string CreateCalendarEvent(CalendarEventsPostDto newCalendarEvent);
         string EditCalendarEvent(CalendarEventsPostDto newCalendarEvent);

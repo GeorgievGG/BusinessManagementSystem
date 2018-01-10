@@ -14,16 +14,19 @@
     using BmsWpf.Services.Contracts;
     using System.Linq;
 
-    public class CalendarEventFormViewModel:ViewModelBase, IPageViewModel
+    public class CalendarEventFormViewModel : ViewModelBase, IPageViewModel
     {
         private UserListDto selectedUsername;
         private ObservableCollection<UserListDto> usernamesList;
+        private ProjectListDto selectedProject;
+        private ObservableCollection<ProjectListDto> projectsList;
         private int id;
         private string title;
         private string description;
         private DateTime startDate;
         private DateTime endDate;
-        private Color Color;
+        private Color selectedColor;
+        private readonly ObservableCollection<Color> colors;
 
 
         public ICommand WindowLoadedCommand;
@@ -35,10 +38,14 @@
         {
             this.startDate = DateTime.Now;
             this.endDate = DateTime.Now;
+
+            var colorsList = Enum.GetValues(typeof(Color)).Cast<Color>().ToList();
+            this.colors = new ObservableCollection<Color>(colorsList);
         }
 
-        public ICalendarEventsService CalendarEventService { get; set; }
+        public ICalendarEventService CalendarEventService { get; set; }
         public IUserService UserService { get; set; }
+        public IProjectService ProjectService { get; set; }
         public IViewManager ViewManager { get; set; }
 
         public Action CloseAction { get; set; }
@@ -155,7 +162,52 @@
             }
         }
 
+        public ProjectListDto SelectedProject
+        {
+            get
+            {
+                return this.selectedProject;
+            }
+            set
+            {
+                this.selectedProject = value;
+                this.OnPropertyChanged(nameof(this.SelectedProject));
+            }
+        }
 
+        public ObservableCollection<ProjectListDto> ProjectsList
+        {
+            get
+            {
+                return this.projectsList;
+            }
+            set
+            {
+                this.projectsList = value;
+                OnPropertyChanged(nameof(this.ProjectsList));
+            }
+        }
+
+        public Color SelectedColor
+        {
+            get
+            {
+                return this.selectedColor;
+            }
+            set
+            {
+                this.selectedColor = value;
+                this.OnPropertyChanged(nameof(this.SelectedColor));
+            }
+        }
+
+        public ObservableCollection<Color> Colors
+        {
+            get
+            {
+                return this.colors;
+            }
+        }
 
         public ICommand WindowLoaded
         {
@@ -197,17 +249,19 @@
         private void HandleLoadedCommand(object parameter)
         {
             this.UsernameList = new ObservableCollection<UserListDto>(this.UserService.GetUsernames());
+            this.ProjectsList = new ObservableCollection<ProjectListDto>(this.ProjectService.GetProjectsForDropdown());
             if (this.SelectedCalendarEvent != null)
             {
-                //  this.Id = (int)this.selectedCalendarEvent.Row.ItemArray[0];
-
-                this.Title = (string)this.selectedCalendarEvent.Row.ItemArray[0];
-                this.Description = (string)this.selectedCalendarEvent.Row.ItemArray[1];
-                this.StartDate = (DateTime)this.selectedCalendarEvent.Row.ItemArray[2];
-                this.EndDate = (DateTime)this.selectedCalendarEvent.Row.ItemArray[3];
-                this.Color = (Color)this.selectedCalendarEvent.Row.ItemArray[4];
-                var creatorDto = (UserListDto)SelectedCalendarEvent.Row.ItemArray[5];
-                this.SelectedUsername = UsernameList.SingleOrDefault(x => x.Id == creatorDto.Id);
+                this.Id = (int)this.selectedCalendarEvent.Row.ItemArray[0];
+                this.Title = (string)this.selectedCalendarEvent.Row.ItemArray[1];
+                this.Description = (string)this.selectedCalendarEvent.Row.ItemArray[2];
+                this.StartDate = (DateTime)this.selectedCalendarEvent.Row.ItemArray[3];
+                this.EndDate = (DateTime)this.selectedCalendarEvent.Row.ItemArray[4];
+                this.selectedColor = (Color)this.selectedCalendarEvent.Row.ItemArray[5];
+                var creatorDto = (UserListDto)SelectedCalendarEvent.Row.ItemArray[6];
+                this.SelectedUsername = UsernameList.SingleOrDefault(x => x.Id == creatorDto.Id); //You saw this one! It is important to do this selection, because it will not select username if you directly pass the dto.
+                var projectDto = (ProjectListDto)SelectedCalendarEvent.Row.ItemArray[7];
+                this.SelectedProject = ProjectsList.SingleOrDefault(x => x.Id == projectDto.Id);
             }
         }
 
@@ -218,11 +272,12 @@
                                        {
                                            Id = this.Id,
                                            CreatorId = this.SelectedUsername.Id,
+                                           ProjectId = this.SelectedProject.Id,
                                            Title = this.Title,
                                            Description = this.Description,
                                            StartDate = this.StartDate,
                                            EndDate = this.EndDate,
-                                           Color = this.Color,
+                                           Color = this.SelectedColor,
                                        };
             try
             {
