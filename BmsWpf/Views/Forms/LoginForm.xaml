@@ -5,7 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:viewModels="clr-namespace:BmsWpf.ViewModels"
         mc:Ignorable="d"
-        Height="345.453" Width="360.688" FontSize="14" Background="#FF030F1D">
+        Height="345.453" Width="360.688" FontSize="14" Background="#FF030F1D" WindowStartupLocation="CenterScreen">
     <Window.DataContext>
         <viewModels:LoginFormViewModel />
     </Window.DataContext>
@@ -39,21 +39,15 @@
             </StackPanel>
             <Button x:Name="loginBtn" 
                     Content="Login" 
-                    Margin="40,198,185.4,63" 
-                    Background="#FF205C2F" 
+                    Margin="194,204,40,59" 
+                    Background="DarkRed" 
                     Foreground="White" 
                     FontSize="18" 
-                    Height="35" 
+                    Height="40"
+                    Width="100"
                     Command="{Binding Login}" 
                     CommandParameter="{Binding ElementName=PasswordField}"/>
-            <Button x:Name="closeBtn"
-                    Content="Close" 
-                    Margin="172,202,56.4,63" 
-                    Background="#FF852035" 
-                    Foreground="White" 
-                    FontSize="18"
-                    Command="{Binding CloseApp}" 
-                    RenderTransformOrigin="0.485,-0.289" />
+
             <Separator Margin="40,277,40.8,36.6"></Separator>
         </Grid>
     </Border>

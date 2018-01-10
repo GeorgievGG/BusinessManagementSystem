@@ -6,7 +6,7 @@
         xmlns:viewModels="clr-namespace:BmsWpf.ViewModels"
         xmlns:intr="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         mc:Ignorable="d"
-        Title="MainInvoices" Height="600" Width="750" FontSize="16" Background="#FF030F1D">
+        Title="Main Invoices" Height="850" Width="750" FontSize="16" Background="#FF2E3137" WindowStartupLocation="CenterScreen">
     <Window.DataContext>
         <viewModels:MainInvoicesViewModel />
     </Window.DataContext>
@@ -15,34 +15,34 @@
             <intr:InvokeCommandAction Command="{Binding WindowLoaded}"/>
         </intr:EventTrigger>
     </intr:Interaction.Triggers>
-    <Grid>
-        <Label Content="INVOICES" HorizontalAlignment="Left" Margin="298,10,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Background="#FF2E3137" Foreground="White"/>
+    <Grid Height="850" Width="750" Background="#FF2E3137">
+        <Label Content="INVOICES"  HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="54,35,54,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Background="#FF2E3137" Foreground="White" Width="642"/>
         <Button Name="SearchButton" 
                 Content="Search" 
                 HorizontalAlignment="Left" 
-                Margin="584,78,0,0" 
+                Margin="584,92,0,0" 
                 VerticalAlignment="Top" 
                 Width="100" 
                 Height="30" 
                 Command="{Binding Search}"/>
         <DataGrid Name="ClientInvoicesGrid" 
                   HorizontalAlignment="Left" 
-                  Height="365" 
-                  Margin="36,119,0,0" 
+                  Height="581" 
+                  Margin="54,138,0,0" 
                   VerticalAlignment="Top" 
-                  Width="648"
+                  Width="630"
                   ItemsSource="{Binding Invoices}"
                   SelectedItem="{Binding SelectedInvoice}"/>
         <TextBox Name="SearchTextBox" 
                  HorizontalAlignment="Left" 
                  Height="30" 
-                 Margin="36,78,0,0" 
+                 Margin="54,92,0,0" 
                  TextWrapping="Wrap" 
                  VerticalAlignment="Top" 
-                 Width="543"
+                 Width="522"
                  Text="{Binding SearchText}"/>
-        <Menu Name="ActionName" HorizontalAlignment="Left" Height="22" Margin="36,38,0,0" VerticalAlignment="Top" Width="43" RenderTransformOrigin="0.562,0.65">
-            <MenuItem Header="Menu">
+        <Menu Name="ActionName" HorizontalAlignment="Left" Height="30" Margin="54,750,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.562,0.65">
+            <MenuItem Header="Menu" FontSize="16" Width="100" Height="30" HorizontalAlignment="Center">
                 <MenuItem Header="Add client invoice" Command="{Binding AddNewCI}"/>
                 <MenuItem Header="Add supplier invoice"  Command="{Binding AddNewSI}"/>
                 <MenuItem Header="Edit invoice" Command="{Binding Edit}"/>
@@ -51,7 +51,7 @@
         <Button Name="BackButton" 
                 Content="Back" 
                 HorizontalAlignment="Left" 
-                Margin="584,512,0,0" 
+                Margin="589,750,0,0" 
                 VerticalAlignment="Top" 
                 Width="100" 
                 Height="30"

@@ -6,7 +6,7 @@
         xmlns:viewModels="clr-namespace:BmsWpf.ViewModels"
         xmlns:intr="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         mc:Ignorable="d"
-        Title="MainContragents" Height="425.955" Width="549.978"  Background="#2e3137">
+        Title="Main Contragents" Height="850" Width="750" FontSize="16" Background="#FF2E3137" WindowStartupLocation="CenterScreen">
     <Window.DataContext>
         <viewModels:MainContragentsViewModel />
     </Window.DataContext>
@@ -15,28 +15,16 @@
             <intr:InvokeCommandAction Command="{Binding WindowLoaded}"/>
         </intr:EventTrigger>
     </intr:Interaction.Triggers>
-	<Grid Margin="0,0,4,0">
-		<Label Content="Contragents" 
-            Foreground="White" 
-            FontSize="25" 
-            HorizontalAlignment="Center" Margin="243,10,144,325" Width="151"/>
-		<Separator HorizontalAlignment="Left" Height="7" Margin="199,58,0,0" VerticalAlignment="Top" Width="221" RenderTransformOrigin="0.5,0.5">
-			<Separator.RenderTransform>
-				<TransformGroup>
-					<ScaleTransform/>
-					<SkewTransform/>
-					<RotateTransform Angle="-0.362"/>
-					<TranslateTransform/>
-				</TransformGroup>
-			</Separator.RenderTransform>
-		</Separator>
+    <Grid Height="850" Width="750" Background="#FF2E3137">
+        <Label Content="CONTRAGENTS" 
+               HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="54,35,54,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Background="#FF2E3137" Foreground="White" Width="642"/>
         <DataGrid Name="ContragentDataGrid" 
                   SelectionMode="Single" 
                   HorizontalAlignment="Left" 
-                  Height="183" 
-                  Margin="30,89,0,0" 
+                  Height="590" 
+                  Margin="54,115,0,0" 
                   VerticalAlignment="Top" 
-                  Width="486" 
+                  Width="635" 
                   CanUserAddRows="False"
                   ItemsSource="{Binding Contragents}"
                   SelectedItem="{Binding SelectedContragent}" >
@@ -48,44 +36,44 @@
         </DataGrid>
         <Button Content="Add new" 
                 HorizontalAlignment="Left" 
-                Margin="30,277,0,0" 
+                Margin="54,750,0,0" 
                 VerticalAlignment="Top" 
-                Width="79" 
-                Background="#FF0D5923" 
-                Foreground="White" 
+                Width="100" 
+                Background="AliceBlue" 
+                Foreground="Black" 
                 FontSize="14" 
-                Height="28"
+                Height="30"
                 Command="{Binding AddNew}"/>
         <Button Content="Edit" 
                 HorizontalAlignment="Left" 
-                Margin="114,277,0,0" 
+                Margin="159,750,0,0" 
                 VerticalAlignment="Top" 
-                Width="79" 
-                Background="#FF4074CB" 
-                Foreground="White" 
+                Width="100" 
+                Background="AliceBlue" 
+                Foreground="Black" 
                 FontSize="14" 
-                Height="28"
+                Height="30"
                 Command="{Binding Edit}"/>
         <Button Content="Delete" 
                 HorizontalAlignment="Left" 
                 VerticalAlignment="Top" 
-                Width="84" 
-                Background="#FFCB4040" 
-                Foreground="White" 
+                Width="100" 
+                Background="AliceBlue" 
+                Foreground="Black" 
                 FontSize="14" 
-                Margin="198,277,0,0" 
-                Height="28" 
+                Margin="266,750,0,0" 
+                Height="30" 
                 VerticalContentAlignment="Center"
                 Command="{Binding Delete}"/>
         <Button Content="Back" 
                 HorizontalAlignment="Left" 
                 VerticalAlignment="Top" 
-                Width="81" 
-                Background="#FFCB4040" 
-                Foreground="White" 
+                Width="100" 
+                Background="AliceBlue" 
+                Foreground="Black" 
                 FontSize="14" 
-                Margin="435,327,0,0" 
-                Height="27"
+                Margin="589,750,0,0" 
+                Height="30"
                 Command="{Binding Back}"/>
     </Grid>
 </Window>

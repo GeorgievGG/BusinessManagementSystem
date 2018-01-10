@@ -7,7 +7,7 @@
         xmlns:intr="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         mc:Ignorable="d"
 
-        Title="ContragentForm" Height="658.826" Width="479.683">
+        Title="ContragentForm" Height="850" Width="750" FontSize="16" Background="#FF2E3137" WindowStartupLocation="CenterScreen">
     <Window.DataContext>
         <viewModels:ContragentFormViewModel />
     </Window.DataContext>
@@ -16,12 +16,12 @@
             <intr:InvokeCommandAction Command="{Binding WindowLoaded}"/>
         </intr:EventTrigger>
     </intr:Interaction.Triggers>
-    <Grid Margin="0,3,-6.4,-29.4" Background="#FF2E3137">
-        <Label Content="Contragent" HorizontalAlignment="Left" Foreground="#FF97D4D3" FontSize="30" FontWeight="Bold" Margin="155,10,0,0" VerticalAlignment="Top"/>
-        <Label Content="Company Name" Foreground="White" HorizontalAlignment="Left" Margin="86,108,0,0" VerticalAlignment="Top" Width="97"/>
+    <Grid Background="#FF2E3137" Height="850" Width="750">
+        <Label Content="Contragent" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="54,35,54,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Background="#FF2E3137" Foreground="White" Width="642"/>
+        <Label Content="Company Name" Foreground="White" HorizontalAlignment="Left" Margin="16,108,0,0" VerticalAlignment="Top" Height="40" Width="200"/>
         <TextBox Name ="ContragentName" 
-                 Height="27" 
-                 Margin="207,108,92,0" 
+                 Height="40" 
+                 Margin="226,108,56,0" 
                  BorderThickness="2"  
                  BorderBrush="#313c4f"  
                  TextAlignment="Center" 
@@ -33,13 +33,13 @@
         <Label Content="VAT Number" 
                Foreground="White" 
                HorizontalAlignment="Left" 
-               Margin="106,154,0,0" 
+               Margin="16,150,0,0" 
                VerticalAlignment="Top" 
-               Width="77"/>
+               Width="167"/>
         <TextBox Name ="PersonalVatNumber" 
-                  VerticalContentAlignment="Center"
-                 Height="27" 
-                 Margin="207,154,92,0"  
+                 VerticalContentAlignment="Center"
+                 Height="40"
+                 Margin="226,150,56,0"  
                  BorderThickness="2" 
                  BorderBrush="#313c4f"  
                  TextAlignment="Center" 
@@ -47,53 +47,42 @@
                  VerticalAlignment="Top" 
                  RenderTransformOrigin="0.323,-1.178" 
                  Text = "{Binding PersonalVatNumber}"/>
-        <Label Content="Personal Identity Number" Foreground="White" HorizontalAlignment="Left" Margin="43,200,0,0" VerticalAlignment="Top" Width="140"/>
+        <Label Content="Personal Identity Number" Foreground="White" HorizontalAlignment="Left" Margin="16,192,0,0" VerticalAlignment="Top" Height="40" Width="200"/>
         <TextBox Name="PersonalIndentityNumber"
-                   VerticalContentAlignment="Center" Height="27" Margin="207,200,92,0" Foreground="Black"  BorderThickness="2" BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" Text = "{Binding PersonalIndentityNumber}"/>
-        <Label Content="Phone Number" Foreground="White" HorizontalAlignment="Left" Margin="93,247,0,0" VerticalAlignment="Top" Width="90"/>
-        <TextBox Name ="Telephone"  VerticalContentAlignment="Center" Height="27" Margin="207,247,92,0" Foreground="Black"  BorderThickness="2" BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" Text ="{Binding Telephone}"/>
-        <Label Content="Email" Foreground="White" HorizontalAlignment="Left" Margin="142,286,0,0" VerticalAlignment="Top" Width="41"/>
-        <TextBox Name="Email"  VerticalContentAlignment="Center" Height="27" Margin="207,291,92,0" Foreground="Black"  BorderThickness="2"  BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" Text="{Binding Email}"/>
-        <Label Content="Contact Person" Foreground="White" HorizontalAlignment="Left" Margin="93,334,0,0" VerticalAlignment="Top" Width="90"/>
-        <TextBox Name="PersonForContact"  VerticalContentAlignment="Center" Height="27" Margin="207,334,92,0" Foreground="Black"  BorderThickness="2" BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" Text="{Binding PersonForContact}"/>
-        <Label Content="Town" Foreground="White" HorizontalAlignment="Left" Margin="132,379,0,0" VerticalAlignment="Top" Width="51"/>
-        <TextBox Name ="Town"  Height="27" Margin="207,378,92,0" Foreground="Black"  BorderThickness="2"  BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" VerticalContentAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" Text ="{Binding Town}"/>
-        <Label Content="Address" Foreground="White" HorizontalAlignment="Left" Margin="132,423,0,0" VerticalAlignment="Top" Width="51"/>
-        <TextBox Name ="Address"  Height="27" Margin="207,423,92,0" Foreground="Black"  BorderThickness="2"  BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" VerticalContentAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" Text ="{Binding Address}"/>
-        <Label Content="Bank Details" Foreground="White" HorizontalAlignment="Left" Margin="111,468,0,0" VerticalAlignment="Top" Width="72"/>
-        <TextBox Name="BankDetails" Height="27"  Margin="207,468,92,0" Foreground="Black"  BorderThickness="2"  BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" VerticalContentAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" Text="{Binding BankDetails}"/>
-        <Label Content="Notes" Foreground="White" HorizontalAlignment="Left" Margin="136,539,0,0" VerticalAlignment="Top" Width="47"/>
-        <TextBox Name="Description" Height="68" Margin="207,513,92,0" Foreground="Black"  BorderThickness="2"  BorderBrush="#313c4f" VerticalContentAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" Text="{Binding Description}"/>
+                   VerticalContentAlignment="Center" Width="470" Height="40" Margin="226,192,55,0" Foreground="Black"  BorderThickness="2" BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" Text = "{Binding PersonalIndentityNumber}"/>
+        <Label Content="Phone Number" Foreground="White" HorizontalAlignment="Left" Margin="16,234,0,0" VerticalAlignment="Top" Width="200" Height="40"/>
+        <TextBox Name ="Telephone"  VerticalContentAlignment="Center" Width="470" Height="40" Margin="226,234,55,0" Foreground="Black"  BorderThickness="2" BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" Text ="{Binding Telephone}"/>
+        <Label Content="Email" Foreground="White" HorizontalAlignment="Left" Margin="16,276,0,0" VerticalAlignment="Top" Width="200" Height="40"/>
+        <TextBox Name="Email"  VerticalContentAlignment="Center" Height="40" Margin="226,276,55,0" Foreground="Black"  BorderThickness="2"  BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" Text="{Binding Email}"/>
+        <Label Content="Contact Person" Foreground="White" HorizontalAlignment="Left" Margin="16,318,0,0" VerticalAlignment="Top" Width="200" Height="40"/>
+        <TextBox Name="PersonForContact"  VerticalContentAlignment="Center" Width="470" Height="40" Margin="226,318,55,0" Foreground="Black"  BorderThickness="2" BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" Text="{Binding PersonForContact}"/>
+        <Label Content="Town" Foreground="White" HorizontalAlignment="Left" Margin="16,360,0,0" VerticalAlignment="Top" Width="200" Height="40"/>
+        <TextBox Name ="Town"  Width="470" Height="40" Margin="226,360,55,0" Foreground="Black"  BorderThickness="2"  BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" VerticalContentAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" Text ="{Binding Town}"/>
+        <Label Content="Address" Foreground="White" HorizontalAlignment="Left" Margin="16,402,0,0" VerticalAlignment="Top" Width="200" Height="40"/>
+        <TextBox Name ="Address"  Width="470" Height="40" Margin="226,402,55,0" Foreground="Black"  BorderThickness="2"  BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" VerticalContentAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" Text ="{Binding Address}"/>
+        <Label Content="Bank Details" Foreground="White" HorizontalAlignment="Left" Margin="16,444,0,0" VerticalAlignment="Top" Width="200" Height="40"/>
+        <TextBox Name="BankDetails" Width="470" Height="40"  Margin="226,444,55,0" Foreground="Black"  BorderThickness="2"  BorderBrush="#313c4f"  TextAlignment="Center" TextWrapping="Wrap" VerticalContentAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" Text="{Binding BankDetails}"/>
+        <Label Content="Notes" Foreground="White" HorizontalAlignment="Left" Margin="16,486,0,0" VerticalAlignment="Top" Width="200" Height="40"/>
+        <TextBox Name="Description" Height="80" Margin="226,486,55,0" Foreground="Black"  BorderThickness="2"  BorderBrush="#313c4f" VerticalContentAlignment="Center" TextAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178"  TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Text="{Binding Description}"/>
         <Button Content="Save" 
                 HorizontalAlignment="Left" 
-                Margin="192,605,0,0" 
+                Margin="594,591,0,0" 
                 VerticalAlignment="Top" 
-                Width="71" 
-                Background="#FF1D5A8C" 
-                Foreground="White" 
-                FontWeight="Bold" 
-                FontSize="16"
+                Width="100" 
+                Background="AliceBlue" 
+                Foreground="Black" 
+                FontSize="14" 
+                Height="30"
                 RenderTransformOrigin="-0.133,0.56"
                 Command="{Binding Save}"/>
         <Button Content="Back" 
-                HorizontalAlignment="Left" 
-                Margin="293,605,0,0" 
                 VerticalAlignment="Top" 
-                Width="67" 
-                Foreground="White" 
-                Background="#FFAE3434" 
-                FontSize="16" 
-                FontWeight="Bold" 
+                Width="100" 
+                Background="AliceBlue" 
+                Foreground="Black" 
+                FontSize="14" 
+                Height="30"
+                Margin="589,750,0,0" 
                 Command="{Binding Back}"/>
-        <Separator HorizontalAlignment="Left" Height="14" Margin="130,57,0,0" VerticalAlignment="Top" Width="225" RenderTransformOrigin="0.508,1.013">
-            <Separator.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="-1"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform Y="-11.286"/>
-                </TransformGroup>
-            </Separator.RenderTransform>
-        </Separator>
     </Grid>
 </Window>

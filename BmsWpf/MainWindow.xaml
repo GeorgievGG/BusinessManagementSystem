@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModels="clr-namespace:BmsWpf.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="750" FontSize="16" Background="#FF030F1D">
+        Title="MainWindow" Height="600" Width="750" FontSize="16" Background="#FF030F1D" WindowStartupLocation="CenterScreen">
     <Window.DataContext>
         <viewModels:MainWindowViewModel />
     </Window.DataContext>

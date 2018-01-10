@@ -1,10 +1,15 @@
 ﻿namespace BmsWpf.Views.ChildWindows
 {
     using System;
+    using System.Linq;
     using System.Windows;
+    using System.Windows.Controls;
 
     using BmsWpf.Services.Contracts;
     using BmsWpf.ViewModels;
+    using BmsWpf.Views.Forms;
+
+    using BMS.DataBaseData;
 
     /// <summary>
     /// Interaction logic for MainCalendarEvents.xaml
@@ -15,19 +20,19 @@
         public MainCalendarEvents()
         {
             InitializeComponent();
-            //  ShowTime();
+            ShowTime();
             //FillGrid();
             //this.DataContext = new BmsContex();
         }
 
-        //private void ShowTime()
-        //{
-        //    this.timeView.Content = DateTime.Today.ToShortDateString();
-        //}
+        private void ShowTime()
+        {
+            this.timeView.Content = DateTime.Today.ToShortDateString();
+        }
 
         public MainCalendarEvents(IViewManager viewManager, ICalendarEventsService calendarEventService)
         {
-           this.InitializeComponent();
+            this.InitializeComponent();
 
             MainCalendarEventsViewModel vm = (MainCalendarEventsViewModel)this.DataContext; // this creates an instance of the ViewModel
 
@@ -41,7 +46,7 @@
         //{
         //    var context = new BmsContex();
         //    var events = context.CalendarEvents.Where(ce => ce.EndTime > DateTime.Now).ToList();
-        //    this.eventView.ItemsSource = events;
+        //    this.EventsDataGrid.ItemsSource = events;
 
         //}
 

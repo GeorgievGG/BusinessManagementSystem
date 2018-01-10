@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BmsWpf.Views.Forms"
         mc:Ignorable="d"
-        Title="ProjectWindow" Height="600" Width="750" Background="#2e3137">
-    <Grid>
+        Title="ProjectWindow" Height="850" Width="750" Background="#2e3137">
+    <Grid Height="850" Width="750" Background="#2e3137">
 
         <TabControl Name ="ProjectTabs" TabStripPlacement ="Right" HorizontalAlignment="Left" Height="600" VerticalAlignment="Top" Width="750" Background="#2e3137" SelectionChanged="TabControl_SelectionChanged">
             <TabControl.Resources>
@@ -53,7 +53,7 @@
                     <DatePicker Name="LimitDatePicker" HorizontalAlignment="Left" Margin="522,103,0,0" VerticalAlignment="Top" Height="30" Width="100"/>
                     <Label Content="Notes and Events" HorizontalAlignment="Left" Margin="391,188,0,0" VerticalAlignment="Top" Width="285" Height="40" FontSize="20" Foreground="AliceBlue"/>
                     <ListBox HorizontalAlignment="Left" Height="223" Margin="391,233,0,0" VerticalAlignment="Top" Width="267"/>
-                    <TextBox x:Name="creatorBox" 
+                    <TextBox Name="creatorBox" 
                               Height="24" 
                               Margin="129,285,382,0"  
                               BorderThickness="2"  
@@ -95,7 +95,7 @@
 
                     <Label Content="Invoices" HorizontalAlignment="Left" Margin="49,10,0,0" VerticalAlignment="Top" Width="285" Height="40" FontSize="28" Foreground="AliceBlue"/>
                     <Label Content="Payments" HorizontalAlignment="Left" Margin="49,251,0,0" VerticalAlignment="Top" Width="285" Height="55" FontSize="28" Foreground="AliceBlue"/>
-                    <Button Name ="AddNewSupplierPaument" Content="Add new payment" HorizontalAlignment="Left" Margin="378,261,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="ButtonSupplierPayment_Click"/>
+                    <Button Name ="AddNewSupplierPayment" Content="Add new payment" HorizontalAlignment="Left" Margin="378,261,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="ButtonSupplierPayment_Click"/>
                     <Button Name="EditSuppliersPayments"  Content="Edit payment" HorizontalAlignment="Left" Margin="476,261,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="EditSuppliersPayments_Click"/>
                     <Button Content="Delete" HorizontalAlignment="Left" Margin="576,261,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
 

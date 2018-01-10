@@ -5,20 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BmsWpf.Views.Forms"
         mc:Ignorable="d"
-        Title="Payment Client Form" Height="600" Width="750" Background="#2e3137">
-    <Grid Margin="0,25,0,-24.6">
-        <Label Content="Client" HorizontalAlignment="Left" Margin="42,110,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
-        <ComboBox Name="ClientComboBox" HorizontalAlignment="Left" Height="30" Margin="142,110,0,0" Text="TextBox" VerticalAlignment="Top" Width="200"/>
-        <Label Content="Date" HorizontalAlignment="Left" Margin="42,75,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue" />
-        <DatePicker Name="PaymentDatePicker" HorizontalAlignment="Left" Margin="142,75,0,0" VerticalAlignment="Top" Height="30" Width="200"/>
-        <Label Content="Price" HorizontalAlignment="Left" Margin="42,148,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
-        <TextBox Name="PriceBox" HorizontalAlignment="Left" Height="30" Margin="142,148,0,0" Text="TextBox" VerticalAlignment="Top" Width="200"/>
-        <Label Content="VAT" HorizontalAlignment="Left" Margin="42,183,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
-        <TextBox Name="VatBox" HorizontalAlignment="Left" Height="30" Margin="142,183,0,0" Text="TextBox" VerticalAlignment="Top" Width="200"/>
-        <Label Content="Total" HorizontalAlignment="Left" Margin="42,218,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
-        <TextBox Name="TotalBox" HorizontalAlignment="Left" Height="30" Margin="142,218,0,0" Text="TextBox" VerticalAlignment="Top" Width="200"/>
-        <Button Name="ButtonSave" Content="Save" HorizontalAlignment="Left" Margin="137,278,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="ButtonSave_Click"/>
-        <Button Name="ButtonEdit" Content="Edit" HorizontalAlignment="Left" Margin="242,278,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="ButtonEdit_Click"/>
+        Title="Payment Client Form"  Height="400" Width="400" FontSize="16" Background="#FF2E3137" WindowStartupLocation="CenterScreen">
+    <Grid Background="#FF2E3137" Height="400" Width="400">
+        <Label Content="Payment" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="54,35,54,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Background="#FF2E3137" Foreground="White"></Label>
+        <Label Content="Client" HorizontalAlignment="Left" Margin="45,132,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
+        <ComboBox Name="ClientComboBox" HorizontalAlignment="Left" Height="30" Margin="145,132,0,0" Text="TextBox" VerticalAlignment="Top" Width="200"/>
+        <Label Content="Date" HorizontalAlignment="Left" Margin="45,97,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue" />
+        <DatePicker Name="PaymentDatePicker" HorizontalAlignment="Left" Margin="145,97,0,0" VerticalAlignment="Top" Height="30" Width="200"/>
+        <Label Content="Price" HorizontalAlignment="Left" Margin="45,170,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
+        <TextBox Name="PriceBox" HorizontalAlignment="Left" Height="30" Margin="146,170,0,0" Text="TextBox" VerticalAlignment="Top" Width="200"/>
+        <Label Content="VAT" HorizontalAlignment="Left" Margin="45,205,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
+        <TextBox Name="VatBox" HorizontalAlignment="Left" Height="30" Margin="146,205,0,0" Text="TextBox" VerticalAlignment="Top" Width="200"/>
+        <Label Content="Total" HorizontalAlignment="Left" Margin="45,240,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
+        <TextBox Name="TotalBox" HorizontalAlignment="Left" Height="30" Margin="146,240,0,0" Text="TextBox" VerticalAlignment="Top" Width="200"/>
+        <Button Name="ButtonSave" Content="Save" HorizontalAlignment="Left" Margin="245,288,0,0" VerticalAlignment="Top" Width="100" Height="30" Command="{Binding Save}"/>
 
     </Grid>
 </Window>

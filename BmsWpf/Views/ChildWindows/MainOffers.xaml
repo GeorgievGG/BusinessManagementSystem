@@ -7,9 +7,7 @@
         xmlns:intr="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         mc:Ignorable="d"
         Title="MainOffers" 
-        Height="450.151" 
-        Width="483.648" 
-        Background="#2e3137">
+        Height="850" Width="750" FontSize="16" Background="#FF2E3137" WindowStartupLocation="CenterScreen">
 
     <Window.DataContext>
         <viewModels:MainOffersViewModel />
@@ -19,58 +17,46 @@
             <intr:InvokeCommandAction Command="{Binding WindowLoaded}"/>
         </intr:EventTrigger>
     </intr:Interaction.Triggers>
-    <Grid Margin="0,0,3.6,-2.6">
-        <Label Content="Offers" 
-            Foreground="White" 
-            FontSize="25"
-            Height="50"
-            HorizontalAlignment="Center"
-            Margin="210,31,172,332.4"
-            RenderTransformOrigin="0.5,0.5" 
-            Width="92"/>
+    <Grid Background="#FF2E3137" Height="850" Width="750">
+        <Label Content="OFFERS" 
+               HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="54,35,54,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Background="#FF2E3137" Foreground="White" Width="642"/>
         <Button Content="Add new" 
                 HorizontalAlignment="Left" 
-                Margin="37,312,0,0" 
+                Margin="54,750,0,0" 
                 VerticalAlignment="Top" 
-                Width="82" 
-                Background="#FF0D5923" 
-                Foreground="White" 
+                Width="100" 
+                Background="AliceBlue" 
+                Foreground="Black" 
                 FontSize="14" 
-                Height="33"
+                Height="30"
                 Command="{Binding AddNew}"/>
         <Button Content="Edit" 
                 HorizontalAlignment="Left" 
-                Margin="124,312,0,0" 
+                Margin="159,750,0,0" 
                 VerticalAlignment="Top" 
-                Width="79" 
-                Background="#FF4074CB" 
-                Foreground="White" 
+                Width="100" 
+                Background="AliceBlue" 
+                Foreground="Black" 
                 FontSize="14" 
-                RenderTransformOrigin="-0.774,-1.496" 
-                Height="33"
+                Height="30"
                 Command="{Binding Edit}"/>
         <Button Content="Delete" 
                 HorizontalAlignment="Left" 
-                Margin="208,312,0,0" 
                 VerticalAlignment="Top" 
-                Width="79" 
-                Background="#FFCB4040" 
-                Foreground="White" 
+                Width="100" 
+                Background="AliceBlue" 
+                Foreground="Black" 
                 FontSize="14" 
-                Height="33" 
-                RenderTransformOrigin="-0.048,0.621"
+                Margin="266,750,0,0" 
+                Height="30"
                 Command="{Binding Delete}"/>
-        <Separator HorizontalAlignment="Left" 
-                   Height="16" 
-                   Margin="167,70,0,0" 
-                   VerticalAlignment="Top" 
-                   Width="152"/>
+
         <DataGrid Name="OffersDataGrid" 
                   HorizontalAlignment="Left" 
-                  Height="195" 
-                  Margin="37,112,0,0" 
+                  Height="590" 
+                  Margin="54,115,0,0" 
                   VerticalAlignment="Top" 
-                  Width="397" 
+                  Width="635" 
                   SelectionMode="Single" 
                   CanUserAddRows="false"
                   ItemsSource="{Binding Offers}"
@@ -83,12 +69,13 @@
         </DataGrid>
         <Button Content="Back" 
                 HorizontalAlignment="Left" 
-                Margin="376,363,0,0" 
-                VerticalAlignment="Top"
-                Width="75"
-                Background="#FFCB4040"
-                Foreground="White" 
-                FontSize="14"
+                VerticalAlignment="Top" 
+                Width="100" 
+                Background="AliceBlue" 
+                Foreground="Black" 
+                FontSize="14" 
+                Margin="589,750,0,0" 
+                Height="30"
                 Command="{Binding Back}"/>
     </Grid>
 </Window>

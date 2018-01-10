@@ -6,7 +6,7 @@
         xmlns:viewModels="clr-namespace:BmsWpf.ViewModels"
         xmlns:intr="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         mc:Ignorable="d"
-        Title="InquireForm" Height="523.2" Width="434.234">
+        Title="Inquire Form" Height="850" Width="750" FontSize="16" Background="#FF2E3137" WindowStartupLocation="CenterScreen">
     <Window.DataContext>
         <viewModels:OffersFormViewModel />
     </Window.DataContext>
@@ -15,21 +15,17 @@
             <intr:InvokeCommandAction Command="{Binding WindowLoaded}"/>
         </intr:EventTrigger>
     </intr:Interaction.Triggers>
-    <Window.Background>
-        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-            <GradientStop Color="Black" Offset="0"/>
-            <GradientStop Color="White" Offset="1"/>
-        </LinearGradientBrush>
-    </Window.Background>
-    <Grid Margin="0,0,4,-0.4" Background="#FF2E3137">
-        <Separator Margin="71,59,89,418" />
-        <Label Content="INQUIRE FORM"  HorizontalAlignment="Left" Foreground="#FFA1EAE8" FontSize="30" FontWeight="Bold" Margin="96,10,0,0" VerticalAlignment="Top"/>
-        <Label Content="Client" HorizontalAlignment="Left" Margin="42,76,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+
+    <Grid Background="#FF2E3137" Height="850" Width="750">
+
+        <Label Content="Inquire Form"  HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="54,35,54,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Background="#FF2E3137" Foreground="White" Width="642"/>
+        <Label Content="Client" HorizontalAlignment="Left" Height="30" Margin="26,108,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Width="197"/>
         <ComboBox Name="ClientCombo" 
                   HorizontalAlignment="Left" 
-                  Margin="42,104,0,0" 
+                  Margin="26,140,0,0" 
                   VerticalAlignment="Top" 
-                  Width="170" 
+                  Width="197"
+                  Height="40"
                   ItemsSource="{Binding ClientsList}"
                   SelectedItem="{Binding SelectedClient}">
             <intr:Interaction.Triggers>
@@ -38,10 +34,10 @@
                 </intr:EventTrigger>
             </intr:Interaction.Triggers>
         </ComboBox>
-        <Label Content="Person of contact" HorizontalAlignment="Left" Margin="221,78,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+        <Label Content="Person of contact" Height="30" HorizontalAlignment="Left" Margin="228,106,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Width="142"/>
         <TextBox Name="poc_form" 
-                 Height="30" 
-                 Margin="221,104,51,0" 
+                 Height="40" 
+                 Margin="228,140,55,0" 
                  BorderThickness="2"  
                  BorderBrush="#313c4f"  
                  TextWrapping="Wrap" 
@@ -51,10 +47,10 @@
                  IsReadOnly="True" 
                  Background="LightGray" 
                  Text="{Binding PersonOfContact}"/>
-        <Label Content="Email" HorizontalAlignment="Left" Margin="42,126,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" RenderTransformOrigin="0.459,0.359"/>
+        <Label Content="Email" HorizontalAlignment="Left" Height="40" Margin="26,180,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" RenderTransformOrigin="0.459,0.359" Width="51"/>
         <TextBox Name="email_form" 
-                 Height="30" 
-                 Margin="42,149,212,0" 
+                 Height="40" 
+                 Margin="26,218,426,0" 
                  BorderThickness="2"  
                  BorderBrush="#313c4f"   
                  TextWrapping="Wrap" 
@@ -64,10 +60,10 @@
                  IsReadOnly="True" 
                  Background="LightGray"
                  Text="{Binding Email}"/>
-        <Label Content="Phone" HorizontalAlignment="Left" Margin="221,131,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+        <Label Content="Phone" HorizontalAlignment="Left" Margin="329,180,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Width="62"/>
         <TextBox Name="phone_form" 
-                 Height="30" 
-                 Margin="221,150,51,0" 
+                 Height="40" 
+                 Margin="329,218,55,0" 
                  BorderThickness="2"  
                  BorderBrush="#313c4f"   
                  TextWrapping="Wrap" 
@@ -77,20 +73,22 @@
                  IsReadOnly="True" 
                  Background="LightGray"
                  Text="{Binding PhoneNum}"/>
-        <Label Content="Description" HorizontalAlignment="Left" Margin="42,179,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" RenderTransformOrigin="0.602,2.328"/>
+        <Label Content="Description" HorizontalAlignment="Left" Height="40" Margin="26,263,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" RenderTransformOrigin="0.602,2.328" Width="95"/>
         <TextBox Name="description_form" 
-                 Height="130" 
-                 Margin="42,197,51,0"  
+                 Height="283" 
+                 Margin="26,303,50,0"  
                  BorderThickness="2"  
                  BorderBrush="#313c4f" 
                  TextWrapping="Wrap"  
+                 AcceptsReturn="True"
+                 VerticalScrollBarVisibility="Visible"
                  VerticalAlignment="Top" 
                  RenderTransformOrigin="0.323,-1.178"
                  Text="{Binding Description}"/>
-        <Label Content="Creator" HorizontalAlignment="Left" Margin="42,332,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+        <Label Content="Creator" HorizontalAlignment="Left" Height="40" Margin="26,607,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Width="65"/>
         <TextBox Name="creatorBox" 
-                 Height="24" 
-                 Margin="42,358,285,0"  
+                 Height="30"
+                 Margin="26,642,586,0"  
                  BorderThickness="2"  
                  BorderBrush="#313c4f" 
                  TextWrapping="Wrap"  
@@ -101,18 +99,18 @@
                  HorizontalContentAlignment="Center"
                  VerticalContentAlignment="Center"
                  Text="{Binding InquiryCreator}"/>
-        <Label Content="Date" HorizontalAlignment="Left" Margin="200,332,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+        <Label Content="Date" HorizontalAlignment="Left" Margin="195,607,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Width="75"/>
         <DatePicker Name="date" 
                     HorizontalAlignment="Left" 
-                    Margin="200,358,0,0" 
+                    Margin="195,642,0,0" 
                     VerticalAlignment="Top" 
-                    Width="107"
+                    Width="177"
+                    Height="30"
                     SelectedDate="{Binding Path=Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-        <Separator Margin="71,399,89,78" />
-        <Label Content="Id" HorizontalAlignment="Left" Margin="322,327,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" RenderTransformOrigin="1.772,0.508"/>
+        <Label Content="Id" HorizontalAlignment="Left" Margin="404,607,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" RenderTransformOrigin="1.772,0.508" Height="40" Width="73"/>
         <TextBox Name="inquiry_id" 
-                 Height="24" 
-                 Margin="322,358,75,0" 
+                 Height="30" 
+                 Margin="402,642,272,0" 
                  Foreground="Gray"  
                  BorderThickness="2"  
                  BorderBrush="#313c4f"  
@@ -126,24 +124,22 @@
                  Text="{Binding Id}"/>
         <Button Content="Save" 
                 HorizontalAlignment="Left" 
-                Margin="221,440,0,0" 
+                Margin="601,642,0,0" 
                 VerticalAlignment="Top" 
-                Width="75" 
-                RenderTransformOrigin="0.36,-0.52" 
-                Background="#FF17597C" 
-                FontWeight="Bold" 
-                FontSize="16" 
-                Foreground="White"
+                Width="100" 
+                Background="AliceBlue" 
+                Foreground="Black" 
+                FontSize="14" 
+                Height="30"
                 Command="{Binding Save}"/>
         <Button Content="Back" 
-                HorizontalAlignment="Left" 
-                Margin="312,440,0,0" 
                 VerticalAlignment="Top" 
-                Width="75"
-                Background="#FFAE3434" 
-                FontWeight="Bold" 
-                FontSize="16" 
-                Foreground="White"
+                Width="100" 
+                Background="AliceBlue" 
+                Foreground="Black" 
+                FontSize="14" 
+                Height="30"
+                Margin="589,750,0,0" 
                 Command="{Binding Back}"/>
     </Grid>
 </Window>
