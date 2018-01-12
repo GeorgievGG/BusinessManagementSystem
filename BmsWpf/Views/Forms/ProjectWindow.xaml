@@ -32,26 +32,20 @@
         </Style>
     </Window.Resources>
     <Grid Background="#FF2E3137" Margin="0,0,4,5" >
-        <TabControl Name="ProjectTabs" TabStripPlacement ="Top" HorizontalAlignment="Left" Height="850" Padding="-2 0 -2 -2" ItemsSource="{Binding PageViews}">
-            <TabControl.Resources>
-                <DataTemplate DataType="{x:Type viewModels:PFOverviewViewModel}">
-                    <views:ProjectOverviewView />
-                </DataTemplate>
-                <DataTemplate DataType="{x:Type viewModels:PFIncomeViewModel}">
-                    <views:IncomesView />
-                </DataTemplate>
-                <DataTemplate DataType="{x:Type viewModels:PFExpensesViewModel}">
-                    <views:ExpensesView />
-                </DataTemplate>
-                <DataTemplate DataType="{x:Type viewModels:PFNotesViewModel}">
-                    <views:NotesView />
-                </DataTemplate>
-            </TabControl.Resources>
+        <TabControl Name="ProjectTabs" TabStripPlacement ="Top" HorizontalAlignment="Left" Height="850" Padding="-2 0 -2 -2"  ItemsSource="{Binding Tabs}">
             <TabControl.ItemTemplate>
+                <!-- this is the header template-->
                 <DataTemplate>
-                    <TextBlock Text="{Binding TabTitle}"/>
+                    <TextBlock
+                    Text="{Binding Header}" />
                 </DataTemplate>
             </TabControl.ItemTemplate>
+            <TabControl.ContentTemplate>
+                <!-- this is the body of the TabItem template-->
+                <DataTemplate>
+                    <UserControl Content="{Binding Content}" />
+                </DataTemplate>
+            </TabControl.ContentTemplate>
         </TabControl>
     </Grid>
 </Window>

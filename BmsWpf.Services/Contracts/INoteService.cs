@@ -6,5 +6,7 @@ namespace BmsWpf.Services.Contracts
     {
         DataTable GetNotesAsDataTable();
         DataTable GetLast5NotesAsDataTable();
+        DataTable GetNotesAsDataTable(int projectId);
+        DataTable GetLast5NotesAsDataTable(int projectId);
     }
 }

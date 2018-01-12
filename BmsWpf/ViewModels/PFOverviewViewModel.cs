@@ -1,11 +1,9 @@
 ﻿namespace BmsWpf.ViewModels
 {
-    using BMS.DataBaseData;
     using BmsWpf.Behaviour;
     using BmsWpf.Services.Contracts;
     using BmsWpf.Services.DTOs;
-    using BmsWpf.Services.Services;
-    using BmsWpf.Services.UnitOfWork;
+    using BmsWpf.Sessions;
     using BmsWpf.Views.ChildWindows;
     using System;
     using System.Collections.ObjectModel;
@@ -16,6 +14,8 @@
 
     public class PFOverviewViewModel : ViewModelBase
     {
+        private string creator;
+        public DataRowView selectedProject;
         private ObservableCollection<ContragentListDto> clientsList;
         private ObservableCollection<InquiryListDto> inquiriesList;
         private ObservableCollection<OfferListDto> offersList;
@@ -24,10 +24,27 @@
         private InquiryListDto selectedInquiry;
         private OfferListDto selectedOffer;
 
+        public Action CloseAction { get; set; }
+        public Action HideNotesTab { get; set; }
+        public Action HideNotesLabel { get; set; }
+        public Action HideIncomeBox { get; set; }
+        public Action HideExpensesBox { get; set; }
+        public Action HideProfitBox { get; set; }
+        public Action HideIncomeLabel { get; set; }
+        public Action HideExpensesLabel { get; set; }
+        public Action HideProfitLabel { get; set; }
+
+        public IProjectService ProjectService { get; set; }
+        public IOfferService OfferService { get; set; }
+        public IInquiryService InquiryService { get; set; }
+        public IUserService UserService { get; set; }
+        public IContragentService ContragentService { get; set; }
+        public INoteService NoteService { get; set; }
+        public IViewManager ViewManager { get; set; }
+
         private int id;
         private string name;
         private int creatorId;
-        private string creator;
         private string contactTo;
         private string telephone;
         private DateTime startDate;
@@ -40,7 +57,6 @@
         public ICommand WindowLoadedCommand;
         public ICommand SaveCommand;
         public ICommand BackCommand;
-        public DataRowView selectedProject;
 
         public PFOverviewViewModel()
         {
@@ -48,40 +64,35 @@
             this.StartDate = DateTime.Now;
             this.Deadline = DateTime.Now;
             this.EndDate = DateTime.Now;
-            var context = new BmsContex();
-            var bmsData = new BmsData(context);
-            this.ViewManager = new ViewManager();
-            this.InquiryService = new InquiryService(bmsData);
-            this.ContragentService = new ContragentService(bmsData);
-            this.UserService = new UserService(bmsData);
-            this.OfferService = new OfferService(bmsData);
-            this.NoteService = new NoteService(bmsData);
-            this.ProjectService = new ProjectService(bmsData);
         }
 
-        public PFOverviewViewModel(IViewManager viewManager, IInquiryService inquiryService, IContragentService contragentService, IUserService userService, IOfferService offerService, INoteService noteService, IProjectService projectService)
+        public string Creator
         {
-            TabTitle = "Project Overview";
-            this.StartDate = DateTime.Now;
-            this.Deadline = DateTime.Now;
-            this.EndDate = DateTime.Now;
-            this.ViewManager = viewManager;
-            this.InquiryService = inquiryService;
-            this.ContragentService = contragentService;
-            this.UserService = userService;
-            this.OfferService = offerService;
-            this.NoteService = noteService;
-            this.ProjectService = projectService;
+            get
+            {
+                return this.creator;
+            }
+            set
+            {
+                this.creator = value;
+                this.OnPropertyChanged(nameof(Creator));
+            }
+        }
+
+        public DataRowView SelectedProject
+        {
+            get
+            {
+                return this.selectedProject;
+            }
+            set
+            {
+                this.selectedProject = value;
+                this.OnPropertyChanged(nameof(SelectedProject));
+            }
         }
 
         public string TabTitle { get; protected set; }
-        public IProjectService ProjectService { get; set; }
-        public IOfferService OfferService { get; set; }
-        public IInquiryService InquiryService { get; set; }
-        public IUserService UserService { get; set; }
-        public IContragentService ContragentService { get; set; }
-        public INoteService NoteService { get; set; }
-        public IViewManager ViewManager { get; set; }
 
         public int Id
         {
@@ -213,32 +224,6 @@
             }
         }
 
-        public string Creator
-        {
-            get
-            {
-                return this.creator;
-            }
-            set
-            {
-                this.creator = value;
-                this.OnPropertyChanged(nameof(Creator));
-            }
-        }
-
-        public DataRowView SelectedProject
-        {
-            get
-            {
-                return this.selectedProject;
-            }
-            set
-            {
-                this.selectedProject = value;
-                this.OnPropertyChanged(nameof(SelectedProject));
-            }
-        }
-
         public ContragentListDto SelectedClient
         {
             get
@@ -366,13 +351,13 @@
             }
         }
 
-        private void HandleLoadedCommand(object parameter)
+        protected void HandleLoadedCommand(object parameter)
         {
             this.ClientsList = new ObservableCollection<ContragentListDto>(this.ContragentService.GetContragentsForDropdown());
             this.InquiriesList = new ObservableCollection<InquiryListDto>(this.InquiryService.GetInquiriesList());
             this.OffersList = new ObservableCollection<OfferListDto>(this.OfferService.GetOffersList());
-            this.NotesAndEvents = NoteService.GetLast5NotesAsDataTable();
-            this.creatorId = this.UserService.GetUsernames().SingleOrDefault(x => x.Username == creator).Id;
+            this.Creator = Session.Instance.Username;
+            this.creatorId = this.UserService.GetUsernames().SingleOrDefault(x => x.Username == Creator).Id;
             if (this.SelectedProject != null)
             {
                 this.Id = (int)SelectedProject.Row.ItemArray[0];
@@ -384,13 +369,14 @@
                 var clientDto = (ContragentListDto)SelectedProject.Row.ItemArray[5];
                 this.SelectedClient = ClientsList.SingleOrDefault(x => x.Id == clientDto.Id);
                 this.StartDate = (DateTime)SelectedProject.Row.ItemArray[6];
-                this.EndDate = (DateTime)SelectedProject.Row.ItemArray[7];
+                this.EndDate = (DateTime?)(SelectedProject.Row.ItemArray[7] == DBNull.Value ? null : SelectedProject.Row.ItemArray[7]);
                 this.Deadline = (DateTime)SelectedProject.Row.ItemArray[8];
-                this.ContactTo = (string)SelectedProject.Row.ItemArray[9];
-                this.Telephone = (string)SelectedProject.Row.ItemArray[10];
+                this.ContactTo = (string)(SelectedProject.Row.ItemArray[9] == DBNull.Value ? "" : SelectedProject.Row.ItemArray[9]);
+                this.Telephone = (string)(SelectedProject.Row.ItemArray[10] == DBNull.Value ? "" : SelectedProject.Row.ItemArray[10]);
                 this.Incomes = (decimal)SelectedProject.Row.ItemArray[11];
                 this.Expenses = (decimal)SelectedProject.Row.ItemArray[12];
                 this.Profit = (decimal)SelectedProject.Row.ItemArray[13];
+                this.NotesAndEvents = NoteService.GetLast5NotesAsDataTable(this.Id);
             }
             else
             {
@@ -443,6 +429,7 @@
         {
             var mainProjectsWindow = this.ViewManager.ComposeObjects<ActiveProjects>();
             mainProjectsWindow.Show();
+            this.CloseAction();
         }
     }
 }

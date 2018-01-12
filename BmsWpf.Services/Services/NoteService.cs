@@ -54,5 +54,22 @@
             return notesDtos;
         }
 
+        public DataTable GetNotesAsDataTable(int projectId)
+        {
+            var notes = this.GetNotesDto()
+                .Where(x => x.Project.Id == projectId)
+                .ToDataTable();
+            return notes;
+        }
+
+        public DataTable GetLast5NotesAsDataTable(int projectId)
+        {
+            var last5Notes =  this.GetNotesDto().Where(x => x.Project.Id == projectId)
+                .OrderByDescending(x => x.Date)
+                .Take(5)
+                .ToDataTable();
+
+            return last5Notes;
+        }
     }
 }

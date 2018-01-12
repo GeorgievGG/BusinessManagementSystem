@@ -2,33 +2,27 @@
 {
     using BmsWpf.Behaviour;
     using BmsWpf.Services.Contracts;
+    using BmsWpf.Utilities;
+    using BmsWpf.Views.ActiveProjectForms;
     using System;
     using System.Collections.ObjectModel;
+    using System.Data;
     using System.Windows.Input;
 
     public class ProjectFormViewModel : ViewModelBase
     {
-        private ObservableCollection<ViewModelBase> _pageViews;
-
+        public ObservableCollection<TabItem> Tabs { get; set; }
+        public ProjectFormViewModel()
+        {
+            Tabs = new ObservableCollection<TabItem>();
+        }
         public ICommand WindowLoadedCommand;
+        public IViewManager ViewManager { get; set; }
+        public DataRowView SelectedProject { get; set; }
 
         public Action CloseAction { get; set; }
 
-        public IViewManager ViewManager { get; set; }
-
-        public ObservableCollection<ViewModelBase> PageViews
-        {
-            get
-            {
-                if (_pageViews == null)
-                {
-                    _pageViews = new ObservableCollection<ViewModelBase>();
-                }
-                return _pageViews;
-            }
-        }
-
-        public ICommand WindowLoaded
+        public virtual ICommand WindowLoaded
         {
             get
             {
@@ -40,12 +34,39 @@
             }
         }
 
-        private void HandleLoadedCommand(object parameter)
+        protected virtual void HandleLoadedCommand(object parameter)
         {
-            PageViews.Add(this.ViewManager.ComposeObjects<PFOverviewViewModel>());
-            PageViews.Add(this.ViewManager.ComposeObjects<PFIncomeViewModel>());
-            PageViews.Add(this.ViewManager.ComposeObjects<PFExpensesViewModel>());
-            PageViews.Add(this.ViewManager.ComposeObjects<PFNotesViewModel>());
+            var poView = ViewManager.ComposeObjects<ProjectOverviewView>();
+            var poViewVM = (PFOverviewViewModel)poView.DataContext;
+            poViewVM.SelectedProject = this.SelectedProject;
+            poViewVM.CloseAction = this.CloseAction;
+            Tabs.Add(new TabItem { Header = "Project Overview", Content = poView });
+            if (this.SelectedProject != null)
+            {
+                var iView = ViewManager.ComposeObjects<IncomesView>();
+                var iViewVM = (PFIncomeViewModel)iView.DataContext;
+                //iViewVM.SelectedProject = this.SelectedProject;
+                Tabs.Add(new TabItem { Header = "Income", Content = iView });
+                var eView = ViewManager.ComposeObjects<ExpensesView>();
+                var eViewVM = (PFExpensesViewModel)eView.DataContext;
+                //eViewVM.SelectedProject = this.SelectedProject;
+                Tabs.Add(new TabItem { Header = "Expenses", Content = eView });
+                var nView = ViewManager.ComposeObjects<NotesView>();
+                var nViewVM = (PFNotesViewModel)nView.DataContext;
+                //nViewVM.SelectedProject = this.SelectedProject;
+                Tabs.Add(new TabItem { Header = "Notes", Content = nView });
+            }
+            else
+            {
+                poViewVM.HideNotesTab();
+                poViewVM.HideNotesLabel();
+                poViewVM.HideIncomeBox();
+                poViewVM.HideIncomeLabel();
+                poViewVM.HideExpensesBox();
+                poViewVM.HideExpensesLabel();
+                poViewVM.HideProfitBox();
+                poViewVM.HideProfitLabel();
+            }
         }
     }
 }

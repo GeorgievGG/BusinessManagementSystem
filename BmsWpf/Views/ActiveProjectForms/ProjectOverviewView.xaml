@@ -25,37 +25,36 @@
         <Label Content="Client" HorizontalAlignment="Left" Margin="346,65,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
         <ComboBox Name="ClientBox" HorizontalAlignment="Left" Height="30" Margin="451,65,0,0" Text="TextBox" VerticalAlignment="Top" Width="200" ItemsSource="{Binding ClientsList}" SelectedItem="{Binding SelectedClient}"/>
         <Label Content="Contact to" HorizontalAlignment="Left" Margin="346,105,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
-        <TextBox Name="ContactTextBox" HorizontalAlignment="Left" Height="30" Margin="451,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
+        <TextBox Name="ContactTextBox" HorizontalAlignment="Left" Height="30" Margin="451,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Text="{Binding ContactTo}"/>
         <Label Content="Telephone" HorizontalAlignment="Left" Margin="346,140,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
-        <TextBox Name="PhoneBox" HorizontalAlignment="Left" Height="30" Margin="451,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
+        <TextBox Name="PhoneBox" HorizontalAlignment="Left" Height="30" Margin="451,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Text="{Binding Telephone}"/>
         <Label Content="Creator" HorizontalAlignment="Left" Margin="21,140,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
-        <Label Content="Incomes" HorizontalAlignment="Left" Margin="349,222,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
-        <TextBox HorizontalAlignment="Left" Height="30" Margin="451,223,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" IsReadOnly="True"/>
-        <Label Content="Expences" HorizontalAlignment="Left" Margin="349,257,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
-        <TextBox HorizontalAlignment="Left" Height="30" Margin="451,259,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" IsReadOnly="True"/>
-        <Label Content="Profit" HorizontalAlignment="Left" Margin="349,292,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
-        <TextBox HorizontalAlignment="Left" Height="30" Margin="451,292,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" IsReadOnly="True"/>
+        <Label Name="IncomeLabel" Content="Incomes" HorizontalAlignment="Left" Margin="349,222,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
+        <TextBox Name="IncomeBox" HorizontalAlignment="Left" Height="30" Margin="451,223,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" IsEnabled="False" Text="{Binding Incomes}"/>
+        <Label Name="ExpensesLabel" Content="Expences" HorizontalAlignment="Left" Margin="349,257,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
+        <TextBox Name="ExpensesBox" HorizontalAlignment="Left" Height="30" Margin="451,259,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" IsEnabled="False" Text="{Binding Expenses}"/>
+        <Label Name="ProfitLabel" Content="Profit" HorizontalAlignment="Left" Margin="349,292,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
+        <TextBox Name="ProfitBox" HorizontalAlignment="Left" Height="30" Margin="451,292,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" IsEnabled="False" Text="{Binding Profit}"/>
         <Label Content="Start Date" HorizontalAlignment="Left" Margin="21,222,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
         <Label Content="Deadline" HorizontalAlignment="Left" Margin="21,257,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
         <Label Content="End Date" HorizontalAlignment="Left" Margin="21,292,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue" />
-        <DatePicker Name="StartDatePicker" HorizontalAlignment="Left" Margin="126,229,0,0" VerticalAlignment="Top" Height="30" Width="200"/>
-        <DatePicker Name="EndDatePicker" HorizontalAlignment="Left" Margin="126,292,0,0" VerticalAlignment="Top" Height="30" Width="200"/>
-        <DatePicker Name="LimitDatePicker" HorizontalAlignment="Left" Margin="126,262,0,0" VerticalAlignment="Top" Height="30" Width="200"/>
-        <Label Content="Notes and Events"  Margin="127,351,99,0" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Background="#FF2E3137" Foreground="White" Width="525"/>
-        <DataGrid HorizontalAlignment="Left" Height="223" Margin="126,398,0,0" VerticalAlignment="Top" Width="525" CanUserAddRows="False" ItemsSource="{Binding NotesAndEvents}"/>
+        <DatePicker Name="StartDatePicker" HorizontalAlignment="Left" Margin="126,229,0,0" VerticalAlignment="Top" Height="30" Width="200" SelectedDate="{Binding Path=StartDate, StringFormat=dd/MM/yyyy}" />
+        <DatePicker Name="EndDatePicker" HorizontalAlignment="Left" Margin="126,292,0,0" VerticalAlignment="Top" Height="30" Width="200" SelectedDate="{Binding Path=EndDate, StringFormat=dd/MM/yyyy}" />
+        <DatePicker Name="LimitDatePicker" HorizontalAlignment="Left" Margin="126,262,0,0" VerticalAlignment="Top" Height="30" Width="200" SelectedDate="{Binding Path=Deadline, StringFormat=dd/MM/yyyy}" />
+        <Label Name="NotesLabel" Content="Notes and Events"  Margin="127,351,99,0" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Background="#FF2E3137" Foreground="White" Width="525"/>
+        <DataGrid Name="NotesGrid" HorizontalAlignment="Left" Height="223" Margin="126,398,0,0" VerticalAlignment="Top" Width="525" CanUserAddRows="False" ItemsSource="{Binding NotesAndEvents}"/>
         <TextBox Name="creatorBox" 
                               Height="30" 
-                             Width="200"
+                              Width="200"
                               Margin="126,140,425,0"  
                               BorderThickness="2"  
                               BorderBrush="#313c4f" 
                               TextWrapping="Wrap"  
                               VerticalAlignment="Top" 
-                              IsReadOnly="True" 
-                              Background="LightGray"
+                              IsEnabled="False" 
                               HorizontalContentAlignment="Center"
                               VerticalContentAlignment="Center"
-                 Text="{Binding OfferCreator}"/>
+                 Text="{Binding Creator}"/>
         <Button Name="ButtonSave" Content="Save" HorizontalAlignment="Left" Margin="551,643,0,0" VerticalAlignment="Top" Width="100" Height="30" Command="{Binding Save}"/>
         <Button Name="ButtonBack" Content="Back" HorizontalAlignment="Left"  VerticalAlignment="Top" 
                             Width="100" 

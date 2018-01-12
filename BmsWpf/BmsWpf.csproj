@@ -125,6 +125,7 @@
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Sessions\Session.cs" />
     <Compile Include="Utilities\MultiValueConverter.cs" />
+    <Compile Include="Utilities\TabItem.cs" />
     <Compile Include="ViewModels\ActiveProjectsViewModel.cs" />
     <Compile Include="ViewModels\AddNewUserViewModel.cs" />
     <Compile Include="ViewModels\AdminPanelViewModel.cs" />

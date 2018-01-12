@@ -156,8 +156,6 @@
         private void HandleAddNewProjectCommand(object parameter)
         {
             var addPrjView = this.ViewManager.ComposeObjects<ProjectWindow>();
-            var vm = (PFOverviewViewModel)addPrjView.DataContext;
-            vm.Creator = Session.Instance.Username;
             addPrjView.Show();
             this.CloseAction();
         }
@@ -170,9 +168,8 @@
                 return;
             }
             var editPrjView = this.ViewManager.ComposeObjects<ProjectWindow>();
-            var vm = (PFOverviewViewModel)editPrjView.DataContext;
+            var vm = (ProjectFormViewModel)editPrjView.DataContext;
             vm.SelectedProject = this.SelectedProject;
-            vm.Creator = Session.Instance.Username;
             editPrjView.Show();
             this.CloseAction();
         }
