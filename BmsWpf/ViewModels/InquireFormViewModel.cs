@@ -247,37 +247,42 @@
                 this.PersonOfContact = client.Contact;
                 this.Email = client.Email;
                 this.PhoneNum = client.PhoneNum;
-    }
+            }
         }
 
         private void HandleSaveCommand(object parameter)
         {
             var result = string.Empty;
-            var newInquiry = new InquiryPostDto()
-            {
-                Id = this.Id,
-                CreatorId = this.creatorId,
-                ClientId = this.SelectedClient.Id,
-                Description = this.Description,
-                Date = this.Date
-            };
+            InquiryPostDto newInquiry;
             try
             {
+                newInquiry = new InquiryPostDto()
+                {
+                    Id = this.Id,
+                    CreatorId = this.creatorId,
+                    ClientId = this.SelectedClient.Id,
+                    Description = this.Description,
+                    Date = this.Date
+                };
                 if (this.SelectedInquiry == null)
                 {
                     result = this.InquiryService.CreateInquiry(newInquiry);
+                    MessageBox.Show(result);
+                    this.RedirectToMainInquiries();
                 }
                 else
                 {
                     result = this.InquiryService.EditInquiry(newInquiry);
+                    MessageBox.Show(result);
+                    this.RedirectToMainInquiries();
                 }
             }
             catch (Exception e)
             {
                 result = e.Message;
+                MessageBox.Show(result);
             }
-            MessageBox.Show(result);
-            this.RedirectToMainInquiries();
+
         }
 
         private void HandleBackCommand(object parameter)

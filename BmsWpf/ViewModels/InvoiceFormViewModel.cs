@@ -566,7 +566,9 @@
         private void HandleSaveCommand(object parameter)
         {
             var result = string.Empty;
-            var newInvoice = new InvoicePostDto()
+            try
+            {
+                var newInvoice = new InvoicePostDto()
             {
                 Id = this.Id,
                 InvoiceNum = this.InvoiceNum,
@@ -581,23 +583,25 @@
                 Vat = this.InvoiceVat,
                 Total = this.InvoiceTotal
             };
-            try
-            {
+    
                 if (this.SelectedInvoice == null)
                 {
                     result = this.InvoiceService.CreateInvoice(newInvoice);
+                    MessageBox.Show(result);
+                    this.RedirectToMainInvoices();
                 }
                 else
                 {
                     result = this.InvoiceService.EditInvoice(newInvoice);
+                    MessageBox.Show(result);
+                    this.RedirectToMainInvoices();
                 }
             }
             catch (Exception e)
             {
                 result = e.Message;
+                MessageBox.Show(result);
             }
-            MessageBox.Show(result);
-            this.RedirectToMainInvoices();
         }
 
         private void FillClientInformation(ContragentInfoForInvoiceDto client)

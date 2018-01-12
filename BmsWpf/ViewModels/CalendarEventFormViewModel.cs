@@ -7,6 +7,7 @@
     using BmsWpf.Views.ChildWindows;
     using System;
     using System.Collections.ObjectModel;
+    using System.ComponentModel;
     using System.Data;
     using System.Linq;
     using System.Windows;
@@ -94,7 +95,6 @@
                 this.OnPropertyChanged(nameof(Description));
             }
         }
-
 
         public DateTime StartDate
         {
@@ -251,34 +251,39 @@
         private void HandleSaveCommand(object parameter)
         {
             var result = string.Empty;
-            var newCalendarEvent = new CalendarEventsPostDto()
-                                       {
-                                           Id = this.Id,
-                                           CreatorId = this.creatorId,
-                                           ProjectId = this.SelectedProject.Id,
-                                           Title = this.Title,
-                                           Description = this.Description,
-                                           StartDate = this.StartDate,
-                                           EndDate = this.EndDate,
-                                           Color = this.SelectedColor,
-                                       };
             try
             {
+                var newCalendarEvent = new CalendarEventsPostDto()
+                {
+                    Id = this.Id,
+                    CreatorId = this.creatorId,
+                    ProjectId = this.SelectedProject.Id,
+                    Title = this.Title,
+                    Description = this.Description,
+                    StartDate = this.StartDate,
+                    EndDate = this.EndDate,
+                    Color = this.SelectedColor,
+                };
+
                 if (this.SelectedCalendarEvent == null)
                 {
                     result = this.CalendarEventService.CreateCalendarEvent(newCalendarEvent);
+                    MessageBox.Show(result);
+                    this.RedirectToMainCalendarEvents();
                 }
                 else
                 {
                     result = this.CalendarEventService.EditCalendarEvent(newCalendarEvent);
+                    MessageBox.Show(result);
+                    this.RedirectToMainCalendarEvents();
                 }
             }
             catch (Exception e)
             {
                 result = e.Message;
+                MessageBox.Show(result);
             }
-            MessageBox.Show(result);
-            this.RedirectToMainCalendarEvents();
+
         }
 
         private void HandleBackCommand(object parameter)
@@ -292,5 +297,6 @@
             mainCalendarEventWindow.Show();
             this.CloseAction();
         }
+
     }
 }

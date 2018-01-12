@@ -239,18 +239,23 @@
                 if (this.SelectedOffer == null)
                 {
                     result = this.OfferService.CreateOffer(newOffer);
+                    MessageBox.Show(result);
+                    this.RedirectToMainOffers();
                 }
                 else
                 {
                     result = this.OfferService.EditOffer(newOffer);
+                    MessageBox.Show(result);
+                    this.RedirectToMainOffers();
                 }
             }
             catch (Exception e)
             {
                 result = e.Message;
+                MessageBox.Show(result);
             }
-            MessageBox.Show(result);
-            this.RedirectToMainOffers();
+
+
         }
 
         private void HandleBackCommand(object parameter)
