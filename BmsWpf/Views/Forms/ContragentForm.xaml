@@ -63,7 +63,7 @@
         <Label Content="Bank Details" Foreground="White" HorizontalAlignment="Left" Margin="16,444,0,0" VerticalAlignment="Top" Width="200" Height="40"/>
         <TextBox Name="BankDetails" Width="470" Height="40"  Margin="226,444,55,0" Foreground="Black"  BorderThickness="2"  BorderBrush="#313c4f"  TextAlignment="Left" TextWrapping="Wrap" VerticalContentAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178" Text="{Binding BankDetails}"/>
         <Label Content="Notes" Foreground="White" HorizontalAlignment="Left" Margin="16,486,0,0" VerticalAlignment="Top" Width="200" Height="40"/>
-        <TextBox Name="Description" Height="80" Margin="226,486,55,0" Foreground="Black"  BorderThickness="2"  BorderBrush="#313c4f" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178"  TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Text="{Binding Description}"/>
+        <TextBox Name="Description" Height="80" Margin="226,486,55,0" Foreground="Black"  BorderThickness="2"  BorderBrush="#313c4f" VerticalContentAlignment="Top" TextAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.323,-1.178"  TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Text="{Binding Description}"/>
         <Button Content="Save" 
                 HorizontalAlignment="Left" 
                 Margin="594,591,0,0" 

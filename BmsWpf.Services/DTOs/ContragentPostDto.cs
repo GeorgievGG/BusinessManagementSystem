@@ -49,8 +49,8 @@
             set
             {
                 var patern = @"\d+";
-                var isValid = Regex.IsMatch(this.personalIndentityNumber, patern);
-                if (isValid == false || this.personalIndentityNumber.Length < 9 || string.IsNullOrWhiteSpace(value) || string.IsNullOrEmpty(value))
+                var isValid = Regex.IsMatch(value, patern);
+                if (isValid == false || value.Length < 9 || string.IsNullOrWhiteSpace(value) || string.IsNullOrEmpty(value))
                 {
                     throw new ApplicationException("The number is not valid");
                 }
@@ -66,8 +66,8 @@
             set
             {
                 var patern = @"[A-Z]{2}\d+";
-                var isValid = Regex.IsMatch(this.personalVatNumber, patern);
-                if (isValid == false || this.personalVatNumber.Length < 11 || string.IsNullOrWhiteSpace(value) || string.IsNullOrEmpty(value))
+                var isValid = Regex.IsMatch(value, patern);
+                if (isValid == false || value.Length < 11 || string.IsNullOrWhiteSpace(value) || string.IsNullOrEmpty(value))
                 {
                     throw new ApplicationException("The VAT number is not valid");
                 }
@@ -114,8 +114,8 @@
             set
             {
                 var patern = @"\d+";
-                var isValid = Regex.IsMatch(this.telephone, patern);
-                if (isValid == false || this.telephone.Length < 9  || string.IsNullOrWhiteSpace(value) || string.IsNullOrEmpty(value))
+                var isValid = Regex.IsMatch(value, patern);
+                if (isValid == false || value.Length < 9  || string.IsNullOrWhiteSpace(value) || string.IsNullOrEmpty(value))
                 {
                     throw new ApplicationException("The telephone is not valid");
                 }
@@ -133,7 +133,7 @@
             {
                 var patern = @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
                              @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$";
-                var isValid = Regex.IsMatch(this.email, patern);
+                var isValid = Regex.IsMatch(value, patern);
                 if (isValid == false || string.IsNullOrWhiteSpace(value) || string.IsNullOrEmpty(value))
                 {
                     throw new ApplicationException("The email is not valid");

@@ -117,8 +117,8 @@
             set
             {
                 var patern = @"\d+";
-                var isValid = Regex.IsMatch(this.contactPhone, patern);
-                if (isValid == false || this.contactPhone.Length < 9 || string.IsNullOrWhiteSpace(value) || string.IsNullOrEmpty(value))
+                var isValid = Regex.IsMatch(value, patern);
+                if (isValid == false || value.Length < 9 || string.IsNullOrWhiteSpace(value) || string.IsNullOrEmpty(value))
                 {
                     throw new ApplicationException("The telephone is not valid");
                 }
