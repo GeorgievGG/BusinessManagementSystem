@@ -31,6 +31,11 @@
             vm.OfferService = offerService;
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         //private void Add_New_Click(object sender, RoutedEventArgs e)
         //{
         //    var dash = new OfferForm();

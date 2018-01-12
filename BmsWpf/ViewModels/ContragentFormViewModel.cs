@@ -37,11 +37,11 @@
         public Action CloseAction { get; set; }
 
         public string ViewName
-		{
-			get
-			{
-				return "Contragent Form";
-			}
+        {
+            get
+            {
+                return "Contragent Form";
+            }
         }
 
         public int Id
@@ -199,27 +199,27 @@
         }
 
         public ICommand Save
-		{
-			get
-			{
-				if (this.SaveCommand == null)
-				{
-					this.SaveCommand = new RelayCommand(this.HandleSaveCommand);
-				}
-				return this.SaveCommand;
-			}
-		}
+        {
+            get
+            {
+                if (this.SaveCommand == null)
+                {
+                    this.SaveCommand = new RelayCommand(this.HandleSaveCommand);
+                }
+                return this.SaveCommand;
+            }
+        }
 
-		public ICommand Back
-		{
-			get
-			{
-				if (this.BackCommand == null)
-				{
-					this.BackCommand = new RelayCommand(this.HandleBackCommand);
-				}
-				return this.BackCommand;
-			}
+        public ICommand Back
+        {
+            get
+            {
+                if (this.BackCommand == null)
+                {
+                    this.BackCommand = new RelayCommand(this.HandleBackCommand);
+                }
+                return this.BackCommand;
+            }
         }
 
         public DataRowView SelectedContragent { get => selectedContragent; set => selectedContragent = value; }
@@ -245,36 +245,40 @@
         private void HandleSaveCommand(object parameter)
         {
             var result = string.Empty;
-            var newContragent = new ContragentPostDto()
-            {
-                Id = this.Id,
-                Name = this.Name,
-                PersonalIndentityNumber = this.PersonalIndentityNumber,
-                PersonalVatNumber = this.PersonalVatNumber,
-                Town = this.Town,
-                Address = this.Address,
-                Telephone = this.Telephone,
-                Email = this.Email,
-                PersonForContact = this.PersonForContact,
-                BankDetails = this.BankDetails,
-                Description = this.Description
-            };
             try
             {
+                var newContragent = new ContragentPostDto()
+                {
+                    Id = this.Id,
+                    Name = this.Name,
+                    PersonalIndentityNumber = this.PersonalIndentityNumber,
+                    PersonalVatNumber = this.PersonalVatNumber,
+                    Town = this.Town,
+                    Address = this.Address,
+                    Telephone = this.Telephone,
+                    Email = this.Email,
+                    PersonForContact = this.PersonForContact,
+                    BankDetails = this.BankDetails,
+                    Description = this.Description
+                };
                 if (this.SelectedContragent == null)
                 {
                     result = this.ContragentService.CreateContragent(newContragent);
+                    MessageBox.Show(result);
+                    this.RedirectToMainContragents();
                 }
                 else
                 {
                     result = this.ContragentService.EditContragent(newContragent);
+                    MessageBox.Show(result);
+                    this.RedirectToMainContragents();
                 }
             }
             catch (Exception e)
             {
                 result = e.Message;
+                MessageBox.Show(result);
             }
-            MessageBox.Show(result);
 
             //using (var context = new BmsContex())
             //{
@@ -294,8 +298,6 @@
             //	context.Contragents.Add(contragent);
             //	context.SaveChanges();
             //	MessageBox.Show("Contragent details saved successfully");
-
-            this.RedirectToMainContragents();
         }
 
         private void HandleBackCommand(object parameter)

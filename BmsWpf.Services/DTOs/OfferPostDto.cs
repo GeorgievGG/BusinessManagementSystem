@@ -63,9 +63,9 @@
             }
             set
             {
-                if (string.IsNullOrWhiteSpace(value))
+                if (value.Length < 3 || string.IsNullOrWhiteSpace(value) || string.IsNullOrEmpty(value))
                 {
-                    throw new ArgumentException("Offer should have a description!");
+                    throw new ApplicationException("Description have to be more then 3 symbols");
                 }
                 this.description = value;
             }

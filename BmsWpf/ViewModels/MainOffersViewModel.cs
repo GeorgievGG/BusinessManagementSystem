@@ -9,6 +9,8 @@
     using System.Windows;
     using System.Windows.Input;
 
+    using BmsWpf.Views.ChildWindows;
+
     public class MainOffersViewModel : ViewModelBase, IPageViewModel
     {
         private DataTable offers;
@@ -177,6 +179,9 @@
             }
 
             MessageBox.Show(result);
+            var mainOfferWindow = this.ViewManager.ComposeObjects<MainOffers>();
+            mainOfferWindow.Show();
+            this.CloseAction();
         }
 
         private void HandleBackCommand(object parameter)

@@ -28,8 +28,8 @@
 
             <DatePicker Name="StartDateBox" Canvas.Left="185" Canvas.Top="170" Width="295" Height="32" SelectedDate="{Binding Path=StartDate, StringFormat=dd/MM/yyyy}" />
             <DatePicker Name="EndDateBox" Canvas.Left="185" Canvas.Top="204" Width="295" Height="32" SelectedDate="{Binding Path=EndDate, StringFormat=dd/MM/yyyy}" />
-            <TextBox Name="TitleBox" Height="40" Canvas.Left="185" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Text="{Binding Title}" Canvas.Top="10" Width="295" BorderBrush="Beige"/>
-            <TextBox Name="DescriptionBox" Height="100" Canvas.Left="185" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Text="{Binding Description}" Canvas.Top="60" Width="295" BorderBrush="Beige"/>
+            <TextBox Name="TitleBox" Height="40" Canvas.Left="185" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Text="{Binding Title,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Canvas.Top="10" Width="295" BorderBrush="Beige"/>
+            <TextBox Name="DescriptionBox" Height="100" Canvas.Left="185" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Text="{Binding Description,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Canvas.Top="60" Width="295" BorderBrush="Beige"/>
 
             <ComboBox Name="ColorPickerBox"  Canvas.Left="185" Canvas.Top="245" Width="295" ItemsSource="{Binding Colors}" SelectedItem="{Binding SelectedColor}"/>
 
