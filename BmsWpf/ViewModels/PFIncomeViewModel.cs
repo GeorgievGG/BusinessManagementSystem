@@ -200,7 +200,7 @@
         {
             if (this.SelectedInvoice == null)
             {
-                MessageBox.Show("Please select an offer to continue");
+                MessageBox.Show("Please select an invoice to continue");
                 return;
             }
             var invoiceForm = this.ViewManager.ComposeObjects<InvoiceForm>();

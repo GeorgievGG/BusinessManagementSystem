@@ -53,7 +53,8 @@
 
                 var eView = ViewManager.ComposeObjects<ExpensesView>();
                 var eViewVM = (PFExpensesViewModel)eView.DataContext;
-                //eViewVM.SelectedProject = this.SelectedProject;
+                eViewVM.SelectedProject = this.SelectedProject;
+                eViewVM.CloseAction = this.CloseAction;
                 Tabs.Add(new TabItem { Header = "Expenses", Content = eView });
 
                 var nView = ViewManager.ComposeObjects<NotesView>();
