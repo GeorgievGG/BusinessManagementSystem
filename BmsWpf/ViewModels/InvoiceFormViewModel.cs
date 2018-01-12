@@ -3,6 +3,7 @@
     using BmsWpf.Behaviour;
     using BmsWpf.Services.Contracts;
     using BmsWpf.Services.DTOs;
+    using BmsWpf.Sessions;
     using BmsWpf.Views.ChildWindows;
     using System;
     using System.Collections.ObjectModel;
@@ -143,11 +144,10 @@
             }
         }
 
-
-
         public int Id { get; set; }
-        public int initialClientId { get; set; }
-        public int initialSupplierId { get; set; }
+        public int InitialClientId { get; set; }
+        public int InitialSupplierId { get; set; }
+        public int InitialProjectId { get; set; }
         public string ClientName
         {
             get
@@ -468,14 +468,18 @@
             this.Clients = new ObservableCollection<ContragentListDto>(this.ContragentService.GetContragentsForDropdown());
             this.Suppliers = new ObservableCollection<ContragentListDto>(this.ContragentService.GetContragentsForDropdown());
             this.Projects = new ObservableCollection<ProjectListDto>(this.ProjectService.GetProjectsForDropdown());
-            if (initialClientId == 1)
+            if (this.InitialProjectId != 0)
             {
-                this.SelectedClient = this.Clients.SingleOrDefault(x => x.Id == initialClientId);
+                this.SelectedProject = this.Projects.SingleOrDefault(x => x.Id == this.InitialProjectId);
+            }
+            if (this.InitialClientId == 1)
+            {
+                this.SelectedClient = this.Clients.SingleOrDefault(x => x.Id == this.InitialClientId);
                 this.HandleSelectionChangedClientCommand(null);
             }
-            else if (initialSupplierId == 1)
+            else if (this.InitialSupplierId == 1)
             {
-                this.SelectedSupplier = this.Suppliers.SingleOrDefault(x => x.Id == initialSupplierId);
+                this.SelectedSupplier = this.Suppliers.SingleOrDefault(x => x.Id == this.InitialSupplierId);
                 this.HandleSelectionChangedSupplierCommand(null);
             }
             else if (this.SelectedInvoice != null)
@@ -532,7 +536,7 @@
 
         private void HandleBackCommand(object parameter)
         {
-            this.RedirectToMainInvoices();
+            this.RedirectToPreviousWindow();
         }
 
         private void HandleSelectionChangedClientCommand(object parameter)
@@ -588,13 +592,13 @@
                 {
                     result = this.InvoiceService.CreateInvoice(newInvoice);
                     MessageBox.Show(result);
-                    this.RedirectToMainInvoices();
+                    this.RedirectToPreviousWindow();
                 }
                 else
                 {
                     result = this.InvoiceService.EditInvoice(newInvoice);
                     MessageBox.Show(result);
-                    this.RedirectToMainInvoices();
+                    this.RedirectToPreviousWindow();
                 }
             }
             catch (Exception e)
@@ -630,10 +634,13 @@
             this.InvoiceTotal = value + this.InvoiceVat;
         }
 
-        private void RedirectToMainInvoices()
+        private void RedirectToPreviousWindow()
         {
-            var mainInvoicesWindow = this.ViewManager.ComposeObjects<MainInvoices>();
-            mainInvoicesWindow.Show();
+            if (Session.Instance.LastOpenWindow == "MainInvoices")
+            {
+                var previousWindow = this.ViewManager.ComposeObjects<MainInvoices>();
+                previousWindow.Show();
+            }
             this.CloseAction();
         }
     }

@@ -28,5 +28,4 @@
             //vm.PatmentService = paymentService;
         }
     }
-    
 }

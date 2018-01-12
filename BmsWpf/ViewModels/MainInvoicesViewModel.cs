@@ -2,6 +2,7 @@
 {
     using BmsWpf.Behaviour;
     using BmsWpf.Services.Contracts;
+    using BmsWpf.Sessions;
     using BmsWpf.Views.Forms;
     using System;
     using System.Data;
@@ -144,6 +145,7 @@
 
         private void HandleLoadedCommand(object parameter)
         {
+            Session.Instance.SetLastOpenWindow("MainInvoices");
             this.Invoices = InvoiceService.GetInvoicesAsDataTable();
         }
 
@@ -160,7 +162,7 @@
         {
             var invoiceForm = this.ViewManager.ComposeObjects<InvoiceForm>();
             var vm = (InvoiceFormViewModel)invoiceForm.DataContext;
-            vm.initialClientId = 1;
+            vm.InitialClientId = 1;
             invoiceForm.Show();
             this.CloseAction();
         }
@@ -183,7 +185,7 @@
         {
             var invoiceForm = this.ViewManager.ComposeObjects<InvoiceForm>();
             var vm = (InvoiceFormViewModel)invoiceForm.DataContext;
-            vm.initialSupplierId = 1;
+            vm.InitialSupplierId = 1;
             invoiceForm.Show();
             this.CloseAction();
         }

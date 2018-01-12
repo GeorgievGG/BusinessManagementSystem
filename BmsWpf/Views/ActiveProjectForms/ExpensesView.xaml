@@ -3,20 +3,51 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:BmsWpf.Views.ActiveProjectForms"
+        xmlns:viewModels="clr-namespace:BmsWpf.ViewModels"
+        xmlns:intr="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         mc:Ignorable="d"
-        Height="849.783" Width="750.156">
-    <Grid Height="850" Width="750" Background="#FF2E3137">
-        <Label Content="Invoices" HorizontalAlignment="Left" Margin="49,10,0,0" VerticalAlignment="Top" Width="285" Height="40" FontSize="28" Foreground="AliceBlue"/>
-        <DataGrid Name="InvoiceExpences" HorizontalAlignment="Left" Height="298" Margin="49,55,0,0" VerticalAlignment="Top" Width="591"/>
-        <Label Content="Payments" HorizontalAlignment="Left" Margin="40,406,0,0" VerticalAlignment="Top" Width="285" Height="55" FontSize="28" Foreground="AliceBlue"/>
-        <DataGrid x:Name="ExpencesPayments" HorizontalAlignment="Left" Height="301" Margin="40,455,0,0" VerticalAlignment="Top" Width="600"/>
-        <Button Name="AddInvoiceSuplierButton" Content="Add invoice" HorizontalAlignment="Left" Margin="340,20,0,0" VerticalAlignment="Top" Width="100" Height="30" />
-        <Button Name="EditInvoiceSuplierButton" Content="Edit invoice" HorizontalAlignment="Left" Margin="438,20,0,0" VerticalAlignment="Top" Width="100" Height="30" />
-        <Button Content="Delete" HorizontalAlignment="Left" Margin="538,20,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
-        <Button Name ="AddNewPaymentButton" Content="Add payment" HorizontalAlignment="Left" Margin="345,416,0,0" VerticalAlignment="Top" Width="100" Height="30" />
-        <Button Name="EditPaymentsButton"  Content="Edit payment" HorizontalAlignment="Left" Margin="443,416,0,0" VerticalAlignment="Top" Width="100" Height="30" />
-        <Button Content="Delete" HorizontalAlignment="Left" Margin="543,416,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
-
+        Height="741.783" Width="750.156">
+    <UserControl.DataContext>
+        <viewModels:PFExpensesViewModel />
+    </UserControl.DataContext>
+    <intr:Interaction.Triggers>
+        <intr:EventTrigger EventName="Loaded">
+            <intr:InvokeCommandAction Command="{Binding WindowLoaded}"/>
+        </intr:EventTrigger>
+    </intr:Interaction.Triggers>
+    <Grid Width="750" Background="#FF2E3137" Margin="0,0,0.4,-0.4">
+        <Label Content="Invoices" HorizontalAlignment="Left" Margin="49,10,0,0" VerticalAlignment="Top" Width="285" Height="40" FontSize="26" Foreground="AliceBlue"/>
+        <DataGrid Name="InvoiceExpences" 
+                  HorizontalAlignment="Left" 
+                  Height="298" 
+                  Margin="49,55,0,0" 
+                  VerticalAlignment="Top" 
+                  Width="591"
+                  CanUserAddRows="False"
+                  ItemsSource="{Binding Invoices}" 
+                  SelectedItem="{Binding SelectedInvoice}">
+            <intr:Interaction.Triggers>
+                <intr:EventTrigger EventName="MouseDoubleClick">
+                    <intr:InvokeCommandAction Command="{Binding DoubleInvoiceClick}" />
+                </intr:EventTrigger>
+            </intr:Interaction.Triggers>
+        </DataGrid>
+        <Label Content="Payments" HorizontalAlignment="Left" Margin="49,353,0,0" VerticalAlignment="Top" Width="285" Height="55" FontSize="26" Foreground="AliceBlue"/>
+        <DataGrid x:Name="ExpencesPayments" HorizontalAlignment="Left" Height="301" Margin="49,393,0,0" VerticalAlignment="Top" Width="591" CanUserAddRows="False" ItemsSource="{Binding Payments}" SelectedItem="{Binding SelectedPayment}"/>
+        <Button Name="AddInvoiceClientButton" Content="Add invoice" HorizontalAlignment="Left" Margin="442,20,0,0" VerticalAlignment="Top" Width="100" Height="30" Command="{Binding AddNewCI}"/>
+        <Button Name="EditInvoiceClientButton" Content="Edit invoice" HorizontalAlignment="Left" Margin="540,20,0,0" VerticalAlignment="Top" Width="100" Height="30" Command="{Binding EditCI}"/>
+        <Button Name ="AddNewPaymentButton" Content="Add payment" HorizontalAlignment="Left" Margin="442,358,0,0" VerticalAlignment="Top" Width="100" Height="30" Command="{Binding AddNewPayment}"/>
+        <Button Name="EditPaymentsButton"  Content="Edit payment" HorizontalAlignment="Left" Margin="540,358,0,0" VerticalAlignment="Top" Width="100" Height="30" Command="{Binding EditPayment}"/>
+        <Button Name="ButtonBack" 
+                Content="Back" 
+                HorizontalAlignment="Left"  
+                VerticalAlignment="Top" 
+                Width="100" 
+                Height="30"
+                Background="AliceBlue" 
+                Foreground="Black" 
+                FontSize="14" 
+                Margin="538,702,0,0"  
+                Command="{Binding Back}"/>
     </Grid>
 </UserControl>
