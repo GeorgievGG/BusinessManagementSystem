@@ -1,19 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-
-namespace BmsWpf.Views.ActiveProjectForms
+﻿namespace BmsWpf.Views.ActiveProjectForms
 {
+    using BmsWpf.Services.Contracts;
+    using BmsWpf.ViewModels;
+    using System.Windows.Controls;
+
     /// <summary>
     /// Interaction logic for IncomesTabView.xaml
     /// </summary>
@@ -24,4 +14,19 @@ namespace BmsWpf.Views.ActiveProjectForms
             InitializeComponent();
         }
     }
+
+    public partial class IncomesView : UserControl
+    {
+        public IncomesView(IViewManager viewManager, IInvoiceService invoiceService/*, IPaymentService paymentService*/)
+        {
+            InitializeComponent();
+
+            var vm = (PFIncomeViewModel)this.DataContext; // this creates an instance of the ViewModel
+
+            vm.ViewManager = viewManager;
+            vm.InvoiceService = invoiceService;
+            //vm.PatmentService = paymentService;
+        }
+    }
+    
 }

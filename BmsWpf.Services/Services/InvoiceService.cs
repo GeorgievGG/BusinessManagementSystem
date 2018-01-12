@@ -19,6 +19,28 @@
 
         public DataTable GetInvoicesAsDataTable()
         {
+            var invoicesDataTable = this.GetInvoiceDtos().ToDataTable();
+
+            return invoicesDataTable;
+        }
+
+        public DataTable GetProjectIncomeInvoicesAsDataTable(int projectId)
+        {
+            var invoices = this.GetInvoiceDtos();
+            var invoicesDataTable = invoices.Where(x => x.Supplier.Id == 1 && x.Project.Id == projectId).ToDataTable();
+
+            return invoicesDataTable;
+        }
+
+        public DataTable GetProjectExpenseInvoicesAsDataTable(int projectId)
+        {
+            var invoicesDataTable = this.GetInvoiceDtos().Where(x => x.Client.Id == 1 && x.Project.Id == projectId).ToDataTable();
+
+            return invoicesDataTable;
+        }
+
+        private IQueryable<InvoiceForMainInvoicesDto> GetInvoiceDtos()
+        {
             IQueryable<Invoice> invoices = GetAllInvoices();
             var invoicesDataTable = invoices.Select(x => new InvoiceForMainInvoicesDto
             {
@@ -46,7 +68,7 @@
                 Price = x.Price,
                 VAT = x.Vat,
                 Total = x.Total
-            }).ToDataTable();
+            });
             return invoicesDataTable;
         }
 
@@ -58,19 +80,6 @@
 
             return invoices;
         }
-
-        //public IEnumerable<InvoiceListDto> GetInvoicesList()
-        //{
-        //    var inquiries = this.bmsData
-        //                .Inquiries
-        //                .All();
-        //    var inquiriesDtos = inquiries.Select(x => new InquiryListDto
-        //    {
-        //        Id = x.Id,
-        //        Description = x.Description
-        //    });
-        //    return inquiriesDtos;
-        //}
 
         public string CreateInvoice(InvoicePostDto newInvoice)
         {

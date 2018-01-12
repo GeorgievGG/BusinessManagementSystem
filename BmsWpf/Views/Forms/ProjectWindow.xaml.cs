@@ -37,10 +37,11 @@
             //ProjectTabs.ItemContainerStyle = this.FindResource("Right90") as Style;
 
             ProjectFormViewModel vm = (ProjectFormViewModel)this.DataContext; // this creates an instance of the ViewModel
-
+            
             if (vm.CloseAction == null)
                 vm.CloseAction = new Action(() => this.Close());
-
+            if (vm.OpenTab == null)
+                vm.OpenTab = new Action(() => this.ProjectTabs.SelectedIndex = 0);
             vm.ViewManager = viewManager;
         }
 

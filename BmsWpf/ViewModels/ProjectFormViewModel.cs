@@ -22,6 +22,8 @@
 
         public Action CloseAction { get; set; }
 
+        public Action OpenTab { get; set; }
+
         public virtual ICommand WindowLoaded
         {
             get
@@ -45,12 +47,14 @@
             {
                 var iView = ViewManager.ComposeObjects<IncomesView>();
                 var iViewVM = (PFIncomeViewModel)iView.DataContext;
-                //iViewVM.SelectedProject = this.SelectedProject;
+                iViewVM.SelectedProject = this.SelectedProject;
                 Tabs.Add(new TabItem { Header = "Income", Content = iView });
+
                 var eView = ViewManager.ComposeObjects<ExpensesView>();
                 var eViewVM = (PFExpensesViewModel)eView.DataContext;
                 //eViewVM.SelectedProject = this.SelectedProject;
                 Tabs.Add(new TabItem { Header = "Expenses", Content = eView });
+
                 var nView = ViewManager.ComposeObjects<NotesView>();
                 var nViewVM = (PFNotesViewModel)nView.DataContext;
                 //nViewVM.SelectedProject = this.SelectedProject;
@@ -67,6 +71,7 @@
                 poViewVM.HideProfitBox();
                 poViewVM.HideProfitLabel();
             }
+            this.OpenTab();
         }
     }
 }
