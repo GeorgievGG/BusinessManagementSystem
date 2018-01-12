@@ -2,6 +2,7 @@
 {
     using BmsWpf.Behaviour;
     using BmsWpf.Services.Contracts;
+    using BmsWpf.Sessions;
     using BmsWpf.Views.ChildWindows;
     using BmsWpf.Views.Forms;
     using System;
@@ -28,9 +29,11 @@
         public ICommand SearchCommand;
         public ICommand AddNewSICommand;
         public ICommand EditSICommand;
+        public ICommand DoubleInvoiceClickCommand;
         public ICommand AddNewPaymentCommand;
         public ICommand EditPaymentCommand;
         public ICommand BackCommand;
+        public ICommand DoublePaymentClickCommand;
 
         public DataRowView SelectedProject { get; set; }
         public IInvoiceService InvoiceService { get; set; }
@@ -126,6 +129,18 @@
             }
         }
 
+        public ICommand DoubleInvoiceClick
+        {
+            get
+            {
+                if (this.DoubleInvoiceClickCommand == null)
+                {
+                    this.DoubleInvoiceClickCommand = new RelayCommand(this.HandleEditCommand);
+                }
+                return this.DoubleInvoiceClickCommand;
+            }
+        }
+
         public ICommand AddNewPayment
         {
             get
@@ -150,6 +165,18 @@
             }
         }
 
+        public ICommand DoublePaymentClick
+        {
+            get
+            {
+                if (this.DoublePaymentClickCommand == null)
+                {
+                    this.DoublePaymentClickCommand = new RelayCommand(this.HandleEditPaymentCommand);
+                }
+                return this.DoublePaymentClickCommand;
+            }
+        }
+
         public ICommand Back
         {
             get
@@ -164,6 +191,7 @@
 
         private void HandleLoadedCommand(object parameter)
         {
+            Session.Instance.SetLastOpenWindow("IncomesView");
             this.Invoices = InvoiceService.GetProjectIncomeInvoicesAsDataTable((int)this.SelectedProject.Row.ItemArray[0]);
             //this.Invoices = PaymentService.GetIncomePaymentsAsDataTable();
         }
@@ -179,16 +207,15 @@
             var vm = (InvoiceFormViewModel)invoiceForm.DataContext;
             vm.SelectedInvoice = this.SelectedInvoice;
             invoiceForm.Show();
-            this.CloseAction();
         }
 
         private void HandleAddNewSICommand(object parameter)
         {
             var invoiceForm = this.ViewManager.ComposeObjects<InvoiceForm>();
             var vm = (InvoiceFormViewModel)invoiceForm.DataContext;
-            vm.initialSupplierId = 1;
+            vm.InitialSupplierId = 1;
+            vm.InitialProjectId = 1;
             invoiceForm.Show();
-            this.CloseAction();
         }
 
         private void HandleBackCommand(object parameter)

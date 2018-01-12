@@ -13,6 +13,7 @@
 
         public string Username { get; private set; }
         public bool IsLogged { get; private set; }
+        public string LastOpenWindow { get; private set; }
 
         public static Session Instance
         {
@@ -30,6 +31,11 @@
         {
             this.Username = username;
             this.IsLogged = true;
+        }
+
+        public void SetLastOpenWindow(string windowName)
+        {
+            this.LastOpenWindow = windowName;
         }
 
         public void Logout()

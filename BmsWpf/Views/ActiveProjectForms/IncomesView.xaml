@@ -6,7 +6,7 @@
         xmlns:viewModels="clr-namespace:BmsWpf.ViewModels"
         xmlns:intr="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         mc:Ignorable="d"
-        Height="847.841" Width="751.356">
+        Height="745.441" Width="751.356">
     <UserControl.DataContext>
         <viewModels:PFIncomeViewModel/>
     </UserControl.DataContext>
@@ -15,15 +15,29 @@
             <intr:InvokeCommandAction Command="{Binding WindowLoaded}"/>
         </intr:EventTrigger>
     </intr:Interaction.Triggers>
-    <Grid Height="850" Width="750" Background="#FF2E3137">
-        <Label Content="Invoices" HorizontalAlignment="Left" Margin="49,10,0,0" VerticalAlignment="Top" Width="285" Height="40" FontSize="28" Foreground="AliceBlue"/>
-        <DataGrid Name="InvoiceIncome" HorizontalAlignment="Left" Height="298" Margin="49,55,0,0" VerticalAlignment="Top" Width="591" CanUserAddRows="False" ItemsSource="{Binding Invoices}" SelectedItem="{Binding SelectedInvoice}"/>
-        <Label Content="Payments" HorizontalAlignment="Left" Margin="40,406,0,0" VerticalAlignment="Top" Width="285" Height="55" FontSize="28" Foreground="AliceBlue"/>
-        <DataGrid x:Name="IncomePayments" HorizontalAlignment="Left" Height="301" Margin="40,455,0,0" VerticalAlignment="Top" Width="600" CanUserAddRows="False" ItemsSource="{Binding Payments}" SelectedItem="{Binding SelectedPayment}"/>
-        <Button Name="AddInvoiceButton" Content="Add invoice" HorizontalAlignment="Left" Margin="442,20,0,0" VerticalAlignment="Top" Width="100" Height="30" Command="{Binding AddNewSI}"/>
-        <Button Name="EditInvoicesButton" Content="Edit invoice" HorizontalAlignment="Left" Margin="540,20,0,0" VerticalAlignment="Top" Width="100" Height="30" Command="{Binding EditSI}"/>
-        <Button Name ="AddNewSuplierPaymentButton" Content="Add payment" HorizontalAlignment="Left" Margin="442,420,0,0" VerticalAlignment="Top" Width="100" Height="30" Command="{Binding AddNewPayment}" />
-        <Button Name="EditSupplierPaymentsButton"  Content="Edit payment" HorizontalAlignment="Left" Margin="540,420,0,0" VerticalAlignment="Top" Width="100" Height="30" Command="{Binding EditPayment}" />
+    <Grid Width="750" Background="#FF2E3137" Margin="1,0,0.2,0" Height="745" VerticalAlignment="Top">
+        <Label Content="Invoices" HorizontalAlignment="Left" Margin="47,0,0,0" VerticalAlignment="Top" Width="285" Height="40" FontSize="26" Foreground="AliceBlue"/>
+        <DataGrid Name="InvoiceIncome" 
+                  HorizontalAlignment="Left" 
+                  Height="298" 
+                  Margin="47,45,0,0" 
+                  VerticalAlignment="Top" 
+                  Width="591" 
+                  CanUserAddRows="False" 
+                  ItemsSource="{Binding Invoices}" 
+                  SelectedItem="{Binding SelectedInvoice}">
+            <intr:Interaction.Triggers>
+                <intr:EventTrigger EventName="MouseDoubleClick">
+                    <intr:InvokeCommandAction Command="{Binding DoubleInvoiceClick}" />
+                </intr:EventTrigger>
+            </intr:Interaction.Triggers>
+        </DataGrid>
+        <Label Content="Payments" HorizontalAlignment="Left" Margin="47,348,0,0" VerticalAlignment="Top" Width="285" Height="55" FontSize="26" Foreground="AliceBlue"/>
+        <DataGrid x:Name="IncomePayments" HorizontalAlignment="Left" Height="301" Margin="47,396,0,0" VerticalAlignment="Top" Width="591" CanUserAddRows="False" ItemsSource="{Binding Payments}" SelectedItem="{Binding SelectedPayment}"/>
+        <Button Name="AddInvoiceButton" Content="Add invoice" HorizontalAlignment="Left" Margin="440,10,0,0" VerticalAlignment="Top" Width="100" Height="30" Command="{Binding AddNewSI}"/>
+        <Button Name="EditInvoicesButton" Content="Edit invoice" HorizontalAlignment="Left" Margin="538,10,0,0" VerticalAlignment="Top" Width="100" Height="30" Command="{Binding EditSI}"/>
+        <Button Name ="AddNewSuplierPaymentButton" Content="Add payment" HorizontalAlignment="Left" Margin="440,361,0,0" VerticalAlignment="Top" Width="100" Height="30" Command="{Binding AddNewPayment}" />
+        <Button Name="EditSupplierPaymentsButton"  Content="Edit payment" HorizontalAlignment="Left" Margin="538,361,0,0" VerticalAlignment="Top" Width="100" Height="30" Command="{Binding EditPayment}" />
         <Button Name="ButtonBack" 
                 Content="Back" 
                 HorizontalAlignment="Left"  
@@ -33,7 +47,7 @@
                 Background="AliceBlue" 
                 Foreground="Black" 
                 FontSize="14" 
-                Margin="538,790,0,0"  
+                Margin="538,702,0,0"  
                 Command="{Binding Back}"/>
     </Grid>
 </UserControl>

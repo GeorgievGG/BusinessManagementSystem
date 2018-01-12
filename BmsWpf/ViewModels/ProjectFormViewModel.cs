@@ -48,6 +48,7 @@
                 var iView = ViewManager.ComposeObjects<IncomesView>();
                 var iViewVM = (PFIncomeViewModel)iView.DataContext;
                 iViewVM.SelectedProject = this.SelectedProject;
+                iViewVM.CloseAction = this.CloseAction;
                 Tabs.Add(new TabItem { Header = "Income", Content = iView });
 
                 var eView = ViewManager.ComposeObjects<ExpensesView>();
