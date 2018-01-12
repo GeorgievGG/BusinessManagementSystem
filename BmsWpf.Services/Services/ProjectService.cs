@@ -69,6 +69,8 @@
                     Id = x.Contragent.Id,
                     NameAndIdentity = x.Contragent.Name
                 },
+                ContactPerson = x.ContactPerson,
+                ContactPhone = x.ContactPhone,
                 StartDate = x.StartDate,
                 EndDate = x.EndDate,
                 Deadline = x.DeadLine,
@@ -82,6 +84,49 @@
         private IQueryable<Project> GetActiveProjects()
         {
             return bmsData.Projects.All();//.Where(x => x.EndDate == null);
+        }
+
+        public string CreateProject(ProjectPostDto newProject)
+        {
+            var project = new Project()
+            {
+                Name = newProject.Name,
+                OfferId = newProject.OfferId,
+                InquiryId = newProject.InquiryId,
+                CreatorId = newProject.CreatorId,
+                ContragentId = newProject.ClientId,
+                ContactPerson = newProject.ContactPerson,
+                ContactPhone = newProject.ContactPhone,
+                StartDate = newProject.StartDate,
+                DeadLine = newProject.Deadline,
+                EndDate = newProject.EndDate
+            };
+
+            this.bmsData.Projects.Add(project);
+            this.bmsData.SaveChanges();
+
+            return $"Project \"{newProject.Name}\" from date {newProject.StartDate.ToShortDateString()} successfully created!";
+        }
+
+        public string EditProject(ProjectPostDto newProject)
+        {
+            var project = bmsData.Projects.Find(newProject.Id);
+
+            project.Name = newProject.Name;
+            project.OfferId = newProject.OfferId;
+            project.InquiryId = newProject.InquiryId;
+            project.CreatorId = newProject.CreatorId;
+            project.ContragentId = newProject.ClientId;
+            project.ContactPerson = newProject.ContactPerson;
+            project.ContactPhone = newProject.ContactPhone;
+            project.StartDate = newProject.StartDate;
+            project.DeadLine = newProject.Deadline;
+            project.EndDate = newProject.EndDate;
+
+            this.bmsData.Projects.Update(project);
+            this.bmsData.SaveChanges();
+
+            return $"Project {newProject.Name} successfully updated!";
         }
     }
 }

@@ -13,6 +13,8 @@
         public DateTime StartDate { get; set; }
         public DateTime? EndDate { get; set; }
         public DateTime Deadline { get; set; }
+        public string ContactPerson { get; set; }
+        public string ContactPhone { get; set; }
         public decimal Incomes { get; set; }
         public decimal Expenses { get; set; }
         public decimal FinancialResult

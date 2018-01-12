@@ -11,5 +11,7 @@
         DataTable FilterProjects(DateTime beginDate, DateTime endDate);
         IEnumerable<ProjectListDto> GetProjectsForDropdown();
         DataTable GetProjectsAsDataTable();
+        string CreateProject(ProjectPostDto newProject);
+        string EditProject(ProjectPostDto newProject);
     }
 }

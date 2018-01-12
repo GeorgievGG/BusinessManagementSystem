@@ -1,14 +1,15 @@
 ﻿namespace BmsWpf.Services.Services
 {
+    using BMS.DataBaseModels;
     using BmsWpf.Services.Contracts;
+    using BmsWpf.Services.DTOs;
     using Microsoft.EntityFrameworkCore;
     using MoreLinq;
     using System;
+    using System.Collections.Generic;
     using System.Data;
     using System.Data.SqlClient;
     using System.Linq;
-    using BmsWpf.Services.DTOs;
-    using BMS.DataBaseModels;
 
     public class OfferService : IOfferService
     {
@@ -106,6 +107,18 @@
             this.bmsData.SaveChanges();
 
             return $"Offer with Id: {newOffer.Id} successfully updated!";
+        }
+
+        public IEnumerable<OfferListDto> GetOffersList()
+        {
+            var offers = this.bmsData.Offers.All();
+            var offersList = offers.Select(x => new OfferListDto
+            {
+                Id = x.Id,
+                Description = x.Description
+            });
+
+            return offersList;
         }
     }
 }

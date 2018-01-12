@@ -2,9 +2,11 @@
 {
     using BmsWpf.Behaviour;
     using BmsWpf.Services.Contracts;
+    using BmsWpf.Sessions;
     using BmsWpf.Views.Forms;
     using System;
     using System.Data;
+    using System.Windows;
     using System.Windows.Input;
 
     public class ActiveProjectsViewModel : ViewModelBase, IPageViewModel
@@ -154,13 +156,23 @@
         private void HandleAddNewProjectCommand(object parameter)
         {
             var addPrjView = this.ViewManager.ComposeObjects<ProjectWindow>();
+            var vm = (PFOverviewViewModel)addPrjView.DataContext;
+            vm.Creator = Session.Instance.Username;
             addPrjView.Show();
             this.CloseAction();
         }
 
         private void HandleEditProjectCommand(object parameter)
         {
+            if (this.SelectedProject == null)
+            {
+                MessageBox.Show("Please select a project to continue");
+                return;
+            }
             var editPrjView = this.ViewManager.ComposeObjects<ProjectWindow>();
+            var vm = (PFOverviewViewModel)editPrjView.DataContext;
+            vm.SelectedProject = this.SelectedProject;
+            vm.Creator = Session.Instance.Username;
             editPrjView.Show();
             this.CloseAction();
         }

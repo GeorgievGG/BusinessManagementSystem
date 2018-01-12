@@ -224,17 +224,18 @@
         private void HandleSaveCommand(object parameter)
         {
             var result = string.Empty;
-            var newOffer = new OfferPostDto()
-            {
-                Id = this.Id,
-                CreatorId = creatorId,
-                ClientId = this.SelectedClient.Id,
-                InquiryId = this.SelectedInquiry.Id,
-                Description = this.Description,
-                Date = this.Date
-            };
+            OfferPostDto newOffer;
             try
             {
+                newOffer = new OfferPostDto
+                {
+                    Id = this.Id,
+                    CreatorId = creatorId,
+                    ClientId = this.SelectedClient.Id,
+                    InquiryId = this.SelectedInquiry.Id,
+                    Description = this.Description,
+                    Date = this.Date
+                };
                 if (this.SelectedOffer == null)
                 {
                     result = this.OfferService.CreateOffer(newOffer);

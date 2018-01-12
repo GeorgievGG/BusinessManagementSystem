@@ -1,6 +1,7 @@
 ﻿namespace BmsWpf.Services.Contracts
 {
     using BmsWpf.Services.DTOs;
+    using System.Collections.Generic;
     using System.Data;
 
     public interface IOfferService
@@ -9,5 +10,6 @@
         DataTable GetOffersAsDataTable();
         string CreateOffer(OfferPostDto newOffer);
         string EditOffer(OfferPostDto newOffer);
+        IEnumerable<OfferListDto> GetOffersList();
     }
 }

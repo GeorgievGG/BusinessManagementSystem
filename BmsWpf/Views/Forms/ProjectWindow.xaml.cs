@@ -16,6 +16,8 @@
     using BMS.DataBaseData;
     using BMS.DataBaseModels;
     using BmsWpf.Sessions;
+    using BmsWpf.Services.Contracts;
+    using BmsWpf.ViewModels;
 
     /// <summary>
     /// Interaction logic for ProjectWindow.xaml
@@ -25,13 +27,27 @@
         public ProjectWindow()
         {
             InitializeComponent();
-            ProjectTabs.ItemContainerStyle = this.FindResource("Right90") as Style;
+
+            ProjectFormViewModel vm = (ProjectFormViewModel)this.DataContext;
         }
 
-        private void ProjectTabs_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        public ProjectWindow(IViewManager viewManager)
         {
+            InitializeComponent();
+            //ProjectTabs.ItemContainerStyle = this.FindResource("Right90") as Style;
 
+            ProjectFormViewModel vm = (ProjectFormViewModel)this.DataContext; // this creates an instance of the ViewModel
+
+            if (vm.CloseAction == null)
+                vm.CloseAction = new Action(() => this.Close());
+
+            vm.ViewManager = viewManager;
         }
+
+        //private void ProjectTabs_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+
+        //}
 
         //private void FillComboBoxes()
         //{

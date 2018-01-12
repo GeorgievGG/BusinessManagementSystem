@@ -11,6 +11,11 @@
     <Window.DataContext>
         <viewModels:ProjectFormViewModel/>
     </Window.DataContext>
+    <intr:Interaction.Triggers>
+        <intr:EventTrigger EventName="Loaded">
+            <intr:InvokeCommandAction Command="{Binding WindowLoaded}"/>
+        </intr:EventTrigger>
+    </intr:Interaction.Triggers>
     <Window.Resources>
         <Style x:Key="Right90" TargetType="{x:Type TabItem}">
             <Setter Property="HeaderTemplate">
