@@ -209,6 +209,7 @@
             this.ClientsList = new ObservableCollection<ContragentListDto>(this.ContragentService.GetContragentsForDropdown());
             this.InquiriesList = new ObservableCollection<InquiryListDto>(this.InquiryService.GetInquiriesList());
             this.creatorId = this.UserService.GetUsernames().SingleOrDefault(x => x.Username == offerCreator).Id;
+
             if (this.SelectedOffer != null)
             {
                 this.Id = (int)SelectedOffer.Row.ItemArray[0];

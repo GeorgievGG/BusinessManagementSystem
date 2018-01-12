@@ -142,6 +142,7 @@
     <Compile Include="ViewModels\MainOffersViewModel.cs" />
     <Compile Include="ViewModels\ManageUserViewModel.cs" />
     <Compile Include="ViewModels\OfferFormViewModel.cs" />
+    <Compile Include="ViewModels\PaymentViewModel.cs" />
     <Compile Include="ViewModels\PFExpensesViewModel.cs" />
     <Compile Include="ViewModels\PFIncomeViewModel.cs" />
     <Compile Include="ViewModels\PFNotesViewModel.cs" />

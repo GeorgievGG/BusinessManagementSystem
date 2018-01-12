@@ -10,7 +10,7 @@
 
         string EditPayment(PaymentPostDto newPayment);
 
-        DataTable GetPaymentsToTable();
+        DataTable GetPaymentsToTable(ProjectPostDto project);
 
         string Delete(int id);
     }
