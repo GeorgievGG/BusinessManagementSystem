@@ -141,7 +141,24 @@
     <Compile Include="ViewModels\MainOffersViewModel.cs" />
     <Compile Include="ViewModels\ManageUserViewModel.cs" />
     <Compile Include="ViewModels\OfferFormViewModel.cs" />
+    <Compile Include="ViewModels\PFExpensesViewModel.cs" />
+    <Compile Include="ViewModels\PFIncomeViewModel.cs" />
+    <Compile Include="ViewModels\PFNotesViewModel.cs" />
+    <Compile Include="ViewModels\PFOverviewViewModel.cs" />
+    <Compile Include="ViewModels\ProjectFormViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="Views\ActiveProjectForms\ExpensesView.xaml.cs">
+      <DependentUpon>ExpensesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ActiveProjectForms\IncomesView.xaml.cs">
+      <DependentUpon>IncomesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ActiveProjectForms\NotesView.xaml.cs">
+      <DependentUpon>NotesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ActiveProjectForms\ProjectOverviewView.xaml.cs">
+      <DependentUpon>ProjectOverviewView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Admin\AddUser.xaml.cs">
       <DependentUpon>AddUser.xaml</DependentUpon>
     </Compile>
@@ -213,6 +230,22 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\ActiveProjectForms\ExpensesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ActiveProjectForms\IncomesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ActiveProjectForms\NotesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ActiveProjectForms\ProjectOverviewView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Admin\AddUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

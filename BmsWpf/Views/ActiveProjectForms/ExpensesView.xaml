@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="BmsWpf.Views.ActiveProjectForms.ExpensesView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BmsWpf.Views.ActiveProjectForms"
+        mc:Ignorable="d"
+        Height="849.783" Width="750.156">
+    <Grid Height="850" Width="750" Background="#FF2E3137">
+        <Label Content="Invoices" HorizontalAlignment="Left" Margin="49,10,0,0" VerticalAlignment="Top" Width="285" Height="40" FontSize="28" Foreground="AliceBlue"/>
+        <DataGrid Name="InvoiceExpences" HorizontalAlignment="Left" Height="298" Margin="49,55,0,0" VerticalAlignment="Top" Width="591"/>
+        <Label Content="Payments" HorizontalAlignment="Left" Margin="40,406,0,0" VerticalAlignment="Top" Width="285" Height="55" FontSize="28" Foreground="AliceBlue"/>
+        <DataGrid x:Name="ExpencesPayments" HorizontalAlignment="Left" Height="301" Margin="40,455,0,0" VerticalAlignment="Top" Width="600"/>
+        <Button Name="AddInvoiceSuplierButton" Content="Add invoice" HorizontalAlignment="Left" Margin="340,20,0,0" VerticalAlignment="Top" Width="100" Height="30" />
+        <Button Name="EditInvoiceSuplierButton" Content="Edit invoice" HorizontalAlignment="Left" Margin="438,20,0,0" VerticalAlignment="Top" Width="100" Height="30" />
+        <Button Content="Delete" HorizontalAlignment="Left" Margin="538,20,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
+        <Button Name ="AddNewPaymentButton" Content="Add payment" HorizontalAlignment="Left" Margin="345,416,0,0" VerticalAlignment="Top" Width="100" Height="30" />
+        <Button Name="EditPaymentsButton"  Content="Edit payment" HorizontalAlignment="Left" Margin="443,416,0,0" VerticalAlignment="Top" Width="100" Height="30" />
+        <Button Content="Delete" HorizontalAlignment="Left" Margin="543,416,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
+
+    </Grid>
+</UserControl>

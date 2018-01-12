@@ -20,13 +20,19 @@
         <Canvas >
             <DatePicker Name="fromDater" HorizontalAlignment="Left" VerticalAlignment="Top" SelectedDate="{Binding Path=BeginDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="111" Canvas.Top="101"/>
             <DatePicker Name="toDater" HorizontalAlignment="Left" VerticalAlignment="Top" SelectedDate="{Binding Path=EndDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="364" Canvas.Top="99"/>
-            <Button Content="Search" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="30" Background="AliceBlue" Foreground="Black"  Command="{Binding Search}" Click="Search_Click" Canvas.Left="582" Canvas.Top="101"/>
+            <Button Content="Search" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="30" Background="AliceBlue" Foreground="Black"  Command="{Binding Search}" Canvas.Left="582" Canvas.Top="101"/>
             <Label Content="From" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFDCE4DC" FontWeight="Bold" Canvas.Left="51" Canvas.Top="98"/>
             <Label Content="To" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" Canvas.Left="316" Canvas.Top="98"/>
             <Button Content="Edit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Background="AliceBlue" Foreground="Black" FontSize="14" Command="{Binding EditProject}" Height="30" Canvas.Left="155" Canvas.Top="743"/>
-            <Button Content="Add new" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Background="AliceBlue" Foreground="Black" FontSize="14" Command="{Binding AddNewProject}" Click="Button_Click" Height="30" Canvas.Left="51" Canvas.Top="743"/>
+            <Button Content="Add new" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Background="AliceBlue" Foreground="Black" FontSize="14" Command="{Binding AddNewProject}" Height="30" Canvas.Left="51" Canvas.Top="743"/>
             <Button Content="Back" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Background="AliceBlue" Foreground="Black" FontSize="14" Command="{Binding Back}" Height="30" Canvas.Left="582" Canvas.Top="743"/>
-            <DataGrid Name="ProjectsDataGrid" HorizontalAlignment="Left" Height="545" VerticalAlignment="Top" Width="635" Loaded="ProjectsDataGrid_Loaded" MouseDoubleClick="ProjectsDataGrid_MouseDoubleClick" SelectionMode="Single" Canvas.Left="51" Canvas.Top="158"/>
+            <DataGrid Name="ProjectsDataGrid" HorizontalAlignment="Left" Height="545" VerticalAlignment="Top" Width="635" SelectionMode="Single" Canvas.Left="51" Canvas.Top="158" CanUserAddRows="False" ItemsSource="{Binding ChosenProjects}" SelectedItem="{Binding SelectedProject}">
+                <intr:Interaction.Triggers>
+                    <intr:EventTrigger EventName="MouseDoubleClick">
+                        <intr:InvokeCommandAction Command="{Binding DoubleClick}" />
+                    </intr:EventTrigger>
+                </intr:Interaction.Triggers>
+            </DataGrid>
             <Button Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Background="AliceBlue" Foreground="Black" FontSize="14" Command="{Binding Delete}" Height="30" Canvas.Left="260" Canvas.Top="743"/>
         </Canvas>
     </Grid>

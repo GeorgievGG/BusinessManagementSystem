@@ -3,131 +3,50 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:BmsWpf.Views.Forms"
+        xmlns:viewModels="clr-namespace:BmsWpf.ViewModels"
+        xmlns:intr="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:views="clr-namespace:BmsWpf.Views.ActiveProjectForms"
         mc:Ignorable="d"
         Title="ProjectWindow" Height="850" Width="750" FontSize="16" Background="#FF2E3137" WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <viewModels:ProjectFormViewModel/>
+    </Window.DataContext>
+    <Window.Resources>
+        <Style x:Key="Right90" TargetType="{x:Type TabItem}">
+            <Setter Property="HeaderTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <ContentPresenter Content="{TemplateBinding Content}" TextOptions.TextFormattingMode="Display">
+                            <ContentPresenter.LayoutTransform>
+                                <RotateTransform Angle="90" />
+                            </ContentPresenter.LayoutTransform>
+                        </ContentPresenter>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid Background="#FF2E3137" Margin="0,0,4,5" >
-
-        <TabControl Name ="ProjectTabs" TabStripPlacement ="Right" HorizontalAlignment="Left" Height="850" SelectionChanged="TabControl_SelectionChanged">
+        <TabControl Name="ProjectTabs" TabStripPlacement ="Top" HorizontalAlignment="Left" Height="850" Padding="-2 0 -2 -2" ItemsSource="{Binding PageViews}">
             <TabControl.Resources>
-                <Style TargetType="{x:Type TabItem}">
-                    <Setter Property="HeaderTemplate">
-                        <Setter.Value>
-                            <DataTemplate>
-                                <ContentPresenter Content="{TemplateBinding Content}">
-                                    <ContentPresenter.LayoutTransform>
-                                        <RotateTransform Angle="90"></RotateTransform>
-                                    </ContentPresenter.LayoutTransform>
-                                </ContentPresenter>
-                            </DataTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
+                <DataTemplate DataType="{x:Type viewModels:PFOverviewViewModel}">
+                    <views:ProjectOverviewView />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type viewModels:PFIncomeViewModel}">
+                    <views:IncomesView />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type viewModels:PFExpensesViewModel}">
+                    <views:ExpensesView />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type viewModels:PFNotesViewModel}">
+                    <views:NotesView />
+                </DataTemplate>
             </TabControl.Resources>
-            <TabItem Header="Project Overveiw" Width="35" Height="100" FontSize="12">
-                <Grid Height="850" Width="750" Background="#FF2E3137" >
-                    <Label Content="Name" HorizontalAlignment="Left" Margin="21,70,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
-                    <TextBox Name ="NameTextBox" HorizontalAlignment="Left" Height="30" Margin="126,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="525"/>
-                    <Label Content="Offer" HorizontalAlignment="Left" Margin="21,110,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
-                    <ComboBox Name="OfferComboBox" HorizontalAlignment="Left" Height="30" Margin="126,110,0,0"  VerticalAlignment="Top" Width="200"/>
-                    <Label Content="Inquire" HorizontalAlignment="Left" Margin="21,150,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
-                    <ComboBox Name="InquireComboBox" HorizontalAlignment="Left" Height="30" Margin="126,150,0,0"  VerticalAlignment="Top" Width="200"/>
-                    <Label Content="Client" HorizontalAlignment="Left" Margin="346,110,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
-                    <ComboBox Name="ClientBox" HorizontalAlignment="Left" Height="30" Margin="451,110,0,0" Text="TextBox" VerticalAlignment="Top" Width="200"/>
-                    <Label Content="Contact to" HorizontalAlignment="Left" Margin="346,150,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
-                    <TextBox Name="ContactTextBox" HorizontalAlignment="Left" Height="30" Margin="451,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
-                    <Label Content="Telephone" HorizontalAlignment="Left" Margin="346,185,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
-                    <TextBox Name="PhoneBox" HorizontalAlignment="Left" Height="30" Margin="451,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
-                    <Label Content="Creator" HorizontalAlignment="Left" Margin="21,185,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
-                    <Label Content="Incomes" HorizontalAlignment="Left" Margin="349,267,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
-                    <TextBox HorizontalAlignment="Left" Height="30" Margin="451,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
-                    <Label Content="Expences" HorizontalAlignment="Left" Margin="349,302,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
-                    <TextBox HorizontalAlignment="Left" Height="30" Margin="451,304,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
-                    <Label Content="Profit" HorizontalAlignment="Left" Margin="349,337,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
-                    <TextBox HorizontalAlignment="Left" Height="30" Margin="451,337,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
-                    <Label Content="Start Date" HorizontalAlignment="Left" Margin="21,267,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
-                    <Label Content="TimeLine" HorizontalAlignment="Left" Margin="21,302,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
-                    <Label Content="End Date" HorizontalAlignment="Left" Margin="21,337,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue" />
-                    <DatePicker Name="StartDatePicker" HorizontalAlignment="Left" Margin="126,274,0,0" VerticalAlignment="Top" Height="30" Width="200"/>
-                    <DatePicker Name="EndDatePicker" HorizontalAlignment="Left" Margin="126,337,0,0" VerticalAlignment="Top" Height="30" Width="200"/>
-                    <DatePicker Name="LimitDatePicker" HorizontalAlignment="Left" Margin="126,307,0,0" VerticalAlignment="Top" Height="30" Width="200"/>
-                    <Label Content="Notes and Events"  Margin="126,396,99,0" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Background="#FF2E3137" Foreground="White" Width="525"/>
-                    <ListBox HorizontalAlignment="Left" Height="223" Margin="126,443,0,0" VerticalAlignment="Top" Width="525"/>
-                    <TextBox Name="creatorBox" 
-                              Height="30" 
-                             Width="200"
-                              Margin="126,185,424,0"  
-                              BorderThickness="2"  
-                              BorderBrush="#313c4f" 
-                              TextWrapping="Wrap"  
-                              VerticalAlignment="Top" 
-                              IsReadOnly="True" 
-                              Background="LightGray"
-                              HorizontalContentAlignment="Center"
-                              VerticalContentAlignment="Center"/>
-                    <Button Name="ButtonSave" Content="Save" HorizontalAlignment="Left" Margin="551,688,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="ButtonSave_Click"/>
-                    <Button Name="ButtonBack" Content="Back" HorizontalAlignment="Left"  VerticalAlignment="Top" 
-                            Width="100" 
-                            Height="30"
-                            Background="AliceBlue" 
-                            Foreground="Black" 
-                            FontSize="14" 
-                            Margin="589,750,0,0"  
-                            Click="ButtonEdit_Click"/>
-                </Grid>
-            </TabItem>
-            <TabItem Header="Incomes"  Width="35" Height="100" FontSize="12">
-                <Grid Height="850" Width="750" Background="#FF2E3137">
-                    <Label Content="Invoices" HorizontalAlignment="Left" Margin="49,10,0,0" VerticalAlignment="Top" Width="285" Height="40" FontSize="28" Foreground="AliceBlue"/>
-                    <DataGrid Name="InvoiceIncome" HorizontalAlignment="Left" Height="298" Margin="49,55,0,0" VerticalAlignment="Top" Width="591"/>
-                    <Label Content="Payments" HorizontalAlignment="Left" Margin="40,406,0,0" VerticalAlignment="Top" Width="285" Height="55" FontSize="28" Foreground="AliceBlue"/>
-                    <DataGrid x:Name="IncomePayments" HorizontalAlignment="Left" Height="301" Margin="40,455,0,0" VerticalAlignment="Top" Width="600"/>
-                    <Button Name="AddInvoiceButton" Content="Add invoice" HorizontalAlignment="Left" Margin="340,20,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="AddInvoiceButton_Click"/>
-                    <Button Name="EditInvoicesButton" Content="Edit invoice" HorizontalAlignment="Left" Margin="438,20,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="EditInvoicesButton_Click"/>
-                    <Button Content="Delete" HorizontalAlignment="Left" Margin="538,20,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
-                    <Button Name ="AddNewSuplierPaymentButton" Content="Add payment" HorizontalAlignment="Left" Margin="345,416,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="AddNewPaymentButton_Click"/>
-                    <Button Name="EditSupplierPaymentsButton"  Content="Edit payment" HorizontalAlignment="Left" Margin="443,416,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="EditSupplierPaymentsButton_Click"/>
-                    <Button Content="Delete" HorizontalAlignment="Left" Margin="543,416,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
-
-                </Grid>
-
-            </TabItem>
-            <TabItem Header="Expences"  Width="35" Height="100" FontSize="12">
-                <Grid Height="850" Width="750" Background="#FF2E3137">
-                    <Label Content="Invoices" HorizontalAlignment="Left" Margin="49,10,0,0" VerticalAlignment="Top" Width="285" Height="40" FontSize="28" Foreground="AliceBlue"/>
-                    <DataGrid Name="InvoiceExpences" HorizontalAlignment="Left" Height="298" Margin="49,55,0,0" VerticalAlignment="Top" Width="591"/>
-                    <Label Content="Payments" HorizontalAlignment="Left" Margin="40,406,0,0" VerticalAlignment="Top" Width="285" Height="55" FontSize="28" Foreground="AliceBlue"/>
-                    <DataGrid x:Name="ExpencesPayments" HorizontalAlignment="Left" Height="301" Margin="40,455,0,0" VerticalAlignment="Top" Width="600"/>
-                    <Button Name="AddInvoiceSuplierButton" Content="Add invoice" HorizontalAlignment="Left" Margin="340,20,0,0" VerticalAlignment="Top" Width="100" Height="30" />
-                    <Button Name="EditInvoiceSuplierButton" Content="Edit invoice" HorizontalAlignment="Left" Margin="438,20,0,0" VerticalAlignment="Top" Width="100" Height="30" />
-                    <Button Content="Delete" HorizontalAlignment="Left" Margin="538,20,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
-                    <Button Name ="AddNewPaymentButton" Content="Add payment" HorizontalAlignment="Left" Margin="345,416,0,0" VerticalAlignment="Top" Width="100" Height="30" />
-                    <Button Name="EditPaymentsButton"  Content="Edit payment" HorizontalAlignment="Left" Margin="443,416,0,0" VerticalAlignment="Top" Width="100" Height="30" />
-                    <Button Content="Delete" HorizontalAlignment="Left" Margin="543,416,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
-
-                </Grid>
-            </TabItem>
-            <TabItem Header="Notes"  Width="35" Height="100" FontSize="12">
-                <Grid Height="850" Width="750" Background="#FF2E3137">
-                    
-                        <DataGrid HorizontalAlignment="Left" Height="733" VerticalAlignment="Top" Width="510" Margin="157,24,0,0">
-                            <GridView>
-                                <GridViewColumn Header="Note" Width="205" DisplayMemberBinding="{Binding Desciption}"></GridViewColumn>
-                                <GridViewColumn Header="Type" Width="205" DisplayMemberBinding="{Binding Type}"></GridViewColumn>
-                            </GridView>
-                        </DataGrid>
-                
-
-                    <Button Name ="AddNewNoteButton" Content="Add new note" HorizontalAlignment="Left" Margin="32,24,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="AddNewNoteButton_Click"/>
-                    <Button Name="EditNotesButton" Content="Edit note" HorizontalAlignment="Left" Margin="32,59,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="EditNotesButton_Click"/>
-                    <Button Name="DeleteNoteButton" Content="Delete note" HorizontalAlignment="Left" Margin="32,94,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="DeleteNoteButton_Click"/>
-
-                </Grid>
-            </TabItem>
-
+            <TabControl.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding TabTitle}"/>
+                </DataTemplate>
+            </TabControl.ItemTemplate>
         </TabControl>
-
-
-
     </Grid>
 </Window>

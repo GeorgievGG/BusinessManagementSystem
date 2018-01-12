@@ -2,22 +2,23 @@
 {
     using BmsWpf.Behaviour;
     using BmsWpf.Services.Contracts;
-    using BmsWpf.Sessions;
     using BmsWpf.Views.Forms;
     using System;
-    using System.Collections.ObjectModel;
+    using System.Data;
     using System.Windows.Input;
 
     public class ActiveProjectsViewModel : ViewModelBase, IPageViewModel
     {
+        public ICommand WindowLoadedCommand;
+        public ICommand DoubleClickCommand;
         public ICommand SearchCommand;
         public ICommand SortCommand;
         public ICommand AddNewProjectCommand;
         public ICommand EditProjectCommand;
         public ICommand BackCommand;
-        public ICommand WindowLoadedCommand;
-        
-        private ObservableCollection<string> chosenProjects;
+
+        private DataTable chosenProjects;
+        private DataRowView selectedProject;
 
         public Action CloseAction { get; set; }
         
@@ -41,16 +42,29 @@
         public DateTime BeginDate { get; set; }
         public DateTime EndDate { get; set; }
 
-        public ObservableCollection<string> ChosenProjects
+        public DataTable ChosenProjects
         {
             get
             {
                 return chosenProjects;
             }
-            private set
+            set
             {
                 this.chosenProjects = value;
                 this.OnPropertyChanged(nameof(ChosenProjects));
+            }
+        }
+
+        public DataRowView SelectedProject
+        {
+            get
+            {
+                return selectedProject;
+            }
+            set
+            {
+                this.selectedProject = value;
+                this.OnPropertyChanged(nameof(SelectedProject));
             }
         }
 
@@ -63,6 +77,18 @@
                     this.WindowLoadedCommand = new RelayCommand(this.HandleLoadedCommand);
                 }
                 return this.WindowLoadedCommand;
+            }
+        }
+
+        public ICommand DoubleClick
+        {
+            get
+            {
+                if (this.DoubleClickCommand == null)
+                {
+                    this.DoubleClickCommand = new RelayCommand(this.HandleEditProjectCommand);
+                }
+                return this.DoubleClickCommand;
             }
         }
 
@@ -116,13 +142,13 @@
 
         private void HandleLoadedCommand(object parameter)
         {
-            this.ChosenProjects = new ObservableCollection<string>(ProjectService.GetProjects());
+            this.ChosenProjects = ProjectService.GetProjectsAsDataTable();
         }
 
         private void HandleSearchCommand(object parameter)
         {
             var chosenProjectsQueryable = ProjectService.FilterProjects(BeginDate, EndDate);
-            this.ChosenProjects = new ObservableCollection<string>(chosenProjectsQueryable);
+            this.ChosenProjects = chosenProjectsQueryable;
         }
 
         private void HandleAddNewProjectCommand(object parameter)

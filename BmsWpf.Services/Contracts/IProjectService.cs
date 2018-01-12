@@ -3,12 +3,13 @@
     using BmsWpf.Services.DTOs;
     using System;
     using System.Collections.Generic;
+    using System.Data;
     using System.Linq;
 
     public interface IProjectService
     {
-        IQueryable<string> GetProjects();
-        IQueryable<string> FilterProjects(DateTime beginDate, DateTime endDate);
+        DataTable FilterProjects(DateTime beginDate, DateTime endDate);
         IEnumerable<ProjectListDto> GetProjectsForDropdown();
+        DataTable GetProjectsAsDataTable();
     }
 }

@@ -232,12 +232,13 @@
                 this.Name = (string)SelectedContragent.Row.ItemArray[1];
                 this.PersonalIndentityNumber = (string)SelectedContragent.Row.ItemArray[2];
                 this.PersonalVatNumber = (string)SelectedContragent.Row.ItemArray[3];
-                this.Address = (string)SelectedContragent.Row.ItemArray[4];
-                this.Telephone = (string)SelectedContragent.Row.ItemArray[5];
-                this.Email = (string)SelectedContragent.Row.ItemArray[6];
-                this.PersonForContact = (string)SelectedContragent.Row.ItemArray[7];
-                this.BankDetails = (string)SelectedContragent.Row.ItemArray[8];
-                this.Description = (string)SelectedContragent.Row.ItemArray[9];
+                this.Town = (string)SelectedContragent.Row.ItemArray[4];
+                this.Address = (string)SelectedContragent.Row.ItemArray[5];
+                this.Telephone = (string)SelectedContragent.Row.ItemArray[6];
+                this.Email = (string)SelectedContragent.Row.ItemArray[7];
+                this.PersonForContact = (string)SelectedContragent.Row.ItemArray[8];
+                this.BankDetails = (string)SelectedContragent.Row.ItemArray[9];
+                this.Description = (string)SelectedContragent.Row.ItemArray[10];
             }
         }
 
@@ -250,6 +251,7 @@
                 Name = this.Name,
                 PersonalIndentityNumber = this.PersonalIndentityNumber,
                 PersonalVatNumber = this.PersonalVatNumber,
+                Town = this.Town,
                 Address = this.Address,
                 Telephone = this.Telephone,
                 Email = this.Email,

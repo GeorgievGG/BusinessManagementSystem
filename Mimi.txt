@@ -1,0 +1,9 @@
+ViewManager does not have ICalendarEventsService in the container
+
+FORM:
+No ID on the list Dto
+No Userservice in the class constructor
+Color can be ObservableList - that way when you add color to the enum it will automatically be inserted in the dropdown menu
+Creator dropdownlist was not bound
+No projects collection/No projectService
+Non-complete DateTableRow transfer(missing projects)
