@@ -73,9 +73,9 @@
                 },
                 ContactPerson = x.ContactPerson,
                 ContactPhone = x.ContactPhone,
-                StartDate = x.StartDate,
+                StartDate = x.StartDate.ToString("dd.MM.yyyy"),
                 EndDate = x.EndDate,
-                Deadline = x.DeadLine,
+                Deadline = x.DeadLine.ToString("dd.MM.yyyy"),
                 Incomes = x.Invoices.Where(i => i.SupplierId == 1).Sum(i => i.Total),
                 Expenses = x.Invoices.Where(i => i.ClientId == 1).Sum(i => i.Total)
             })

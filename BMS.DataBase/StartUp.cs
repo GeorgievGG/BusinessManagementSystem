@@ -198,6 +198,9 @@
                     Date = RandomDate(random),
                     Price = (decimal)(random.Next(10, 1000) * 1.24),
                     Vat = random.Next(7, 21),
+                    Town = RandomTown(random),
+                    InvoiceNum = RandomInvoice(random)
+
                 };
 
                 clientInvoice.Total = clientInvoice.Price * clientInvoice.Vat;
@@ -229,6 +232,8 @@
                     Date = RandomDate(random),
                     Price = (decimal)(random.Next(10, 1000) * 1.24),
                     Vat = random.Next(7, 21),
+                    Town = RandomTown(random),
+                    InvoiceNum = RandomInvoice(random)
                 };
 
                 supplierInvoice.Total = supplierInvoice.Price * supplierInvoice.Vat;
@@ -435,6 +440,29 @@
             var randomTitle = randomSentence.Split()[random.Next(0, randomSentence.Split().Length)];
 
             return randomTitle;
+        }
+
+        private static string RandomTown(Random random)
+        {
+            var towns = new List<string>() { "Plovdiv","Sofia","Varna","Burgas","Ruse","Varna","StaraZagora",
+                "Gabrovo","Sevlievo","Pleven","Vidin","Lom","Silistra","Kurdjali" };
+
+            var randomCity = towns[random.Next(0,towns.Count-1)];
+            return randomCity;
+        }
+
+        private static int RandomInvoice(Random random)
+        {
+            var invoices = new List<int>() { 397933065, 578818815, 333372723, 553708490,
+                543745590, 859616541, 645152523, 1346363246, 155232567, 732562627,
+                62626065, 578418815, 333372723, 653708490,
+                17626065, 575218815, 333372723, 353838880,
+                32626065, 578818815, 325372723, 213705350,
+                40626065, 149918815, 386372723, 123779950,
+                125747236 };
+
+            var randomInvoice = invoices[random.Next(0, invoices.Count - 1)];
+            return randomInvoice;
         }
     }
 }

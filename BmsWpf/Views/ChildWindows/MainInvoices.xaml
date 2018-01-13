@@ -15,7 +15,9 @@
             <intr:InvokeCommandAction Command="{Binding WindowLoaded}"/>
         </intr:EventTrigger>
     </intr:Interaction.Triggers>
+    
     <Grid Height="850" Width="750" Background="#FF2E3137">
+        
         <Label Content="INVOICES"  HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="54,35,54,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Background="#FF2E3137" Foreground="White" Width="642"/>
         <Button Name="SearchButton" 
                 Content="Search" 
@@ -31,8 +33,15 @@
                   Margin="54,138,0,0" 
                   VerticalAlignment="Top" 
                   Width="630"
+                  SelectionMode="Single"
                   ItemsSource="{Binding Invoices}"
-                  SelectedItem="{Binding SelectedInvoice}"/>
+                  SelectedItem="{Binding SelectedInvoice}">
+            <intr:Interaction.Triggers>
+                <intr:EventTrigger EventName="MouseDoubleClick">
+                    <intr:InvokeCommandAction Command="{Binding DoubleClick}" />
+                </intr:EventTrigger>
+            </intr:Interaction.Triggers>
+        </DataGrid>
         <TextBox Name="SearchTextBox" 
                  HorizontalAlignment="Left" 
                  Height="30" 

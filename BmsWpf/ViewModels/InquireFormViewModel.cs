@@ -7,6 +7,7 @@
     using System;
     using System.Collections.ObjectModel;
     using System.Data;
+    using System.Globalization;
     using System.Linq;
     using System.Windows;
     using System.Windows.Input;
@@ -238,7 +239,7 @@
                 var clientDto = (ContragentListDto)selectedInquiry.Row.ItemArray[2];
                 this.SelectedClient = ClientsList.SingleOrDefault(x => x.NameAndIdentity == clientDto.NameAndIdentity);
                 this.Description = (string)selectedInquiry.Row.ItemArray[3];
-                this.Date = (DateTime)selectedInquiry.Row.ItemArray[4];
+                this.Date = DateTime.ParseExact(selectedInquiry.Row.ItemArray[4].ToString(), "dd.MM.yyyy", CultureInfo.InvariantCulture);
 
                 var clientId = clientDto.Id;
 

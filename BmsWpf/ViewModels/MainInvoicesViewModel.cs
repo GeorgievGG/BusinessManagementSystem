@@ -21,7 +21,9 @@
         public ICommand AddNewCICommand;
         public ICommand AddNewSICommand;
         public ICommand EditCommand;
+        public ICommand DoubleClickCommand;
         public ICommand BackCommand;
+
 
         public MainInvoicesViewModel()
         {
@@ -119,6 +121,18 @@
             }
         }
 
+        public ICommand DoubleClick
+        {
+            get
+            {
+                if (this.DoubleClickCommand == null)
+                {
+                    this.DoubleClickCommand = new RelayCommand(this.HandleEditCommand);
+                }
+                return this.DoubleClickCommand;
+            }
+        }
+
         public ICommand Edit
         {
             get
@@ -171,7 +185,7 @@
         {
             if (this.SelectedInvoice == null)
             {
-                MessageBox.Show("Please select an offer to continue");
+                MessageBox.Show("Please select an invoice to continue");
                 return;
             }
             var invoiceForm = this.ViewManager.ComposeObjects<InvoiceForm>();

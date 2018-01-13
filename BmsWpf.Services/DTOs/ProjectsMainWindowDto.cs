@@ -10,9 +10,9 @@
         public InquiryListDto Inquiry { get; set; }
         public UserListDto Creator { get; set; }
         public ContragentListDto Client { get; set; }
-        public DateTime StartDate { get; set; }
+        public string StartDate { get; set; }
         public DateTime? EndDate { get; set; }
-        public DateTime Deadline { get; set; }
+        public string Deadline { get; set; }
         public string ContactPerson { get; set; }
         public string ContactPhone { get; set; }
         public decimal Incomes { get; set; }
