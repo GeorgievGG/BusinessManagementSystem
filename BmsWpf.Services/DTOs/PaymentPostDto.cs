@@ -5,25 +5,40 @@
     public class PaymentPostDto
     {
         private int clientId;
-        private int contragentId;
+        private int supplierId;
         private int projectId;
         private decimal price;
 
         public int Id { get; set; }
 
-        public int ContragentId
+        public int ClientId
         {
             get
             {
-                return this.contragentId;
+                return this.clientId;
             }
             set
             {
                 if (value == 0)
                 {
-                    throw new ApplicationException("You haven't chosen a Contragent!");
+                    throw new ApplicationException("You haven't chosen a Client!");
                 }
                 this.clientId = value;
+            }
+        }
+        public int SupplierId
+        {
+            get
+            {
+                return this.supplierId;
+            }
+            set
+            {
+                if (value == 0)
+                {
+                    throw new ApplicationException("You haven't chosen a Supplier!");
+                }
+                this.supplierId = value;
             }
         }
 

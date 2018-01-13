@@ -5,6 +5,7 @@
     using System.Data.SqlClient;
     using System.Linq;
 
+    using BMS.DataBaseModels;
     using BmsWpf.Services.Contracts;
     using BmsWpf.Services.DTOs;
 
@@ -21,19 +22,71 @@
             this.bmsData = bmsData;
         }
 
+        private IQueryable<PaymentsForMainDto> GetPaymentsDto()
+        {
+            IQueryable<Payment> payments = GetAllPayments();
+            var paymentsDataTable = payments.Select(
+                p => new PaymentsForMainDto()
+                         {
+                             Id = p.Id,
+                             Client =
+                                 new ContragentListDto()
+                                     {
+                                         Id = p.Client.Id,
+                                         NameAndIdentity = p.Client.Name
+                                     },
+                             Supplier =
+                                 new ContragentListDto()
+                                     {
+                                         Id = p.Supplier.Id,
+                                         NameAndIdentity = p.Supplier.Name
+                                     },
+                             Project =
+                                 new ProjectListDto() { Id = p.Project.Id, Name = p.Project.Name },
+                             Date = p.Date,
+                             Price = p.Price,
+                             VAT = p.Vat,
+                             Total = p.Total
+                         });
+            return paymentsDataTable;
+        }
+
+        public DataTable GetPaymentsIncomeAsDataTable(int projectId)
+        {
+            var payments = this.GetPaymentsDto();
+            var paymentsDataTable = payments.Where(x => x.Supplier.Id == 1 && x.Project.Id == projectId).ToDataTable();
+
+            return paymentsDataTable;
+        }
+
+        public DataTable GetPaymentsExpencesAsDataTable(int projectId)
+        {
+            var paymentsExpencesDataTable = this.GetPaymentsDto()
+                .Where(x => x.Client.Id == 1 && x.Project.Id == projectId).ToDataTable();
+
+            return paymentsExpencesDataTable;
+        }
+
+
+        private IQueryable<Payment> GetAllPayments()
+        {
+            var payments = this.bmsData.Payments.All();
+            return payments;
+        }
+
         public string CreatePayment(PaymentPostDto newPayment)
         {
             var UserSrv = new UserService(this.bmsData);
             var payment = new Payment()
-                              {
-                                  SuplierId = newPayment.SupplierId,
-                                  ClientId = newPayment.ClientId,
-                                  ProjectId = newPayment.ProjectId,
-                                  Date = newPayment.Date,
-                                  Price = newPayment.Price,
-                                  Vat = newPayment.Vat,
-                                  Total = newPayment.Total
-                              };
+            {
+                ClientId = newPayment.ClientId,
+                SupplierId = newPayment.SupplierId,
+                ProjectId = newPayment.ProjectId,
+                Date = newPayment.Date,
+                Price = newPayment.Price,
+                Vat = newPayment.Vat,
+                Total = newPayment.Total
+            };
 
             this.bmsData.Payments.Add(payment);
 

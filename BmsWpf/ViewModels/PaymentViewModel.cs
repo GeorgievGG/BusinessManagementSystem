@@ -4,10 +4,16 @@
     using System.Collections.ObjectModel;
     using System.Data;
     using System.Linq;
-    using System.Windows.Forms;
+    using System.Windows;
     using System.Windows.Input;
 
     using BmsWpf.Behaviour;
+    using BmsWpf.Services.Contracts;
+    using BmsWpf.Services.DTOs;
+    using BmsWpf.Sessions;
+    using BmsWpf.Views.ChildWindows;
+
+
 
     internal class PaymentViewModel : ViewModelBase, IPageViewModel
     {
@@ -18,13 +24,16 @@
         private decimal paymentVat;
         private decimal paymentTotal;
 
-        private ContragentListDto selectedContragent;
-        private ObservableCollection<ContragentListDto> contragents;
+        private ContragentListDto selectedClient;
+        private ObservableCollection<ContragentListDto> clients;
+        private ContragentListDto selectedSupplier;
+        private ObservableCollection<ContragentListDto> suppliers;
         private ProjectListDto selectedProject;
         private ObservableCollection<ProjectListDto> projects;
 
-        public ICommand SelectionChangedContragentCommand;
         public ICommand WindowLoadedCommand;
+        public ICommand SelectionChangedContragentCommand;
+        public ICommand SelectionChangedSupplierCommand;
         public ICommand SaveCommand;
 
         public DataRowView selectedPayment;
@@ -36,6 +45,11 @@
 
         public Action CloseAction { get; set; }
 
+        public PaymentViewModel()
+        {
+            this.PaymentDate = DateTime.Now;
+        }
+
         public string ViewName
         {
             get
@@ -44,29 +58,54 @@
             }
         }
 
-        public ContragentListDto SelectedContragent
+        public ContragentListDto SelectedClient
         {
             get
             {
-                return this.selectedContragent;
+                return this.selectedClient;
             }
             set
             {
-                this.selectedContragent = value;
-                this.OnPropertyChanged(nameof(this.SelectedContragent));
+                this.selectedClient = value;
+                this.OnPropertyChanged(nameof(this.SelectedClient));
             }
         }
 
-        public ObservableCollection<ContragentListDto> Contragents
+        public ObservableCollection<ContragentListDto> Clients
         {
             get
             {
-                return this.contragents;
+                return this.clients;
             }
             set
             {
-                this.contragents = value;
-                this.OnPropertyChanged(nameof(this.Contragents));
+                this.clients = value;
+                this.OnPropertyChanged(nameof(this.Clients));
+            }
+        }
+
+        public ContragentListDto SelectedSupplier
+        {
+            get
+            {
+                return this.selectedSupplier;
+            }
+            set
+            {
+                this.selectedSupplier = value;
+                this.OnPropertyChanged(nameof(this.SelectedSupplier));
+            }
+        }
+        public ObservableCollection<ContragentListDto> Suppliers
+        {
+            get
+            {
+                return this.suppliers;
+            }
+            set
+            {
+                this.suppliers = value;
+                this.OnPropertyChanged(nameof(this.Suppliers));
             }
         }
 
@@ -95,20 +134,9 @@
             }
         }
 
-        public DataRowView SelectedPayment
-        {
-            get
-            {
-                return this.selectedPayment;
-            }
-            set
-            {
-                this.selectedPayment = value;
-                this.OnPropertyChanged(nameof(this.SelectedPayment));
-            }
-        }
-
-    
+        public int InitialClientId { get; set; }
+        public int InitialSupplierId { get; set; }
+        public int InitialProjectId { get; set; }
         public int Id { get; set; }
         public DateTime PaymentDate
         {
@@ -176,19 +204,55 @@
             }
         }
 
+
+        public DataRowView SelectedPayment
+        {
+            get
+            {
+                return this.selectedPayment;
+            }
+            set
+            {
+                this.selectedPayment = value;
+                this.OnPropertyChanged(nameof(this.SelectedPayment));
+            }
+        }
+
         private void HandleWindowLoadedCommand(object parameter)
         {
-               this.contragents = new ObservableCollection<ContragentListDto>(this.ContragentService.GetContragentsForDropdown());
-
+               this.Clients = new ObservableCollection<ContragentListDto>(this.ContragentService.GetContragentsForDropdown());
+            this.Suppliers = new ObservableCollection<ContragentListDto>(this.ContragentService.GetContragentsForDropdown());
+            this.Projects = new ObservableCollection<ProjectListDto>(this.ProjectService.GetProjectsForDropdown());
+            if (this.InitialProjectId != 0)
+            {
+                this.SelectedProject = this.Projects.SingleOrDefault(x => x.Id == this.InitialProjectId);
+            }
+            if (this.InitialClientId == 1)
+            {
+                this.SelectedClient = this.Clients.SingleOrDefault(x => x.Id == this.InitialClientId);
+             
+            }
+            else if (this.InitialSupplierId == 1)
+            {
+                this.SelectedSupplier = this.Suppliers.SingleOrDefault(x => x.Id == this.InitialSupplierId);
+                
+            }
             if (this.SelectedPayment != null)
             {
                 this.Id = (int)SelectedPayment.Row.ItemArray[0];
-                var contragentDto = (ContragentListDto).SelectedPayment.Row.ItemArray[1];
-                this.SelectedContragent = Contragents.SingleOrDefault(x => x.Id == contragentDto.Id);
-                this.PaymentDate = (DateTime)SelectedPayment.Row.ItemArray[2];
-                this.PaymentPrice = (decimal)SelectedPayment.Row.ItemArray[3];
-                this.PaymentVat = (decimal)SelectedPayment.Row.ItemArray[4];
-                this.paymentTotal = (decimal)SelectedPayment.Row.ItemArray[5];
+                var clientDto = (ContragentListDto)this.SelectedPayment.Row.ItemArray[2];
+                this.SelectedClient = this.Clients.SingleOrDefault(x => x.Id == clientDto.Id);
+                var supplierDto = (ContragentListDto)this.SelectedPayment.Row.ItemArray[3];
+                this.SelectedSupplier = this.Suppliers.SingleOrDefault(x => x.Id == supplierDto.Id);
+                var projectDto = (ProjectListDto)this.SelectedPayment.Row.ItemArray[4];
+                if (projectDto != null)
+                {
+                    this.SelectedProject = this.Projects.SingleOrDefault(x => x.Id == projectDto.Id);
+                }
+                this.PaymentDate = (DateTime)this.SelectedPayment.Row.ItemArray[2];
+                this.PaymentPrice = (decimal)this.SelectedPayment.Row.ItemArray[3];
+                this.PaymentVat = (decimal)this.SelectedPayment.Row.ItemArray[4];
+                this.paymentTotal = (decimal)this.SelectedPayment.Row.ItemArray[5];
             }
         }
 
@@ -212,11 +276,12 @@
                 var newPayment = new PaymentPostDto
                                      {
                                          Id = this.Id,
-                                         ClientId = this.SelectedContragent.Id,
+                                         ClientId = this.SelectedClient.Id,
+                                         SupplierId = this.SelectedSupplier.Id,
                                          ProjectId = this.SelectedProject.Id,
-                                         Price = this.price,
-                                         Vat = this.vat,
-                                         Total = this.total
+                                         Price = this.PaymentPrice,
+                                         Vat = this.PaymentVat,
+                                         Total = this.PaymentTotal
                                      };
                 if (this.SelectedPayment == null)
                 {

@@ -3,22 +3,59 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:BmsWpf.Views.Forms"
+        xmlns:intr="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:viewModels="clr-namespace:BmsWpf.ViewModels"
         mc:Ignorable="d"
         Title="Payment Client Form"  Height="400" Width="400" FontSize="16" Background="#FF2E3137" WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <viewModels:PaymentViewModel />
+    </Window.DataContext>
+    <intr:Interaction.Triggers>
+        <intr:EventTrigger EventName="Loaded">
+            <intr:InvokeCommandAction Command="{Binding WindowLoaded}"/>
+        </intr:EventTrigger>
+    </intr:Interaction.Triggers>
+
     <Grid Background="#FF2E3137" Height="400" Width="400">
-        <Label Content="Payment" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="54,35,54,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Background="#FF2E3137" Foreground="White"></Label>
-        <Label Content="Client" HorizontalAlignment="Left" Margin="45,132,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
-        <ComboBox Name="ClientComboBox" HorizontalAlignment="Left" Height="30" Margin="145,132,0,0" Text="TextBox" VerticalAlignment="Top" Width="200"/>
-        <Label Content="Date" HorizontalAlignment="Left" Margin="45,97,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue" />
-        <DatePicker Name="PaymentDatePicker" HorizontalAlignment="Left" Margin="145,97,0,0" VerticalAlignment="Top" Height="30" Width="200"/>
-        <Label Content="Price" HorizontalAlignment="Left" Margin="45,170,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
-        <TextBox Name="PriceBox" HorizontalAlignment="Left" Height="30" Margin="146,170,0,0" Text="TextBox" VerticalAlignment="Top" Width="200"/>
-        <Label Content="VAT" HorizontalAlignment="Left" Margin="45,205,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
-        <TextBox Name="VatBox" HorizontalAlignment="Left" Height="30" Margin="146,205,0,0" Text="TextBox" VerticalAlignment="Top" Width="200"/>
-        <Label Content="Total" HorizontalAlignment="Left" Margin="45,240,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
-        <TextBox Name="TotalBox" HorizontalAlignment="Left" Height="30" Margin="146,240,0,0" Text="TextBox" VerticalAlignment="Top" Width="200"/>
-        <Button Name="ButtonSave" Content="Save" HorizontalAlignment="Left" Margin="245,288,0,0" VerticalAlignment="Top" Width="100" Height="30" Command="{Binding Save}"/>
+        <ComboBox Name="ClientCombo" 
+                  HorizontalAlignment="Left" Height="30" 
+                  Margin="146,90,0,0" Text="TextBox" VerticalAlignment="Top" 
+                  Width="200"
+                  ItemsSource="{Binding Clients}"
+                  SelectedItem="{Binding SelectedClient}">
+        </ComboBox>
+        <ComboBox Name="SupplierCombo" 
+                  HorizontalAlignment="Left" 
+                  Margin="146,124,0,0" 
+                  VerticalAlignment="Top" 
+                  Width="200"
+                  ItemsSource="{Binding Suppliers}"
+                  SelectedItem="{Binding SelectedSupplier}" Height="30">
+        </ComboBox>
+        <ComboBox Name="ProjectCombo" 
+                  HorizontalAlignment="Left" 
+                  Margin="146,158,0,0" 
+                  VerticalAlignment="Top" 
+                  Width="200" 
+                  ItemsSource="{Binding Projects}"
+                  SelectedItem="{Binding SelectedProject}" Height="30">
+        </ComboBox>
+        <Label Content="Payment" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="136,10,156,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Background="#FF2E3137" Foreground="White"></Label>
+        <Label Content="Client" HorizontalAlignment="Left" Margin="46,90,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
+        <Label Content="Date" HorizontalAlignment="Left" Margin="45,55,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue" />
+        <DatePicker Name="PaymentDatePicker" HorizontalAlignment="Left" Margin="145,55,0,0" VerticalAlignment="Top" Height="30" Width="200"/>
+        <Label Content="Price" HorizontalAlignment="Left" Margin="45,196,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
+        <TextBox Name="PriceBox" HorizontalAlignment="Left" Height="30" Margin="146,196,0,0" Text="TextBox" VerticalAlignment="Top" Width="200"/>
+        <Label Content="VAT" HorizontalAlignment="Left" Margin="45,231,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
+        <TextBox Name="VatBox" HorizontalAlignment="Left" Height="30" Margin="146,231,0,0" Text="TextBox" VerticalAlignment="Top" Width="200"/>
+        <Label Content="Total" HorizontalAlignment="Left" Margin="45,266,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
+        <TextBox Name="TotalBox" HorizontalAlignment="Left" Height="30" Margin="146,266,0,0" Text="TextBox" VerticalAlignment="Top" Width="200"/>
+        <Button Name="ButtonSave" Content="Save" HorizontalAlignment="Left" Margin="246,319,0,0" VerticalAlignment="Top" Width="100" Height="30" Command="{Binding Save}"/>
+        <Label Content="Supplier" HorizontalAlignment="Left" Height="30" Margin="44,124,0,0"  VerticalAlignment="Top" Width="97" FontSize="16" Foreground="AliceBlue"/>
+        <Label Content="Project" HorizontalAlignment="Left" Height="30" Margin="45,158,0,0"  VerticalAlignment="Top" Width="96" FontSize="16" Foreground="AliceBlue"/>
 
     </Grid>
 </Window>
+
+
+
