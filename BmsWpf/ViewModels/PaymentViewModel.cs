@@ -174,8 +174,8 @@
             }
             set
             {
-                this.PaymentVat = value;
-                this.OnPropertyChanged(nameof(this.PaymentVat));
+                this.paymentVat = value;
+                this.OnPropertyChanged(nameof(PaymentVat));
             }
         }
 
@@ -187,7 +187,7 @@
             }
             set
             {
-                this.PaymentTotal = value;
+                this.paymentTotal = value;
                 this.OnPropertyChanged(nameof(this.PaymentTotal));
             }
         }
@@ -200,7 +200,7 @@
                 {
                     this.WindowLoadedCommand = new RelayCommand(this.HandleWindowLoadedCommand);
                 }
-                return this.WindowLoaded;
+                return this.WindowLoadedCommand;
 
             }
         }
@@ -240,19 +240,19 @@
             if (this.SelectedPayment != null)
             {
                 this.Id = (int)this.SelectedPayment.Row.ItemArray[0];
-                var clientDto = (ContragentListDto)this.SelectedPayment.Row.ItemArray[2];
+                var clientDto = (ContragentListDto)this.SelectedPayment.Row.ItemArray[1];
                 this.SelectedClient = this.Clients.SingleOrDefault(x => x.Id == clientDto.Id);
-                var supplierDto = (ContragentListDto)this.SelectedPayment.Row.ItemArray[3];
+                var supplierDto = (ContragentListDto)this.SelectedPayment.Row.ItemArray[2];
                 this.SelectedSupplier = this.Suppliers.SingleOrDefault(x => x.Id == supplierDto.Id);
-                var projectDto = (ProjectListDto)this.SelectedPayment.Row.ItemArray[4];
+                var projectDto = (ProjectListDto)this.SelectedPayment.Row.ItemArray[3];
                 if (projectDto != null)
                 {
                     this.SelectedProject = this.Projects.SingleOrDefault(x => x.Id == projectDto.Id);
                 }
-                this.PaymentDate = (DateTime)this.SelectedPayment.Row.ItemArray[2];
-                this.PaymentPrice = (decimal)this.SelectedPayment.Row.ItemArray[3];
-                this.PaymentVat = (decimal)this.SelectedPayment.Row.ItemArray[4];
-                this.paymentTotal = (decimal)this.SelectedPayment.Row.ItemArray[5];
+                this.PaymentDate = (DateTime)this.SelectedPayment.Row.ItemArray[4];
+                this.PaymentPrice = (decimal)this.SelectedPayment.Row.ItemArray[5];
+                this.PaymentVat = (decimal)this.SelectedPayment.Row.ItemArray[6];
+                this.paymentTotal = (decimal)this.SelectedPayment.Row.ItemArray[7];
             }
         }
 
@@ -279,6 +279,7 @@
                                          ClientId = this.SelectedClient.Id,
                                          SupplierId = this.SelectedSupplier.Id,
                                          ProjectId = this.SelectedProject.Id,
+                                         Date = this.PaymentDate,
                                          Price = this.PaymentPrice,
                                          Vat = this.PaymentVat,
                                          Total = this.PaymentTotal

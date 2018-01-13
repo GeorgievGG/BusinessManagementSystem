@@ -43,13 +43,13 @@
         <Label Content="Payment" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="136,10,156,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Background="#FF2E3137" Foreground="White"></Label>
         <Label Content="Client" HorizontalAlignment="Left" Margin="46,90,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
         <Label Content="Date" HorizontalAlignment="Left" Margin="45,55,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue" />
-        <DatePicker Name="PaymentDatePicker" HorizontalAlignment="Left" Margin="145,55,0,0" VerticalAlignment="Top" Height="30" Width="200"/>
+        <DatePicker Name="PaymentDatePicker" HorizontalAlignment="Left" Margin="145,55,0,0" VerticalAlignment="Top" Height="30" Width="200" Text="{Binding PaymentDate}"/>
         <Label Content="Price" HorizontalAlignment="Left" Margin="45,196,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
-        <TextBox Name="PriceBox" HorizontalAlignment="Left" Height="30" Margin="146,196,0,0" Text="TextBox" VerticalAlignment="Top" Width="200"/>
+        <TextBox Name="PriceBox" HorizontalAlignment="Left" Height="30" Margin="146,196,0,0"  VerticalAlignment="Top" Width="200" Text="{Binding PaymentPrice}"/>
         <Label Content="VAT" HorizontalAlignment="Left" Margin="45,231,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
-        <TextBox Name="VatBox" HorizontalAlignment="Left" Height="30" Margin="146,231,0,0" Text="TextBox" VerticalAlignment="Top" Width="200"/>
+        <TextBox Name="VatBox" HorizontalAlignment="Left" Height="30" Margin="146,231,0,0"  VerticalAlignment="Top" Width="200" Text="{Binding PaymentVat}"/>
         <Label Content="Total" HorizontalAlignment="Left" Margin="45,266,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
-        <TextBox Name="TotalBox" HorizontalAlignment="Left" Height="30" Margin="146,266,0,0" Text="TextBox" VerticalAlignment="Top" Width="200"/>
+        <TextBox Name="TotalBox" HorizontalAlignment="Left" Height="30" Margin="146,266,0,0" VerticalAlignment="Top" Width="200" Text="{Binding PaymentTotal}"/>
         <Button Name="ButtonSave" Content="Save" HorizontalAlignment="Left" Margin="246,319,0,0" VerticalAlignment="Top" Width="100" Height="30" Command="{Binding Save}"/>
         <Label Content="Supplier" HorizontalAlignment="Left" Height="30" Margin="44,124,0,0"  VerticalAlignment="Top" Width="97" FontSize="16" Foreground="AliceBlue"/>
         <Label Content="Project" HorizontalAlignment="Left" Height="30" Margin="45,158,0,0"  VerticalAlignment="Top" Width="96" FontSize="16" Foreground="AliceBlue"/>
