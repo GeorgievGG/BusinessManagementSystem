@@ -8,9 +8,14 @@
     using System;
     using System.Collections.ObjectModel;
     using System.Data;
+    using System.IO;
     using System.Linq;
     using System.Windows;
+    using System.Windows.Controls;
+    using System.Windows.Documents;
     using System.Windows.Input;
+    using System.Windows.Xps.Packaging;
+    using System.Xml;
 
     internal class InvoiceFormViewModel : ViewModelBase, IPageViewModel
     {
@@ -70,7 +75,7 @@
                 return "Invoice Form";
             }
         }
-        
+
         public ContragentListDto SelectedClient
         {
             get
@@ -531,7 +536,10 @@
 
         private void HandlePrintCommand(object parameter)
         {
-            throw new NotImplementedException();
+            var printDialog = new PrintDialog();
+            printDialog.ShowDialog();
+
+
         }
 
         private void HandleBackCommand(object parameter)
@@ -573,21 +581,21 @@
             try
             {
                 var newInvoice = new InvoicePostDto()
-            {
-                Id = this.Id,
-                InvoiceNum = this.InvoiceNum,
-                Town = this.InvoiceTown,
-                Text = this.InvoiceText,
-                BankRequisits = this.InvoiceBankRequisits,
-                ClientId = this.SelectedClient.Id,
-                SupplierId = this.SelectedSupplier.Id,
-                ProjectId = this.SelectedProject.Id,
-                Date = this.InvoiceDate,
-                Price = this.InvoicePrice,
-                Vat = this.InvoiceVat,
-                Total = this.InvoiceTotal
-            };
-    
+                {
+                    Id = this.Id,
+                    InvoiceNum = this.InvoiceNum,
+                    Town = this.InvoiceTown,
+                    Text = this.InvoiceText,
+                    BankRequisits = this.InvoiceBankRequisits,
+                    ClientId = this.SelectedClient.Id,
+                    SupplierId = this.SelectedSupplier.Id,
+                    ProjectId = this.SelectedProject.Id,
+                    Date = this.InvoiceDate,
+                    Price = this.InvoicePrice,
+                    Vat = this.InvoiceVat,
+                    Total = this.InvoiceTotal
+                };
+
                 if (this.SelectedInvoice == null)
                 {
                     result = this.InvoiceService.CreateInvoice(newInvoice);

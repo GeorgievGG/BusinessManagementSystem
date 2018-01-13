@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using BmsWpf.Services.DTOs;
+using System.Data;
 
 namespace BmsWpf.Services.Contracts
 {
@@ -8,5 +9,9 @@ namespace BmsWpf.Services.Contracts
         DataTable GetLast5NotesAsDataTable();
         DataTable GetNotesAsDataTable(int projectId);
         DataTable GetLast5NotesAsDataTable(int projectId);
+
+        string Delete(int id);
+        string CreateNote(NotePostDto newNote);
+        string EditCalendarEvent(NotePostDto newNote);
     }
 }

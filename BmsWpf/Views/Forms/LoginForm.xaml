@@ -36,18 +36,19 @@
                              Background="#545d6a" 
                              Foreground="White" 
                              FontSize="18"/>
+                <Button  x:Name="loginBtn" 
+                         Content="Login" 
+                         Background="#FF972B2B" 
+                         Margin="0,30,0,0" 
+                         HorizontalContentAlignment="Center"
+                         Foreground="White" 
+                         FontSize="18" 
+                         Height="40"
+                         Width="100"
+                         Command="{Binding Login}" 
+                         CommandParameter="{Binding ElementName=PasswordField}"/>
             </StackPanel>
-            <Button x:Name="loginBtn" 
-                    Content="Login" 
-                    Margin="194,204,40,59" 
-                    Background="#FF972B2B" 
-                    HorizontalContentAlignment="Center"
-                    Foreground="White" 
-                    FontSize="18" 
-                    Height="40"
-                    Width="100"
-                    Command="{Binding Login}" 
-                    CommandParameter="{Binding ElementName=PasswordField}"/>
+       
 
             <Separator Margin="40,277,40.8,36.6"></Separator>
         </Grid>

@@ -13,5 +13,6 @@
         DataTable GetProjectsAsDataTable();
         string CreateProject(ProjectPostDto newProject);
         string EditProject(ProjectPostDto newProject);
+        string Delete(int id);
     }
 }
