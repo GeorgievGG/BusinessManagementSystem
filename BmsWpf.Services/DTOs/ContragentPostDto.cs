@@ -34,7 +34,7 @@
             {
                 if (value.Length < 2 || string.IsNullOrWhiteSpace(value) || string.IsNullOrEmpty(value))
                 {
-                    throw new ApplicationException("The name have to be more then 3 symbols");
+                    throw new ApplicationException("The name have to be more than 3 symbols");
                 }
 
                 this.name = value;
@@ -52,7 +52,7 @@
                 var isValid = Regex.IsMatch(value, patern);
                 if (isValid == false || value.Length < 9 || string.IsNullOrWhiteSpace(value) || string.IsNullOrEmpty(value))
                 {
-                    throw new ApplicationException("The number is must be above 9 digits");
+                    throw new ApplicationException("The number is must be above 9 digits.");
                 }
                 this.personalIndentityNumber = value;
             }
@@ -69,7 +69,7 @@
                 var isValid = Regex.IsMatch(value, patern);
                 if (isValid == false || value.Length < 11 || string.IsNullOrWhiteSpace(value) || string.IsNullOrEmpty(value))
                 {
-                    throw new ApplicationException("The VAT number is not valid");
+                    throw new ApplicationException("The VAT number is invalid (Example: AZ123456789)");
                 }
                 this.personalVatNumber = value;
             }
@@ -84,7 +84,7 @@
             {
                 if (value.Length < 2 || string.IsNullOrWhiteSpace(value) || string.IsNullOrEmpty(value))
                 {
-                    throw new ApplicationException("Town name have to be more then 3 symbols");
+                    throw new ApplicationException("Town name have to be more than 3 symbols");
                 }
 
                 this.town = value;
@@ -100,7 +100,7 @@
             {
                 if (value.Length < 3 || string.IsNullOrWhiteSpace(value) || string.IsNullOrEmpty(value))
                 {
-                    throw new ApplicationException("The address have to be more then 3 symbols");
+                    throw new ApplicationException("The address have to be more than 3 symbols");
                 }
 
                 this.address = value;
@@ -152,7 +152,7 @@
             {
                 if (value.Length < 3 || string.IsNullOrWhiteSpace(value) || string.IsNullOrEmpty(value))
                 {
-                    throw new ApplicationException("Person for contact have to be more then 3 symbols");
+                    throw new ApplicationException("Person for contact have to be more than 3 symbols");
                 }
 
                 this.personForContact = value;
@@ -175,7 +175,7 @@
 
                 if (value.Length < 3 || string.IsNullOrWhiteSpace(value) || string.IsNullOrEmpty(value))
                 {
-                    throw new ApplicationException("Bank details have to be more then 3 symbols");
+                    throw new ApplicationException("Bank details have to be more than 3 symbols");
                 }
 
                 this.bankDetails = value;
@@ -191,7 +191,7 @@
             {
                 if (value.Length < 3 || string.IsNullOrWhiteSpace(value) || string.IsNullOrEmpty(value))
                 {
-                    throw new ApplicationException("Description have to be more then 3 symbols");
+                    throw new ApplicationException("Description have to be more than 3 symbols");
                 }
 
                 this.description = value;

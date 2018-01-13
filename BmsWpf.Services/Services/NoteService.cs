@@ -11,6 +11,7 @@
     using System.Linq;
 
     using Microsoft.EntityFrameworkCore;
+    using BMS.DataBaseModels;
 
     public class NoteService : INoteService
     {
@@ -126,7 +127,7 @@
             var note = new Note()
                            {
                                Id = newNote.Id,
-                               NoteType = newNote.Type,
+                               Type = newNote.Type,
                                Date = newNote.Date,
                                Description = newNote.Description,
                                ProjectId = newNote.ProjectId
