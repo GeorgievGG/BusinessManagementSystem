@@ -227,12 +227,25 @@
 
         private void HandleAddNewPaymentCommand(object parameter)
         {
-            MessageBox.Show("Not implemented");
+            var paymentForm = this.ViewManager.ComposeObjects<PaymentForm>();
+            var vm = (PaymentViewModel)paymentForm.DataContext;
+            vm.InitialClientId = 1;
+            vm.InitialProjectId = 1;
+            paymentForm.Show();
         }
 
         private void HandleEditPaymentCommand(object parameter)
         {
-            MessageBox.Show("Not implemented");
+            if (this.SelectedPayment == null)
+            {
+                MessageBox.Show("Please select a payment to continue");
+                return;
+            }
+
+            var paymentForm = this.ViewManager.ComposeObjects<PaymentForm>();
+            var vm = (PaymentViewModel)paymentForm.DataContext;
+            vm.SelectedPayment = this.SelectedPayment;
+            paymentForm.Show();
         }
     }
 }
