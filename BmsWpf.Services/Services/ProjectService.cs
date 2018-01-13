@@ -3,10 +3,12 @@
     using BMS.DataBaseModels;
     using BmsWpf.Services.Contracts;
     using BmsWpf.Services.DTOs;
+    using Microsoft.EntityFrameworkCore;
     using MoreLinq;
     using System;
     using System.Collections.Generic;
     using System.Data;
+    using System.Data.SqlClient;
     using System.Linq;
 
     public class ProjectService : IProjectService
@@ -127,6 +129,32 @@
             this.bmsData.SaveChanges();
 
             return $"Project {newProject.Name} successfully updated!";
+        }
+
+        public string Delete(int id)
+        {
+            var project = this.bmsData.Projects.Find(id);
+
+            try
+            {
+                this.bmsData.Projects.Remove(project);
+                this.bmsData.SaveChanges();
+            }
+            catch (DbUpdateException dbEx)
+            {
+                var innerException = dbEx.InnerException;
+                if (innerException is SqlException)
+                {
+                    var sqlEx = (SqlException)innerException;
+                    if (sqlEx.Errors.Count > 0 && sqlEx.Errors[0].Number == 547) // Foreign Key violation
+                    {
+                        throw new InvalidOperationException("You cannot delete that project!");
+                    }
+                }
+                throw dbEx;
+            }
+
+            return $"You deleted project {project.Id} from {project.StartDate.ToShortDateString()} successfully";
         }
     }
 }
