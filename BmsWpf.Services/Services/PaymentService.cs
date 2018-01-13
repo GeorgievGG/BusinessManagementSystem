@@ -67,7 +67,6 @@
             return paymentsExpencesDataTable;
         }
 
-
         private IQueryable<Payment> GetAllPayments()
         {
             var payments = this.bmsData.Payments.All();

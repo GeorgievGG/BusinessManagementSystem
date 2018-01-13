@@ -17,7 +17,7 @@
 
     public partial class IncomesView : UserControl
     {
-        public IncomesView(IViewManager viewManager, IInvoiceService invoiceService/*, IPaymentService paymentService*/)
+        public IncomesView(IViewManager viewManager, IInvoiceService invoiceService, IPaymentService paymentService)
         {
             InitializeComponent();
 
@@ -25,7 +25,7 @@
 
             vm.ViewManager = viewManager;
             vm.InvoiceService = invoiceService;
-            //vm.PatmentService = paymentService;
+            vm.PaymentService = paymentService;
         }
     }
 }

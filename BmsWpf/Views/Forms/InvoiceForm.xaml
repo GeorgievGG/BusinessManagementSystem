@@ -6,7 +6,7 @@
         xmlns:viewModels="clr-namespace:BmsWpf.ViewModels"
         xmlns:intr="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         mc:Ignorable="d"
-        Title="InvoiceClientForm" Height="850" Width="750" FontSize="16" Background="#F2FAFD" WindowStartupLocation="CenterScreen">
+        Title="InvoiceForm" Height="850" Width="750" FontSize="16" Background="#F2FAFD" WindowStartupLocation="CenterScreen">
     <Window.DataContext>
         <viewModels:InvoiceFormViewModel />
     </Window.DataContext>

@@ -14,7 +14,7 @@
             InitializeComponent();
         }
 
-        public ExpensesView(IViewManager viewManager, IInvoiceService invoiceService/*, IPaymentService paymentService*/)
+        public ExpensesView(IViewManager viewManager, IInvoiceService invoiceService, IPaymentService paymentService)
         {
             InitializeComponent();
 
@@ -22,7 +22,7 @@
 
             vm.ViewManager = viewManager;
             vm.InvoiceService = invoiceService;
-            //vm.PatmentService = paymentService;
+            vm.PaymentService = paymentService;
         }
     }
 }

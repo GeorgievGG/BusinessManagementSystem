@@ -43,7 +43,7 @@
         <Label Content="Payment" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="136,10,156,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Background="#FF2E3137" Foreground="White"></Label>
         <Label Content="Client" HorizontalAlignment="Left" Margin="46,90,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
         <Label Content="Date" HorizontalAlignment="Left" Margin="45,55,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue" />
-        <DatePicker Name="PaymentDatePicker" HorizontalAlignment="Left" Margin="145,55,0,0" VerticalAlignment="Top" Height="30" Width="200" Text="{Binding PaymentDate}"/>
+        <DatePicker Name="PaymentDatePicker" HorizontalAlignment="Left" Margin="145,55,0,0" VerticalAlignment="Top" Height="30" Width="200" SelectedDate="{Binding Path=PaymentDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         <Label Content="Price" HorizontalAlignment="Left" Margin="45,196,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>
         <TextBox Name="PriceBox" HorizontalAlignment="Left" Height="30" Margin="146,196,0,0"  VerticalAlignment="Top" Width="200" Text="{Binding PaymentPrice}"/>
         <Label Content="VAT" HorizontalAlignment="Left" Margin="45,231,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="16" Foreground="AliceBlue"/>

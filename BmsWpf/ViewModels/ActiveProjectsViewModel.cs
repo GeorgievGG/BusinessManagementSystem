@@ -2,7 +2,6 @@
 {
     using BmsWpf.Behaviour;
     using BmsWpf.Services.Contracts;
-    using BmsWpf.Sessions;
     using BmsWpf.Views.Forms;
     using System;
     using System.Data;

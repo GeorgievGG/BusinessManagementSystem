@@ -33,7 +33,21 @@
             </intr:Interaction.Triggers>
         </DataGrid>
         <Label Content="Payments" HorizontalAlignment="Left" Margin="47,348,0,0" VerticalAlignment="Top" Width="285" Height="55" FontSize="26" Foreground="AliceBlue"/>
-        <DataGrid x:Name="IncomePayments" HorizontalAlignment="Left" Height="301" Margin="47,396,0,0" VerticalAlignment="Top" Width="591" CanUserAddRows="False" ItemsSource="{Binding Payments}" SelectedItem="{Binding SelectedPayment}"/>
+        <DataGrid x:Name="IncomePayments" 
+                  HorizontalAlignment="Left" 
+                  Height="301"
+                  Margin="47,396,0,0"
+                  VerticalAlignment="Top"
+                  Width="591" 
+                  CanUserAddRows="False" 
+                  ItemsSource="{Binding Payments}" 
+                  SelectedItem="{Binding SelectedPayment}">
+            <intr:Interaction.Triggers>
+                <intr:EventTrigger EventName="MouseDoubleClick">
+                    <intr:InvokeCommandAction Command="{Binding DoublePaymentClick}" />
+                </intr:EventTrigger>
+            </intr:Interaction.Triggers>
+        </DataGrid>
         <Button Name="AddInvoiceButton" Content="Add invoice" HorizontalAlignment="Left" Margin="440,10,0,0" VerticalAlignment="Top" Width="100" Height="30" Command="{Binding AddNewSI}"/>
         <Button Name="EditInvoicesButton" Content="Edit invoice" HorizontalAlignment="Left" Margin="538,10,0,0" VerticalAlignment="Top" Width="100" Height="30" Command="{Binding EditSI}"/>
         <Button Name ="AddNewSuplierPaymentButton" Content="Add payment" HorizontalAlignment="Left" Margin="440,361,0,0" VerticalAlignment="Top" Width="100" Height="30" Command="{Binding AddNewPayment}" />

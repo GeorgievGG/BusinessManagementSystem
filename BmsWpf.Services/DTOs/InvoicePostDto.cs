@@ -102,7 +102,6 @@
             }
             set
             {
-
                 if (value.Length < 3 || string.IsNullOrWhiteSpace(value) || string.IsNullOrEmpty(value))
                 {
                     throw new ApplicationException("Bank details have to be more then 3 symbols");

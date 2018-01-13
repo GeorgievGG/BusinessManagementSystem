@@ -37,8 +37,9 @@
         public ICommand DoublePaymentClickCommand;
         public DataRowView SelectedProject { get; set; }
 
-        public IInvoiceService InvoiceService { get; set; }
         public IViewManager ViewManager { get; set; }
+        public IInvoiceService InvoiceService { get; set; }
+        public IPaymentService PaymentService { get; set; }
 
         public Action CloseAction { get; set; }
 
@@ -193,8 +194,9 @@
         private void HandleLoadedCommand(object parameter)
         {
             Session.Instance.SetLastOpenWindow("ExpensesView");
-            this.Invoices = InvoiceService.GetProjectExpenseInvoicesAsDataTable((int)this.SelectedProject.Row.ItemArray[0]);
-            //this.Invoices = PaymentService.GetIncomePaymentsAsDataTable();
+            var projectId = (int)this.SelectedProject.Row.ItemArray[0];
+            this.Invoices = InvoiceService.GetProjectExpenseInvoicesAsDataTable(projectId);
+            this.Payments = PaymentService.GetPaymentsExpencesAsDataTable(projectId);
         }
 
         private void HandleEditCommand(object parameter)
@@ -233,7 +235,6 @@
             vm.InitialClientId = 1;
             vm.InitialProjectId = 1;
             paymentForm.Show();
-
         }
 
         private void HandleEditPaymentCommand(object parameter)
