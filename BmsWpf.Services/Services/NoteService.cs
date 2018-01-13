@@ -1,16 +1,18 @@
 ﻿namespace BmsWpf.Services.Services
 {
     using System;
-
-    using BmsWpf.Services.Contracts;
-    using BmsWpf.Services.DTOs;
-    using MoreLinq;
     using System.Collections.Generic;
     using System.Data;
     using System.Data.SqlClient;
     using System.Linq;
 
+    using BMS.DataBaseModels;
+    using BmsWpf.Services.Contracts;
+    using BmsWpf.Services.DTOs;
+
     using Microsoft.EntityFrameworkCore;
+
+    using MoreLinq;
 
     public class NoteService : INoteService
     {
@@ -69,7 +71,7 @@
 
         public DataTable GetLast5NotesAsDataTable(int projectId)
         {
-            var last5Notes =  this.GetNotesDto().Where(x => x.Project.Id == projectId)
+            var last5Notes = this.GetNotesDto().Where(x => x.Project.Id == projectId)
                 .OrderByDescending(x => x.Date)
                 .Take(5)
                 .ToDataTable();
@@ -102,9 +104,9 @@
             }
             return $"You deleted note {note.Id} from {note.Date} successfully";
         }
-        
 
-        public string EditCalendarEvent(NotePostDto newNote)
+
+        public string EditNote(NotePostDto newNote)
         {
             var noteToUpdate = this.bmsData.Notes.Find(newNote.Id);
             noteToUpdate.Type = newNote.Type;
@@ -124,13 +126,13 @@
             var userSvr = new UserService(this.bmsData);
 
             var note = new Note()
-                           {
-                               Id = newNote.Id,
-                               NoteType = newNote.Type,
-                               Date = newNote.Date,
-                               Description = newNote.Description,
-                               ProjectId = newNote.ProjectId
-                           };
+            {
+                Id = newNote.Id,
+                Type = newNote.Type,
+                Date = newNote.Date,
+                Description = newNote.Description,
+                ProjectId = newNote.ProjectId
+            };
             this.bmsData.Notes.Add(note);
             this.bmsData.SaveChanges();
 

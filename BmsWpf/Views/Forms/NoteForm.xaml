@@ -4,20 +4,23 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BmsWpf.Views.Forms"
+        xmlns:intr="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:viewModels="clr-namespace:BmsWpf.ViewModels"
         mc:Ignorable="d"
         Title="NoteForm" Height="850" Width="750" FontSize="16" Background="#FF2E3137" WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <viewModels:NoteViewModel />
+    </Window.DataContext>
+    <intr:Interaction.Triggers>
+        <intr:EventTrigger EventName="Loaded">
+            <intr:InvokeCommandAction Command="{Binding WindowLoaded}"/>
+        </intr:EventTrigger>
+    </intr:Interaction.Triggers>
     <Grid>
         <Label Content="Note" 
                HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="54,35,54,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Background="#FF2E3137" Foreground="White" Width="642"/>
-        <Button Content="Back" Click="Button_Click_Back" VerticalAlignment="Top" 
-                Width="100" 
-                Background="AliceBlue" 
-                Foreground="Black" 
-                FontSize="14" 
-                Height="30"
-                Margin="589,750,0,0" />
         <Button Content="Save" Command="{Binding Save}" HorizontalAlignment="Left" 
-                Margin="540,587,0,0" 
+                Margin="540,603,0,0" 
                 VerticalAlignment="Top" 
                 Width="100" 
                 Background="AliceBlue" 
@@ -30,12 +33,21 @@
         <TextBox Name="DescriptionBox" TextWrapping="Wrap"
                  AcceptsReturn="True"
                  VerticalScrollBarVisibility="Visible" Text="{Binding Description, Mode=TwoWay}" BorderBrush="Beige" Margin="193,144,104,326"/>
-        <ComboBox Name="NoteTypeBox"  Margin="191,512,104,278">
+        <ComboBox Name="NoteTypeBox"  Margin="191,512,104,278" Text="{Binding SelectedType}">
             <ComboBoxItem Content="Important"/>
             <ComboBoxItem Content="ForReview"/>
             <ComboBoxItem Content="Event"/>
             <ComboBoxItem Content="ToDo"/>
         </ComboBox>
-        <Label Name="Date" Content="Label" Margin="191,107,104,681"/>
+        <Label Content="Project" HorizontalAlignment="Left" Height="30" Margin="68,551,0,0"  VerticalAlignment="Top" Width="96" FontSize="16" Foreground="AliceBlue"/>
+        <ComboBox Name="ProjectCombo" 
+                  HorizontalAlignment="Left" 
+                  Margin="191,551,0,0" 
+                  VerticalAlignment="Top" 
+                  Width="449" 
+                  ItemsSource="{Binding ProjectsList}"
+                  SelectedItem="{Binding SelectedProject}" Height="30">
+        </ComboBox>
+        <DatePicker Name="Date" Margin="191,107,104,681" Text="{Binding NoteDate}"/>
     </Grid>
 </Window>

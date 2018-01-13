@@ -2,6 +2,8 @@
 
 namespace BmsWpf.Services.Contracts
 {
+    using BmsWpf.Services.DTOs;
+
     public interface INoteService
     {
         DataTable GetNotesAsDataTable();
@@ -11,6 +13,6 @@ namespace BmsWpf.Services.Contracts
 
         string Delete(int id);
         string CreateNote(NotePostDto newNote);
-        string EditCalendarEvent(NotePostDto newNote);
+        string EditNote(NotePostDto newNote);
     }
 }
