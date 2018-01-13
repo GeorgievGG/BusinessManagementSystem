@@ -115,7 +115,7 @@
 
         //private void AddNewPaymentButton_Click(object sender, RoutedEventArgs e)
         //{
-        //    var newPayment = new PaymentClientForm();
+        //    var newPayment = new PaymentForm();
         //    newPayment.Show();
         //}
 

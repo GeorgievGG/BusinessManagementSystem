@@ -38,6 +38,7 @@
 
         public DataRowView selectedPayment;
 
+        public IUserService UserService { get; set; }
         public IPaymentService PaymentService { get; set; }
         public IProjectService ProjectService { get; set; }
         public IContragentService ContragentService { get; set; }
@@ -204,7 +205,6 @@
             }
         }
 
-
         public DataRowView SelectedPayment
         {
             get
@@ -239,7 +239,7 @@
             }
             if (this.SelectedPayment != null)
             {
-                this.Id = (int)SelectedPayment.Row.ItemArray[0];
+                this.Id = (int)this.SelectedPayment.Row.ItemArray[0];
                 var clientDto = (ContragentListDto)this.SelectedPayment.Row.ItemArray[2];
                 this.SelectedClient = this.Clients.SingleOrDefault(x => x.Id == clientDto.Id);
                 var supplierDto = (ContragentListDto)this.SelectedPayment.Row.ItemArray[3];
