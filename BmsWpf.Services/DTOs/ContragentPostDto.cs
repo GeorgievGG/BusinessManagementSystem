@@ -52,7 +52,7 @@
                 var isValid = Regex.IsMatch(value, patern);
                 if (isValid == false || value.Length < 9 || string.IsNullOrWhiteSpace(value) || string.IsNullOrEmpty(value))
                 {
-                    throw new ApplicationException("The number is not valid");
+                    throw new ApplicationException("The number is must be above 9 digits");
                 }
                 this.personalIndentityNumber = value;
             }

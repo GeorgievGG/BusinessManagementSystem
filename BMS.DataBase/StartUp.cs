@@ -55,11 +55,11 @@
 
             var contragents = new[]
              {
-                new Contragent {PersonalVatNumber = "SD12351",PersonalIndentityNumber = "101205", BankDetails="BGNKJ1453STZ", Telephone = "0879665233",Town = "Haskovo", Address= "Hristo Botev 207", Description = "Food & Sweets", Email = "abv@gmail.com", Name = "Kaufland AD" , PersonForContact= "Vladimir", },
-                new Contragent {PersonalVatNumber = "DFA1235",PersonalIndentityNumber = "102233", BankDetails="UKLDNSF1523SF", Telephone = "0889655294",Town = "Sofia", Address= "Peicho Slaveikov 3", Description = "Monthly Supplies", Email = "hugo@abv.bg", Name = "WeSupply EOOD", PersonForContact = "Pesho"},
-                new Contragent {PersonalVatNumber = "DAS1233",PersonalIndentityNumber = "103452", BankDetails="DESF1523STZ", Telephone = "0879615259",Town = "Veliko Tarnovo", Address= "Raina Knqginq 24", Description = "Cleaning stuff", Email = "namaste@gmail.com", Name = "Goods EOOD", PersonForContact = "Ivan"},
-                new Contragent {PersonalVatNumber = "DS12357",PersonalIndentityNumber = "104623", BankDetails="USASF1523STZ", Telephone = "0879665232",Town = "Yambol", Address= "Biznes Park Sofia", Description = "Internet services", Email = "koki@yahoo.com", Name = "Market2U OOD", PersonForContact = "Georgi"},
-                new Contragent {PersonalVatNumber = "DJG1236",PersonalIndentityNumber = "105125", BankDetails="MEXSF1523STZ", Telephone = "0879665275",Town = "New York", Address= "Tsar Simeon Veliki 137", Description = "Fruits and Water Supply", Email = "bobi.v@abv.bg", Name = "Billa AD", PersonForContact = "Vladimir"},
+                new Contragent {PersonalVatNumber = "SD12351",PersonalIndentityNumber = "101123205", BankDetails="BGNKJ1453STZ", Telephone = "0879665233",Town = "Haskovo", Address= "Hristo Botev 207", Description = "Food & Sweets", Email = "abv@gmail.com", Name = "Kaufland AD" , PersonForContact= "Vladimir", },
+                new Contragent {PersonalVatNumber = "DFA1235",PersonalIndentityNumber = "102212333", BankDetails="UKLDNSF1523SF", Telephone = "0889655294",Town = "Sofia", Address= "Peicho Slaveikov 3", Description = "Monthly Supplies", Email = "hugo@abv.bg", Name = "WeSupply EOOD", PersonForContact = "Pesho"},
+                new Contragent {PersonalVatNumber = "DAS1233",PersonalIndentityNumber = "101233452", BankDetails="DESF1523STZ", Telephone = "0879615259",Town = "Veliko Tarnovo", Address= "Raina Knqginq 24", Description = "Cleaning stuff", Email = "namaste@gmail.com", Name = "Goods EOOD", PersonForContact = "Ivan"},
+                new Contragent {PersonalVatNumber = "DS12357",PersonalIndentityNumber = "101234623", BankDetails="USASF1523STZ", Telephone = "0879665232",Town = "Yambol", Address= "Biznes Park Sofia", Description = "Internet services", Email = "koki@yahoo.com", Name = "Market2U OOD", PersonForContact = "Georgi"},
+                new Contragent {PersonalVatNumber = "DJG1236",PersonalIndentityNumber = "101235125", BankDetails="MEXSF1523STZ", Telephone = "0879665275",Town = "New York", Address= "Tsar Simeon Veliki 137", Description = "Fruits and Water Supply", Email = "bobi.v@abv.bg", Name = "Billa AD", PersonForContact = "Vladimir"},
             };
 
             context.Contragents.AddRange(contragents);
