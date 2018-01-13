@@ -110,6 +110,7 @@
         {
             var adminPanel = ViewManager.ComposeObjects<AdminPanel>();
             adminPanel.Show();
+            this.CloseAction();
         }
     }
 }
