@@ -142,6 +142,8 @@
             }
         }
 
+
+
         private void HandleLoadedCommand(object parameter)
         {
             this.ChosenProjects = ProjectService.GetProjectsAsDataTable();

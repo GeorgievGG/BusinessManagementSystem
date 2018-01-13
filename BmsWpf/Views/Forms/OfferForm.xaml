@@ -102,6 +102,6 @@
             Background="LightGray"
             HorizontalContentAlignment="Center"
             VerticalContentAlignment="Center"
-            Text="{Binding InquiryCreator}"/>
+            Text="{Binding OfferCreator}"/>
     </Grid>
 </Window>
