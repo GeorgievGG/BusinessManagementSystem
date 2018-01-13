@@ -3,6 +3,7 @@
     using BmsWpf.Behaviour;
     using BmsWpf.Services.Contracts;
     using BmsWpf.Sessions;
+    using BmsWpf.Views.ChildWindows;
     using BmsWpf.Views.Forms;
     using System;
     using System.Data;
@@ -17,6 +18,7 @@
         public ICommand SortCommand;
         public ICommand AddNewProjectCommand;
         public ICommand EditProjectCommand;
+        public ICommand DeleteCommand;
         public ICommand BackCommand;
 
         private DataTable chosenProjects;
@@ -140,6 +142,39 @@
                 }
                 return this.BackCommand;
             }
+        }
+
+        public ICommand Delete
+        {
+            get
+            {
+                if (this.DeleteCommand == null)
+                {
+                    this.DeleteCommand = new RelayCommand(this.HandleDeleteCommand);
+                }
+                return this.DeleteCommand;
+            }
+        }
+
+        private void HandleDeleteCommand(object parameter)
+        {
+            var projectId = (int)selectedProject.Row.ItemArray[0];
+
+            var result = string.Empty;
+
+            try
+            {
+                result = this.ProjectService.Delete(projectId);
+            }
+            catch (Exception e)
+            {
+                result = e.Message;
+            }
+
+            MessageBox.Show(result);
+            var inquiriesWindow = ViewManager.ComposeObjects<ActiveProjects>();
+            inquiriesWindow.Show();
+            this.CloseAction();
         }
 
 

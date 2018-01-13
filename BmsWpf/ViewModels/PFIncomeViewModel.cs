@@ -37,6 +37,7 @@
 
         public DataRowView SelectedProject { get; set; }
         public IInvoiceService InvoiceService { get; set; }
+        public IPaymentService PaymentService { get; set; }
         public IViewManager ViewManager { get; set; }
 
         public Action CloseAction { get; set; }
@@ -192,8 +193,9 @@
         private void HandleLoadedCommand(object parameter)
         {
             Session.Instance.SetLastOpenWindow("IncomesView");
-            this.Invoices = InvoiceService.GetProjectIncomeInvoicesAsDataTable((int)this.SelectedProject.Row.ItemArray[0]);
-            //this.Invoices = PaymentService.GetIncomePaymentsAsDataTable();
+            var projectId = (int)this.SelectedProject.Row.ItemArray[0];
+            this.Invoices = InvoiceService.GetProjectIncomeInvoicesAsDataTable(projectId);
+            this.Payments = PaymentService.GetPaymentsIncomeAsDataTable(projectId);
         }
 
         private void HandleEditCommand(object parameter)

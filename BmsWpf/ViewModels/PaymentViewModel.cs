@@ -13,12 +13,8 @@
     using BmsWpf.Sessions;
     using BmsWpf.Views.ChildWindows;
 
-
-
     internal class PaymentViewModel : ViewModelBase, IPageViewModel
     {
-        private int id;
-        private string clientName;
         private DateTime paymentDate;
         private decimal paymentPrice;
         private decimal paymentVat;
@@ -32,8 +28,6 @@
         private ObservableCollection<ProjectListDto> projects;
 
         public ICommand WindowLoadedCommand;
-        public ICommand SelectionChangedContragentCommand;
-        public ICommand SelectionChangedSupplierCommand;
         public ICommand SaveCommand;
 
         public DataRowView selectedPayment;
@@ -58,6 +52,11 @@
                 return "Payment form";
             }
         }
+
+        public int Id { get; set; }
+        public int InitialClientId { get; set; }
+        public int InitialSupplierId { get; set; }
+        public int InitialProjectId { get; set; }
 
         public ContragentListDto SelectedClient
         {
@@ -135,10 +134,6 @@
             }
         }
 
-        public int InitialClientId { get; set; }
-        public int InitialSupplierId { get; set; }
-        public int InitialProjectId { get; set; }
-        public int Id { get; set; }
         public DateTime PaymentDate
         {
             get
@@ -220,7 +215,7 @@
 
         private void HandleWindowLoadedCommand(object parameter)
         {
-               this.Clients = new ObservableCollection<ContragentListDto>(this.ContragentService.GetContragentsForDropdown());
+            this.Clients = new ObservableCollection<ContragentListDto>(this.ContragentService.GetContragentsForDropdown());
             this.Suppliers = new ObservableCollection<ContragentListDto>(this.ContragentService.GetContragentsForDropdown());
             this.Projects = new ObservableCollection<ProjectListDto>(this.ProjectService.GetProjectsForDropdown());
             if (this.InitialProjectId != 0)

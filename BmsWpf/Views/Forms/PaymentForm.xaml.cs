@@ -17,7 +17,7 @@
           //  FillComboBox();
         }
 
-        public PaymentForm(IViewManager viewManager, IContragentService contragentService, IUserService userService, IProjectService projectService)
+        public PaymentForm(IViewManager viewManager, IContragentService contragentService, IUserService userService, IProjectService projectService, IPaymentService paymentService)
         {
             this.InitializeComponent();
 
@@ -30,6 +30,7 @@
             vm.ContragentService = contragentService;
             vm.UserService = userService;
             vm.ProjectService = projectService;
+            vm.PaymentService = paymentService;
         }
 
         //private void FillComboBox()

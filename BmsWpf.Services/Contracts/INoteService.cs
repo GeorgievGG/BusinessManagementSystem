@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using BmsWpf.Services.DTOs;
+using System.Data;
 
 namespace BmsWpf.Services.Contracts
 {

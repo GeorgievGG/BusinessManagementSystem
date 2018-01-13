@@ -11,6 +11,7 @@
     using BmsWpf.Services.DTOs;
 
     using Microsoft.EntityFrameworkCore;
+    using BMS.DataBaseModels;
 
     using MoreLinq;
 
@@ -126,6 +127,7 @@
             var userSvr = new UserService(this.bmsData);
 
             var note = new Note()
+<<<<<<< HEAD
             {
                 Id = newNote.Id,
                 Type = newNote.Type,
@@ -133,6 +135,15 @@
                 Description = newNote.Description,
                 ProjectId = newNote.ProjectId
             };
+=======
+                           {
+                               Id = newNote.Id,
+                               Type = newNote.Type,
+                               Date = newNote.Date,
+                               Description = newNote.Description,
+                               ProjectId = newNote.ProjectId
+                           };
+>>>>>>> origin/master
             this.bmsData.Notes.Add(note);
             this.bmsData.SaveChanges();
 
