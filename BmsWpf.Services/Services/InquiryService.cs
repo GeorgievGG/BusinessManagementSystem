@@ -60,11 +60,12 @@
         public string Delete(int id)
         {
             var inquiry = this.bmsData.Inquiries.Find(id);
-
+            var result = string.Empty;
             try
             {
                 this.bmsData.Inquiries.Remove(inquiry);
                 this.bmsData.SaveChanges();
+                result = $"You deleted inquiry {inquiry.Id} from {inquiry.Date.ToShortDateString()} successfully";
             }
             catch (DbUpdateException dbEx)
             {
@@ -74,13 +75,13 @@
                     var sqlEx = (SqlException)innerException;
                     if (sqlEx.Errors.Count > 0 && sqlEx.Errors[0].Number == 547) // Foreign Key violation
                     {
-                        throw new InvalidOperationException("You cannot delete inquiry that is used in an offer!");
+                        result = "You cannot delete inquiry that is used in an offer!";
                     }
                 }
-                throw dbEx;
+
             }
 
-            return $"You deleted inquiry {inquiry.Id} from {inquiry.Date.ToShortDateString()} successfully";
+            return result;
         }
 
         public string CreateInquiry(InquiryPostDto newInquiry)

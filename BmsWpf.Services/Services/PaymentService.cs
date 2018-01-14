@@ -121,11 +121,12 @@
         public string Delete(int id)
         {
             var paymentToDelete = this.bmsData.Payments.Find(id);
-
+            var result = string.Empty;
             try
             {
                 this.bmsData.Payments.Remove(paymentToDelete);
                 this.bmsData.SaveChanges();
+                result = $"You deleted payment {paymentToDelete.Id}successfully";
             }
             catch (DbUpdateException dbEx)
             {
@@ -135,14 +136,13 @@
                     var sqlEx = (SqlException)innerException;
                     if (sqlEx.Errors.Count > 0 && sqlEx.Errors[0].Number == 547) // Foreign Key violation
                     {
-                        throw new InvalidOperationException("You cannot delete payment that is a part of a project!");
+                        result = "You cannot delete payment that is a part of a project!";
                     }
 
-                    throw dbEx;
                 }
             }
 
-            return $"You deleted payment {paymentToDelete.Id}successfully";
+            return result;
         }
     }
 }

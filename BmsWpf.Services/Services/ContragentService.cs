@@ -83,11 +83,12 @@
         public string Delete(int contragentId)
         {
             var contragent = this.bmsData.Contragents.Find(contragentId);
-
+            var result = string.Empty;
             try
             {
                 this.bmsData.Contragents.Remove(contragent);
                 this.bmsData.SaveChanges();
+                result = $"You deleted contragent {contragent.Name} successfully";
             }
             catch (DbUpdateException dbEx)
             {
@@ -97,13 +98,12 @@
                     var sqlEx = (SqlException)innerException;
                     if (sqlEx.Errors.Count > 0 && sqlEx.Errors[0].Number == 547) // Foreign Key violation
                     {
-                        throw new InvalidOperationException("You cannot delete contragent that is linked to another process!");
+                      result="You cannot delete contragent that is linked to another process!";
                     }
                 }
-                throw dbEx;
             }
 
-            return $"You deleted contragent {contragent.Name} successfully";
+            return result;
         }
 
         public string CreateContragent(ContragentPostDto newContragent)

@@ -53,11 +53,12 @@
         public string Delete(int id)
         {
             var offer = this.bmsData.Offers.Find(id);
-
+            var result = string.Empty;
             try
             {
                 this.bmsData.Offers.Remove(offer);
                 this.bmsData.SaveChanges();
+                result = $"You deleted offer {offer.Id} from {offer.Date.ToShortDateString()} successfully";
             }
             catch (DbUpdateException dbEx)
             {
@@ -67,13 +68,12 @@
                     var sqlEx = (SqlException)innerException;
                     if (sqlEx.Errors.Count > 0 && sqlEx.Errors[0].Number == 547) // Foreign Key violation
                     {
-                        throw new InvalidOperationException("You cannot delete offer that is a part of a project!");
+                       result = "You cannot delete offer that is a part of a project!";
                     }
-                    throw dbEx;
                 }
             }
 
-            return $"You deleted offer {offer.Id} from {offer.Date.ToShortDateString()} successfully";
+            return result ;
         }
 
         public string CreateOffer(OfferPostDto newOffer)

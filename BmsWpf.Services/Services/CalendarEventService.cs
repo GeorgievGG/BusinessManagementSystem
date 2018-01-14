@@ -73,27 +73,28 @@
 
         public string Delete(int id)
         {
+            var result = string.Empty;
             var calendarEvent = this.bmsData.CalendarEvents.Find(id);
             try
             {
                 this.bmsData.CalendarEvents.Remove(calendarEvent);
                 this.bmsData.SaveChanges();
+                result = $"You deleted event {calendarEvent.EventId} from {calendarEvent.Title} successfully";
             }
             catch (DbUpdateException dbEx)
             {
-
+               
                 var innerException = dbEx.InnerException;
                 if (innerException is SqlException)
                 {
                     var sqlEx = (SqlException)innerException;
                     if (sqlEx.Errors.Count > 0)
                     {
-                        throw new InvalidOperationException("You cannot delete this event!");
+                        result = "You cannot delete this event!";
                     }
                 }
-                throw dbEx;
             }
-            return $"You deleted event {calendarEvent.EventId} from {calendarEvent.Title} successfully";
+            return result;
         }
 
         public string CreateCalendarEvent(CalendarEventsPostDto newCalendarEvent)
