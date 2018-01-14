@@ -217,7 +217,8 @@
             var invoiceForm = this.ViewManager.ComposeObjects<InvoiceForm>();
             var vm = (InvoiceFormViewModel)invoiceForm.DataContext;
             vm.InitialClientId = 1;
-            vm.InitialProjectId = 1;
+            var projectId = (int)this.SelectedProject.Row.ItemArray[0];
+            vm.InitialProjectId = projectId;
             invoiceForm.Show();
         }
 
@@ -233,7 +234,8 @@
             var paymentForm = this.ViewManager.ComposeObjects<PaymentForm>();
             var vm = (PaymentViewModel)paymentForm.DataContext;
             vm.InitialClientId = 1;
-            vm.InitialProjectId = 1;
+            var projectId = (int)this.SelectedProject.Row.ItemArray[0];
+            vm.InitialProjectId = projectId;
             paymentForm.Show();
         }
 

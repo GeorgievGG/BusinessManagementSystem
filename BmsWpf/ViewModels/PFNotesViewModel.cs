@@ -133,9 +133,10 @@
         {
             if (this.SelectedNote == null)
             {
-                MessageBox.Show("Please select an invoice to continue");
+                MessageBox.Show("Please select an note to continue");
                 return;
             }
+
             var noteForm = this.ViewManager.ComposeObjects<NoteForm>();
             var vm = (NoteViewModel)noteForm.DataContext;
             vm.SelectedNote = this.SelectedNote;
