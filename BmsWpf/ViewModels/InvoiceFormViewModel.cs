@@ -8,6 +8,7 @@
     using System;
     using System.Collections.ObjectModel;
     using System.Data;
+    using System.Globalization;
     using System.IO;
     using System.Linq;
     using System.Windows;
@@ -500,7 +501,7 @@
                 {
                     this.SelectedProject = Projects.SingleOrDefault(x => x.Id == projectDto.Id);
                 }
-                this.InvoiceDate = (DateTime)SelectedInvoice.Row.ItemArray[5];
+                this.InvoiceDate = DateTime.ParseExact(SelectedInvoice.Row.ItemArray[5].ToString(),"dd.MM.yyyy",CultureInfo.InvariantCulture);
                 this.InvoiceTown = (string)(SelectedInvoice.Row.ItemArray[6] == DBNull.Value ? "" : SelectedInvoice.Row.ItemArray[6]);
                 this.InvoiceText = (string)SelectedInvoice.Row.ItemArray[7];
                 this.InvoiceBankRequisits = (string)(SelectedInvoice.Row.ItemArray[8] == DBNull.Value ? "" : SelectedInvoice.Row.ItemArray[8]);

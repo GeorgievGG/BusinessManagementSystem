@@ -7,6 +7,7 @@
     using System;
     using System.Collections.ObjectModel;
     using System.Data;
+    using System.Globalization;
     using System.Linq;
     using System.Windows;
     using System.Windows.Input;
@@ -218,7 +219,7 @@
                 var inquiryDto = (InquiryListDto)SelectedOffer.Row.ItemArray[3];
                 this.SelectedInquiry = InquiriesList.SingleOrDefault(x => x.Id == inquiryDto.Id);
                 this.Description = (string)SelectedOffer.Row.ItemArray[4];
-                this.Date = (DateTime)SelectedOffer.Row.ItemArray[5];
+                this.Date = DateTime.ParseExact(SelectedOffer.Row.ItemArray[5].ToString(), "dd.MM.yyyy", CultureInfo.InvariantCulture);
             }
         }
 

@@ -44,7 +44,7 @@
                     Description = x.Inquiry.Description
                 },
                 x.Description,
-                x.Date
+                Date = x.Date.ToString("dd/MM/yyyy")
             })
                                     .ToDataTable();
             return dataTable;

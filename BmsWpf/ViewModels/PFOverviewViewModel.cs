@@ -8,6 +8,7 @@
     using System;
     using System.Collections.ObjectModel;
     using System.Data;
+    using System.Globalization;
     using System.Linq;
     using System.Windows;
     using System.Windows.Input;
@@ -368,9 +369,9 @@
                 this.SelectedInquiry = InquiriesList.SingleOrDefault(x => x.Id == inquiryDto.Id);
                 var clientDto = (ContragentListDto)SelectedProject.Row.ItemArray[5];
                 this.SelectedClient = ClientsList.SingleOrDefault(x => x.Id == clientDto.Id);
-                this.StartDate = (DateTime)SelectedProject.Row.ItemArray[6];
+                this.StartDate = DateTime.ParseExact(SelectedProject.Row.ItemArray[6].ToString(),"dd.MM.yyyy",CultureInfo.InvariantCulture);
                 this.EndDate = (DateTime?)(SelectedProject.Row.ItemArray[7] == DBNull.Value ? null : SelectedProject.Row.ItemArray[7]);
-                this.Deadline = (DateTime)SelectedProject.Row.ItemArray[8];
+                this.Deadline = DateTime.ParseExact(SelectedProject.Row.ItemArray[8].ToString(), "dd.MM.yyyy", CultureInfo.InvariantCulture);
                 this.ContactTo = (string)(SelectedProject.Row.ItemArray[9] == DBNull.Value ? "" : SelectedProject.Row.ItemArray[9]);
                 this.Telephone = (string)(SelectedProject.Row.ItemArray[10] == DBNull.Value ? "" : SelectedProject.Row.ItemArray[10]);
                 this.Incomes = (decimal)SelectedProject.Row.ItemArray[11];

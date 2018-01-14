@@ -39,7 +39,7 @@
                                                 NameAndIdentity = x.Contragent.Name + "|" + (x.Contragent.PersonalIndentityNumber == null ? x.Contragent.PersonalVatNumber : x.Contragent.PersonalIndentityNumber)
                                             },
                                             Description = x.Description,
-                                            Date = x.Date
+                                            Date = x.Date.ToString("dd/MM/yyyy")
                                         }).ToDataTable();
             return inquiriesDtos;
         }

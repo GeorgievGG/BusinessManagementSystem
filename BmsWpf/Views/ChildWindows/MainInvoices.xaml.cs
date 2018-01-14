@@ -34,6 +34,8 @@
             vm.InvoiceService = invoiceService;
         }
 
+
+
         //private void EditSupplierInvoiceButton_Click(object sender, RoutedEventArgs e)
         //{
 
