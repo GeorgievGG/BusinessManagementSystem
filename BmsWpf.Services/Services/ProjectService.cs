@@ -134,11 +134,12 @@
         public string Delete(int id)
         {
             var project = this.bmsData.Projects.Find(id);
-
+            var result = string.Empty;
             try
             {
                 this.bmsData.Projects.Remove(project);
                 this.bmsData.SaveChanges();
+                result = $"You deleted project {project.Id} from {project.StartDate.ToShortDateString()} successfully";
             }
             catch (DbUpdateException dbEx)
             {
@@ -148,13 +149,12 @@
                     var sqlEx = (SqlException)innerException;
                     if (sqlEx.Errors.Count > 0 && sqlEx.Errors[0].Number == 547) // Foreign Key violation
                     {
-                        throw new InvalidOperationException("You cannot delete that project!");
+                        result = "You cannot delete that project!";
                     }
                 }
-                throw dbEx;
             }
 
-            return $"You deleted project {project.Id} from {project.StartDate.ToShortDateString()} successfully";
+            return result;
         }
     }
 }

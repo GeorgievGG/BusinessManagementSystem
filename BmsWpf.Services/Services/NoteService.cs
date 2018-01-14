@@ -83,11 +83,12 @@
         public string Delete(int id)
         {
             var note = this.bmsData.Notes.Find(id);
-
+            var result = string.Empty;
             try
             {
                 this.bmsData.Notes.Remove(note);
                 this.bmsData.SaveChanges();
+                result = $"You deleted note {note.Id} from {note.Date} successfully";
             }
             catch (DbUpdateException dbEx)
             {
@@ -98,12 +99,12 @@
                     var sqlEx = (SqlException)innerException;
                     if (sqlEx.Errors.Count > 0)
                     {
-                        throw new InvalidOperationException("You cannot delete this event!");
+                       result ="You cannot delete this event!";
                     }
                 }
-                throw dbEx;
+                
             }
-            return $"You deleted note {note.Id} from {note.Date} successfully";
+            return result;
         }
 
 
