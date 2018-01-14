@@ -5,18 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModels="clr-namespace:BmsWpf.ViewModels"
         mc:Ignorable="d"
-        Title="AdminPanel" Height="400" Width="400">
+        Title="AdminPanel" Height="400" Width="400" FontSize="16" Background="#FF2E3137" WindowStartupLocation="CenterScreen">
     <Window.DataContext>
         <viewModels:AdminPanelViewModel />
     </Window.DataContext>
-    <Grid Background="#FF2E3137">
+    <Grid Height="400" Width="400" Background="#FF2E3137">
 
         <Button 
             Content="Add new user"
             HorizontalAlignment="Left"
             Margin="137,107,0,0"
             VerticalAlignment="Top"
-            Width="138" Height="52"
+            Width="138" Height="50"
             Background="#FF5D85B0"
             FontWeight="Bold" 
             FontSize="14"
@@ -48,12 +48,12 @@
         <Button 
             Content="LOGOUT" 
             HorizontalAlignment="Left" 
-            Margin="155,307,0,0"
+            Margin="137,285,0,0"
             VerticalAlignment="Top"
-            Width="99"
+            Width="138"
             Background="#FF831C1C"
             Foreground="White" 
-            Height="34"
+            Height="40"
             Command="{Binding Logout}"/>
     </Grid>
 </Window>

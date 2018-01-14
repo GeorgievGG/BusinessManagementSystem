@@ -6,7 +6,7 @@
         xmlns:ie="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:viewModels="clr-namespace:BmsWpf.ViewModels"
         mc:Ignorable="d"
-        Title="ManageUser" Height="300" Width="400">
+        Title="Manage Users" Height="400" Width="400" FontSize="16" Background="#FF2E3137" WindowStartupLocation="CenterScreen">
 
     <ie:Interaction.Triggers>
         <ie:EventTrigger EventName="Loaded">
@@ -16,28 +16,29 @@
     <Window.DataContext>
         <viewModels:ManageUserViewModel />
     </Window.DataContext>
-    <Grid Background="#FF2E3137">
-        <Label Content="Manage Users" HorizontalAlignment="Left" Margin="140,30,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Background="#FF2E3137" Foreground="White"/>
+    <Grid Height="400" Width="400" Background="#FF2E3137">
+        <Label Content="Manage Users" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Background="#FF2E3137" Foreground="White" Grid.ColumnSpan="2" Margin="10,16,10,0" Width="380"/>
         <Separator HorizontalAlignment="Left" Height="9" Margin="118,62,0,0" VerticalAlignment="Top" Width="155"/>
-        <ListBox x:Name="UserBox" HorizontalAlignment="Left" Height="145" Margin="24,84,0,0" VerticalAlignment="Top" Width="154" ItemsSource="{Binding Users}" SelectedItem="{Binding SelectedUserString, Mode=TwoWay}" >
+        <ListBox x:Name="UserBox" HorizontalAlignment="Left" Height="239" Margin="24,84,0,0" VerticalAlignment="Top" Width="154" ItemsSource="{Binding Users}" SelectedItem="{Binding SelectedUserString, Mode=TwoWay}" >
             <ie:Interaction.Triggers>
                 <ie:EventTrigger EventName="SelectionChanged">
                     <ie:InvokeCommandAction Command="{Binding SelectionChanged}"  CommandParameter="{Binding ElementName=UserBox, Path=SelectedItem}"/>
                 </ie:EventTrigger>
             </ie:Interaction.Triggers>
         </ListBox>
-        <Label Content="Username" HorizontalAlignment="Left" Margin="203,84,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <Label Content="Role" HorizontalAlignment="Left" Margin="203,149,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White"/>
-        <TextBox x:Name="txtUser" HorizontalAlignment="Left" Height="23" Margin="203,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False"  Text="{Binding Username}"/>
+        <Label Content="Username" FontSize="14" HorizontalAlignment="Left" Margin="203,84,0,0" VerticalAlignment="Top" Foreground="White" Width="160"/>
+        <Label Content="Role"  FontSize="14"  HorizontalAlignment="Left" Margin="203,149,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" Width="160"/>
+        <TextBox x:Name="txtUser" HorizontalAlignment="Left" Height="30" Margin="203,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" IsEnabled="False"  Text="{Binding Username}"/>
         <ComboBox Name="txtRole"
             HorizontalAlignment="Left"
-            Margin="203,188,0,0" 
+            Margin="203,182,0,0" 
             VerticalAlignment="Top" 
-            Width="120"
+            Width="160"
+                  Height="30"
             ItemsSource="{Binding ClearenceTypes}"
             SelectedItem="{Binding SelectedClearenceType, Mode=TwoWay}">
         </ComboBox>
-        <Button Content="Save" HorizontalAlignment="Left" Margin="198,229,0,0" VerticalAlignment="Top" Width="75" Background="#FF4074CB" Foreground="White" FontSize="14" Command="{Binding Save}"/>
-        <Button Content="Back" HorizontalAlignment="Left" Margin="287,229,0,0" VerticalAlignment="Top" Width="75" Background="#FFCB4040" Foreground="White" FontSize="14" Command="{Binding Back}"/>
+        <Button Content="Save" HorizontalAlignment="Left" Margin="198,293,0,0" VerticalAlignment="Top" Width="75" Height="30" Background="#FF4074CB" Foreground="White" FontSize="14" Command="{Binding Save}"/>
+        <Button Content="Back" HorizontalAlignment="Left" Margin="288,293,0,0" VerticalAlignment="Top" Width="75" Height="30" Background="#FFCB4040" Foreground="White" FontSize="14" Command="{Binding Back}"/>
     </Grid>
 </Window>

@@ -32,7 +32,7 @@
         </Style>
     </Window.Resources>
     <Grid Background="#FF2E3137" Margin="0,0,4,5" >
-        <TabControl Name="ProjectTabs" TabStripPlacement ="Top" HorizontalAlignment="Left" Height="850" Padding="-2 0 -2 -2"  ItemsSource="{Binding Tabs}">
+        <TabControl Name="ProjectTabs" TabStripPlacement ="Top" HorizontalAlignment="Left" Height="850" Padding="-2 0 -2 -2"  ItemsSource="{Binding Tabs}" Margin="0,0,0,-35" Width="730">
             <TabControl.ItemTemplate>
                 <!-- this is the header template-->
                 <DataTemplate>

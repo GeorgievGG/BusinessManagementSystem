@@ -6,7 +6,7 @@
         xmlns:viewModels="clr-namespace:BmsWpf.ViewModels"
         xmlns:intr="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         mc:Ignorable="d"
-        Height="741.783" Width="750.156">
+        Height="850" Width="750">
     <UserControl.DataContext>
         <viewModels:PFExpensesViewModel />
     </UserControl.DataContext>
@@ -16,11 +16,11 @@
         </intr:EventTrigger>
     </intr:Interaction.Triggers>
     <Grid Width="750" Background="#FF2E3137" Margin="0,0,0.4,-0.4">
-        <Label Content="Invoices" HorizontalAlignment="Left" Margin="49,10,0,0" VerticalAlignment="Top" Width="285" Height="40" FontSize="26" Foreground="AliceBlue"/>
+        <Label Content="Invoices" HorizontalAlignment="Left" Margin="49,40,0,0" VerticalAlignment="Top" Width="285" Height="40" FontSize="26" Foreground="AliceBlue"/>
         <DataGrid Name="InvoiceExpences" 
                   HorizontalAlignment="Left" 
                   Height="298" 
-                  Margin="49,55,0,0" 
+                  Margin="49,85,0,0" 
                   VerticalAlignment="Top" 
                   Width="591"
                   CanUserAddRows="False"
@@ -32,11 +32,11 @@
                 </intr:EventTrigger>
             </intr:Interaction.Triggers>
         </DataGrid>
-        <Label Content="Payments" HorizontalAlignment="Left" Margin="49,353,0,0" VerticalAlignment="Top" Width="285" Height="55" FontSize="26" Foreground="AliceBlue"/>
+        <Label Content="Payments" HorizontalAlignment="Left" Margin="49,383,0,0" VerticalAlignment="Top" Width="285" Height="55" FontSize="26" Foreground="AliceBlue"/>
         <DataGrid x:Name="ExpencesPayments" 
                   HorizontalAlignment="Left" 
                   Height="301" 
-                  Margin="49,393,0,0" 
+                  Margin="49,423,0,0" 
                   VerticalAlignment="Top" 
                   Width="591" 
                   CanUserAddRows="False" 
@@ -48,10 +48,10 @@
                 </intr:EventTrigger>
             </intr:Interaction.Triggers>
         </DataGrid>
-        <Button Name="AddInvoiceClientButton" Content="Add invoice" HorizontalAlignment="Left" Margin="442,20,0,0" VerticalAlignment="Top" Width="100" Height="30" Command="{Binding AddNewCI}"/>
-        <Button Name="EditInvoiceClientButton" Content="Edit invoice" HorizontalAlignment="Left" Margin="540,20,0,0" VerticalAlignment="Top" Width="100" Height="30" Command="{Binding EditCI}"/>
-        <Button Name ="AddNewPaymentButton" Content="Add payment" HorizontalAlignment="Left" Margin="442,358,0,0" VerticalAlignment="Top" Width="100" Height="30" Command="{Binding AddNewPayment}"/>
-        <Button Name="EditPaymentsButton"  Content="Edit payment" HorizontalAlignment="Left" Margin="540,358,0,0" VerticalAlignment="Top" Width="100" Height="30" Command="{Binding EditPayment}"/>
+        <Button Name="AddInvoiceClientButton" Content="Add invoice" HorizontalAlignment="Left" Margin="442,50,0,0" VerticalAlignment="Top" Width="100" Height="30" Command="{Binding AddNewCI}"/>
+        <Button Name="EditInvoiceClientButton" Content="Edit invoice" HorizontalAlignment="Left" Margin="540,50,0,0" VerticalAlignment="Top" Width="100" Height="30" Command="{Binding EditCI}"/>
+        <Button Name ="AddNewPaymentButton" Content="Add payment" HorizontalAlignment="Left" Margin="442,388,0,0" VerticalAlignment="Top" Width="100" Height="30" Command="{Binding AddNewPayment}"/>
+        <Button Name="EditPaymentsButton"  Content="Edit payment" HorizontalAlignment="Left" Margin="540,388,0,0" VerticalAlignment="Top" Width="100" Height="30" Command="{Binding EditPayment}"/>
         <Button Name="ButtonBack" 
                 Content="Back" 
                 HorizontalAlignment="Left"  
@@ -61,7 +61,7 @@
                 Background="AliceBlue" 
                 Foreground="Black" 
                 FontSize="14" 
-                Margin="538,702,0,0"  
+                Margin="538,732,0,0"  
                 Command="{Binding Back}"/>
     </Grid>
 </UserControl>

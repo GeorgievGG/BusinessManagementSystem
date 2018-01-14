@@ -6,27 +6,27 @@
         xmlns:viewModels="clr-namespace:BmsWpf.ViewModels"
         xmlns:utilities="clr-namespace:BmsWpf.Utilities"
         mc:Ignorable="d"
-        Title="AddUser" Height="331.733" Width="350" Background="#FF9F6464">
+        Title="Add User" Height="400" Width="400" FontSize="16" Background="#FF2E3137" WindowStartupLocation="CenterScreen">
     <Window.DataContext>
         <viewModels:AddUserViewModel />
     </Window.DataContext>
     <Window.Resources>
         <utilities:MultiValueConverter x:Key="MultiValueConverter"/>
     </Window.Resources>
-    <Grid Margin="0,0,-6,-2.6" Background="#FF2E3137">
+    <Grid Background="#FF2E3137" Height="400" Width="400">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="257*"/>
             <ColumnDefinition Width="93*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="Add new User" HorizontalAlignment="Left" Margin="113,23,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="White"/>
-        <Label Content="Username" HorizontalAlignment="Left" Margin="57,75,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <Label Content="Password" HorizontalAlignment="Left" Margin="62,106,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <Label Content="Repeat password" HorizontalAlignment="Left" Margin="20,136,0,0" VerticalAlignment="Top" Foreground="White" Width="101"/>
-        <Label Content="User rights" HorizontalAlignment="Left" Margin="54,182,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Add new User" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Background="#FF2E3137" Foreground="White" Grid.ColumnSpan="2" Margin="10,16,10,0" Width="380"/>
+        <Label Content="Username" HorizontalAlignment="Left" Margin="34,91,0,0" VerticalAlignment="Top" Foreground="White" Width="130"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="34,127,0,0" VerticalAlignment="Top" Foreground="White" Width="130"/>
+        <Label Content="Repeat password" HorizontalAlignment="Left" Margin="34,156,0,0" VerticalAlignment="Top" Foreground="White" Width="130"/>
+        <Label Content="User rights" HorizontalAlignment="Left" Margin="34,194,0,0" VerticalAlignment="Top" Foreground="White" Width="130"/>
 
         <TextBox Name="UsernameBox"
             HorizontalAlignment="Left"
-            Height="20" Margin="135,81,0,0"
+            Height="30" Margin="183,97,0,0"
             TextWrapping="Wrap" 
             VerticalAlignment="Top"
             Width="165"
@@ -34,28 +34,30 @@
             Text="{Binding Username}"/>
         <PasswordBox Name="PassBox"
             HorizontalAlignment="Left"
-            Margin="135,111,0,0" 
+            Margin="183,127,0,0" 
             VerticalAlignment="Top"
             Grid.ColumnSpan="2" 
             Width="165"
-            Height="20"/>
+            Height="30"/>
         <PasswordBox  Name="RepeatPassBox"
             HorizontalAlignment="Left"
-            Margin="135,142,0,0"
+            Margin="183,158,0,0"
             VerticalAlignment="Top"
             Grid.ColumnSpan="2"
             Width="165" 
-            Height="20"/>
+            Height="30"/>
         <ComboBox Name="dropdown"
-            Margin="135,182,2.6,0" 
+            Margin="183,194,52,0" 
             VerticalAlignment="Top"
+                  Height="30"
             ItemsSource="{Binding ClearenceTypes}"
-            SelectedItem="{Binding SelectedClearenceType, Mode=TwoWay}"/>
+            SelectedItem="{Binding SelectedClearenceType, Mode=TwoWay}" Grid.ColumnSpan="2"/>
         <Button Content="Save"
                 HorizontalAlignment="Left"
-                Margin="135,241,0,0"
+                Margin="183,257,0,0"
                 VerticalAlignment="Top"
                 Width="75"
+                Height="30"
                 Background="#FF2A7DB0"
                 Foreground="White"
                 Command="{Binding Save}">
@@ -69,13 +71,12 @@
         <Button 
                 Content="Back"
                 HorizontalAlignment="Left"
-                Margin="225,241,0,0" 
+                Margin="273,257,0,0" 
                 VerticalAlignment="Top"
                 Width="75"
                 Foreground="White" 
-                Background="#FF972B2B"
-                RenderTransformOrigin="-0.396,0.483"
-                Height="19"
+                Background="#FF972B2B"   
+                Height="30"
                 Grid.ColumnSpan="2"
                 Command="{Binding Back}"/>
     </Grid>

@@ -194,8 +194,8 @@
         {
             Session.Instance.SetLastOpenWindow("IncomesView");
             var projectId = (int)this.SelectedProject.Row.ItemArray[0];
-            this.Invoices = InvoiceService.GetProjectIncomeInvoicesAsDataTable(projectId);
-            this.Payments = PaymentService.GetPaymentsIncomeAsDataTable(projectId);
+            this.Invoices = this.InvoiceService.GetProjectIncomeInvoicesAsDataTable(projectId);
+            this.Payments = this.PaymentService.GetPaymentsIncomeAsDataTable(projectId);
         }
 
         private void HandleEditCommand(object parameter)

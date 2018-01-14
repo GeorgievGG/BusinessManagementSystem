@@ -27,9 +27,9 @@
                 Foreground="Black" 
                 FontSize="14" 
                 Height="30"/>
-        <Label Content="Description" FontSize="16" Foreground="AntiqueWhite" Margin="64,171,580,617"/>
-        <Label Content="Date" FontSize="16" Foreground="AntiqueWhite" Margin="64,110,580,678"/>
-        <Label Content="Type" FontSize="16" Foreground="AntiqueWhite" Margin="64,534,580,254"/>
+        <Label Content="Description" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="96" FontSize="16" Foreground="AliceBlue" Margin="64,171,580,617"/>
+        <Label Content="Date"  HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="96" FontSize="16" Foreground="AliceBlue" Margin="64,110,580,678"/>
+        <Label Content="Type" HorizontalAlignment="Left" Height="30"  VerticalAlignment="Top" Width="96" FontSize="16" Foreground="AliceBlue" Margin="64,534,580,254"/>
         <TextBox Name="DescriptionBox" TextWrapping="Wrap"
                  AcceptsReturn="True"
                  VerticalScrollBarVisibility="Visible" Text="{Binding Description, Mode=TwoWay}" BorderBrush="Beige" Margin="193,168,104,302"/>

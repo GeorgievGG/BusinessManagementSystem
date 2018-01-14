@@ -6,7 +6,7 @@
         xmlns:viewModels="clr-namespace:BmsWpf.ViewModels"
         xmlns:intr="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         mc:Ignorable="d"
-        Height="848.451" Width="751.337">
+        Height="850" Width="750">
     <UserControl.DataContext>
         <viewModels:PFNotesViewModel/>
     </UserControl.DataContext>
@@ -18,10 +18,10 @@
     <Grid Height="850" Width="750" Background="#FF2E3137">
 
         <DataGrid HorizontalAlignment="Left" 
-                  Height="733" 
+                  Height="667" 
                   VerticalAlignment="Top" 
                   Width="510" 
-                  Margin="157,24,0,0" 
+                  Margin="173,54,0,0" 
                   CanUserAddRows="False"
                   ItemsSource="{Binding Notes}" 
                   SelectedItem="{Binding SelectedNote}">
@@ -32,8 +32,8 @@
             </intr:Interaction.Triggers>
         </DataGrid>
 
-        <Button Name ="AddNewNoteButton" Content="Add new note" HorizontalAlignment="Left" Margin="32,24,0,0" VerticalAlignment="Top" Width="100" Height="30" Command="{Binding AddNewNote}"/>
-        <Button Name="EditNotesButton" Content="Edit note" HorizontalAlignment="Left" Margin="32,59,0,0" VerticalAlignment="Top" Width="100" Height="30" Command="{Binding EditNote}"/>
-        <Button Name="DeleteNoteButton" Content="Delete note" HorizontalAlignment="Left" Margin="32,94,0,0" VerticalAlignment="Top" Width="100" Height="30" Command="{Binding Delete}"/>
+        <Button Name ="AddNewNoteButton" Content="Add note" HorizontalAlignment="Left" Margin="32,74,0,0" VerticalAlignment="Top" Width="100" Height="30" Command="{Binding AddNewNote}"/>
+        <Button Name="EditNotesButton" Content="Edit note" HorizontalAlignment="Left" Margin="32,109,0,0" VerticalAlignment="Top" Width="100" Height="30" Command="{Binding EditNote}"/>
+        <Button Name="DeleteNoteButton" Content="Delete note" HorizontalAlignment="Left" Margin="32,144,0,0" VerticalAlignment="Top" Width="100" Height="30" Command="{Binding Delete}"/>
     </Grid>
 </UserControl>
