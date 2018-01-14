@@ -25,7 +25,7 @@
         public static void Seed(BmsContex context)
         {
             var random = new Random();
-
+            
             //SeedUsers();
             var users = new List<User>();
             string[] names = new string[] { "viktor", "koko", "gogi", "vankata", "violeta" };
@@ -197,13 +197,11 @@
                     Text = RandomDescription(random),
                     Date = RandomDate(random),
                     Price = (decimal)(random.Next(10, 1000) * 1.24),
-                    Vat = random.Next(7, 21),
                     Town = RandomTown(random),
-                    InvoiceNum = RandomInvoice(random)
-
+                    InvoiceNum = RandomInvoice(random),
                 };
-
-                clientInvoice.Total = clientInvoice.Price * clientInvoice.Vat;
+                clientInvoice.Vat = clientInvoice.Price * 0.20m;
+                clientInvoice.Total = clientInvoice.Price + clientInvoice.Vat;
 
                 clientInvoices.Add(clientInvoice);
             }
@@ -231,12 +229,12 @@
                     Text = RandomDescription(random),
                     Date = RandomDate(random),
                     Price = (decimal)(random.Next(10, 1000) * 1.24),
-                    Vat = random.Next(7, 21),
                     Town = RandomTown(random),
                     InvoiceNum = RandomInvoice(random)
                 };
 
-                supplierInvoice.Total = supplierInvoice.Price * supplierInvoice.Vat;
+                supplierInvoice.Vat = supplierInvoice.Price * 0.20m;
+                supplierInvoice.Total = supplierInvoice.Price + supplierInvoice.Vat;
 
                 supplierInvoices.Add(supplierInvoice);
             }
@@ -451,17 +449,19 @@
             return randomCity;
         }
 
+        public static List<int> addedInvoices = new List<int>();
+
         private static int RandomInvoice(Random random)
         {
-            var invoices = new List<int>() { 397933065, 578818815, 333372723, 553708490,
-                543745590, 859616541, 645152523, 1346363246, 155232567, 732562627,
-                62626065, 578418815, 333372723, 653708490,
-                17626065, 575218815, 333372723, 353838880,
-                32626065, 578818815, 325372723, 213705350,
-                40626065, 149918815, 386372723, 123779950,
-                125747236 };
-
+            var invoices = new List<int>() { 397933065, 578818815, 431272543, 123779950, 62626065 };
             var randomInvoice = invoices[random.Next(0, invoices.Count - 1)];
+
+            while (addedInvoices.Contains(randomInvoice))
+            {
+                randomInvoice += random.Next(100000, 10000000)*random.Next(2,6);
+            }
+
+            addedInvoices.Add(randomInvoice);
             return randomInvoice;
         }
     }
