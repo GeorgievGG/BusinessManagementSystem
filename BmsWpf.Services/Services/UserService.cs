@@ -4,9 +4,12 @@
     using BmsWpf.Services.Contracts;
     using BmsWpf.Services.DTOs;
     using System;
+    using System.Data.SqlClient;
     using System.Linq;
     using System.Security.Cryptography;
     using System.Text;
+
+    using Microsoft.EntityFrameworkCore;
 
     public class UserService : IUserService
     {
@@ -99,6 +102,32 @@
             bmsData.SaveChanges();
 
             return $"User {username} clearance type changed successfully to {selectedClearenceType}";
+        }
+
+        public string DeleteUser(int id)
+        {
+            var user = this.bmsData.Users.Find(id);
+
+            try
+            {
+                this.bmsData.Users.Remove(user);
+                this.bmsData.SaveChanges();
+            }
+            catch (DbUpdateException dbEx)
+            {
+
+                var innerException = dbEx.InnerException;
+                if (innerException is SqlException)
+                {
+                    var sqlEx = (SqlException)innerException;
+                    if (sqlEx.Errors.Count > 0)
+                    {
+                        throw new InvalidOperationException("You cannot delete this user!");
+                    }
+                }
+                throw dbEx;
+            }
+            return $"You deleted  {user.Username} successfully";
         }
 
         private User GetUserByUsername(string username)

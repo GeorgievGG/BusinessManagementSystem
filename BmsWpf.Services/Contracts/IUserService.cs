@@ -13,5 +13,7 @@ namespace BmsWpf.Services.Contracts
 
         string HashToSha1(string password);
         string ModifyUser(string username, ClearenceType selectedClearenceType);
+
+        string DeleteUser(int id);
     }
 }

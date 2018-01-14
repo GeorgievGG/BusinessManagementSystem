@@ -20,6 +20,7 @@
         public ICommand WindowLoadedCommand;
         public ICommand SelectionChangedCommand;
         public ICommand SaveCommand;
+        public ICommand DeleteCommand;
         public ICommand BackCommand;
         private string username;
 
@@ -125,6 +126,23 @@
             }
         }
 
+        public ICommand Delete
+        {
+            get
+            {
+                if (this.DeleteCommand == null)
+                {
+                    this.DeleteCommand = new RelayCommand(this.HandleDeleteCommand);
+                }
+                return this.DeleteCommand;
+            }
+        }
+
+        private void HandleDeleteCommand(object parameter)
+        {
+            MessageBox.Show("You can not delete this user");
+        }
+
         public ICommand Save
         {
             get
@@ -172,6 +190,8 @@
             MessageBox.Show(result);
             this.Users = new ObservableCollection<string>(UserService.GetUsers());
         }
+
+
 
         private void HandleBackCommand(object parameter)
         {
