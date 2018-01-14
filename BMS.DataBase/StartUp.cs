@@ -260,9 +260,9 @@
                     Supplier = contragents[supplierId],
                     Date = RandomDate(random),
                     Price = (decimal)(random.Next(13, 1000) * 1.35),
-                    Vat = random.Next(3, 21),
                 };
-                payment.Total = payment.Price * payment.Vat;
+                payment.Vat = payment.Price * 0.20m;
+                payment.Total = payment.Price + payment.Vat;
 
                 payments.Add(payment);
             }

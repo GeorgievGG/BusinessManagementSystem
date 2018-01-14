@@ -248,7 +248,7 @@
                 this.PaymentDate = DateTime.ParseExact(this.SelectedPayment.Row.ItemArray[4].ToString(), "dd.MM.yyyy", CultureInfo.InvariantCulture);
                 this.PaymentPrice = (decimal)this.SelectedPayment.Row.ItemArray[5];
                 this.PaymentVat = (decimal)this.SelectedPayment.Row.ItemArray[6];
-                this.paymentTotal = (decimal)this.SelectedPayment.Row.ItemArray[7];
+                this.PaymentTotal = (decimal)this.SelectedPayment.Row.ItemArray[7];
             }
         }
 
