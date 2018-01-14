@@ -8,12 +8,15 @@
     using System.Linq;
     using System.Security.Cryptography;
     using System.Text;
+    using System.Windows;
 
     using Microsoft.EntityFrameworkCore;
 
     public class UserService : IUserService
     {
         private IBmsData bmsData;
+
+        public Action CloseAction { get; set; }
 
         public UserService(IBmsData bmsData)
         {
@@ -104,14 +107,16 @@
             return $"User {username} clearance type changed successfully to {selectedClearenceType}";
         }
 
-        public string DeleteUser(int id)
+        public string DeleteUser(string username)
         {
-            var user = this.bmsData.Users.Find(id);
+            var result = string.Empty;
+            var user = this.GetUserByUsername(username);
 
             try
             {
                 this.bmsData.Users.Remove(user);
                 this.bmsData.SaveChanges();
+                result = $"You deleted  {user.Username} successfully";
             }
             catch (DbUpdateException dbEx)
             {
@@ -122,12 +127,11 @@
                     var sqlEx = (SqlException)innerException;
                     if (sqlEx.Errors.Count > 0)
                     {
-                        throw new InvalidOperationException("You cannot delete this user!");
+                        result = "You cannot delete this user!";
                     }
                 }
-                throw dbEx;
             }
-            return $"You deleted  {user.Username} successfully";
+            return result;
         }
 
         private User GetUserByUsername(string username)

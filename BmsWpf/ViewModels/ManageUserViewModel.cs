@@ -140,7 +140,9 @@
 
         private void HandleDeleteCommand(object parameter)
         {
-            MessageBox.Show("You can not delete this user");
+            var result = this.UserService.DeleteUser(this.Username);
+            MessageBox.Show(result);
+            this.Users = new ObservableCollection<string>(UserService.GetUsers());
         }
 
         public ICommand Save
@@ -190,8 +192,6 @@
             MessageBox.Show(result);
             this.Users = new ObservableCollection<string>(UserService.GetUsers());
         }
-
-
 
         private void HandleBackCommand(object parameter)
         {
