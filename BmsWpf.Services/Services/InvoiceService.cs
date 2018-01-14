@@ -60,7 +60,7 @@
                     Id = x.Project.Id,
                     Name = x.Project.Name
                 },
-                Date = x.Date,
+                Date = x.Date.ToString("dd.MM.yyyy"),
                 InvoiceNum = x.InvoiceNum.ToString().PadLeft(10, '0'),
                 Town = x.Town,
                 Text = x.Text,

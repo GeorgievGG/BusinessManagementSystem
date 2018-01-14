@@ -43,7 +43,7 @@
                                      },
                              Project =
                                  new ProjectListDto() { Id = p.Project.Id, Name = p.Project.Name },
-                             Date = p.Date,
+                             Date = p.Date.ToString("dd.MM.yyyy"),
                              Price = p.Price,
                              VAT = p.Vat,
                              Total = p.Total

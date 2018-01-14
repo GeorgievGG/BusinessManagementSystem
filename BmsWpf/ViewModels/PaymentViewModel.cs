@@ -12,6 +12,7 @@
     using BmsWpf.Services.DTOs;
     using BmsWpf.Sessions;
     using BmsWpf.Views.ChildWindows;
+    using System.Globalization;
 
     internal class PaymentViewModel : ViewModelBase, IPageViewModel
     {
@@ -244,7 +245,7 @@
                 {
                     this.SelectedProject = this.Projects.SingleOrDefault(x => x.Id == projectDto.Id);
                 }
-                this.PaymentDate = (DateTime)this.SelectedPayment.Row.ItemArray[4];
+                this.PaymentDate = DateTime.ParseExact(this.SelectedPayment.Row.ItemArray[4].ToString(), "dd.MM.yyyy", CultureInfo.InvariantCulture);
                 this.PaymentPrice = (decimal)this.SelectedPayment.Row.ItemArray[5];
                 this.PaymentVat = (decimal)this.SelectedPayment.Row.ItemArray[6];
                 this.paymentTotal = (decimal)this.SelectedPayment.Row.ItemArray[7];

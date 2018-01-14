@@ -8,7 +8,7 @@
         public ContragentListDto Client { get; set; }
         public ContragentListDto Supplier { get; set; }
         public ProjectListDto Project { get; set; }
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
         public decimal Price { get; set; }
         public decimal VAT { get; set; }
         public decimal Total { get; set; }
