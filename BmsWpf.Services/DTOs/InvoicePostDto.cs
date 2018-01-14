@@ -1,9 +1,11 @@
 ﻿namespace BmsWpf.Services.DTOs
 {
     using System;
+    using System.Text.RegularExpressions;
 
     public class InvoicePostDto
     {
+        private string invoiceNum;
         private int clientId;
         private int supplierId;
         private int projectId;
@@ -11,7 +13,6 @@
         private string text;
         private string bank;
         private decimal price;
-
 
         public int Id { get; set; }
 
@@ -59,7 +60,24 @@
             }
         }
 
-        public int InvoiceNum { get; set; }
+        public string InvoiceNum
+        {
+            get
+            {
+                return this.invoiceNum;
+            }
+            set
+            {
+                var patern = @"\d+";
+                var isValid = Regex.IsMatch(value, patern);
+                if (string.IsNullOrWhiteSpace(value) || value.Length != 10 || !isValid)
+                {
+                    throw new ApplicationException("Invoice number must contain 10 digits");
+                }
+
+                this.invoiceNum = value;
+            }
+        }
         public DateTime Date { get; set; }
         public string Town
         {

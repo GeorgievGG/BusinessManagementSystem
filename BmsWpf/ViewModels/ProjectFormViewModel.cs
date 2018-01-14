@@ -59,7 +59,8 @@
 
                 var nView = ViewManager.ComposeObjects<NotesView>();
                 var nViewVM = (PFNotesViewModel)nView.DataContext;
-                //nViewVM.SelectedProject = this.SelectedProject;
+                nViewVM.SelectedProject = this.SelectedProject;
+                nViewVM.CloseAction = this.CloseAction;
                 Tabs.Add(new TabItem { Header = "Notes", Content = nView });
             }
             else

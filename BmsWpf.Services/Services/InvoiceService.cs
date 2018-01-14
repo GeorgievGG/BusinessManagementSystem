@@ -61,7 +61,7 @@
                     Name = x.Project.Name
                 },
                 Date = x.Date,
-                InvoiceNum = x.InvoiceNum,
+                InvoiceNum = x.InvoiceNum.ToString().PadLeft(10, '0'),
                 Town = x.Town,
                 Text = x.Text,
                 BankRequisits = x.BankRequisits,
@@ -88,9 +88,9 @@
 
             invoice = new Invoice()
             {
-                InvoiceNum = newInvoice.InvoiceNum,
-                ClientId = newInvoice.ClientId,
-                SupplierId = newInvoice.SupplierId,
+                InvoiceNum = int.Parse(newInvoice.InvoiceNum),
+                ClientId = (int)newInvoice.ClientId,
+                SupplierId = (int)newInvoice.SupplierId,
                 ProjectId = newInvoice.ProjectId,
                 Date = newInvoice.Date,
                 Town = newInvoice.Town,
@@ -110,8 +110,7 @@
         public string EditInvoice(InvoicePostDto newInvoice)
         {
             var invoiceToUpdate = bmsData.Invoices.Find(newInvoice.Id);
-
-            invoiceToUpdate.InvoiceNum = newInvoice.InvoiceNum;
+            invoiceToUpdate.InvoiceNum = int.Parse(newInvoice.InvoiceNum);
             invoiceToUpdate.ClientId = newInvoice.ClientId;
             invoiceToUpdate.SupplierId = newInvoice.SupplierId;
             invoiceToUpdate.ProjectId = newInvoice.ProjectId;

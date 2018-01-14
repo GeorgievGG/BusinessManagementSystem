@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-namespace BmsWpf.Views.Forms
+﻿namespace BmsWpf.Views.Forms
 {
-    using System;
-    using System.Windows;
-
     using BmsWpf.Services.Contracts;
     using BmsWpf.ViewModels;
+    using System;
+    using System.Windows;
 
     /// <summary>
     /// Interaction logic for NoteForm.xaml
@@ -24,7 +18,7 @@ namespace BmsWpf.Views.Forms
 
         }
 
-        public NoteForm(IViewManager viewManager, IUserService userService, IProjectService projectService)
+        public NoteForm(IViewManager viewManager, IUserService userService, IProjectService projectService, INoteService noteService)
         {
             this.InitializeComponent();
 
@@ -36,6 +30,7 @@ namespace BmsWpf.Views.Forms
             vm.ViewManager = viewManager;
             vm.UserService = userService;
             vm.ProjectService = projectService;
+            vm.NoteService = noteService;
         }
 
         //private void ShowTime()

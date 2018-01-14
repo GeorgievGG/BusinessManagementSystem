@@ -21,6 +21,7 @@
         public ICommand AddNewCICommand;
         public ICommand AddNewSICommand;
         public ICommand EditCommand;
+        public ICommand DoubleClickCommand;
         public ICommand BackCommand;
 
         public MainInvoicesViewModel()
@@ -116,6 +117,18 @@
                     this.AddNewSICommand = new RelayCommand(this.HandleAddNewSICommand);
                 }
                 return this.AddNewSICommand;
+            }
+        }
+
+        public ICommand DoubleClick
+        {
+            get
+            {
+                if (this.DoubleClickCommand == null)
+                {
+                    this.DoubleClickCommand = new RelayCommand(this.HandleEditCommand);
+                }
+                return this.DoubleClickCommand;
             }
         }
 

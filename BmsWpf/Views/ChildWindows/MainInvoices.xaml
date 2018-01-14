@@ -31,8 +31,15 @@
                   Margin="54,138,0,0" 
                   VerticalAlignment="Top" 
                   Width="630"
+                  CanUserAddRows="False"
                   ItemsSource="{Binding Invoices}"
-                  SelectedItem="{Binding SelectedInvoice}"/>
+                  SelectedItem="{Binding SelectedInvoice}">
+            <intr:Interaction.Triggers>
+                <intr:EventTrigger EventName="MouseDoubleClick">
+                    <intr:InvokeCommandAction Command="{Binding DoubleClick}" />
+                </intr:EventTrigger>
+            </intr:Interaction.Triggers>
+        </DataGrid>
         <TextBox Name="SearchTextBox" 
                  HorizontalAlignment="Left" 
                  Height="30" 

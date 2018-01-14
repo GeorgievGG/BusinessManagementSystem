@@ -1,19 +1,16 @@
 ﻿namespace BmsWpf.ViewModels
 {
-    using System;
-    using System.Collections.ObjectModel;
-    using System.ComponentModel;
-    using System.Data;
-    using System.Linq;
-    using System.Windows;
-    using System.Windows.Input;
-
     using BMS.DataBaseModels.Enums;
-
     using BmsWpf.Behaviour;
     using BmsWpf.Services.Contracts;
     using BmsWpf.Services.DTOs;
-    using BmsWpf.Views.ChildWindows;
+    using System;
+    using System.Collections.ObjectModel;
+    using System.Data;
+    using System.Globalization;
+    using System.Linq;
+    using System.Windows;
+    using System.Windows.Input;
 
     public class NoteViewModel : ViewModelBase, IPageViewModel
     {
@@ -24,7 +21,6 @@
         private DateTime noteDate;
         private NoteType selectedType;
         private readonly ObservableCollection<NoteType> types;
-
 
         public ICommand WindowLoadedCommand;
         public ICommand SaveCommand;
@@ -174,18 +170,17 @@
             {
                 this.SelectedProject = this.ProjectsList.SingleOrDefault(x => x.Id == this.InitialProjectId);
             }
-            if (this.SelectedNote !=null)
+            if (this.SelectedNote != null)
             {
                 this.Id = (int)this.SelectedNote.Row.ItemArray[0];
                 this.Description = (string)this.SelectedNote.Row.ItemArray[1];
-                this.NoteDate = (DateTime)this.SelectedNote.Row.ItemArray[2];
-                this.SelectedType = (NoteType)this.SelectedNote.Row.ItemArray[3];
-                var projectDto = (ProjectListDto)this.SelectedNote.Row.ItemArray[4];
+                var projectDto = (ProjectListDto)this.SelectedNote.Row.ItemArray[2];
                 if (projectDto != null)
                 {
                     this.SelectedProject = this.ProjectsList.SingleOrDefault(x => x.Id == projectDto.Id);
                 }
-                
+                this.NoteDate = (DateTime)this.SelectedNote.Row.ItemArray[3];
+                this.SelectedType = (NoteType)this.SelectedNote.Row.ItemArray[4];
             }
         }
 

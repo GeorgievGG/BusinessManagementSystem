@@ -5,7 +5,7 @@
     public class InvoiceForMainInvoicesDto
     {
         public int Id { get; set; }
-        public int InvoiceNum { get; set; }
+        public string InvoiceNum { get; set; }
         public ContragentListDto Client { get; set; }
         public ContragentListDto Supplier { get; set; }
         public ProjectListDto Project { get; set; }

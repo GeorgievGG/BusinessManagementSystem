@@ -20,34 +20,34 @@
         <Label Content="Note" 
                HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="54,35,54,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Background="#FF2E3137" Foreground="White" Width="642"/>
         <Button Content="Save" Command="{Binding Save}" HorizontalAlignment="Left" 
-                Margin="540,603,0,0" 
+                Margin="540,627,0,0" 
                 VerticalAlignment="Top" 
                 Width="100" 
                 Background="AliceBlue" 
                 Foreground="Black" 
                 FontSize="14" 
                 Height="30"/>
-        <Label Content="Description" FontSize="16" Foreground="AntiqueWhite" Margin="64,147,580,641"/>
+        <Label Content="Description" FontSize="16" Foreground="AntiqueWhite" Margin="64,171,580,617"/>
         <Label Content="Date" FontSize="16" Foreground="AntiqueWhite" Margin="64,110,580,678"/>
-        <Label Content="Type" FontSize="16" Foreground="AntiqueWhite" Margin="64,510,580,278"/>
+        <Label Content="Type" FontSize="16" Foreground="AntiqueWhite" Margin="64,534,580,254"/>
         <TextBox Name="DescriptionBox" TextWrapping="Wrap"
                  AcceptsReturn="True"
-                 VerticalScrollBarVisibility="Visible" Text="{Binding Description, Mode=TwoWay}" BorderBrush="Beige" Margin="193,144,104,326"/>
-        <ComboBox Name="NoteTypeBox"  Margin="191,512,104,278" Text="{Binding SelectedType}">
+                 VerticalScrollBarVisibility="Visible" Text="{Binding Description, Mode=TwoWay}" BorderBrush="Beige" Margin="193,168,104,302"/>
+        <ComboBox Name="NoteTypeBox"  Margin="191,536,104,254" Text="{Binding SelectedType}">
             <ComboBoxItem Content="Important"/>
             <ComboBoxItem Content="ForReview"/>
             <ComboBoxItem Content="Event"/>
             <ComboBoxItem Content="ToDo"/>
         </ComboBox>
-        <Label Content="Project" HorizontalAlignment="Left" Height="30" Margin="68,551,0,0"  VerticalAlignment="Top" Width="96" FontSize="16" Foreground="AliceBlue"/>
+        <Label Content="Project" HorizontalAlignment="Left" Height="30" Margin="68,575,0,0"  VerticalAlignment="Top" Width="96" FontSize="16" Foreground="AliceBlue"/>
         <ComboBox Name="ProjectCombo" 
                   HorizontalAlignment="Left" 
-                  Margin="191,551,0,0" 
+                  Margin="191,575,0,0" 
                   VerticalAlignment="Top" 
                   Width="449" 
                   ItemsSource="{Binding ProjectsList}"
                   SelectedItem="{Binding SelectedProject}" Height="30">
         </ComboBox>
-        <DatePicker Name="Date" Margin="191,107,104,681" Text="{Binding NoteDate}"/>
+        <DatePicker Name="Date" Margin="191,107,104,678" SelectedDate="{Binding NoteDate}"/>
     </Grid>
 </Window>

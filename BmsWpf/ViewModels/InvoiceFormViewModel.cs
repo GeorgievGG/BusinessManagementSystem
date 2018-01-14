@@ -31,7 +31,7 @@
         private string supplierTown;
         private string supplierAddress;
         private string supplierPersonForContact;
-        private int invoiceNum;
+        private string invoiceNum;
         private DateTime invoiceDate;
         private string invoiceTown;
         private string invoiceText;
@@ -297,7 +297,7 @@
                 this.OnPropertyChanged(nameof(SupplierPersonForContact));
             }
         }
-        public int InvoiceNum
+        public string InvoiceNum
         {
             get
             {
@@ -490,7 +490,7 @@
             else if (this.SelectedInvoice != null)
             {
                 this.Id = (int)SelectedInvoice.Row.ItemArray[0];
-                this.InvoiceNum = (int)SelectedInvoice.Row.ItemArray[1];
+                this.InvoiceNum = (string)SelectedInvoice.Row.ItemArray[1];
                 var clientDto = (ContragentListDto)SelectedInvoice.Row.ItemArray[2];
                 this.SelectedClient = Clients.SingleOrDefault(x => x.Id == clientDto.Id);
                 var supplierDto = (ContragentListDto)SelectedInvoice.Row.ItemArray[3];
@@ -524,7 +524,7 @@
             {
                 if (this.SelectedInvoice == null) //isNotEditForm
                 {
-                    this.InvoiceNum = InvoiceService.GetNextInvoiceNum();
+                    this.InvoiceNum = InvoiceService.GetNextInvoiceNum().ToString().PadLeft(10, '0');
                 }
                 this.LockInvoiceNumAction();
             }
@@ -565,7 +565,7 @@
             {
                 if (this.SelectedInvoice == null) //isEditForm
                 {
-                    this.InvoiceNum = InvoiceService.GetNextInvoiceNum();
+                    this.InvoiceNum = InvoiceService.GetNextInvoiceNum().ToString().PadLeft(10, '0');
                 }
                 this.LockInvoiceNumAction();
             }
